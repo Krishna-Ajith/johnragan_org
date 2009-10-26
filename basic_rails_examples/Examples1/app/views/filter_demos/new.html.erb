@@ -1,0 +1,16 @@
+<h1>New filter_demo</h1>
+
+<% form_for(@filter_demo) do |f| %>
+  <%= f.error_messages %>
+  This is the session message: <%= @session_msg %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', filter_demos_path %>
