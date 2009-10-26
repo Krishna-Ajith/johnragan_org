@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+  <title>JavaScript DOM</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" type="text/css" href="css/jquery_basics.css" />
+  <script src="js/jquery-1.3.2.js" type="text/javascript"></script>
+  <script type="text/javascript" src="js/jquery_manipulation.js"></script>
+</head>
+	<body>
+		<h1>attr() and removeAttr()</h1>
+		
+		<h2>attr('id') Getter Example</h2>
+		<p id="attr_getter">This paragraph has an id of 'attr_getter'.  Click on this paragraph to 
+		see the output of attr('id').</p>
+		<pre>
+$('#attr_getter').click( function() {
+	alert($('#attr_getter').attr('id'));
+});		
+		</pre>
+		
+		<h2>attr('some_attr') Setter Example</h2>
+		<p id="attr_setter" some_attr="setter_attr">This paragraph has an attr of "some_attr".  
+		Click on this paragraph to see the output of the following code to set a new value for "some_attr".</p>
+		<pre>
+$('#attr_setter').click( function() {
+	$('#attr_setter').attr({'some_attr': 'new_value'})
+	alert($('#attr_setter').attr('some_attr'));
+});		
+		</pre>
+		
+		<h2>each() to Set Multiple Unique ID's Example</h2>
+		<p>Click on the items below to see the new id's set after the code below is run (on document load).</p>
+		<ul id="each_example">
+			<li>List Item 1</li>
+			<li>List Item 2</li>
+			<li>List Item 3</li>
+		</ul>
+		<pre>
+$('#each_example li').each(function(index) {
+	$(this).attr({
+		'rel': 'external',
+		'id': 'wikilink-' + index
+	});
+	$(this).click(function() {
+		alert($(this).attr('id'));
+	});
+});	
+		</pre>
+		
+		<h1>Insert After</h1>
+		<h2>Use $('') and insertAfter() to Add New li's</h2>
+		<p>The following added new li's dynamically using the code below</p>
+		<ul id="insert_after_example">
+			<li>List Item 1</li>
+			<li>List Item 2</li>
+			<li>List Item 3</li>
+		</ul>
+		<pre>
+$('<li>Dynamic Insertion</li>').insertAfter('#insert_after_example li');
+		</pre>
+		
+		<h2>Use $('') and after() to Add New li's</h2>
+		<p>The following added new li's dynamically using the code below</p>
+		<ul id="insert_after_example2">
+			<li>List Item 1</li>
+			<li>List Item 2</li>
+			<li>List Item 3</li>
+		</ul>
+		<pre>
+$('#insert_after_example2 li').after('<li>Dynamic Insertion</li>');	
+		</pre>
+		
+		<h1>Insert Before</h1>
+		<h2>Use $('') and insertBefore() to Add New li's</h2>
+		<p>The following added new li's dynamically using the code below</p>
+		<ul id="insert_before_example">
+			<li>List Item 1</li>
+			<li>List Item 2</li>
+			<li>List Item 3</li>
+		</ul>
+		<pre>
+$('<li>Dynamic Insertion</li>').insertBefore('#insert_after_example li');
+		</pre>
+		
+		<h2>Use $('') and before() to Add New li's</h2>
+		<p>The following added new li's dynamically using the code below</p>
+		<ul id="insert_before_example2">
+			<li>List Item 1</li>
+			<li>List Item 2</li>
+			<li>List Item 3</li>
+		</ul>
+		<pre>
+$('#insert_before_example2 li').before('<li>Dynamic Insertion</li>');	
+		</pre>
+		
+		<h1>Prepending Inside P</h1>
+		<h2>Using prependTo</h2>
+		<p>The following code adds CNN to the beginning of each paragraph:</p>
+		<div id="prependTo">
+			<p>Paragraph 1</p>
+			<p>Paragraph 1</p>
+			<p>Paragraph 1</p>
+		</div>
+		<pre>
+$('<a href="http://www.cnn.com">Go to CNN</a>').prependTo('#prependTo p');		
+		</pre>
+		
+		<h2>Using prepend</h2>
+		<p>The following code adds CNN to the beginning of each paragraph:</p>
+		<div id="prepend">
+			<p>Paragraph 1</p>
+			<p>Paragraph 1</p>
+			<p>Paragraph 1</p>
+		</div>
+		<pre>
+$('#prepend p').prepend('<a href="http://www.cnn.com">Go to CNN</a>');		
+		</pre>
+		
+		<h1>Appending Inside P</h1>
+		<h2>Using appendTo</h2>
+		<p>The following code adds CNN to the end of each paragraph:</p>
+		<div id="appendTo">
+			<p>Paragraph 1</p>
+			<p>Paragraph 1</p>
+			<p>Paragraph 1</p>
+		</div>
+		<pre>
+$('<a href="http://www.cnn.com">Go to CNN</a>').appendTo('#appendTo p');		
+		</pre>
+		
+		<h2>Using append</h2>
+		<p>The following code adds CNN to the end of each paragraph:</p>
+		<div id="append">
+			<p>Paragraph 1</p>
+			<p>Paragraph 1</p>
+			<p>Paragraph 1</p>
+		</div>
+		<pre>
+$('#append p').append('<a href="http://www.cnn.com">Go to CNN</a>');		
+		</pre>
+		
+		<h1>Moving Elements</h1>
+		<p>You can use the methods listed above to move elements as opposed to just inserting html.  You just need to identify the element(s) to be moved.
+		Note that I had trouble with .before; the insertBefore and insertAfter forms seem to work better.</p>
+		<p>Below, we will remove all the footnote items from the list and move them to the end (Regular item 6 has an id of 'last_li').</p>
+		<ul>
+			<li>Regular item 1</li>
+			<li class="footnote">Footnote item 2</li>
+			<li class="footnote">Footnote item 3</li>
+			<li>Regular item 4</li>
+			<li class="footnote">Footnote item 5</li>
+			<li id='last_li'>Regular item 6</li>
+		</ul>
+		<pre>
+$('li.footnote').insertAfter('#last_li');		
+		</pre>
+		
+		<h1>Wrap - To wrap an element around another element</h1>
+		<p id="wrap">In this example, we wrap this normal paragraph (id="wrap") with a div whose's class is "red", which causes the text to change to red</p>
+		<code>
+$('#wrap').wrap('<div class="red"></div>');
+		</code>
+		
+		<h1>Copying with clone</h1>
+		<h2>Shallow Clone</h2>
+		<p id="shallow_clone">In this example, we use clone to clone this paragraph and then copy it immediately afterward.  However, because it is shallow,
+		you cannot see the text.  But if you use the inspector, you will see that the paragraph is there.  However, it seems to ignore false for shallow.  I
+		even tried putting it into a div, and it still did a deep copy.</p>
+		<code>
+$('#shallow_clone').clone(false).insertAfter('#shallow_clone');
+		</code>
+		
+		<h2>Deep Clone</h2>
+		<p id="deep_clone">In this example, we use clone to clone this paragraph and then copy it immediately afterward.</p>
+		<code>
+$('#deep_clone').clone().insertAfter('#deep_clone');
+		</code>
+		
+		<h1>Removing Nodes</h1>
+		<p>You can use remove to remove nodes and their descendants from the document.  The following list contains five elements, and then odd ones
+		have a class set to "odd", as well as a span within them (to demonstrate remove descendants as well).  The odd ones will be removed.</p>
+		<ul>
+			<li class="odd"><span>one</span></li>
+			<li><span>two</span></li>
+			<li class="odd"><span>three</span></li>
+			<li><span>four</span></li>
+			<li class="odd"><span>five</span></li>
+		</ul>
+		<pre>
+$('.odd').remove()
+		</pre>
+		
+		<h1>Emptying Nodes</h1>
+		<p>You can use empty to remove descendants without removing the node itself.  We will have a div that contains a paragraph (text "original paragraph"), empty that div, and
+		then add a new paragraph (text "new paragraph") to it.</p>
+		<div id="emptying">
+			<p>Original Paragraph</p>
+		</div>	
+		<pre>
+$('#emptying').empty();
+$('#emptying').append("<p>new paragraph</p>");
+		</pre>
+		
+		<h1>.html and .text()</h1>
+		<p>You use html to replace new HTML into a node</p>
+		<p>Original Paragraph with .html: <span id="html_example">Replace this</span></p>
+		<code>
+$('#html_example').html("<b>have a nice day</b>");
+		</code>
+		<p>See the difference with using text() instead of html()</p>
+		<p>Original Paragraph with .text: <span id="text_example">Replace this</span></p>
+		<code>
+$('#text_example').text("<b>have a nice day</b>");
+		</code>
+		
+	</body>
+</html>

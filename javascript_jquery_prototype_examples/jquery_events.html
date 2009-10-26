@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+  <title>JavaScript DOM</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" type="text/css" href="css/jquery_basics.css" />
+  <script src="js/jquery-1.3.2.js" type="text/javascript"></script>
+  <script type="text/javascript" src="js/jquery_events.js"></script>
+</head>
+	<body>
+	
+		<h1>Binding a Click Event</h1>
+		<h2>Binding Involving Two Elements</h2>
+		<p id="p_to_update">The following code adds an anonymous function so that when clicked, the class is 
+		added to this paragraph (to highlight).</p>
+		<pre>
+$('#click_bind_target').bind('click', function() { 
+	$('#p_to_update').addClass('highlight');
+});
+		</pre>
+		<p id='click_bind_target'>Click this to try</p>
+	
+	
+		<h2>Binding Involving One Element</h2>
+		<p id="click_self_target">When any event handler is triggered, the keyword this refers to the DOM element to which the 
+		behavior was attached.  Click this paragraph to try it.</p> 
+		<pre>      
+$('#click_self_target').bind('click', function() {           
+	$(this).addClass('highlight');     // Matches the entity that the event fired for
+});
+		</pre>
+		
+		<h2>One Binding Shared Across Multiple Click Targets</h2>
+		<div id='multi_target_div'>
+			<pre>      
+$('#multi_target_div span.multi_target').click(function() {           
+	$('body').removeClass();           
+    if (this.id == 'red') {                
+    	$('body').addClass('red');           
+    } else if (this.id == 'blue') {                
+        $('body').addClass('blue');           
+    }          
+    $('#multi_target_div span.multi_target').removeClass('highlight');          
+    $(this).addClass('highlight');      
+});
+			</pre>
+			<p><span class="multi_target"  id="red">Click here for red</span>
+				<span class="multi_target" id="blue">Click here for blue</span></p>
+     	</div>
+     	
+     	<h2>Toggling</h2>
+     	<h3>Approach 1</h3>
+     	<p id="toggle_target">Click here to toggle the red coloring in the next paragraph</p>
+     	<p id="toggle_para">This paragraph should change colors when clicked above.</p>
+     	<pre>
+$('#toggle_target').toggle(function() {           
+     $('#toggle_para').addClass('red');      
+},
+function() {           
+     $('#toggle_para').removeClass('red');      
+});
+     	</pre>
+     	
+     	<h3>Approach 2</h3>
+     	<p id="toggle_para2">However, for just toggling a class, the toggleClass() method is more elegant:</p>
+     	<p id="toggle_target2">Click here to toggle</p>
+     	<pre>
+$('#toggle_target2').click(function() {           
+     $('#toggle_para2').toggleClass('red');      
+});
+ 		</pre>
+ 		
+ 		<h1>Hovering</h1>
+ 		<p id="hover_target">With the following code, when you hover over this, it will change to red.</p>
+ 		<pre>
+ $('#hover_target').hover(
+     function() { $(this).addClass('red'); }, 
+     function() { $(this).removeClass('red');      
+});
+ 		</pre>
+ 		
+ 		<h1>Event Targets</h1>
+ 		<h2>Using event.target</h2>
+ 		<p id="event_target">We can add an event parameter to the function.  Since 'this' gives us the entity that received the event, and event.target is the item that was actually clicked, we can determine above which entity was actually clicked, as opposed to all the entities the event was bubbled up to.</p>
+		<pre>
+$('#event_target').click(function(event) {           
+     if (event.target == this) {                
+          $('#event_target').toggleClass('red');           
+     }      
+});
+		</pre>
+		
+		<h2>Using stopPropagation()</h2>
+		<p id="propagation_target">We could also use stopPropagation() and remove the event.target check (since the most specific entity is triggered first).</p>
+ 		<pre>
+$('#propagation_target').click(function(event) {                      
+     $('#propagation_target').toggleClass('red');           
+     stopPropagation();
+});
+		</pre>
+		
+		<h2>Default Actions</h2>
+		<p>Clicking on a link or hitting submit will not be stopped by stopPropagation().  To stop these, use preventDefault().</p>
+		<p>Event propagation and default actions are independent mechanisms; either can be stopped while the other still occurs. 
+		If we wish to halt both, we can return false from our event handler, which is a shortcut for calling 
+		both .stopPropagation() and .preventDefault() on the event.</p>
+		
+		<h1>Removing Event Handlers</h1>
+		<h2>General Approach</h2>
+		<p id="switcher_target">To remove an event handler, we can use unbind().  But we first need to name the handler as opposed to using an anonymous function:</p>
+		<p id="toggler">Click here to toggle switching the previous paragraph.</p>
+		<p id="toggler_remover">Click here to unbind the toggler switcher in the previous paragraph</p>
+		<pre>
+var toggleSwitcher = function() {           
+     $('#switcher_target').toggleClass('red');      
+};      
+$('#toggler').click(toggleSwitcher);
+$('#toggler_remover').click(function() {           
+     $('#toggler').unbind('click', toggleSwitcher);  // omitting the second parameter would have removed all handlers for this event on this entity
+});
+		</pre>
+		
+		<h2>One Time Approach</h2>
+		<p id="one_time_target">A shortcut is also available for the situation in which we want to unbind an event handler immediately after the first time it is 
+		triggered. This shortcut, called .one(), is used like this:</p>
+		<pre>
+$('#one_time_clicker').one('click', function() { $('#one_time_target').toggleClass('red'); } );
+		</pre>
+		<p id="one_time_clicker">This would cause the toggle action to occur once, and not again.  Click here to try.</p>
+		
+		<h1>Simulating User Interaction</h1>
+		<p id="trigger">The .trigger() method allows us to do just this.  Click here to simulate clicking on the previous section's clicker:</p>
+		<pre>
+$('#trigger').click(
+	function() {		
+		$('#one_time_clicker').trigger('click'); // or .click() as a shortcut
+	}
+);
+		</pre>
+		
+	</body>
+</html>

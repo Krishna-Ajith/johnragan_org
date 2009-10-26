@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+  <title>JavaScript DOM</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" type="text/css" href="css/js.css" />
+  <script type="text/javascript" src="js/my_dom.js"></script>
+</head>
+<body onload="startThingsUp()">
+	<h2>document.nodeType</h2>
+	<p>document.nodeType is <span id="doc-node-type"></span> (grabbed dynamically).<br/>
+	There are 12 node types, and document node is 9:</p>
+	<ul>
+		<li>1 - element</li>
+		<li>2 - attribute</li>
+		<li>3 - text</li>
+	</ul>
+	
+	<h2>document.nodeName and document.nodeValue</h2>
+	<p>document.nodeName has the following values for different element types (grabbed dynamically):</p>
+	<ul>
+		<li>For document: <span id="doc-node-name"></span></li>
+		<li>For paragraph node: <span id="para-node-name"></span></li>
+		<li>For paragraph's text node: <span id="text-node-name"></span></li>
+	</ul>
+	<p>document.nodeValue has the following values for different element types (for text nodes, it is the actual value) (grabbed dynamically):</p>
+	<ul>
+		<li>For document: <span id="doc-node-value"></span></li>
+		<li>For paragraph node: <span id="para-node-value"></span></li>
+		<li>For text node: <span id="text-node-value"></span></li>
+	</ul>
+	<p id="the-para-node" class="foo">We use this paragraph node in the above.</p>
+	<p>Additionally, we can use textContent (need to use innerText with IE) to get the text directly from the paragraph above (dynamically generated):  <span id="text-context"></span></p>
+	
+	<h2>Document Element</h2>
+	<p>XML docs have one root node that wraps the rest of the document.  For HTML docs, it is the <html> tag.</p>
+	<p>To get the root node, you use document.documentElement:  <span id="doc-element"></span> (gathered dynamically).<br/>
+	We already did nodeType, nodeName and nodeValue, but lets do document.documentElement.tagName:  <span id="doc-tag"></span> (dynamically generated).</p>
+	
+	<h2>Child Nodes</h2>
+	<p>document.documentElement.hasChildNodes() lets you know if you have child nodes.  Lets try it 
+	on document.documentElement:  <span id='has-children'></span> (dynamically generated)</p>
+	<p>Now, let's experiment with the following:</p>
+	<ul>
+		<li>document.documentElement.childNodes[0].nodeName:  <span id="child1"></span></li>
+		<li>document.documentElement.childNodes[1].nodeName:  <span id="child2"></span></li>
+		<li>document.documentElement.childNodes[1].parentNode.nodeName:  <span id="child2-parent"></span></li>
+	</ul>
+	
+	<h2>Working with Attributes</h2>
+	<p>We will grab the paragraph node above with the following attributes and store in el: id="the-para-node" class="foo".  Lets check the following:</p>
+	<ul>
+		<li>el.hasAttributes() - dynamically generated:  <span id="attr-hasAttributes"></span></li>
+		<li>el.attributes.length - dynamically generated:  <span id="attr-length"></span></li>
+		<li>el.attributes[0].nodeName - dynamically generated:  <span id="attr-0-name"></span></li>
+		<li>el.attributes[0].nodeValue - dynamically generated:  <span id="attr-0-value"></span></li>
+		<li>el.attributes[1].nodeName - dynamically generated:  <span id="attr-1-name"></span></li>
+		<li>el.attributes[1].nodeValue - dynamically generated:  <span id="attr-1-value"></span></li>
+		<li>el.attributes['class'].nodeValue - dynamically generated:  <span id="attr-class"></span></li>
+		<li>el.getAttribute('class') - dynamically generated:  <span id="attr-get-class"></span></li>
+	</ul>
+	
+	<h2>DOM Access Shortcuts</h2>
+	<p>The following are some shortcuts:</p>
+	<ul>
+		<li>document.getElementsByTagName('p').length (dynamically generated): <span id="shortcut-length"></span></li>
+		<li>document.getElementsByTagName('p')[3].id (dynamically generated): <span id="shortcut-id"></span></li>
+		<li>document.getElementsByTagName('p')[3].className (dynamically generated): <span id="shortcut-className"></span></li>
+		<li>document.getElementsByClassName("foo")[0] (dynamically generated): <span id="shortcut-find-class"></span></li>
+	</ul>
+	
+	<h2>Siblings, Body, First, and Last Child</h2>
+	<div id="the-container">
+		<p>child 1</p>
+		<p id="middle-child">child 2</p>
+		<p>child 3</p>
+	</div>
+	<p>We will use the three paragraphs and its containing div in the following experiments:</p>
+	<ul>
+		<li>var para = document.getElementById('middle_child').textContent (dynamically generated): <span id="sib-para"></span></li>
+		<li>para.nextSibling.textContent (dynamically generated - should be nothing since whitespace): <span id="sib-next"></span></li>
+		<li>para.nextSibling.nextSibling.textContent (dynamically generated - skips the whitespace): <span id="sib-next-next"></span></li>
+		<li>para.previousSibling.previousSibling.textContent (dynamically generated): <span id="sib-prev"></span></li>
+		<li>para.nextSibling.previousSibling.textContent (dynamically generated): <span id="sib-next-prev"></span></li>
+
+		<li>var the_div = document.getElementById("the-container") (dynamically generated): <span id="sib-div"></span></li>
+		<li>the_div.firstChild.textContent (dynamically generated - first is white space): <span id="sib-first"></span></li>
+		<li>the_div.firstChild.nextSibling.textContent (dynamically generated): <span id="sib-first-next"></span></li>
+		<li>the_div.lastChild.textContent (dynamically generated - this is white space): <span id="sib-last"></span></li>
+		<li>the_div.lastChild.previousSibling.textContent (dynamically generated): <span id="sib-last-prev"></span></li>
+	</ul>
+</body>
+</html>

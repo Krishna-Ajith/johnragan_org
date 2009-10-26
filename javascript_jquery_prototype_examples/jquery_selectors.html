@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+  <title>JavaScript DOM</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" type="text/css" href="css/jquery_basics.css" />
+  <script src="js/jquery-1.3.2.js" type="text/javascript"></script>
+  <script type="text/javascript" src="js/jquery_selectors.js"></script>
+</head>
+	<body>
+	
+		<h1>CSS Selectors</h1>
+		<h2>Basic CSS Selectors</h2>
+		<p>The following are the basic CSS selectors.  If you want to see them in action, try jquery_events.html</p>
+		<ul>
+			<li>$('p') - all paragraphs</li>
+			<li>$('.foo') - all entities with class 'foo'</li>
+			<li>$('#bar') - all entities with an id of bar</li>
+		</ul>
+		
+		<div class="chapter" id="chapter-1">
+      		<h2>Nested CSS Selectors</h2>
+      		<p class="para1">This paragraph has a class of "para1" and is contained within a div.  Thus,
+      		the following code causes it to be highlighted:</p>
+      		<pre>
+$('div .para1').addClass('highlight');
+			</pre>
+		</div>
+		
+		<h2>Nested CSS Selectors - Attributes</h2>
+  		<p h5="foo">This paragraph has an attribute 'h5' set to any value.  The code below causes it to be highlighted.</p>
+  		<p h6="bar">This paragraph has an attribute 'h6' set to bar.  The code below causes it to be red.</p>
+  		<p><a href="http://www.cnn.com" title="foo">This anchor has an attribute 'title' which should trigger</a></p>
+  		<p><a href="http://www.cnn.com" title2="foo">This anchor has an attribute 'title' which should not trigger</a></p>
+  		<p><a href="pdf://www.cnn.com" title="foo">This anchor has an href which begins with "pdf:" which should trigger</a></p>
+  		
+  		<pre>
+$('p[h5]').addClass('highlight');
+$('p[h6]*="bar"').addClass('red');
+$('a[title]').addClass('title_link');
+$('a[href^="pdf:"]').addClass('title_link_green');
+		</pre>
+		
+		<h2>CSS Selectors - Custom</h2>
+		<p>This paragraph contains the word magic in it, so it will be highlighted in blue<p>
+		<p>This paragraph does not, so nothing happens.</p>
+		<p>In the list below, the odd colored entities are highlighted green.</p>
+		<ul id="unique">
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+		</ul>
+		<div>
+			<p>This is a regular paragraph in a div</p>
+			<p id="black_sheep">This is a paragraph with an id of 'black_sheep' in a div.  Because of the third rule below, all three of these paragraphs will be highlighted</p>
+			<p>This is a regular paragraph in a div</p>
+		</div>
+		<pre>
+$('p:contains("magic")').addClass('blue');
+$('#unique li:odd').addClass('green');
+$('#black_sheep').parent().children().addClass('highlight');
+		</pre>
+		
+		<h2>More CSS Selectors - Custom</h2>
+		<div id="filter">
+			<ul>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+			</ul>
+		</div>
+		<pre>
+$('#filter li').filter(':odd').addClass('red');
+		</pre>
+		
+		<h2>Even More CSS Selectors - Custom</h2>
+		<p>In this example, the 3rd entity (0-indexing) is highlighted, and the one next to it is set to blue.</p>
+		<div id="equal">
+			<ul>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+			</ul>
+		</div>
+		<pre>
+$('#equal li:eq(2)').addClass('highlight').next().addClass('blue');
+		</pre>
+		
+		<h2>Even Even More CSS Selectors - Custom</h2>
+		<p>In this example, one of the li's contains 3 so all siblings are set to green (but not the entity itself).
+		We use method chaining to then go back to the entity and set it to red</p>
+		<div id="siblings">
+			<ul>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+			</ul>
+		</div>
+		<pre>
+$('#siblings li:contains("3")').siblings().addClass('green').end().addClass('red');
+		</pre>
+	</body>
+</html>

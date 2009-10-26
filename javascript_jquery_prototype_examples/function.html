@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+  <title>JavaScript BOM</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" type="text/css" href="css/js.css" />
+  <script type="text/javascript" src="js/function.js"></script>
+</head>
+	<body onload="startThingsUp()">
+		<h2>Callback Functions</h2>
+		<code>
+			function invoke_and_add(a,b) {
+			     return a() + b();
+			}
+		</code><br/>
+		<code>
+			function one() {
+			     return 1;
+			}
+		</code><br/>
+		<code>
+			function two() {
+			     return 2;
+			}
+		</code>
+ 		<p>We will try the following two, showing results:</p>
+ 		<ul>
+			<li><code>var c = invoke_and_add(one, two);</code>  result:  <span id="callback"></span></li>
+			<li><code>var d = invoke_and_add(function() { return 1; }, function() { return 2; });</code>  result:  <span id="callback-anon"></span></li>
+		</ul>
+		
+		<h2>Callback Example</h2>
+ 		<code>function multiplyByTwo(a, b, c, callback) {
+    			var i, ar = [];
+     			for (i = 0; i < 3; i++) {
+          			ar[i] = callback(arguments[i] * 2);
+     			}
+     			return ar;
+			}</code>
+ 		<p>We will try the following, showing results:</p>
+ 		<ul>
+ 			<li><code>myarr = multiplyByTwo(1, 2, 3, function (a) { return a + 1; });</code> result:  <span id="callback-arg"></span></li>
+ 		</ul>
+ 		
+ 		<h2>Self Invoking Functions</h2>
+ 		<code>  ( 
+     				function(name) {
+          				alert( 'Hello ' + name + '!');
+     				}
+				)('dude')</code>
+		<p>Try the following to see the result:</p>
+		<form method="post" action="going_nowhere.html">
+  			<input type="submit" value="Execute" id="self-invoke" />
+  		</form>
+  		
+  		<h2>Functions That Return Functions</h2>
+  		<code>
+  		function a() {</code><br/>
+     		<code>alert("A!");</code><br/>
+     		<code>return function() {</code><br/>
+          		<code>alert('B!');</code><br/>
+     	<code>}</code><br/>
+		<code>}</code>
+  		<p>Let's try var c = a(); c();</p>
+  		<form method="post" action="going_nowhere.html">
+  			<input type="submit" value="Execute" id="func-return-func" />
+  		</form>
+  		
+  		<h2>Functions That Rewrite Themselves</h2>
+ 		<p>From the previous example, if I do the following:  <code>a = a();</code>, then going forward, 
+ 		in invoking a(), only 'B!' will be printed since that function is now assigned to A.</p>
+ 		<p>This can be useful when a function needs to do setup work, but this can also be set up automatically:</p>
+ 		<code>function a() { alert("A!");</code><br/>
+     	<code>a = function() { alert('B!'); };</code><br/>
+		<code>}</code>
+		<p>After its initial invocation, only "B!" will be displayed as an alert.  Try it below:</p>
+  		<form method="post" action="going_nowhere.html">
+  			<input type="submit" value="Execute" id="rewrite" />
+  		</form>		
+	</body>
+</html>

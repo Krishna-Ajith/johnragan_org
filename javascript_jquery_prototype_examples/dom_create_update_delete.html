@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+  <title>JavaScript DOM</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" type="text/css" href="js.css" />
+  <script type="text/javascript" src="js/dom_create_update_delete.js"></script>
+</head>
+<body onload="startThingsUp()">
+	<h2>innerHTML and nodeValue</h2>
+	<p>You can modify the contents of a node with either nodeValue or innerHTML.  Lets see below:</p>
+	<ul>
+		<li>Adding this via innerHTML dynamically: <span id="inner-html"></span>.</li>
+		<li>Adding this via nodeValue dynamically (nodeValue on 
+			span is returning null - I NEED TO LOOK INTO THIS): <span id="node-value"></span>.</li>
+	</ul>
+	
+	<h2>Modifying Styles</h2>
+	<p id="target-para">This paragraph's CSS styles are set by javascript dynamically.  Here are some that will be applied:</p>
+	<ul>
+		<li>style.border = "1px solid red"</li>
+		<li id='font-weight'>style.fontWeight = 'bold' (applied to this li only).  Note that CSS font-weight (underscore illegal in JS) becomes font_weight, and so forth.</li>
+		<li>You can also modify attributes regardless of if they were initially set or not.  Here we use align = "right" on that paragraph.</li>
+		<li>You can also directly assign id:  id = 'further'</li>
+	</ul>
+	
+	<h2>Creating</h2>
+	<div id="container">
+		<p>You can create with createElement() and createTextNode().  The following statements are used to create a new element, which we insert next.</p>
+		<ul>
+			<li>var myp = document.createElement('p');</li>
+			<li>myp.innerHTML = 'yet another';</li>
+			<li>myp.style.border = '2px dotted blue'</li>
+			<li>document.getElementById('container').appendChild(myp);</li>
+		</ul>
+	</div>
+	
+	<h2>insertBefore()</h2>
+	<p>The following list is setup to contain one, three, and five.  We will use insertBefore() to 
+	insert a new li node we create with the following statements:</p>  
+	<ul>
+		<li>var myp = document.createElement('li');</li>
+		<li>myp.innerHTML = '2';</li>
+	</ul>	
+	<p>Here is the format used for them:  parent.insertBefore(new_element, element_relative_to);</p>
+	<ul id='insert_ul'>
+		<li>One</li>
+		<li id="three">Three</li>
+		<li>Five</li>
+	</ul>	
+	
+	<h2>clone</h2>
+	<p>We are cloning the following deep structure:</p>
+	<div id='clone_source'>
+		<p>This paragraph and the list.</p>
+		<ul>
+			<li>item 1</li>
+			<li>item 2</li>
+			<li>item 3</li>
+		</ul>
+	</div>
+	<p>Here is a deep clone:</p>
+	<div id='deepTarget'>
+	</div>
+	<p>Here is a shallow clone (but only contains div, so you won't see anything):</p>
+	<div id='shallowTarget'>
+	</div>
+	
+	<h2>Remove a node with removeChild</h2>
+	<div id='remove_parent'>
+		<p>Paragraph 1</p>
+		<p id='para-to-remove'>Paragraph 2</p>
+	</div>	
+	<p>parent.removeChild(child_to_remove);.
+	<form method="post" action="nowhere.html">
+		<input id="remove-button" type="submit" value="Remove 2nd Paragraph"/>
+	</form> 
+	
+	<h2>Replace a node with replaceChild</h2>
+	<div id='replace_parent'>
+		<p>Paragraph 1</p>
+		<p id='para-to-replace'>Paragraph 2</p>
+	</div>	
+	<p>parent.replaceChild(newChild, child_to_replace);.
+	<form method="post" action="nowhere.html">
+		<input id="replace-button" type="submit" value="Replace 2nd Paragraph"/>
+	</form> 
+	
+	<h2>To quickly wipe out a subtree</h2>
+	<p>document.body.innerHTML = '';</p>
+	 	
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+  <title>JavaScript BOM</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" type="text/css" href="css/js.css" />
+  <script type="text/javascript" src="js/my_bom.js"></script>
+</head>
+<body onload="startThingsUp()">
+  <h2>navigator.userAgent</h2>
+  <p>The window.navigator.userAgent can give you useful information.  Its value is: <span id="userAgent"></span>.</p>
+  
+  <h2>Identifying the Browser and Feature Sniffing</h2>
+  <p>You could do indexOf('MSIE') to see if this browser is Microsoft, but feature sniffing is better:  "if (typeof window.addEventListener == 'function') {}".  We
+  will use it now to see if this feature is supported: <span id="feature_sniffing"></span>.</p>
+   
+  <h2>URL Info</h2>
+  <p>window.location's sub-fields are used to get a lot of information about the URL.  However, this URL is too simple to explore, 
+  so we will just do window.location.href:  <span id="window_location"></span>.</p>
+  
+  <h2>Changing Page</h2>
+  <p>By setting window.location.href = "http://www.cnn.com", you can jump to a new page.  Hit the next button to do so</p>
+  <form method="post" action="going_nowhere.html">
+  	<input type="submit" value="Jump" id="relocate" />
+  </form>
+  
+  <h2>Reloading Pages</h2>
+  <p>You can also reload a page with location.reload().  Try it below:</p>
+  <form method="post" action="going_nowhere.html">
+  	<input type="submit" value="Reload" id="reload" />
+  </form>
+  
+  <h2>Playing with history</h2>
+  <p>window.history gives history info.  To get a count, use history.length, whose current value is <span id="history_length"></span>.  
+  You can go forward or backward with history.forward() and history.back(), or move with history.go(-2), or reload
+  with history.go(0).  Try some below:</p>
+  <form method="post" action="going_nowhere.html">
+  	<input type="submit" value="history.forward()" id="history_forward" />
+  	<input type="submit" value="history.go(-1)" id="history_backward" />
+  </form>
+  
+  <h2>window.screen for screen info</h2>
+  <p>window.screen provides a lot of information.  Here is what is being returned:</p>
+  <ul>
+	<li>window.screen.colorDepth: <span id="color_depth"></span></li>
+	<li>screen.width: <span id="width"></span></li>
+	<li>screen.availWidth (subtracts any OS menus): <span id="avail_width"></span></li>
+	<li>screen.height: <span id="height"></span></li>
+	<li>screen.availHeight (subtracts any OS menus): <span id="avail_height"></span></li>
+  </ul>
+  
+  <h2>Popup New Windows</h2>
+  <p>You can popup a frame window with gWin = window.open('http://www.cnn.com', 'cnn', 'width=300, height=300, resizable=yes, status=yes');.<br/>  
+  It closes it with the gWin.close() after 5 seconds (in a method called closePopup() using setTimeout(closePopup, 5000);).  Try it below:</p>
+  <form method="post" action="going_nowhere.html">
+  	<input type="submit" value="Popup a Window" id="popup" />
+  </form>
+  
+  <h2>Timers and Intervals</h2>
+  <p>You can also set things to happen on an interval.  The following will set a repeating interval of 10 seconds to make an alert come up.  You 
+  set it with gInterval = setInterval(function_to_invoke_name, 10000); and clear it with clearInterval(gInterval);  You can also inline as 
+  follows:  var id = setInterval(function() { alert('boo'); }, 2000);
+  </p>
+  <form method="post" action="going_nowhere.html">
+  	<input type="submit" value="Start" id="start_interval" />
+  	<input type="submit" value="Stop" id="stop_interval" />
+  </form>
+</body>
+</html>
