@@ -1,0 +1,17 @@
+.themenu {
+  position: absolute;
+  width: 150px;
+  top: 30px;
+  left: 10px;
+}
+
+.content {
+  margin: 66px 260px 0px 240px;
+}
+
+.right-contact {
+  position: absolute;
+  width: 150px;
+  top: 30px;
+  right: 10px;
+}

@@ -1,0 +1,23 @@
+div.inline, div.inline p {
+  display:inline;
+  background-color:#CCCCCC;
+}
+
+p.block {
+  display:block;
+  background-color:#CCCCCC;
+}
+
+img.featureimage {
+  float: left;
+  width: 319px;
+}
+
+img.featureimageright {
+  float: right;
+  width: 319px;
+}
+
+p.clear {
+  clear: both;
+}

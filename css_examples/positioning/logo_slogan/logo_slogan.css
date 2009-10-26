@@ -1,0 +1,13 @@
+.imageleft {
+  float: left;
+  width: 80px;
+}
+
+.imageright {
+  float: right;
+  width: 187px;
+}
+
+p.clear {
+  clear: both;
+}

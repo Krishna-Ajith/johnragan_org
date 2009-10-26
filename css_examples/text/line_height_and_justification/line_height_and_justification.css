@@ -1,0 +1,39 @@
+p.double {
+  line-height : 2.0;
+}
+
+p.half {
+  line-height : 0.8;
+}
+
+p.left {
+  text-align : left;
+}
+
+p.right {
+  text-align : right;
+}
+
+p.center {
+  text-align : center;
+}
+
+p.justify {
+  text-align : justify;
+}
+
+p.indented {
+  padding-left: 30px;
+}
+
+.uppercase {
+     text-transform: uppercase;
+}
+
+.lowercase {
+     text-transform: lowercase;
+}
+
+.capitalize {
+     text-transform: capitalize;
+}

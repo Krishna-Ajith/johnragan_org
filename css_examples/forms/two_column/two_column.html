@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+  <title>Chapter 2</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" type="text/css" href="two_column.css" />
+</head>
+<body>
+  <form method="post" action="foo.html" class="inline">
+    <div>
+      <label for="first_name">First Name:</label>
+      <input type="text" name="first_name" />
+    </div>
+    <div>  
+      <label for="last_name">Last Name:</label>
+      <input type="text" name="last_name" />
+    </div>  
+    <div>
+      <label for="city">City:</label>
+      <input type="text" name="city" />
+    </div>  
+    <div>
+      <label for="state">State:</label>
+      <input type="text" name="state" />
+    </div>  
+    <input class="btn" type="submit" name="button_submit" value="submit" />
+  </form>
+  <p>To make this work, I floated the labels left with a width of 20%, and did clear:left on the containing divs.</p>
+</body>
+</html>

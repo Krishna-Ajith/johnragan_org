@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+  <title>Chapter 2</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" type="text/css" href="grouping.css" />
+</head>
+<body>
+  <p>To make this work, I set the labels to float left with a width of 20%.  I had each label and field contained within a div, and set clear: left on the div due to the floating field inside.</p>
+  <p>For the access key, I set the accesskey property on the input to "f", "l" and so forth.  I then used a span with a text-decoration of underline to highlight it.</p>
+  <p>For the select with colors, I just used a background color on each individual option.</p>
+  <p>For highlighting the selected input field, I used input:focus</p>
+  <form method="post" action="foo.html" class="inline">
+    <fieldset>
+      <legend>Name Info</legend>
+        <div>
+          <label for="first_name"><span class="akey">F</span>irst Name:</label>
+          <input class="txt" type="text" name="first_name" accesskey="f"/>
+        </div>
+        <div>  
+          <label for="last_name"><span class="akey">L</span>ast Name:</label>
+          <input class="txt" type="text" name="last_name" accesskey="l" />
+        </div>  
+    </fieldset>
+    <fieldset>
+      <legend>Location Info</legend>
+        <div>
+          <label for="city"><span class="akey">C</span>ity:</label>
+          <input class="txt" type="text" name="city" accesskey="c"/>
+        </div>  
+        <div>
+          <label for="state"><span class="akey">S</span>tate:</label>
+          <input class="txt" type="text" name="state" accesskey="s"/>
+        </div>  
+    </fieldset>
+    <fieldset>
+      <legend>Color Select</legend>
+        <div>
+          <label for="color">Select your favorite color:</label>
+          <select name="color" id="color">
+            <option value="">Select One</option>
+            <option value="blue" class="blue">blue</option>
+            <option value="red" class="red">red</option>
+            <option value="green" class="green">green</option>
+            <option value="yellow" class="yellow">yellow</option>
+          </select>
+        </div>
+    </fieldset>
+    <input class="btn" type="submit" name="button_submit" value="submit" />
+  </form>
+</body>
+</html>

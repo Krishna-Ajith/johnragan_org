@@ -1,0 +1,17 @@
+h1.adjacent {
+     margin-bottom: 0;
+}
+
+h1.adjacent + p {  /* This is applied to the adjacent p itself, not h */
+     margin-top : 0;
+}
+
+h1.ie-specific {
+     margin-bottom : -0.6em;
+}
+
+p.no_top_margin {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+

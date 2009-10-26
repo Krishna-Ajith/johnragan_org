@@ -1,0 +1,23 @@
+.sans-serif {
+  font-family: sans-serif;
+}
+
+.serif {
+  font-family: serif;
+}
+
+.monospace {
+  font-family: monospace;
+}
+
+.cursive {
+  font-family: cursive;
+}
+
+.fantasy {
+  font-family: fantasy;
+}
+
+.fallback {
+  font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; 
+}

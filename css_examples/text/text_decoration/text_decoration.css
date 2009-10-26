@@ -1,0 +1,23 @@
+.none a:link, .none a:visited {
+  text-decoration : none;
+}
+
+.overline a:link, .overline a:visited {
+  text-decoration : overline;
+}
+
+.blink a:link, .blink a:visited {
+  text-decoration : blink;
+}
+
+.line-through a:link, .line-through a:visited {
+  text-decoration : line-through;
+}
+
+.combined a:link, .combined a:visited {
+  text-decoration : overline line-through;
+}
+
+p.apply_to_text {
+  text-decoration : line-through;
+}

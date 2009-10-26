@@ -1,0 +1,16 @@
+.rndbox {
+  background: #C6D9EA;
+  width: 300px;
+}
+
+.rndtop {
+  background: url(topright.gif) no-repeat right top;
+}
+
+.rndbottom {
+  background: url(bottomright.gif) no-repeat right top;
+}
+
+.rndbottom img {
+  display: block;
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+  <title>Chapter 2</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" type="text/css" href="list_bullets.css" />
+</head>
+<body>
+  <p>To use different bullets, set 'list-style-type : square'.  There are a bunch to choose from, but not all are supported on all browsers.  This is set on ul, though it could be set on li.</p>
+  <ul class="square">
+    <li>one</li>
+    <li>two</li>
+    <li>three</li> 
+    <li class="circle">This one is set on the li</li>   
+  </ul>  
+  <p>To add custom bullets, you set 'list-style-image: url(bullet.gif);' on the ul.  You can also set it on the li.</p>
+  <ul class="custom">
+    <li>one</li>
+    <li>two</li>
+    <li>three</li>    
+    <li class="custom_li">This one is set on the li</li>
+  </ul>
+  <p>To get rid of the indent, you set the margin-left and padding-left to 0.</p>
+  <ul class="indent">
+    <li>one</li>
+    <li>two</li>
+    <li>three</li>    
+  </ul>
+  <p>To go horizontal, you change the display to be 'inline', but you have to set it on the li itself.  There seems to be nothing else you have to do to get rid of the bullets</p>
+  <ul class="horizontal">  
+    <li>one</li>
+    <li>two</li>
+    <li>three</li>    
+  </ul>
+</body>
+</html>

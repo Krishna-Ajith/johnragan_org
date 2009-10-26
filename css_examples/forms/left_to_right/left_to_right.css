@@ -1,0 +1,10 @@
+form.inline {
+  display: inline;
+}
+
+.btn {
+     background-color: transparent;
+     border: 0;
+     margin: 0;
+     font-size: medium;
+}

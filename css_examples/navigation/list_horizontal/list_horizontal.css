@@ -1,0 +1,31 @@
+body {
+  padding: 1em;
+}
+
+#navigation ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#navigation {
+  font-size: 90%;
+}
+
+#navigation li {
+  display: inline;
+}
+
+#navigation li a:link, #navigation li a:visited {
+  padding: 0.4em 1em 0.4em 1em;
+  border: 1px solid #711515;
+  background-color: #B51032;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+#navigation li a:hover {
+  color: #FFFFFF;
+  background-color: #711515;
+  cursor: crosshair;
+}

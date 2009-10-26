@@ -1,0 +1,12 @@
+.themenu {
+  border: 2px solid black;
+  position: absolute;
+  top: 5em;
+  left: 1em;
+  width: 14em
+}
+
+.content {
+  margin-left: 16em;
+  margin-right: 2em;
+}
