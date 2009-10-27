@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:aop="http://www.springframework.org/schema/aop"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+       http://www.springframework.org/schema/aop 
+       http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
+
+	<bean id="audience"
+		class="chapter4.classic_aspects.Audience" /> 
+	
+	<bean id="audienceAdvice"
+		class="chapter4.classic_aspects.AudienceAdvice">
+		<property name="audience" ref="audience" />
+	</bean>
+	
+	<bean id="performancePointcut"
+		class="org.springframework.aop.support.JdkRegexpMethodPointcut">
+		<property name="pattern" value=".*perform" />
+	</bean>
+	
+	<bean id="audienceAdvisor"
+		class="org.springframework.aop.support.DefaultPointcutAdvisor">
+		<property name="advice" ref="audienceAdvice" />
+		<property name="pointcut" ref="performancePointcut" />
+	</bean>
+	
+	<bean id="dukeTarget"
+		class="chapter2.springidol.Juggler" />
+		
+	<bean id="duke"
+		class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="target" ref="dukeTarget" />
+		<property name="interceptorNames" value="audienceAdvisor" />
+		<property name="proxyInterfaces"
+			value="chapter2.springidol.Performer" />
+	</bean>
+</beans>

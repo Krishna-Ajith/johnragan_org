@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+  <bean id="duke"
+      class="chapter2.springidol.Juggler">
+      <constructor-arg value="15" />
+  </bean>
+  
+  <bean id="emilypoem"
+  	class="chapter2.springidol.EmilyPoem" />
+  
+  <bean id="duke2"
+  	class="chapter2.springidol.PoeticJuggler">
+  	<constructor-arg value="15" />
+  	<constructor-arg ref="emilypoem" />
+  </bean>
+  
+  <bean id="saxophone"
+  	class="chapter2.springidol.Saxophone" />
+  	
+  <bean id="piano"
+  	class="chapter2.springidol.Piano" />	
+  
+  <bean id="kenny"
+  	class="chapter2.springidol.Instrumentalist">
+  		<property name="instrument" ref="piano" />
+  		<property name="song" value="Great Big Beautiful Tomorrow" />
+  </bean>	
+  
+  <bean id="kenny2"
+  	class="chapter2.springidol.Instrumentalist">
+  		<property name="song" value="Zippidy Doo-Dah!" />
+  		<property name="instrument">
+  			<bean class="chapter2.springidol.Saxophone" />
+  		</property>
+  </bean>
+  
+  <bean id="kenny3"
+  	class="chapter2.springidol.Instrumentalist">
+  		<property name="song" value="Soaring" />
+  		<constructor-arg>
+  			<bean class="chapter2.springidol.Piano" />
+  		</constructor-arg>
+  </bean>
+</beans>

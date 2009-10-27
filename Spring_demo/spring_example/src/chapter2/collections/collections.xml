@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+      
+    <bean id="piano"
+    	class="chapter2.springidol.Piano" />
+    	
+    <bean id="saxophone"
+    	class="chapter2.springidol.Saxophone" />	   
+
+	<bean id="collection-container"
+		class="chapter2.collections.CollectionContainerImpl" >
+		<property name="list">
+			<list>
+				<value>one</value>
+				<value>two</value>
+				<value>three</value>
+				<null/>
+			</list>
+		</property>
+		<property name="set">
+			<set>
+				<value>one</value>
+				<value>two</value>
+				<value>three</value>
+				<value>three</value>
+			</set>
+		</property>
+		<property name="map">
+			<props>
+				<prop key="ONE">1</prop>
+				<prop key="TWO">2</prop>
+				<prop key="THREE">3</prop>
+			</props>
+		</property>
+		<property name="mapStrings">
+			<props>
+				<prop key="GUITAR">STRUM STRUM STRUM</prop>
+				<prop key="CYMBAL">CRASH CRASH CRASH</prop>
+				<prop key="HARMONICA">HUM HUM HUM</prop>
+			</props>
+		</property>
+		<property name="instrumentSet">
+			<set>
+				<ref bean="piano" />
+				<ref bean="saxophone" />
+				<ref bean="saxophone" />
+			</set>
+		</property>
+	</bean>
+</beans>

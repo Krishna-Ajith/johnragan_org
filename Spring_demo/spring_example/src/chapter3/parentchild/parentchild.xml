@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+       
+  <bean id="instrument"
+  	class="chapter2.springidol.Piano"
+  	scope="prototype" />     
+
+  <bean id="basePiano"
+	  class="chapter2.springidol.Instrumentalist"
+      abstract="true">
+    <property name="song" value="Jingle Bells" />
+    <property name="instrument" ref="instrument" />
+   </bean>
+   
+  <bean id="kenny" parent="basePiano" />
+  
+  	<bean id="jimbob" parent="basePiano">
+  		<property name="song" value="Jingle Bell Rock" />
+  	</bean>
+   
+   <bean id="baseSongPerformer" abstract="true">
+   		<property name="song" value="Somewhere Over the Rainbow" />
+   </bean>
+   		
+   	<bean id="singingPiano"
+   		class="chapter2.springidol.Piano"
+   		parent="baseSongPerformer" />
+   		
+   	<bean id="taylor"
+   		class="chapter2.springidol.Instrumentalist"
+   		parent="baseSongPerformer">
+   		<property name="instrument" ref="singingPiano" />
+   		<property name="song" value="Lets Jam Radioactive" />
+   	</bean>	
+</beans>

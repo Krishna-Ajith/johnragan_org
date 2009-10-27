@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+       
+  <bean id="instrument"
+  	class="chapter2.springidol.Piano" />     
+
+<!-- Instrumentalist has setter setInstrument, matched to id instrument automatically -->
+<!-- byName can be changed to byType, and will work if only one instance of given type is defined -->
+<!-- byName can be changed to constructor, in which case it will try to autowire via constructor-arg -->
+<!-- byName can be changed to autodetect, which will try constructor wiring then type wiring -->
+  <bean id="kenny"
+      class="chapter2.springidol.Instrumentalist"
+      autowire="byName">   
+    <property name="song" value="Jingle Bells" />
+  </bean>
+</beans>
