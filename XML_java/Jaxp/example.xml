@@ -1,0 +1,195 @@
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee" 
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+     web-app_2_4.xsd"
+     version="2.4">
+     
+     <security-role>     
+     	<role-name>Admin</role-name>
+     	<role-name>Member</role-name>
+     	<role-name>Guest</role-name>
+	 </security-role>
+     
+     <login-config>
+    	 <auth-method>BASIC</auth-method>
+	 </login-config>
+
+	 
+	 <security-constraint>
+          <web-resource-collection> 
+               <description>This tag is optional</description>
+               <web-resource-name>ViewPages</web-resource-name>
+               
+               <url-pattern>/EL/*</url-pattern>
+               <url-pattern>/foo/EL/*</url-pattern>
+               
+               <http-method>GET</http-method>
+               <http-method>POST</http-method>
+          </web-resource-collection>
+          <auth-constraint>
+               <description>optional description</description>
+               <role-name>Admin</role-name>
+               <role-name>Member</role-name>
+          </auth-constraint>
+     </security-constraint>
+	  
+     
+     <context-param>
+          <param-name>appWideSetting</param-name>
+          <param-value>appWideSettingValue</param-value>
+     </context-param>
+     
+     <session-config>
+          <session-timeout>2</session-timeout>  <!-- in minutes -->
+     </session-config>
+     
+     <welcome-file-list>
+          <welcome-file>index.html</welcome-file>
+          <welcome-file>default.jsp</welcome-file>
+     </welcome-file-list>
+     
+     <servlet id="allie">
+          <servlet-name>Basic Servlet</servlet-name>
+          <servlet-class>org.johnragan.controllers.BasicServlet</servlet-class>
+          <load-on-startup>2</load-on-startup>
+     </servlet>
+     <servlet-mapping>
+          <servlet-name>Basic Servlet</servlet-name>
+          <url-pattern>/Basic/*</url-pattern>
+     </servlet-mapping>
+     
+     <servlet>
+          <servlet-name>Servlet Invokes JSP</servlet-name>
+          <servlet-class>org.johnragan.controllers.ServletInvokesJsp</servlet-class>
+          <load-on-startup>3</load-on-startup>
+     </servlet>
+     <servlet-mapping>
+          <servlet-name>Servlet Invokes JSP</servlet-name>
+          <url-pattern>/Invokes/*</url-pattern>
+     </servlet-mapping>
+     
+     <servlet>
+          <servlet-name>Configured Servlet</servlet-name>
+          <servlet-class>org.johnragan.controllers.ConfiguredServlet</servlet-class>
+ 			<init-param>
+          		<param-name>adminEmail</param-name>
+          		<param-value>likewecare@wickedlysmart.com</param-value>
+ 			</init-param>
+ 			<load-on-startup>3</load-on-startup>
+     </servlet>
+     <servlet-mapping>
+          <servlet-name>Configured Servlet</servlet-name>
+          <url-pattern>/Configured/*</url-pattern>
+     </servlet-mapping>
+     
+     <servlet>
+          <servlet-name>Knock Knock</servlet-name>
+          <servlet-class>org.johnragan.controllers.KnockKnock</servlet-class>
+ 		  <load-on-startup>3</load-on-startup>
+     </servlet>
+     <servlet-mapping>
+          <servlet-name>Knock Knock</servlet-name>
+          <url-pattern>/KnockKnock/*</url-pattern>
+     </servlet-mapping>
+     
+     <servlet>
+          <servlet-name>Request Response Stuff Servlet</servlet-name>
+          <servlet-class>org.johnragan.controllers.RequestResponseStuff</servlet-class>
+          <load-on-startup>3</load-on-startup>
+     </servlet>
+     <servlet-mapping>
+          <servlet-name>Request Response Stuff Servlet</servlet-name>
+          <url-pattern>/RequestResponseStuff/*</url-pattern>
+     </servlet-mapping>
+     
+     <servlet>
+          <servlet-name>Binary Download Servlet</servlet-name>
+          <servlet-class>org.johnragan.controllers.BinaryDownload</servlet-class>
+          <load-on-startup>4</load-on-startup>
+     </servlet>
+     <servlet-mapping>
+          <servlet-name>Binary Download Servlet</servlet-name>
+          <url-pattern>/Download/*</url-pattern>
+     </servlet-mapping>
+     
+     <servlet>
+          <servlet-name>Redirect Servlet</servlet-name>
+          <servlet-class>org.johnragan.controllers.RedirectServlet</servlet-class>
+          <load-on-startup>3</load-on-startup>
+     </servlet>
+     <servlet-mapping>
+          <servlet-name>Redirect Servlet</servlet-name>
+          <url-pattern>/Redirect/*</url-pattern>
+     </servlet-mapping>
+     
+     <servlet>
+	     <servlet-name>Hello JSP</servlet-name>
+	     <jsp-file>/hello.jsp</jsp-file>
+	     <init-param>
+	          <param-name>userName</param-name>
+	          <param-value>Christine</param-value>
+	     </init-param>
+	     <load-on-startup>4</load-on-startup>
+	</servlet>
+	
+	<servlet>
+	     <servlet-name>Invoke JSP</servlet-name>
+	     <jsp-file>/invoke.jsp</jsp-file>
+	     <init-param>
+	          <param-name>userName</param-name>
+	          <param-value>Christine</param-value>
+	     </init-param>
+	     <load-on-startup>5</load-on-startup>
+	</servlet>
+	
+	<servlet>
+          <servlet-name>Expression Language Servlet</servlet-name>
+          <servlet-class>org.johnragan.controllers.ExpressionLanguage</servlet-class>
+          <load-on-startup>1</load-on-startup>
+     </servlet>
+     <servlet-mapping>
+          <servlet-name>Expression Language Servlet</servlet-name>
+          <url-pattern>/EL/*</url-pattern>
+     </servlet-mapping>
+     
+     <servlet>
+          <servlet-name>EL Examples Servlet</servlet-name>
+          <servlet-class>org.johnragan.controllers.ELExamples</servlet-class>
+          <load-on-startup>1</load-on-startup>
+     </servlet>
+     <servlet-mapping>
+          <servlet-name>EL Examples Servlet</servlet-name>
+          <url-pattern>/ELExamples/*</url-pattern>
+     </servlet-mapping>
+     
+     <error-page>
+     	<exception-type>java.lang.Throwable</exception-type>
+     	<location>/error_page.jsp</location>
+	</error-page>
+	
+	<error-page>
+    	<exception-type>java.lang.ArithmeticException</exception-type>
+    	<location>/arithmetic_error.jsp</location>
+	</error-page>
+	
+    <error-page>
+    	<error-code>404</error-code>
+    	<location>/not_found_error.jsp</location>
+	</error-page>
+	
+	<filter>
+	    <filter-name>Knock Knock Filter</filter-name>
+	    <filter-class>org.johnragan.filters.KnockKnockFilter</filter-class>
+	    <init-param>
+		    <param-name>LogFileName</param-name>
+		    <param-value>UserLog.txt</param-value>
+	    </init-param>
+	</filter>
+	
+	<filter-mapping>
+    	<filter-name>Knock Knock Filter</filter-name>
+    	<url-pattern>/KnockKnock/*</url-pattern>
+	</filter-mapping>
+	
+	
+</web-app>
