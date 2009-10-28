@@ -2,3 +2,7 @@
 bin/*
 bin
 .metadata
+.log
+database.yml
+wdw/doc/*doc
+wdw/tmp/*
