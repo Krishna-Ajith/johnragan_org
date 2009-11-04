@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<!--  This code gives a basic demo of Google Maps, version 2.
+  
+      I am including javascript and CSS directly in-line solely to keep things
+      in one file and focus on the mapping. 
+      
+      John P. Ragan, November 4, 2009
+      www.johnragan.org
+-->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <!-- Replace the key with the key you get from signing up with Google Maps. -->
+    <script src="http://maps.google.com/maps?file=api&v=2&key=ABQIAAAA2Xs1IT4MDjhQ6UZHAQbpZxSP3WaJ4kCAJOAJ1WkrIdWaq8IEeBQHnUMW7sjJuPtfFAIBTdnaWKFcZQ"
+    type="text/javascript"></script>
+    
+    <!-- Configure the width and height of the div containing a map; here we are using a CSS class. -->
+    <style type="text/css">
+      .demo-map {
+        width: 700px; 
+        height: 500px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Identify the div that will contain the map, and pass it into the GMap2 constructor function below. -->
+    <div id="map" class="demo-map"></div>
+    <script type="text/javascript">
+      var map = new GMap2(document.getElementById("map"));
+      /* You can use a zoom value between 0 and 17, where 0 is the world.  I am using 16 below. 
+         I am centering the location on the castle in Magic Kingdom, WDW. */
+      map.setCenter(new GLatLng(28.419702, -81.581164), 16);
+      
+      /* You can add three different types of map controls - I am using the large one below. */
+      map.addControl(new GLargeMapControl());
+      
+      /* You can also add a control to allow the user to switch between the various types of maps
+         (normal, satelite, etc.). */
+      map.addControl(new GMapTypeControl());
+      
+      /* You can also set the type of map you want to initially come up (G_NORMAL_MAP is the default) */
+      // map.setMapType(G_NORMAL_MAP);
+      // map.setMapType(G_SATELLITE_MAP);
+      map.setMapType(G_HYBRID_MAP);
+    </script>
+  </body>
+</html>

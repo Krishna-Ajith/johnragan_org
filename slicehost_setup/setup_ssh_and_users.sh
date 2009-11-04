@@ -10,8 +10,10 @@ ssh root@174.143.158.156
 
 echo "we are now copying the ssh public key to the server for user john"
 scp ~/.ssh/id_rsa.pub john@174.143.158.156:/home/john/
-scp ~/slicehost_setup/remote_setup_ssh.sh john@174.143.158.156:/home/john
-scp ~/slicehost_setup/remote_setup_ubuntu.sh john@174.143.158.156:/home/john
+scp ~/johnragan_org/slicehost_setup/remote_setup_ssh.sh john@174.143.158.156:/home/john
+scp ~/johnragan_org/slicehost_setup/remote_setup_ubuntu.sh john@174.143.158.156:/home/john
+scp ~/johnragan_org/slicehost_setup/remote_setup_rails_support.sh john@174.143.158.156:/home/john
+scp ~/johnragan_org/slicehost_setup/remote_setup_apache_mysql.sh john@174.143.158.156:/home/john
 
 echo "We are going to ssh in as john."
 echo "Once you are in, you need to run the following script:"
@@ -24,6 +26,22 @@ ssh john@174.143.158.156
 echo "We are going to do some ubuntu locale setting and upgrading as john."
 echo "Once you are in, you need to run the following script:"
 echo "bash /home/john/remote_setup_ubuntu.sh"
+echo "After that, logout to continue."
+echo "Hit enter to continue"
+read letter
+ssh john@174.143.158.156
+
+echo "We are going to do setup of ruby, rails, ruby gems, and ImageMagick."
+echo "Once you are in, you need to run the following script:"
+echo "bash /home/john/remote_setup_rails_support.sh"
+echo "After that, logout to continue."
+echo "Hit enter to continue"
+read letter
+ssh john@174.143.158.156
+
+echo "We are going to do setup of apache and mysql."
+echo "Once you are in, you need to run the following script:"
+echo "bash /home/john/remote_setup_apache_mysql.sh"
 echo "After that, logout to continue."
 echo "Hit enter to continue"
 read letter
