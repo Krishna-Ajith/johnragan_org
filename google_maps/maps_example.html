@@ -28,22 +28,49 @@
     <!-- Identify the div that will contain the map, and pass it into the GMap2 constructor function below. -->
     <div id="map" class="demo-map"></div>
     <script type="text/javascript">
+      var castlePoint = new GLatLng(28.419702, -81.581164);
+      
       var map = new GMap2(document.getElementById("map"));
       /* You can use a zoom value between 0 and 17, where 0 is the world.  I am using 16 below. 
          I am centering the location on the castle in Magic Kingdom, WDW. */
-      map.setCenter(new GLatLng(28.419702, -81.581164), 16);
+      map.setCenter(castlePoint, 16);
       
       /* You can add three different types of map controls - I am using the large one below. */
       map.addControl(new GLargeMapControl());
+      //map.addControl(new GSmallMapControl());
+      //map.addControl(new GSmallZoomControl());
       
       /* You can also add a control to allow the user to switch between the various types of maps
          (normal, satelite, etc.). */
       map.addControl(new GMapTypeControl());
       
+      /* You will find this on the bottom left by default, if added.  It shows the scale - it should currently show 500 ft. 
+         Any addControl action will take a GControlPosition instance, which can have one of the following values:
+            * G_ANCHOR_BOTTOM_LEFT
+            * G_ANCHOR_BOTTOM_RIGHT
+            * G_ANCHOR_TOP_LEFT
+            * G_ANCHOR_TOP_RIGHT
+          It must also have a GSize, which specifies the offset
+      */
+      map.addControl(
+          new GScaleControl(),
+              new GControlPosition(G_ANCHOR_BOTTOM_RIGHT,
+                new GSize(50,25)));
+      
       /* You can also set the type of map you want to initially come up (G_NORMAL_MAP is the default) */
       // map.setMapType(G_NORMAL_MAP);
       // map.setMapType(G_SATELLITE_MAP);
       map.setMapType(G_HYBRID_MAP);
+      
+      /* Create a gmarker to show Cinderella's castle (the html is displayed in the bubble). */
+      var castleMarker = new GMarker(castlePoint);
+      map.addOverlay(castleMarker);
+      var castleHtml = '<a href="http://www.waltdisneyworld.com">Cinderella castle</a> - <br/>my daughter loved this place!';
+      castleMarker.openInfoWindowHtml(castleHtml);
+      
+      /* Enabled is the default for dragging the map around. */
+      //map.enableDragging();
+      //map.disableDragging();
     </script>
   </body>
 </html>
