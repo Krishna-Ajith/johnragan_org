@@ -71,6 +71,13 @@
       /* Enabled is the default for dragging the map around. */
       //map.enableDragging();
       //map.disableDragging();
+      
+      var myPoint = new GLatLng(28.418797, -81.578432);
+      var myIcon = new GIcon(G_DEFAULT_ICON);
+      myIcon.image = "jragan.png";
+      myIcon.iconSize = new GSize(16,16);
+      var myMarker = new GMarker(myPoint, myIcon);
+      map.addOverlay(myMarker);
     </script>
   </body>
 </html>
