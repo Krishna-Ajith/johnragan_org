@@ -28,17 +28,32 @@
     <!-- Identify the div that will contain the map, and pass it into the GMap2 constructor function below. -->
     <div id="map" class="demo-map"></div>
     <script type="text/javascript">
+      // Add a new point with a custom graphic (my big head)
+      function addPoint(lat, lon, title, link) {
+        var myPoint = new GLatLng(lat, lon);
+        var myIcon = new GIcon(G_DEFAULT_ICON);
+        myIcon.image = "jragan.png";
+        myIcon.iconSize = new GSize(16,16);
+        // This is the point of the image that should be where the gps point is.
+        myIcon.iconAnchor = new GPoint(8,16);
+        myIcon.infoWindowAnchor = new GPoint(10,0);
+        myMarker = new GMarker(myPoint, myIcon);
+        map.addOverlay(myMarker);
+        
+        myMarker.bindInfoWindow("<a href='" + link + "'>" + title + "</a>", null);
+        //myMarker.openInfoWindowHtml("Hey, check this out!");
+      }
     
       var castlePoint = new GLatLng(28.419702, -81.581164);
       
       var map = new GMap2(document.getElementById("map"));
       /* You can use a zoom value between 0 and 17, where 0 is the world.  I am using 16 below. 
          I am centering the location on the castle in Magic Kingdom, WDW. */
-      map.setCenter(castlePoint, 16);
+      map.setCenter(castlePoint, 17);
       
       /* You can add three different types of map controls - I am using the large one below. */
-      map.addControl(new GLargeMapControl());
-      //map.addControl(new GSmallMapControl());
+      //map.addControl(new GLargeMapControl());
+      map.addControl(new GSmallMapControl());
       //map.addControl(new GSmallZoomControl());
       
       /* You can also add a control to allow the user to switch between the various types of maps
@@ -63,15 +78,10 @@
       // map.setMapType(G_SATELLITE_MAP);
       map.setMapType(G_HYBRID_MAP);
       
-      /* Create a gmarker to show Cinderella's castle (the html is displayed in the bubble). */
-      var castleMarker = new GMarker(castlePoint);
-      map.addOverlay(castleMarker);
-      var castleHtml = '<a href="http://www.waltdisneyworld.com">Cinderella castle</a> - <br/>my daughter loved this place!';
-      castleMarker.openInfoWindowHtml(castleHtml);
-      
-      /* Enabled is the default for dragging the map around. */
-      //map.enableDragging();
-      //map.disableDragging();
+      addPoint(28.418797, -81.578432, "Space Mountain", 'http://disneyworld.disney.go.com/parks/magic-kingdom/attractions/space-mountain/');
+      addPoint(28.420319,-81.582010, "Peter Pan's Flight", 'http://disneyworld.disney.go.com/parks/magic-kingdom/attractions/peter-pans-flight/');
+      addPoint(28.419472,-81.584668, "Thunder Mountain Railroad", 'http://disneyworld.disney.go.com/parks/magic-kingdom/attractions/big-thunder-mountain-railroad/');
+      addPoint(28.420078,-81.582702, "Haunted Mansion", 'http://disneyworld.disney.go.com/parks/magic-kingdom/attractions/haunted-mansion/');
     </script>
   </body>
 </html>
