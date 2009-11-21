@@ -7,8 +7,6 @@ class Search
     data = DataFetcher.fetch_data(title)
     book_data_array(data)
   end 
-  
-private
 
   def book_data_array(data)
     doc = Hpricot(data)
@@ -34,11 +32,6 @@ private
   end
   
   def next_listing()
-    if @listing.nil? || @listing == "itemlisting"
-      @listing = "itemlisting2"
-    else
-      @listing = "itemlisting"
-    end
-    @listing  
+    @listing = (@listing.nil? || @listing == "itemlisting") ? "itemlisting2" : "itemlisting"   
   end
 end
