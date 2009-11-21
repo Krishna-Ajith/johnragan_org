@@ -440,3 +440,195 @@
   [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
   [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
   [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+<div class="hit_list_number">#1</div>
+<div class="hit_list_number">#2</div>
+<div class="hit_list_number">#3</div>
+<div class="hit_list_number">#4</div>
+<div class="hit_list_number">#5</div>
+<div class="hit_list_number">#6</div>
+<div class="hit_list_number">#7</div>
+<div class="hit_list_number">#8</div>
+<input class="hold_button" type="button" value="Place Hold" onclick="document.location.href='/uhtbin/cgisirsi/lqFYDKE5Wb/ZTECHOPS/283170039/108?item_id=32769100215914&author=Silva, Daniel, 1960-&title=The defector [sound recording]&callnum=CD FIC SIL 9 CD';" />
+<input class="hold_button" type="button" value="Place Hold" onclick="document.location.href='/uhtbin/cgisirsi/33iLGxHWE9/ZTECHOPS/283170039/108?item_id=32769092689688&author=Silva, Daniel, 1960-&title=The defector&callnum=FIC SIL';" />
+<input class="hold_button" type="button" value="Place Hold" onclick="document.location.href='/uhtbin/cgisirsi/Bu6MAXvJe9/ZTECHOPS/283170039/108?item_id=32769094635994&author=Silva, Daniel, 1960-&title=Moscow rules&callnum=LP FIC SIL';" />
+<input class="hold_button" type="button" value="Place Hold" onclick="document.location.href='/uhtbin/cgisirsi/vxCmh1hEvF/ZTECHOPS/283170039/108?item_id=32769094981802&author=Silva, Daniel, 1960-&title=Moscow rules [sound recording]&callnum=CD FIC SIL 9 CD';" />
+<input class="hold_button" type="button" value="Place Hold" onclick="document.location.href='/uhtbin/cgisirsi/SIM1M42Vs1/ZTECHOPS/283170039/108?item_id=32769092557653&author=Silva, Daniel, 1960-&title=Moscow rules&callnum=FIC SIL';" />
+<input class="hold_button" type="button" value="Place Hold" onclick="document.location.href='/uhtbin/cgisirsi/rgW9Qe3eBa/ZTECHOPS/283170039/108?item_id=32769000868903&author=Moss, Robert, 1946-&title=Moscow rules&callnum=FIC MOS';" />
+<strong>The defector [electronic resource]</strong>
+<strong>The defector</strong>
+<strong>Moscow rules [electronic resource]</strong>
+<strong>Moscow rules</strong>
+<strong>The defector [sound recording]</strong>
+<strong>Moscow rules</strong>
+<strong>Moscow rules [sound recording]</strong>
+<strong>Moscow rules</strong>
+<em>&nbsp;Unabridged.</em>
+<em>&nbsp;Unabridged.</em>
+<em>&nbsp;[Large print ed.]</em>
+<em>&nbsp;Unabridged.</em>
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+<div class="hit_list_number">#1</div>
+<div class="hit_list_number">#2</div>
+<div class="hit_list_number">#3</div>
+<div class="hit_list_number">#4</div>
+<div class="hit_list_number">#5</div>
+<div class="hit_list_number">#6</div>
+<div class="hit_list_number">#7</div>
+<div class="hit_list_number">#8</div>
+<input class="hold_button" type="button" value="Place Hold" onclick="document.location.href='/uhtbin/cgisirsi/lqFYDKE5Wb/ZTECHOPS/283170039/108?item_id=32769100215914&author=Silva, Daniel, 1960-&title=The defector [sound recording]&callnum=CD FIC SIL 9 CD';" />
+<input class="hold_button" type="button" value="Place Hold" onclick="document.location.href='/uhtbin/cgisirsi/33iLGxHWE9/ZTECHOPS/283170039/108?item_id=32769092689688&author=Silva, Daniel, 1960-&title=The defector&callnum=FIC SIL';" />
+<input class="hold_button" type="button" value="Place Hold" onclick="document.location.href='/uhtbin/cgisirsi/Bu6MAXvJe9/ZTECHOPS/283170039/108?item_id=32769094635994&author=Silva, Daniel, 1960-&title=Moscow rules&callnum=LP FIC SIL';" />
+<input class="hold_button" type="button" value="Place Hold" onclick="document.location.href='/uhtbin/cgisirsi/vxCmh1hEvF/ZTECHOPS/283170039/108?item_id=32769094981802&author=Silva, Daniel, 1960-&title=Moscow rules [sound recording]&callnum=CD FIC SIL 9 CD';" />
+<input class="hold_button" type="button" value="Place Hold" onclick="document.location.href='/uhtbin/cgisirsi/SIM1M42Vs1/ZTECHOPS/283170039/108?item_id=32769092557653&author=Silva, Daniel, 1960-&title=Moscow rules&callnum=FIC SIL';" />
+<input class="hold_button" type="button" value="Place Hold" onclick="document.location.href='/uhtbin/cgisirsi/rgW9Qe3eBa/ZTECHOPS/283170039/108?item_id=32769000868903&author=Moss, Robert, 1946-&title=Moscow rules&callnum=FIC MOS';" />
+<strong>The defector [electronic resource]</strong>
+<strong>The defector</strong>
+<strong>Moscow rules [electronic resource]</strong>
+<strong>Moscow rules</strong>
+<strong>The defector [sound recording]</strong>
+<strong>Moscow rules</strong>
+<strong>Moscow rules [sound recording]</strong>
+<strong>Moscow rules</strong>
+<em>&nbsp;Unabridged.</em>
+<em>&nbsp;Unabridged.</em>
+<em>&nbsp;[Large print ed.]</em>
+<em>&nbsp;Unabridged.</em>
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+<div class="hit_list_number">#1</div>
+<div class="hit_list_number">#2</div>
+<div class="hit_list_number">#3</div>
+<div class="hit_list_number">#4</div>
+<div class="hit_list_number">#5</div>
+<div class="hit_list_number">#6</div>
+<div class="hit_list_number">#7</div>
+<div class="hit_list_number">#8</div>
+<input class="hold_button" type="button" value="Place Hold" onclick="document.location.href='/uhtbin/cgisirsi/lqFYDKE5Wb/ZTECHOPS/283170039/108?item_id=32769100215914&author=Silva, Daniel, 1960-&title=The defector [sound recording]&callnum=CD FIC SIL 9 CD';" />
+<input class="hold_button" type="button" value="Place Hold" onclick="document.location.href='/uhtbin/cgisirsi/33iLGxHWE9/ZTECHOPS/283170039/108?item_id=32769092689688&author=Silva, Daniel, 1960-&title=The defector&callnum=FIC SIL';" />
+<input class="hold_button" type="button" value="Place Hold" onclick="document.location.href='/uhtbin/cgisirsi/Bu6MAXvJe9/ZTECHOPS/283170039/108?item_id=32769094635994&author=Silva, Daniel, 1960-&title=Moscow rules&callnum=LP FIC SIL';" />
+<input class="hold_button" type="button" value="Place Hold" onclick="document.location.href='/uhtbin/cgisirsi/vxCmh1hEvF/ZTECHOPS/283170039/108?item_id=32769094981802&author=Silva, Daniel, 1960-&title=Moscow rules [sound recording]&callnum=CD FIC SIL 9 CD';" />
+<input class="hold_button" type="button" value="Place Hold" onclick="document.location.href='/uhtbin/cgisirsi/SIM1M42Vs1/ZTECHOPS/283170039/108?item_id=32769092557653&author=Silva, Daniel, 1960-&title=Moscow rules&callnum=FIC SIL';" />
+<input class="hold_button" type="button" value="Place Hold" onclick="document.location.href='/uhtbin/cgisirsi/rgW9Qe3eBa/ZTECHOPS/283170039/108?item_id=32769000868903&author=Moss, Robert, 1946-&title=Moscow rules&callnum=FIC MOS';" />
+<strong>The defector [electronic resource]</strong>
+<strong>The defector</strong>
+<strong>Moscow rules [electronic resource]</strong>
+<strong>Moscow rules</strong>
+<strong>The defector [sound recording]</strong>
+<strong>Moscow rules</strong>
+<strong>Moscow rules [sound recording]</strong>
+<strong>Moscow rules</strong>
+<em>&nbsp;Unabridged.</em>
+<em>&nbsp;Unabridged.</em>
+<em>&nbsp;[Large print ed.]</em>
+<em>&nbsp;Unabridged.</em>
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+<div class="hit_list_number">#1</div>
+<div class="hit_list_number">#2</div>
+<div class="hit_list_number">#3</div>
+<div class="hit_list_number">#4</div>
+<div class="hit_list_number">#5</div>
+<div class="hit_list_number">#6</div>
+<div class="hit_list_number">#7</div>
+<div class="hit_list_number">#8</div>
+<input class="hold_button" type="button" value="Place Hold" onclick="document.location.href='/uhtbin/cgisirsi/lqFYDKE5Wb/ZTECHOPS/283170039/108?item_id=32769100215914&author=Silva, Daniel, 1960-&title=The defector [sound recording]&callnum=CD FIC SIL 9 CD';" />
+<input class="hold_button" type="button" value="Place Hold" onclick="document.location.href='/uhtbin/cgisirsi/33iLGxHWE9/ZTECHOPS/283170039/108?item_id=32769092689688&author=Silva, Daniel, 1960-&title=The defector&callnum=FIC SIL';" />
+<input class="hold_button" type="button" value="Place Hold" onclick="document.location.href='/uhtbin/cgisirsi/Bu6MAXvJe9/ZTECHOPS/283170039/108?item_id=32769094635994&author=Silva, Daniel, 1960-&title=Moscow rules&callnum=LP FIC SIL';" />
+<input class="hold_button" type="button" value="Place Hold" onclick="document.location.href='/uhtbin/cgisirsi/vxCmh1hEvF/ZTECHOPS/283170039/108?item_id=32769094981802&author=Silva, Daniel, 1960-&title=Moscow rules [sound recording]&callnum=CD FIC SIL 9 CD';" />
+<input class="hold_button" type="button" value="Place Hold" onclick="document.location.href='/uhtbin/cgisirsi/SIM1M42Vs1/ZTECHOPS/283170039/108?item_id=32769092557653&author=Silva, Daniel, 1960-&title=Moscow rules&callnum=FIC SIL';" />
+<input class="hold_button" type="button" value="Place Hold" onclick="document.location.href='/uhtbin/cgisirsi/rgW9Qe3eBa/ZTECHOPS/283170039/108?item_id=32769000868903&author=Moss, Robert, 1946-&title=Moscow rules&callnum=FIC MOS';" />
+<strong>The defector [electronic resource]</strong>
+<strong>The defector</strong>
+<strong>Moscow rules [electronic resource]</strong>
+<strong>Moscow rules</strong>
+<strong>The defector [sound recording]</strong>
+<strong>Moscow rules</strong>
+<strong>Moscow rules [sound recording]</strong>
+<strong>Moscow rules</strong>
+<em>&nbsp;Unabridged.</em>
+<em>&nbsp;Unabridged.</em>
+<em>&nbsp;[Large print ed.]</em>
+<em>&nbsp;Unabridged.</em>
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mROLLBACK[0m

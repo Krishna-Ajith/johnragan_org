@@ -5,7 +5,12 @@ require "hpricot"
 class Search
   def library_data(title)
     data = DataFetcher.fetch_data(title)
-    
+    book_data_array(data)
+  end 
+  
+private
+
+  def book_data_array(data)
     doc = Hpricot(data)
     (doc/".number_and_buttons_container .hit_list_number").each do |e|
       RAILS_DEFAULT_LOGGER.info e
@@ -26,5 +31,5 @@ class Search
       RAILS_DEFAULT_LOGGER.info e  
     end
     data
-  end 
+  end
 end
