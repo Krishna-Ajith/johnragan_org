@@ -10,7 +10,20 @@ class Search
       puts "Error2: #{err}"
       exit
     end
-    RAILS_DEFAULT_LOGGER.info("JPR_response - " + data)
+    doc = Hpricot(data)
+    (doc/".itemlisting2 .hit_list_number").each do |e|
+      RAILS_DEFAULT_LOGGER.info e
+    end
+    (doc/".itemlisting2 .hold_button").each do |e|
+      RAILS_DEFAULT_LOGGER.info e
+    end
+    (doc/".itemlisting .hit_list_number").each do |e|
+      RAILS_DEFAULT_LOGGER.info e
+    end
+    (doc/".itemlisting .hold_button").each do |e|
+      RAILS_DEFAULT_LOGGER.info e
+    end
+    #RAILS_DEFAULT_LOGGER.info("JPR_response - " + data)
     data
   end
   
