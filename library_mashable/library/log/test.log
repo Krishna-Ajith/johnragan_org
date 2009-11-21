@@ -2,7 +2,7 @@
   [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
   [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
   [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
-  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
   [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
   [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
   [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
@@ -12,16 +12,16 @@
   [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
   [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
 <div class="hit_list_number">#1</div>
-<div class="hit_list_number">#3</div>
-<div class="hit_list_number">#5</div>
-<input class="hold_button" type="button" value="Place Hold" onclick="document.location.href='/uhtbin/cgisirsi/VuToYNtIDL/ZTECHOPS/194120037/108?item_id=32769094635994&author=Silva, Daniel, 1960-&title=Moscow rules&callnum=LP FIC SIL';" />
-<input class="hold_button" type="button" value="Place Hold" onclick="document.location.href='/uhtbin/cgisirsi/LzJMlblo0t/ZTECHOPS/194120037/108?item_id=32769094981802&author=Silva, Daniel, 1960-&title=Moscow rules [sound recording]&callnum=CD FIC SIL 9 CD';" />
-<input class="hold_button" type="button" value="Place Hold" onclick="document.location.href='/uhtbin/cgisirsi/oQg83kTqS7/ZTECHOPS/194120037/108?item_id=32769000868903&author=Moss, Robert, 1946-&title=Moscow rules&callnum=FIC MOS';" />
 <div class="hit_list_number">#2</div>
+<div class="hit_list_number">#3</div>
 <div class="hit_list_number">#4</div>
-<input class="hold_button" type="button" value="Place Hold" onclick="document.location.href='/uhtbin/cgisirsi/TWuLOYt6ic/ZTECHOPS/194120037/108?item_id=32769092557653&author=Silva, Daniel, 1960-&title=Moscow rules&callnum=FIC SIL';" />
+<div class="hit_list_number">#5</div>
+<input class="hold_button" type="button" value="Place Hold" onclick="document.location.href='/uhtbin/cgisirsi/qjaR7ldFS2/ZTECHOPS/238030010/108?item_id=32769094635994&author=Silva, Daniel, 1960-&title=Moscow rules&callnum=LP FIC SIL';" />
+<input class="hold_button" type="button" value="Place Hold" onclick="document.location.href='/uhtbin/cgisirsi/IIdYhnKYfa/ZTECHOPS/238030010/108?item_id=32769094981802&author=Silva, Daniel, 1960-&title=Moscow rules [sound recording]&callnum=CD FIC SIL 9 CD';" />
+<input class="hold_button" type="button" value="Place Hold" onclick="document.location.href='/uhtbin/cgisirsi/SIXBftBcLR/ZTECHOPS/238030010/108?item_id=32769092557653&author=Silva, Daniel, 1960-&title=Moscow rules&callnum=FIC SIL';" />
+<input class="hold_button" type="button" value="Place Hold" onclick="document.location.href='/uhtbin/cgisirsi/9DBBA9L97L/ZTECHOPS/238030010/108?item_id=32769000868903&author=Moss, Robert, 1946-&title=Moscow rules&callnum=FIC MOS';" />
   [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
-  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
   [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
   [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
   [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
