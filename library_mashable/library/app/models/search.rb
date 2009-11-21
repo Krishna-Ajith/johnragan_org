@@ -17,6 +17,18 @@ class Search
     (doc/".number_and_buttons_container .hold_button").each do |e|
       RAILS_DEFAULT_LOGGER.info e
     end
+    (doc/".itemlisting2 strong").each do |e|
+      RAILS_DEFAULT_LOGGER.info e
+    end  
+    (doc/".itemlisting strong").each do |e|
+      RAILS_DEFAULT_LOGGER.info e  
+    end
+    (doc/".itemlisting2 em").each do |e|
+      RAILS_DEFAULT_LOGGER.info e
+    end  
+    (doc/".itemlisting em").each do |e|
+      RAILS_DEFAULT_LOGGER.info e  
+    end
     data
   end
   
