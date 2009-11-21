@@ -4,12 +4,8 @@ require "hpricot"
 
 class Search
   def library_data(title)
-    begin
-      data = Net::HTTP.get(URI.parse(library_url(title)))
-    rescue => err
-      puts "Error2: #{err}"
-      exit
-    end
+    data = DataFetcher.fetch_data(title)
+    
     doc = Hpricot(data)
     (doc/".number_and_buttons_container .hit_list_number").each do |e|
       RAILS_DEFAULT_LOGGER.info e
