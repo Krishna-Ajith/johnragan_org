@@ -1,0 +1,5 @@
+<% form_for :search, :url => { :action => :find } do |form| %>
+  <label for="order_name">Book Title:</label>
+  <%= form.text_field :name, :size => 40 %>
+  <input type="submit" value="Search" />
+<% end %>

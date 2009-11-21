@@ -803,3 +803,328 @@ Processing SearchController#find (for 127.0.0.1 at 2009-11-09 17:39:32) [GET]
 Rendering template within layouts/application
 Rendering search/find
 Completed in 374ms (View: 336, DB: 85) | 200 OK [http://localhost/search/find]
+  [4;36;1mSQL (144.6ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (79.9ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SearchController#index (for 127.0.0.1 at 2009-11-17 19:54:02) [GET]
+Rendering template within layouts/application
+Rendering search/index
+Completed in 48ms (View: 47, DB: 225) | 200 OK [http://localhost/search/]
+  [4;36;1mSQL (5.5ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-11-17 19:57:21) [GET]
+
+ActionController::RoutingError (No route matches "/get.html" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-11-17 19:57:30) [GET]
+
+ActionController::RoutingError (No route matches "/find.html" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-11-17 19:58:06) [GET]
+
+ActionController::RoutingError (No route matches "/search/find.html" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-11-17 19:58:27) [GET]
+
+ActionController::RoutingError (No route matches "/search/index.html" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SearchController#index (for 127.0.0.1 at 2009-11-17 19:58:35) [GET]
+Rendering template within layouts/application
+Rendering search/index
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://localhost/search/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SearchController#find (for 127.0.0.1 at 2009-11-17 20:00:49) [POST]
+  Parameters: {"authenticity_token"=>"RFElEIxR9w/Vh6YulyLuviTQHKjbkXetCeZlT2GmA78=", "search"=>{"name"=>"foo"}}
+Rendering template within layouts/application
+Rendering search/find
+Completed in 6ms (View: 5, DB: 0) | 200 OK [http://localhost/search/find]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SearchController#find (for 127.0.0.1 at 2009-11-17 20:00:58) [POST]
+  Parameters: {"authenticity_token"=>"RFElEIxR9w/Vh6YulyLuviTQHKjbkXetCeZlT2GmA78=", "search"=>{"name"=>"kip"}}
+Rendering template within layouts/application
+Rendering search/find
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://localhost/search/find]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SearchController#find (for 127.0.0.1 at 2009-11-17 20:00:58) [POST]
+  Parameters: {"authenticity_token"=>"RFElEIxR9w/Vh6YulyLuviTQHKjbkXetCeZlT2GmA78=", "search"=>{"name"=>""}}
+Rendering template within layouts/application
+Rendering search/find
+Completed in 4ms (View: 3, DB: 0) | 200 OK [http://localhost/search/find]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SearchController#find (for 127.0.0.1 at 2009-11-17 20:01:02) [POST]
+  Parameters: {"authenticity_token"=>"RFElEIxR9w/Vh6YulyLuviTQHKjbkXetCeZlT2GmA78=", "search"=>{"name"=>""}}
+Rendering template within layouts/application
+Rendering search/find
+Completed in 5ms (View: 3, DB: 0) | 200 OK [http://localhost/search/find]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SearchController#index (for 127.0.0.1 at 2009-11-17 20:01:12) [GET]
+Rendering template within layouts/application
+Rendering search/index
+Completed in 4ms (View: 3, DB: 0) | 200 OK [http://localhost/search/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SearchController#find (for 127.0.0.1 at 2009-11-17 20:01:18) [POST]
+  Parameters: {"authenticity_token"=>"RFElEIxR9w/Vh6YulyLuviTQHKjbkXetCeZlT2GmA78=", "search"=>{"name"=>"foo"}}
+Rendering template within layouts/application
+Rendering search/find
+Completed in 4ms (View: 3, DB: 0) | 200 OK [http://localhost/search/find]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SearchController#find (for 127.0.0.1 at 2009-11-17 20:01:26) [GET]
+Rendering template within layouts/application
+Rendering search/find
+Completed in 5ms (View: 2, DB: 0) | 200 OK [http://localhost/search/find]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SearchController#index (for 127.0.0.1 at 2009-11-17 20:11:15) [GET]
+Rendering template within layouts/application
+Rendering search/index
+Completed in 14ms (View: 13, DB: 0) | 200 OK [http://localhost/search/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SearchController#find (for 127.0.0.1 at 2009-11-17 20:11:20) [POST]
+  Parameters: {"authenticity_token"=>"RFElEIxR9w/Vh6YulyLuviTQHKjbkXetCeZlT2GmA78=", "search"=>{"name"=>"foo"}}
+Rendering template within layouts/application
+Rendering search/find
+Completed in 3ms (View: 1, DB: 0) | 200 OK [http://localhost/search/find]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SearchController#index (for 127.0.0.1 at 2009-11-17 20:12:36) [GET]
+Rendering template within layouts/application
+Rendering search/index
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://localhost/search]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SearchController#index (for 127.0.0.1 at 2009-11-17 20:26:38) [GET]
+Rendering template within layouts/application
+Rendering search/index
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://localhost/search]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SearchController#find (for 127.0.0.1 at 2009-11-17 20:26:44) [POST]
+  Parameters: {"authenticity_token"=>"RFElEIxR9w/Vh6YulyLuviTQHKjbkXetCeZlT2GmA78=", "search"=>{"name"=>"foo"}}
+Rendering template within layouts/application
+Rendering search/find
+Completed in 61ms (View: 5, DB: 0) | 200 OK [http://localhost/search/find]
+  [4;36;1mSQL (20.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SearchController#index (for 127.0.0.1 at 2009-11-17 20:29:50) [GET]
+Rendering template within layouts/application
+Rendering search/index
+Completed in 3ms (View: 2, DB: 20) | 200 OK [http://localhost/search]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SearchController#find (for 127.0.0.1 at 2009-11-17 20:29:52) [POST]
+  Parameters: {"authenticity_token"=>"RFElEIxR9w/Vh6YulyLuviTQHKjbkXetCeZlT2GmA78=", "search"=>{"name"=>"foo"}}
+Rendering template within layouts/application
+Rendering search/find
+Completed in 7ms (View: 4, DB: 0) | 200 OK [http://localhost/search/find]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SearchController#index (for 127.0.0.1 at 2009-11-17 20:30:25) [GET]
+Rendering template within layouts/application
+Rendering search/index
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://localhost/search]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SearchController#index (for 127.0.0.1 at 2009-11-17 20:30:26) [GET]
+Rendering template within layouts/application
+Rendering search/index
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://localhost/search]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SearchController#find (for 127.0.0.1 at 2009-11-17 20:30:28) [POST]
+  Parameters: {"authenticity_token"=>"RFElEIxR9w/Vh6YulyLuviTQHKjbkXetCeZlT2GmA78=", "search"=>{"name"=>"foo"}}
+Rendering template within layouts/application
+Rendering search/find
+Completed in 6ms (View: 4, DB: 0) | 200 OK [http://localhost/search/find]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SearchController#index (for 127.0.0.1 at 2009-11-17 20:31:51) [GET]
+Rendering template within layouts/application
+Rendering search/index
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://localhost/search]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SearchController#find (for 127.0.0.1 at 2009-11-17 20:31:52) [POST]
+  Parameters: {"authenticity_token"=>"RFElEIxR9w/Vh6YulyLuviTQHKjbkXetCeZlT2GmA78=", "search"=>{"name"=>"foo"}}
+Rendering template within layouts/application
+Rendering search/find
+Completed in 8ms (View: 5, DB: 0) | 200 OK [http://localhost/search/find]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SearchController#index (for 127.0.0.1 at 2009-11-17 20:33:44) [GET]
+Rendering template within layouts/application
+Rendering search/index
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://localhost/search]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SearchController#find (for 127.0.0.1 at 2009-11-17 20:33:46) [POST]
+  Parameters: {"authenticity_token"=>"RFElEIxR9w/Vh6YulyLuviTQHKjbkXetCeZlT2GmA78=", "search"=>{"name"=>"foo"}}
+Rendering template within layouts/application
+Rendering search/find
+Completed in 9ms (View: 5, DB: 0) | 200 OK [http://localhost/search/find]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SearchController#index (for 127.0.0.1 at 2009-11-17 20:34:48) [GET]
+Rendering template within layouts/application
+Rendering search/index
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://localhost/search]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SearchController#index (for 127.0.0.1 at 2009-11-17 20:36:35) [GET]
+Rendering template within layouts/application
+Rendering search/index
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://localhost/search]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SearchController#find (for 127.0.0.1 at 2009-11-17 20:36:36) [POST]
+  Parameters: {"authenticity_token"=>"RFElEIxR9w/Vh6YulyLuviTQHKjbkXetCeZlT2GmA78=", "search"=>{"name"=>"foo"}}
+Rendering template within layouts/application
+Rendering search/find
+Completed in 4ms (View: 1, DB: 0) | 200 OK [http://localhost/search/find]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SearchController#index (for 127.0.0.1 at 2009-11-17 20:36:41) [GET]
+Rendering template within layouts/application
+Rendering search/index
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://localhost/search]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SearchController#find (for 127.0.0.1 at 2009-11-17 20:36:46) [POST]
+  Parameters: {"authenticity_token"=>"RFElEIxR9w/Vh6YulyLuviTQHKjbkXetCeZlT2GmA78=", "search"=>{"name"=>"christine"}}
+Rendering template within layouts/application
+Rendering search/find
+Completed in 5ms (View: 1, DB: 0) | 200 OK [http://localhost/search/find]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (342.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SearchController#find (for 127.0.0.1 at 2009-11-17 20:37:06) [POST]
+  Parameters: {"authenticity_token"=>"RFElEIxR9w/Vh6YulyLuviTQHKjbkXetCeZlT2GmA78=", "search"=>{"name"=>"christine's sexy ass"}}
+Rendering template within layouts/application
+Rendering search/find
+Completed in 4ms (View: 1, DB: 342) | 200 OK [http://localhost/search/find]
+  [4;36;1mSQL (53.8ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SearchController#find (for 127.0.0.1 at 2009-11-18 17:22:40) [GET]
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.[]):
+  app/controllers/search_controller.rb:7:in `find'
+
+Rendered rescues/_trace (779.8ms)
+Rendered rescues/_request_and_response (109.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SearchController#index (for 127.0.0.1 at 2009-11-18 17:22:45) [GET]
+Rendering template within layouts/application
+Rendering search/index
+Completed in 107ms (View: 106, DB: 0) | 200 OK [http://localhost/search]
+  [4;36;1mSQL (119.5ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (40.7ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SearchController#index (for 127.0.0.1 at 2009-11-20 20:14:20) [GET]
+Rendering template within layouts/application
+Rendering search/index
+Completed in 274ms (View: 202, DB: 160) | 200 OK [http://localhost/search/]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SearchController#find (for 127.0.0.1 at 2009-11-20 20:14:27) [POST]
+  Parameters: {"authenticity_token"=>"Y3PtMSgLivYzN1f1yETIyoN3m4KYur7lNLBmTb0vhGc=", "search"=>{"name"=>"foo"}}
+Rendering template within layouts/application
+Rendering search/find
+Completed in 71ms (View: 20, DB: 0) | 200 OK [http://localhost/search/find]

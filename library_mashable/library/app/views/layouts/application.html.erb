@@ -22,13 +22,6 @@
       <p>This site is not affiliated with the Fairfax County Library System or Amazon.com</p>
     </div>
     <div id="columns">
-      <div>
-        <% form_for :search, :url => { :action => :find } do |form| %>
-          <label for="order_name">Book Title:</label>
-          <%= form.text_field :name, :size => 40 %>
-          <input type="submit" value="Search" />
-        <% end %>
-      </div>
       <div id="main">
         <%= yield :layout %>
       </div>
