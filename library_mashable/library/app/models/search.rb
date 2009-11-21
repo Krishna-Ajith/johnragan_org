@@ -1,13 +1,11 @@
 require "net/http"
 require "cgi"
+require "hpricot"
 
 class Search
   def library_data(title)
     begin
-      #h = Net::HTTP.new("johnragan.org", 80)
-      #resp, data = h.get("2009/11/20/dont-make-me-think-the-rest-of-the-book/", nil)
-      encoded_title = CGI::escape(title)
-      data = Net::HTTP.get(URI.parse("http://fcplcat.fairfaxcounty.gov/uhtbin/cgisirsi/x/0/0/5?searchdata1=#{encoded_title}%7B245%7D&library=ALL&user_id=GUEST&password=1111"))
+      data = Net::HTTP.get(URI.parse(library_url(title)))
     rescue => err
       puts "Error2: #{err}"
       exit
@@ -15,4 +13,11 @@ class Search
     RAILS_DEFAULT_LOGGER.info("JPR_response - " + data)
     data
   end
+  
+private
+
+  def library_url(title)
+    encoded_title = CGI::escape(title)
+    "http://fcplcat.fairfaxcounty.gov/uhtbin/cgisirsi/x/0/0/5?searchdata1=#{encoded_title}%7B245%7D&library=ALL&user_id=GUEST&password=1111"
+  end  
 end
