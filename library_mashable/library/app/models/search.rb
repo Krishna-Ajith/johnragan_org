@@ -18,18 +18,27 @@ private
     (doc/".number_and_buttons_container .hold_button").each do |e|
       RAILS_DEFAULT_LOGGER.info e
     end
-    (doc/".itemlisting2 strong").each do |e|
+    (doc/".#{next_listing} strong").each do |e|
       RAILS_DEFAULT_LOGGER.info e
     end  
-    (doc/".itemlisting strong").each do |e|
+    (doc/".#{next_listing} strong").each do |e|
       RAILS_DEFAULT_LOGGER.info e  
     end
-    (doc/".itemlisting2 em").each do |e|
+    (doc/".#{next_listing} em").each do |e|
       RAILS_DEFAULT_LOGGER.info e
     end  
-    (doc/".itemlisting em").each do |e|
+    (doc/".#{next_listing} em").each do |e|
       RAILS_DEFAULT_LOGGER.info e  
     end
     data
+  end
+  
+  def next_listing()
+    if @listing.nil? || @listing == "itemlisting"
+      @listing = "itemlisting2"
+    else
+      @listing = "itemlisting"
+    end
+    @listing  
   end
 end
