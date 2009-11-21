@@ -140,3 +140,41 @@
   [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
   [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
   [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+<div class="hit_list_number">#1</div>
+<div class="hit_list_number">#2</div>
+<div class="hit_list_number">#3</div>
+<div class="hit_list_number">#4</div>
+<div class="hit_list_number">#5</div>
+<input class="hold_button" type="button" value="Place Hold" onclick="document.location.href='/uhtbin/cgisirsi/JXeOSCCD8p/ZTECHOPS/24980079/108?item_id=32769094635994&author=Silva, Daniel, 1960-&title=Moscow rules&callnum=LP FIC SIL';" />
+<input class="hold_button" type="button" value="Place Hold" onclick="document.location.href='/uhtbin/cgisirsi/v44ymFabTl/ZTECHOPS/24980079/108?item_id=32769094981802&author=Silva, Daniel, 1960-&title=Moscow rules [sound recording]&callnum=CD FIC SIL 9 CD';" />
+<input class="hold_button" type="button" value="Place Hold" onclick="document.location.href='/uhtbin/cgisirsi/Y1MJBcuAJX/ZTECHOPS/24980079/108?item_id=32769092557653&author=Silva, Daniel, 1960-&title=Moscow rules&callnum=FIC SIL';" />
+<input class="hold_button" type="button" value="Place Hold" onclick="document.location.href='/uhtbin/cgisirsi/PORGpW6jlA/ZTECHOPS/24980079/108?item_id=32769000868903&author=Moss, Robert, 1946-&title=Moscow rules&callnum=FIC MOS';" />
+<strong>Moscow rules</strong>
+<strong>Moscow rules [sound recording]</strong>
+<strong>Moscow rules</strong>
+<strong>Moscow rules [electronic resource]</strong>
+<strong>Moscow rules</strong>
+<em>&nbsp;[Large print ed.]</em>
+<em>&nbsp;Unabridged.</em>
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
