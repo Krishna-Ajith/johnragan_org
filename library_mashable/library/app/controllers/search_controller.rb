@@ -6,6 +6,6 @@ class SearchController < ApplicationController
   def find
     @name = params[:search][:name]
     # TODO - Handle situations where the library service portion is down.
-    search = Search.new
+    search_library = SearchLibrary.new
   end
 end

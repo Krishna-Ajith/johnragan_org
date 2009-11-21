@@ -2,7 +2,7 @@ require "net/http"
 require "cgi"
 require "hpricot"
 
-class Search
+class SearchLibrary
   def books_in_library(title)
     all_book_records(HtmlPageFetcher.get_page(title))
   end 

@@ -2,15 +2,15 @@ require File.dirname(__FILE__) + '/../test_helper'
 
 class SearchTest < ActiveSupport::TestCase
   def test_get_library_valid_title
-    search = Search.new
-    data = search.books_in_library("moscow rules")
+    search_library = SearchLibrary.new
+    data = search_library.books_in_library("moscow rules")
     assert data =~ /moscow rules/
   end
   
   def test_get_library_invalid_title
     return
-    search = Search.new
-    data = search.books_in_library("asersdfa asfdknewrl")
+    search_library = SearchLibrary.new
+    data = search_library.books_in_library("asersdfa asfdknewrl")
     assert data =~ /asersdfa asfdknewrl/
   end
   

@@ -1,6 +1,8 @@
 class HtmlPageFetcher
   def self.get_page(title)
-    # TODO - Capture any exceptions here and bubble up appropriately.
+    # TODO - Capture any exceptions here and bubble up appropriately.  There are two scenarios:
+    #           1.  The service itself is simply down
+    #           2.  The service itself is simply unavailable (how do we determine this?)
     data = Net::HTTP.get(URI.parse(library_url(title)))
   end  
   
