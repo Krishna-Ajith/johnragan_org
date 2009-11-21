@@ -7348,3 +7348,2947 @@ Also, by setting the "document.new_session.new_gateway_db.value" property to a g
 
 
   [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+JPR_response - <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- Copyright (c) 2000 - 2008, SirsiDynix - Defines the head  body of each page. -->
+
+<html dir="ltr">
+
+<head>
+
+
+  <title>Catalog - Fairfax County Public Library</title>
+
+
+<!-- Set the expiration date to the past so the page will always be reloaded -->
+
+  <!-- Not the login page -->
+
+    <!-- Set the refresh to do an EXIT right before the session times out. This will cause timed out sessions to automatically go back to the login/first page, ready for the next user. - Since there is no way to target the _top frame, cannot do this if any frames are used, else the refresh goes into the main frame. - Also, the URL below has to be a full URL, so cannot do this without using the HTTP_ADDRESS. -->
+
+  <meta http-equiv="refresh" content="510; URL=http://fcplcat.fairfaxcounty.gov/uhtbin/cgisirsi/OTYEVx58fI/ZTECHOPS/134440034/58"/>
+
+
+<link rel="stylesheet" href="/Css/sirsidynix.css" type="text/css" />
+<link rel="stylesheet" href="/Css/elibrary.css" type="text/css" />
+
+<!--[if lt IE 7]>
+<link rel="stylesheet" href="/Css/ie6.css" type="text/css" />
+<![endif]-->
+
+<link rel="stylesheet" href="/Css/custom.css" type="text/css" />
+
+</head>
+<!-- Start the body of the document.  WARNING:  No comments are allowed inside of the body element's definition. - assign CSS Class of 'body_style' to tag -  If this is a download search results state (14, 62), then load the results in a new browser window to facilitate printing. -  If this is an Archive image view state (911), then open a new window to display the image in new window. -  To help prevent premature selection of a toolbar button (i.e., before the new toolbar is loaded), clear it when the page is unloaded. -->
+<body onLoad="">
+
+<noscript>
+Your browser does not support JavaScript and this application utilizes JavaScript to build content and provide links to additional information. You should either enable JavaScript in your browser settings or use a browser that supports JavaScript in order to take full advantage of this application.
+</noscript>
+
+
+<!--  Copyright (c) 1996 - 2008, SirsiDynix - Generic top-of-page for (almost?) all pages. -->
+<!--  Copyright (c) 1996 - 2005, Sirsi Corporation Form for starting a new session in a new window. -->
+
+<!-- By setting the "document.new_session.action" property to the URL for logging into a new session at the particular  page you want, a new window will be opened and a new WebCat session will be started automatically. Remember that many WebCat states are dependent on previous states, so only certain "cgi types" can be opened.
+
+Also, by setting the "document.new_session.new_gateway_db.value" property to a gateway database name, the new session will use that gateway instead of the user's default gateway. Note that the use of Javascript is required to submit this form. -->
+
+<form name="new_session" method="post" action="/uhtbin/cgisirsi/pRHhqTDmMh/ZTECHOPS/0/57/49" target="new_session">
+	
+
+<!-- Dat changed SIRSI_Data Session="USER_ID" to SIRSI_Data Session="USEUSERID_NO" so the library card number is not visible in view source. This is newsession.h. LP/BB 4/2/2009 --> 
+<!-- changed SIRSI_Data Session="USER_ID" to SIRSI_Data Session="USEUSERID_HIDDEN" so the library card number is not visible in view source. This is newsession.h. LP/BB 4/2/2009 --> 
+	<input type="hidden" name="user_id" value=""/>
+
+<!-- Dat changed SIRSI_Data Session="PASSWORD" to SIRSI_Data Session="DISPLAY_PASSWORD_HIDDEN" so the password is not visible in view source. This is newsession.h. LP/BB 4/2/2009 -->
+	<input type="hidden" name="password" value=""/>
+
+
+	
+	<input type="hidden" name="new_gateway_db" value=""/>
+</form>
+
+<!--  Copyright (c) 2000 - 2008, SirsiDynix - Puts the top-of-page information common to all pages. -->
+<a class="skipnav" href="#skipnav"><img src="/WebCat_Images/English/Other/MiscD/clear.gif" height="1" width="1" border="0" alt="Skip navigation" title="Skip navigation"/></a>  <a name="top"></a>
+
+<div id="header_container" class="header_container">
+    <div class="branding_container">
+	<div class="branding_image">
+	
+	</div>
+		<div class="branding_container">
+		   
+		<h3>Fairfax County Public Library Catalog</h3>
+		</div>
+    </div> <!-- end branding -->
+	 <!-- present language choices -->
+		<div class="module_language_choices">
+<!-- Add the Language options -->
+  <!-- Suppress an option for the current language -->
+  <!-- Suppress an option for the current language -->
+    <a href="/uhtbin/cgisirsi/5qFC6UPknQ/ZTECHOPS/134440034/111/SPANISH" title="Spanish" target="_top"><img src="/WebCat_Images/English/Other/MiscD/SPANISH.gif" border=0 class="langicon" alt="&nbsp;Spanish&nbsp;" title="Spanish" align=center></a>
+		</div>
+	
+	<!-- login form-->
+	<div class="top_edge"></div>
+	<div class="right_edge"></div>
+	<div class="bottom_edge"></div>
+	<div class="left_edge"></div>
+	<div class="top_left"></div>
+	<div class="top_right"></div>
+	<div class="bottom_right"></div>
+	<div class="bottom_left"></div>
+</div>
+<div id="header_menu_container" class="header_menu_container">
+<!--  Copyright (c) 1996 - 2006, SirsiDynix - Gateway Root Bar. -->
+    <!-- display text with CSS instead -->
+          <a href="/uhtbin/cgisirsi/khCY8JuHMY/ZTECHOPS/134440034/38/1/X/BLASTOFF" class="rootbar">
+       Search</a>
+          <a href="/uhtbin/cgisirsi/q8Yd0xRpUt/ZTECHOPS/134440034/1/26/X/BLASTOFF" class="rootbar">
+       Find It Fast!</a>
+          <a href="/uhtbin/cgisirsi/VqmdU74afg/ZTECHOPS/134440034/1/774/X/BLASTOFF" class="rootbar">
+       Kids' Library</a>
+          <a href="/uhtbin/cgisirsi/ESedc7timH/ZTECHOPS/134440034/1/1166/X/BLASTOFF" class="rootbar">
+       My Account</a>
+       <!-- URL-type elements use javascript to open a new window directly to the Web site, so cannot use the cgisirsi "BLASTOFF" keyword. -->
+        <a href="https://www.fairfaxcounty.gov/library/ibistrocomments.htm" class="rootbar">
+       Comments</a>
+          <a href="/uhtbin/cgisirsi/AWG5cfRjLi/ZTECHOPS/134440034/1/1189/X/BLASTOFF" class="rootbar">
+       Library Information</a>
+
+
+
+	<div class="top_edge"></div>
+	<div class="right_edge"></div>
+	<div class="bottom_edge"></div>
+	<div class="left_edge"></div>
+	<div class="top_left"></div>
+	<div class="top_right"></div>
+	<div class="bottom_right"></div>
+	<div class="bottom_left"></div>
+</div>
+
+
+
+
+<!--  Copyright (c) 2000 - 2008, SirsiDynix - Symphony Search Hitlist Page; State #4 -->
+
+<script language="JavaScript" type="text/javascript">
+  // Stores the catalog keys of each hit displayed on this page in
+  // the global Javascript variable 'keep_ckeys_array', so that they can
+  // be accessed later by the subroutines that make the "Keep All" button work.
+  var keep_ckeys_array = new Array();
+  setLocalizedValue("alttext_keep_all","Keep All on this Page");
+    keep_ckeys_array.push("503068");
+    keep_ckeys_array.push("501285");
+    keep_ckeys_array.push("489582");
+    keep_ckeys_array.push("479107");
+    keep_ckeys_array.push("6022");
+</script>
+<form name="hitlist" method="post" action="/uhtbin/cgisirsi/RQQUW0rB03/ZTECHOPS/134440034/9">
+
+<!-- Copyright (c) 2000 - 2008, SirsiDynix - Buttons for Search Hitlist page  ; page #4 -->
+<div class="buttons_container">
+<!--
+<table border="0" cellpadding="0" cellspacing="0" width="100%" class="gatewaystyle">
+ <tr>
+  <td class="gatewaystyle">
+-->
+   <!-- Go back button -->
+  <a class="menu_link" href="/uhtbin/cgisirsi/teOrTOajYt/ZTECHOPS/134440034/2/2" title="Go Back">Go Back</a>
+
+<!--
+   <a class="menu_link" href="/uhtbin/cgisirsi/UX24F6VuSa/ZTECHOPS/134440034/2/2" title="Go Back" alt="Go Back">GO BACK</a>
+   -->
+
+<!-- Help button -->
+<script language="javascript" type="text/javascript">
+  //<![CDATA[
+  put_help_button('English','Help','search_results.html');
+  //]]> 
+</script>
+	
+
+  <a class="menu_link" href="#search_form" title="Limit Search">Limit Search</a>
+	
+	
+<a class="menu_link" href="/uhtbin/cgisirsi/6BSHOHQAWM/ZTECHOPS/134440034/49" title="New Search">New Search</a>
+
+<!-- Backward button -->
+
+
+<!-- Forward button -->
+
+	
+<!-- Cross Reference button -->
+
+  
+
+
+
+	
+  <!-- Kept Button -->
+<!-- Commented out to remove the KEPT button from the top toolbar LP/BB 2/20/2009-->
+<!--
+  <a class="menu_link" href="javascript:document.hitlist.form_type.value = 'CAPTURE'; document.hitlist.submit()">Kept</a>
+-->
+
+  <!-- gateway's custom buttons -->
+	
+
+
+   <a class="menu_link" href="/uhtbin/cgisirsi/UmDGWt4rpf/ZTECHOPS/134440034/58" title="Logout" target="_top">Logout</a>
+<a name="skipnav"></a>
+	<div class="top_edge"></div>
+	<div class="right_edge"></div>
+	<div class="bottom_edge"></div>
+	<div class="left_edge"></div>
+	<div class="top_left"></div>
+	<div class="top_right"></div>
+	<div class="bottom_right"></div>
+	<div class="bottom_left"></div>	
+</div>
+
+<input type="hidden" name="first_hit" value="1"/>
+<input type="hidden" name="last_hit" value="5"/>
+<input type="hidden" name="form_type" value=""/>
+
+<div class="content_container hit_list">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" align="center" title="" summary="This table positions all the elements on this page.">
+  <tr>
+    <td valign="top" class="searchsum_container"> <!-- begin container cell -->
+	   
+<table class="hitstop" border="0" cellpadding="2" cellspacing="0" align="center" width="100%">
+  <tr>
+    <td class="content_header">
+          Search Results
+    </td>
+   </tr>
+   <tr>
+     <td class="searchsum">
+  <!-- Print the message, if one exists -->
+		
+    <p class="searchsum">
+<!--  Copyright (c) 2000 - 2003, Sirsi Corporation - Catalog Keyword search summary; eLibrary -->
+<!-- Print the search summary -->
+<strong>
+    "moscow rules{245}"
+
+
+
+
+
+
+
+</strong>
+          search found
+          <em>5</em>
+          titles.<br/>
+
+
+     </td>
+   </tr>
+   <tr>
+     <td class="searchsum">
+
+
+     </td>
+  </tr>
+</table>
+
+
+
+
+<!-- Dynamic content lookup -->
+
+  
+   
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+  
+ <!-- eLibrary configured with content -->
+<!-- end of dynamic content lookup -->
+
+
+<!-- This evaulates the hitlist number (DC="WD") to be even or odd, and assigns alternating classes so that the hitlist alternates row colors -->
+
+
+
+  
+
+
+
+
+
+
+<!-- Dynamic content lookup -->
+
+
+
+<!-- dynamic content lookup -->
+
+<div class="hit_list_row">
+
+  <div class="itemlisting2 number_and_buttons_container">
+      <!-- hitlist number -->
+     <div class="hit_list_number">#1</div>
+    
+      <!-- full details -->
+      <input type="submit" value="Details" name="VIEW^1" id="VIEW1" class="itemdetails_button"/>			 
+    
+
+    <!-- keep/remove function -->
+<!--This comment removes the "Keep" button from the search results page. BB/LP 2/19/2009
+     
+    
+
+    <script language="javascript" type="text/javascript">
+      //<![CDATA[
+      put_keepremove_button('503068', 'Keep','/WebCat_Images/English/Other/MiscD','Keep','/uhtbin/cgisirsi/K82R43qbba/ZTECHOPS','134440034','Remove');
+      //]]>
+    </script>
+-->
+    
+      
+        
+
+          <input value="Place Hold" class="hold_button" type="button" onClick="document.location.href='/uhtbin/cgisirsi/iGDru9BthX/ZTECHOPS/134440034/108?item_id=32769094635994&author=Silva, Daniel, 1960-&title=Moscow rules&callnum=LP FIC SIL';">
+
+         <!-- hold link for all copies -->
+       
+     <!-- hold link -->
+
+     <!-- end of icon map stuff -->    
+
+    
+  </div>
+  <div class="hit_list_holdings_info"><!-- call number -->
+    
+    
+          <!-- holdings allowed -->
+        
+	  <strong>LP FIC SIL</strong><br/>
+	
+      
+    
+
+   
+ <!-- bib information -->
+     <label for="VIEW1" class="itemlisting2">
+     
+        <!-- title -->
+         
+           <strong>Moscow rules</strong>
+         
+       
+     
+	 <!-- and/or display linked 880 data -->
+	 
+	 
+
+     
+        <!-- edition -->
+         <em>&nbsp;[Large print ed.]</em>
+	  
+     
+	 <!-- and/or display linked 880 data -->
+	 
+     
+        <!-- author -->
+         
+           <br/>&nbsp;&nbsp;Silva, Daniel, 1960-
+         
+       
+     
+	 <!-- and/or display linked 880 data -->
+	 
+     </label>
+     
+        <!-- list field 3 -->
+         <br/>&nbsp;&nbsp;[Large print ed.]
+       
+     
+	 <!-- and/or display linked 880 data -->
+	 
+     
+       
+     
+ 	 <!-- and/or display linked 880 data -->
+	 
+
+      
+
+    <!-- summary holdings statements -->
+    <p>
+          
+            
+              
+                
+                  
+                    5 copies available at CHANTILLY REGIONAL, CITY OF FAIRFAX REGIONAL, GEORGE MASON REGIONAL, KINGS PARK, and PATRICK HENRY
+                  
+		
+              
+            
+          
+
+    
+      
+    
+
+    
+    </p>     
+  </div>
+  
+  
+    <div class="pub_date_book_cover_container" align="right"> <!-- publication date -->
+     
+       <strong>2008</strong>
+     	
+  
+    
+       <input type="image" src="http://syndetics.com/index.aspx?isbn=9781597227032/SC.GIF&client=sirsi&type=rw12" alt="[Cover]" name="VIEW^1"/><br/>
+       
+    
+  
+     <!-- eLibrary configured with content -->
+  </div>
+  
+  
+  
+  
+
+   <div class="itemlisting2 enrichment_container" align="right">
+    <!-- ebook, enrichment images, URL, DMA images/links -->
+     &nbsp;
+     
+
+   <!-- only view enrichments when configured to do so -->
+     
+
+     
+
+     
+
+     
+
+     
+
+     
+
+     
+
+     
+
+     <!-- LJ review -->
+     
+
+     <!-- SLJ review -->
+     
+
+     
+
+     <!-- BookList review -->
+     
+
+     <!-- CHOICE review -->
+     
+
+     
+
+   <!-- eLibrary configured with content -->
+ 
+      
+       
+     
+      
+      <!-- not BWI ebook -->
+
+         
+  </div>
+</div>	 
+
+<!-- This evaulates the hitlist number (DC="WD") to be even or odd, and assigns alternating classes so that the hitlist alternates row colors -->
+
+
+
+  
+
+
+
+
+
+
+<!-- Dynamic content lookup -->
+
+
+
+<!-- dynamic content lookup -->
+
+<div class="hit_list_row">
+
+  <div class="itemlisting number_and_buttons_container">
+      <!-- hitlist number -->
+     <div class="hit_list_number">#2</div>
+    
+      <!-- full details -->
+      <input type="submit" value="Details" name="VIEW^2" id="VIEW2" class="itemdetails_button"/>			 
+    
+
+    <!-- keep/remove function -->
+<!--This comment removes the "Keep" button from the search results page. BB/LP 2/19/2009
+     
+    
+
+    <script language="javascript" type="text/javascript">
+      //<![CDATA[
+      put_keepremove_button('501285', 'Keep','/WebCat_Images/English/Other/MiscD','Keep','/uhtbin/cgisirsi/Fidr6FwahJ/ZTECHOPS','134440034','Remove');
+      //]]>
+    </script>
+-->
+    
+      
+         <!-- hold link for all copies -->
+       
+     <!-- hold link -->
+
+     <!-- end of icon map stuff -->    
+
+    
+  </div>
+  <div class="hit_list_holdings_info"><!-- call number -->
+    
+    
+          <!-- holdings allowed -->
+        
+	  <strong>EAUDIOBOOK</strong><br/>
+	
+      
+    
+
+   
+ <!-- bib information -->
+     <label for="VIEW2" class="itemlisting">
+     
+        <!-- title -->
+         
+           <strong>Moscow rules [electronic resource]</strong>
+         
+       
+     
+	 <!-- and/or display linked 880 data -->
+	 
+	 
+
+     
+       
+     
+	 <!-- and/or display linked 880 data -->
+	 
+     
+        <!-- author -->
+         
+           <br/>&nbsp;&nbsp;Silva, Daniel, 1960-
+         
+       
+     
+	 <!-- and/or display linked 880 data -->
+	 
+     </label>
+     
+       
+     
+	 <!-- and/or display linked 880 data -->
+	 
+     
+       
+     
+ 	 <!-- and/or display linked 880 data -->
+	 
+
+      
+
+    <!-- summary holdings statements -->
+    <p>
+          
+            
+              
+                
+                  
+                    1 copy available at ZTECHNICAL OPERATIONS in<br/>
+ 	             
+		      Online
+                    
+                  
+		
+              
+            
+          
+
+    
+      
+    
+
+    
+    </p>     
+  </div>
+  
+  
+    <div class="pub_date_book_cover_container" align="right"> <!-- publication date -->
+     
+       <strong>2008</strong>
+     	
+  
+    
+      
+    
+  
+     <!-- eLibrary configured with content -->
+  </div>
+  
+  
+  
+  
+
+   <div class="itemlisting enrichment_container" align="right">
+    <!-- ebook, enrichment images, URL, DMA images/links -->
+     &nbsp;
+     
+
+   <!-- only view enrichments when configured to do so -->
+     
+
+     
+
+     
+
+     
+
+     
+
+     
+
+     
+
+     
+
+     <!-- LJ review -->
+     
+
+     <!-- SLJ review -->
+      
+       
+         
+           <input type="image" class="enrichmenticon" src="/WebCat_Images/English/Special/Bistro/REVIEW.gif" alt="Review" title="Review" name="VIEW^2"/>
+           
+	 
+       	 
+     
+
+     
+
+     <!-- BookList review -->
+     
+
+     <!-- CHOICE review -->
+     
+
+     
+
+   <!-- eLibrary configured with content -->
+ 
+      
+       
+     
+      
+       <!-- URL-type tag -->
+        <!-- BWI ignored or not BWI ebook -->
+          <!-- netLibrary not used or ignored -->
+         
+           <a href="javascript:open_win('http://fairfax.lib.overdrive.com/ContentDetails.htm?ID=BE83C66F-54EF-4E63-9DF8-695972CB34CD')">
+         
+         <img src="/WebCat_Images/English/Special/Bistro/URL2.gif" alt="Visit new URL: http://fairfax.lib.overdrive.com/ContentDetails.htm?ID=BE83C66F-54EF-4E63-9DF8-695972CB34CD" title="Visit new URL: http://fairfax.lib.overdrive.com/ContentDetails.htm?ID=BE83C66F-54EF-4E63-9DF8-695972CB34CD" border="0"/></a>
+       
+        <!-- netLibrary not used -->
+       <!-- not BWI ebook -->
+
+         
+  </div>
+</div>	 
+
+<!-- This evaulates the hitlist number (DC="WD") to be even or odd, and assigns alternating classes so that the hitlist alternates row colors -->
+
+
+
+  
+
+
+
+
+
+
+<!-- Dynamic content lookup -->
+
+
+
+<!-- dynamic content lookup -->
+
+<div class="hit_list_row">
+
+  <div class="itemlisting2 number_and_buttons_container">
+      <!-- hitlist number -->
+     <div class="hit_list_number">#3</div>
+    
+      <!-- full details -->
+      <input type="submit" value="Details" name="VIEW^3" id="VIEW3" class="itemdetails_button"/>			 
+    
+
+    <!-- keep/remove function -->
+<!--This comment removes the "Keep" button from the search results page. BB/LP 2/19/2009
+     
+    
+
+    <script language="javascript" type="text/javascript">
+      //<![CDATA[
+      put_keepremove_button('489582', 'Keep','/WebCat_Images/English/Other/MiscD','Keep','/uhtbin/cgisirsi/O1IYa1JBzL/ZTECHOPS','134440034','Remove');
+      //]]>
+    </script>
+-->
+    
+      
+        
+
+          <input value="Place Hold" class="hold_button" type="button" onClick="document.location.href='/uhtbin/cgisirsi/AtN1AJU0ET/ZTECHOPS/134440034/108?item_id=32769094981802&author=Silva, Daniel, 1960-&title=Moscow rules [sound recording]&callnum=CD FIC SIL 9 CD';">
+
+         <!-- hold link for all copies -->
+       
+     <!-- hold link -->
+
+     <!-- end of icon map stuff -->    
+
+    
+  </div>
+  <div class="hit_list_holdings_info"><!-- call number -->
+    
+    
+          <!-- holdings allowed -->
+        
+	  <strong>CD FIC SIL 9 CD</strong><br/>
+	
+      
+    
+
+   
+ <!-- bib information -->
+     <label for="VIEW3" class="itemlisting2">
+     
+        <!-- title -->
+         
+           <strong>Moscow rules [sound recording]</strong>
+         
+       
+     
+	 <!-- and/or display linked 880 data -->
+	 
+	 
+
+     
+        <!-- edition -->
+         <em>&nbsp;Unabridged.</em>
+	  
+     
+	 <!-- and/or display linked 880 data -->
+	 
+     
+        <!-- author -->
+         
+           <br/>&nbsp;&nbsp;Silva, Daniel, 1960-
+         
+       
+     
+	 <!-- and/or display linked 880 data -->
+	 
+     </label>
+     
+       
+     
+	 <!-- and/or display linked 880 data -->
+	 
+     
+       
+     
+ 	 <!-- and/or display linked 880 data -->
+	 
+
+      
+
+    <!-- summary holdings statements -->
+    <p>
+          
+            
+              
+                
+                  
+                    8 copies available at GREAT FALLS, HERNDON FORTNIGHTLY, MARTHA WASHINGTON, PATRICK HENRY, TYSONS-PIMMIT REGIONAL, WOODROW WILSON, BURKE CENTRE, and OAKTON
+                  
+		
+              
+            
+          
+
+    
+      
+    
+
+    
+    </p>     
+  </div>
+  
+  
+    <div class="pub_date_book_cover_container" align="right"> <!-- publication date -->
+     
+       <strong>2008</strong>
+     	
+  
+    
+       <input type="image" src="http://syndetics.com/index.aspx?isbn=9781423327981/SC.GIF&client=sirsi&type=rw12" alt="[Cover]" name="VIEW^3"/><br/>
+       
+    
+  
+     <!-- eLibrary configured with content -->
+  </div>
+  
+  
+  
+  
+
+   <div class="itemlisting2 enrichment_container" align="right">
+    <!-- ebook, enrichment images, URL, DMA images/links -->
+     &nbsp;
+     
+
+   <!-- only view enrichments when configured to do so -->
+     
+
+     
+
+     
+       <input type="image" class="enrichmenticon" src="/WebCat_Images/English/Special/Bistro/SUMMARY.gif" alt="Summary" title="Summary" name="VIEW^3"/>
+       
+     
+
+     
+
+     
+
+     
+
+     
+
+     
+
+     <!-- LJ review -->
+     
+
+     <!-- SLJ review -->
+      
+       
+         
+           <input type="image" class="enrichmenticon" src="/WebCat_Images/English/Special/Bistro/REVIEW.gif" alt="Review" title="Review" name="VIEW^3"/>
+           
+	 
+       	 
+     
+
+     
+
+     <!-- BookList review -->
+     
+
+     <!-- CHOICE review -->
+     
+
+     
+
+   <!-- eLibrary configured with content -->
+ 
+      
+       
+     
+      
+      <!-- not BWI ebook -->
+
+         
+  </div>
+</div>	 
+
+<!-- This evaulates the hitlist number (DC="WD") to be even or odd, and assigns alternating classes so that the hitlist alternates row colors -->
+
+
+
+  
+
+
+
+
+
+
+<!-- Dynamic content lookup -->
+
+
+
+<!-- dynamic content lookup -->
+
+<div class="hit_list_row">
+
+  <div class="itemlisting number_and_buttons_container">
+      <!-- hitlist number -->
+     <div class="hit_list_number">#4</div>
+    
+      <!-- full details -->
+      <input type="submit" value="Details" name="VIEW^4" id="VIEW4" class="itemdetails_button"/>			 
+    
+
+    <!-- keep/remove function -->
+<!--This comment removes the "Keep" button from the search results page. BB/LP 2/19/2009
+     
+    
+
+    <script language="javascript" type="text/javascript">
+      //<![CDATA[
+      put_keepremove_button('479107', 'Keep','/WebCat_Images/English/Other/MiscD','Keep','/uhtbin/cgisirsi/bfFWSb502N/ZTECHOPS','134440034','Remove');
+      //]]>
+    </script>
+-->
+    
+      
+        
+
+          <input value="Place Hold" class="hold_button" type="button" onClick="document.location.href='/uhtbin/cgisirsi/ARP7qOpet8/ZTECHOPS/134440034/108?item_id=32769092557653&author=Silva, Daniel, 1960-&title=Moscow rules&callnum=FIC SIL';">
+
+         <!-- hold link for all copies -->
+       
+     <!-- hold link -->
+
+     <!-- end of icon map stuff -->    
+
+    
+  </div>
+  <div class="hit_list_holdings_info"><!-- call number -->
+    
+    
+          <!-- holdings allowed -->
+        
+	  <strong>FIC SIL</strong><br/>
+	
+      
+    
+
+   
+ <!-- bib information -->
+     <label for="VIEW4" class="itemlisting">
+     
+        <!-- title -->
+         
+           <strong>Moscow rules</strong>
+         
+       
+     
+	 <!-- and/or display linked 880 data -->
+	 
+	 
+
+     
+       
+     
+	 <!-- and/or display linked 880 data -->
+	 
+     
+        <!-- author -->
+         
+           <br/>&nbsp;&nbsp;Silva, Daniel, 1960-
+         
+       
+     
+	 <!-- and/or display linked 880 data -->
+	 
+     </label>
+     
+       
+     
+	 <!-- and/or display linked 880 data -->
+	 
+     
+       
+     
+ 	 <!-- and/or display linked 880 data -->
+	 
+
+      
+
+    <!-- summary holdings statements -->
+    <p>
+          
+            
+              
+                
+                  
+                    46 copies available at ACCESS SERVICES, CENTREVILLE REGIONAL, CHANTILLY REGIONAL, DOLLEY MADISON, CITY OF FAIRFAX REGIONAL, GREAT FALLS, GEORGE MASON REGIONAL, HERNDON FORTNIGHTLY, KINGSTOWNE, KINGS PARK, LORTON, MARTHA WASHINGTON, PATRICK HENRY, POHICK REGIONAL, RICHARD BYRD, RESTON REGIONAL, SHERWOOD REGIONAL, THOMAS JEFFERSON, WOODROW WILSON, BURKE CENTRE, and OAKTON
+                  
+		
+              
+            
+          
+
+    
+      
+    
+
+    
+    </p>     
+  </div>
+  
+  
+    <div class="pub_date_book_cover_container" align="right"> <!-- publication date -->
+     
+       <strong>2008</strong>
+     	
+  
+    
+       <input type="image" src="http://syndetics.com/index.aspx?isbn=9780399155017/SC.GIF&client=sirsi&type=rw12" alt="[Cover]" name="VIEW^4"/><br/>
+       
+    
+  
+     <!-- eLibrary configured with content -->
+  </div>
+  
+  
+  
+  
+
+   <div class="itemlisting enrichment_container" align="right">
+    <!-- ebook, enrichment images, URL, DMA images/links -->
+     &nbsp;
+     
+
+   <!-- only view enrichments when configured to do so -->
+     
+
+     
+
+     
+
+     
+
+     
+
+     
+
+     
+
+     
+
+     <!-- LJ review -->
+      
+       
+         
+           <input type="image" class="enrichmenticon" src="/WebCat_Images/English/Special/Bistro/REVIEW.gif" alt="Review" title="Review" name="VIEW^4"/>
+           
+	 
+       	 
+     
+
+     <!-- SLJ review -->
+     
+
+     
+
+     <!-- BookList review -->
+      
+       
+         
+       	 
+     
+
+     <!-- CHOICE review -->
+     
+
+     
+
+   <!-- eLibrary configured with content -->
+ 
+      
+       
+     
+      
+      <!-- not BWI ebook -->
+
+         
+  </div>
+</div>	 
+
+<!-- This evaulates the hitlist number (DC="WD") to be even or odd, and assigns alternating classes so that the hitlist alternates row colors -->
+
+
+
+  
+
+
+
+
+
+
+<!-- Dynamic content lookup -->
+
+
+
+<!-- dynamic content lookup -->
+
+<div class="hit_list_row">
+
+  <div class="itemlisting2 number_and_buttons_container">
+      <!-- hitlist number -->
+     <div class="hit_list_number">#5</div>
+    
+      <!-- full details -->
+      <input type="submit" value="Details" name="VIEW^5" id="VIEW5" class="itemdetails_button"/>			 
+    
+
+    <!-- keep/remove function -->
+<!--This comment removes the "Keep" button from the search results page. BB/LP 2/19/2009
+     
+    
+
+    <script language="javascript" type="text/javascript">
+      //<![CDATA[
+      put_keepremove_button('6022', 'Keep','/WebCat_Images/English/Other/MiscD','Keep','/uhtbin/cgisirsi/wGI988uBlF/ZTECHOPS','134440034','Remove');
+      //]]>
+    </script>
+-->
+    
+      
+        
+
+          <input value="Place Hold" class="hold_button" type="button" onClick="document.location.href='/uhtbin/cgisirsi/mEaciOV8as/ZTECHOPS/134440034/108?item_id=32769000868903&author=Moss, Robert, 1946-&title=Moscow rules&callnum=FIC MOS';">
+
+         <!-- hold link for all copies -->
+       
+     <!-- hold link -->
+
+     <!-- end of icon map stuff -->    
+
+    
+  </div>
+  <div class="hit_list_holdings_info"><!-- call number -->
+    
+    
+          <!-- holdings allowed -->
+        
+	  <strong>FIC MOS</strong><br/>
+	
+      
+    
+
+   
+ <!-- bib information -->
+     <label for="VIEW5" class="itemlisting2">
+     
+        <!-- title -->
+         
+           <strong>Moscow rules</strong>
+         
+       
+     
+	 <!-- and/or display linked 880 data -->
+	 
+	 
+
+     
+       
+     
+	 <!-- and/or display linked 880 data -->
+	 
+     
+        <!-- author -->
+         
+           <br/>&nbsp;&nbsp;Moss, Robert, 1946-
+         
+       
+     
+	 <!-- and/or display linked 880 data -->
+	 
+     </label>
+     
+       
+     
+	 <!-- and/or display linked 880 data -->
+	 
+     
+       
+     
+ 	 <!-- and/or display linked 880 data -->
+	 
+
+      
+
+    <!-- summary holdings statements -->
+    <p>
+          
+            
+              
+                
+                  
+                    2 copies available at CITY OF FAIRFAX REGIONAL and SHERWOOD REGIONAL
+                  
+		
+              
+            
+          
+
+    
+      
+    
+
+    
+    </p>     
+  </div>
+  
+  
+    <div class="pub_date_book_cover_container" align="right"> <!-- publication date -->
+     
+       <strong>1985</strong>
+     	
+  
+    
+      
+    
+  
+     <!-- eLibrary configured with content -->
+  </div>
+  
+  
+  
+  
+
+   <div class="itemlisting2 enrichment_container" align="right">
+    <!-- ebook, enrichment images, URL, DMA images/links -->
+     &nbsp;
+     
+
+   <!-- only view enrichments when configured to do so -->
+     
+
+     
+
+     
+
+     
+
+     
+
+     
+
+     
+
+     
+
+     <!-- LJ review -->
+     
+
+     <!-- SLJ review -->
+     
+
+     
+
+     <!-- BookList review -->
+     
+
+     <!-- CHOICE review -->
+     
+
+     
+
+   <!-- eLibrary configured with content -->
+ 
+      
+       
+     
+      
+      <!-- not BWI ebook -->
+
+         
+  </div>
+</div>	 
+
+
+
+    </td> <!-- end container cell -->
+  </tr>
+</table>
+	<div class="top_edge"></div>
+	<div class="right_edge"></div>
+	<div class="bottom_edge"></div>
+	<div class="left_edge"></div>
+	<div class="top_left"></div>
+	<div class="top_right"></div>
+	<div class="bottom_right"></div>
+	<div class="bottom_left"></div>	
+</div>
+
+
+
+
+	<br/>
+
+		
+		
+<!--  Copyright (c) 2000, 2003 Sirsi Corporation - Cross Reference "quick-view" box. This page file is processed by a SIRSI_Command for an So response. -->
+ <!-- if xref list present -->
+		
+		<div class="top_edge"></div>
+		<div class="right_edge"></div>
+		<div class="bottom_edge"></div>
+		<div class="left_edge"></div>
+		<div class="top_left"></div>
+		<div class="top_right"></div>
+		<div class="bottom_right"></div>
+		<div class="bottom_left"></div>
+	
+	    
+    <div class="top_edge"></div>
+	<div class="right_edge"></div>
+	<div class="bottom_edge"></div>
+	<div class="left_edge"></div>
+	<div class="top_left"></div>
+	<div class="top_right"></div>
+	<div class="bottom_right"></div>
+	<div class="bottom_left"></div>	
+</div>
+
+
+
+
+
+
+</form> 
+
+	  
+<div class="content_container quick_search">
+<!-- Print the query form if this is the page immediately following the query. QUERY_TYPE is defined only for the page generated immediately after the search form is submitted. -->
+
+<a name="search_form"></a>
+<table border="0" cellpadding="0" cellspacing="10" width="100%" align="center" title="" summary="This table positions all the elements on this page.">
+ <tr>
+  <td>
+
+  </td>
+  <td class="defaultstyle" width="25%">&nbsp;</td>
+ </tr>
+</table>
+</div>
+<!--  Copyright (c) 2000 - 2003, Sirsi Corporation - LC Category hidden search form for javascript to work. -->
+<form name="lc_search_form" method="post" action="/uhtbin/cgisirsi/LntGYQP3zX/ZTECHOPS/134440034/5/5/110/1">
+  <input type="hidden" name="searchdata1" value=""/>
+  <input type="hidden" name="search_disp_data1" value=""/>
+</form>
+
+<form name="lc_return_form" method="post" action="/uhtbin/cgisirsi/ALo1zVxkwg/ZTECHOPS/134440034/5/0/110/0">
+  <input type="hidden" name="searchdata1" value=""/>
+  <input type="hidden" name="sort_by" value=""/>
+</form>
+
+
+
+
+<!-- Copyright (c) 2000 - 2008, SirsiDynix - Buttons for Search Hitlist page  ; page #4 -->
+<div class="buttons_container">
+<!--
+<table border="0" cellpadding="0" cellspacing="0" width="100%" class="gatewaystyle">
+ <tr>
+  <td class="gatewaystyle">
+-->
+   <!-- Go back button -->
+  <a class="menu_link" href="/uhtbin/cgisirsi/MKqEdN9n7S/ZTECHOPS/134440034/2/2" title="Go Back">Go Back</a>
+
+<!--
+   <a class="menu_link" href="/uhtbin/cgisirsi/cDh18WSQGR/ZTECHOPS/134440034/2/2" title="Go Back" alt="Go Back">GO BACK</a>
+   -->
+
+<!-- Help button -->
+<script language="javascript" type="text/javascript">
+  //<![CDATA[
+  put_help_button('English','Help','search_results.html');
+  //]]> 
+</script>
+	
+
+  <a class="menu_link" href="#search_form" title="Limit Search">Limit Search</a>
+	
+	
+<a class="menu_link" href="/uhtbin/cgisirsi/T88s8EfI53/ZTECHOPS/134440034/49" title="New Search">New Search</a>
+
+<!-- Backward button -->
+
+
+<!-- Forward button -->
+
+	
+<!-- Cross Reference button -->
+
+  
+
+
+
+	
+  <!-- Kept Button -->
+<!-- Commented out to remove the KEPT button from the top toolbar LP/BB 2/20/2009-->
+<!--
+  <a class="menu_link" href="javascript:document.hitlist.form_type.value = 'CAPTURE'; document.hitlist.submit()">Kept</a>
+-->
+
+  <!-- gateway's custom buttons -->
+	
+
+
+   <a class="menu_link" href="/uhtbin/cgisirsi/rX3KqHAX3S/ZTECHOPS/134440034/58" title="Logout" target="_top">Logout</a>
+<a name="skipnav"></a>
+	<div class="top_edge"></div>
+	<div class="right_edge"></div>
+	<div class="bottom_edge"></div>
+	<div class="left_edge"></div>
+	<div class="top_left"></div>
+	<div class="top_right"></div>
+	<div class="bottom_right"></div>
+	<div class="bottom_left"></div>	
+</div>
+<div class="footer_container">
+<!--  Copyright (c) 1996 - 2008, SirsiDynix - Copyright statement -->
+<table border="0" cellpadding="3" cellspacing="0" width="100%" class="footer">
+ <tr>
+  <td align="center" valign="bottom" width="15%" class="footer">
+      <img src="/WebCat_Images/English/Other/MiscD/sirsi_button.gif" alt="Powered by: Sirsi Corporation" border="0"/>
+  </td>
+  <td align="center" class="footer"><!-- Display the description -->
+
+   <br/> 
+   <br/>
+     Copyright &#169; 2000 - 2008, SirsiDynix
+  </td>
+  <td align="center" width="15%" class="footer"><a name="bottom" href="#top">Top</a></td>
+ </tr>
+</table>
+<div class="top_edge"></div>
+<div class="right_edge"></div>
+<div class="bottom_edge"></div>
+<div class="left_edge"></div>
+<div class="top_left"></div>
+<div class="top_right"></div>
+<div class="bottom_right"></div>
+<div class="bottom_left"></div>
+</div>		
+</body>
+</html>
+
+
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+JPR_response - <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- Copyright (c) 2000 - 2008, SirsiDynix - Defines the head  body of each page. -->
+
+<html dir="ltr">
+
+<head>
+
+
+  <title>Catalog - Fairfax County Public Library</title>
+
+
+<!-- Set the expiration date to the past so the page will always be reloaded -->
+
+  <!-- Not the login page -->
+
+    <!-- Set the refresh to do an EXIT right before the session times out. This will cause timed out sessions to automatically go back to the login/first page, ready for the next user. - Since there is no way to target the _top frame, cannot do this if any frames are used, else the refresh goes into the main frame. - Also, the URL below has to be a full URL, so cannot do this without using the HTTP_ADDRESS. -->
+
+  <meta http-equiv="refresh" content="510; URL=http://fcplcat.fairfaxcounty.gov/uhtbin/cgisirsi/371CJ2sQYM/ZTECHOPS/9080003/58"/>
+
+
+<link rel="stylesheet" href="/Css/sirsidynix.css" type="text/css" />
+<link rel="stylesheet" href="/Css/elibrary.css" type="text/css" />
+
+<!--[if lt IE 7]>
+<link rel="stylesheet" href="/Css/ie6.css" type="text/css" />
+<![endif]-->
+
+<link rel="stylesheet" href="/Css/custom.css" type="text/css" />
+
+</head>
+<!-- Start the body of the document.  WARNING:  No comments are allowed inside of the body element's definition. - assign CSS Class of 'body_style' to tag -  If this is a download search results state (14, 62), then load the results in a new browser window to facilitate printing. -  If this is an Archive image view state (911), then open a new window to display the image in new window. -  To help prevent premature selection of a toolbar button (i.e., before the new toolbar is loaded), clear it when the page is unloaded. -->
+<body onLoad="">
+
+<noscript>
+Your browser does not support JavaScript and this application utilizes JavaScript to build content and provide links to additional information. You should either enable JavaScript in your browser settings or use a browser that supports JavaScript in order to take full advantage of this application.
+</noscript>
+
+
+<!--  Copyright (c) 1996 - 2008, SirsiDynix - Generic top-of-page for (almost?) all pages. -->
+<!--  Copyright (c) 1996 - 2005, Sirsi Corporation Form for starting a new session in a new window. -->
+
+<!-- By setting the "document.new_session.action" property to the URL for logging into a new session at the particular  page you want, a new window will be opened and a new WebCat session will be started automatically. Remember that many WebCat states are dependent on previous states, so only certain "cgi types" can be opened.
+
+Also, by setting the "document.new_session.new_gateway_db.value" property to a gateway database name, the new session will use that gateway instead of the user's default gateway. Note that the use of Javascript is required to submit this form. -->
+
+<form name="new_session" method="post" action="/uhtbin/cgisirsi/Xzqitkb5nP/ZTECHOPS/0/57/49" target="new_session">
+	
+
+<!-- Dat changed SIRSI_Data Session="USER_ID" to SIRSI_Data Session="USEUSERID_NO" so the library card number is not visible in view source. This is newsession.h. LP/BB 4/2/2009 --> 
+<!-- changed SIRSI_Data Session="USER_ID" to SIRSI_Data Session="USEUSERID_HIDDEN" so the library card number is not visible in view source. This is newsession.h. LP/BB 4/2/2009 --> 
+	<input type="hidden" name="user_id" value=""/>
+
+<!-- Dat changed SIRSI_Data Session="PASSWORD" to SIRSI_Data Session="DISPLAY_PASSWORD_HIDDEN" so the password is not visible in view source. This is newsession.h. LP/BB 4/2/2009 -->
+	<input type="hidden" name="password" value=""/>
+
+
+	
+	<input type="hidden" name="new_gateway_db" value=""/>
+</form>
+
+<!--  Copyright (c) 2000 - 2008, SirsiDynix - Puts the top-of-page information common to all pages. -->
+<a class="skipnav" href="#skipnav"><img src="/WebCat_Images/English/Other/MiscD/clear.gif" height="1" width="1" border="0" alt="Skip navigation" title="Skip navigation"/></a>  <a name="top"></a>
+
+<div id="header_container" class="header_container">
+    <div class="branding_container">
+	<div class="branding_image">
+	
+	</div>
+		<div class="branding_container">
+		   
+		<h3>Fairfax County Public Library Catalog</h3>
+		</div>
+    </div> <!-- end branding -->
+	 <!-- present language choices -->
+		<div class="module_language_choices">
+<!-- Add the Language options -->
+  <!-- Suppress an option for the current language -->
+  <!-- Suppress an option for the current language -->
+    <a href="/uhtbin/cgisirsi/mm965sH5mO/ZTECHOPS/9080003/111/SPANISH" title="Spanish" target="_top"><img src="/WebCat_Images/English/Other/MiscD/SPANISH.gif" border=0 class="langicon" alt="&nbsp;Spanish&nbsp;" title="Spanish" align=center></a>
+		</div>
+	
+	<!-- login form-->
+	<div class="top_edge"></div>
+	<div class="right_edge"></div>
+	<div class="bottom_edge"></div>
+	<div class="left_edge"></div>
+	<div class="top_left"></div>
+	<div class="top_right"></div>
+	<div class="bottom_right"></div>
+	<div class="bottom_left"></div>
+</div>
+<div id="header_menu_container" class="header_menu_container">
+<!--  Copyright (c) 1996 - 2006, SirsiDynix - Gateway Root Bar. -->
+    <!-- display text with CSS instead -->
+          <a href="/uhtbin/cgisirsi/AjfSSvUDBh/ZTECHOPS/9080003/38/1/X/BLASTOFF" class="rootbar">
+       Search</a>
+          <a href="/uhtbin/cgisirsi/uOBWAeDdss/ZTECHOPS/9080003/1/26/X/BLASTOFF" class="rootbar">
+       Find It Fast!</a>
+          <a href="/uhtbin/cgisirsi/OMLgfEPBD1/ZTECHOPS/9080003/1/774/X/BLASTOFF" class="rootbar">
+       Kids' Library</a>
+          <a href="/uhtbin/cgisirsi/v14J5lY8vl/ZTECHOPS/9080003/1/1166/X/BLASTOFF" class="rootbar">
+       My Account</a>
+       <!-- URL-type elements use javascript to open a new window directly to the Web site, so cannot use the cgisirsi "BLASTOFF" keyword. -->
+        <a href="https://www.fairfaxcounty.gov/library/ibistrocomments.htm" class="rootbar">
+       Comments</a>
+          <a href="/uhtbin/cgisirsi/RTR8gTzPgd/ZTECHOPS/9080003/1/1189/X/BLASTOFF" class="rootbar">
+       Library Information</a>
+
+
+
+	<div class="top_edge"></div>
+	<div class="right_edge"></div>
+	<div class="bottom_edge"></div>
+	<div class="left_edge"></div>
+	<div class="top_left"></div>
+	<div class="top_right"></div>
+	<div class="bottom_right"></div>
+	<div class="bottom_left"></div>
+</div>
+
+
+
+
+<!--  Copyright (c) 2000 - 2008, SirsiDynix - Symphony Search Hitlist Page; State #4 -->
+
+<script language="JavaScript" type="text/javascript">
+  // Stores the catalog keys of each hit displayed on this page in
+  // the global Javascript variable 'keep_ckeys_array', so that they can
+  // be accessed later by the subroutines that make the "Keep All" button work.
+  var keep_ckeys_array = new Array();
+  setLocalizedValue("alttext_keep_all","Keep All on this Page");
+    keep_ckeys_array.push("503068");
+    keep_ckeys_array.push("501285");
+    keep_ckeys_array.push("489582");
+    keep_ckeys_array.push("479107");
+    keep_ckeys_array.push("6022");
+</script>
+<form name="hitlist" method="post" action="/uhtbin/cgisirsi/7pPAKzD8es/ZTECHOPS/9080003/9">
+
+<!-- Copyright (c) 2000 - 2008, SirsiDynix - Buttons for Search Hitlist page  ; page #4 -->
+<div class="buttons_container">
+<!--
+<table border="0" cellpadding="0" cellspacing="0" width="100%" class="gatewaystyle">
+ <tr>
+  <td class="gatewaystyle">
+-->
+   <!-- Go back button -->
+  <a class="menu_link" href="/uhtbin/cgisirsi/4MjBRJJFdG/ZTECHOPS/9080003/2/2" title="Go Back">Go Back</a>
+
+<!--
+   <a class="menu_link" href="/uhtbin/cgisirsi/2e4zkNhYcu/ZTECHOPS/9080003/2/2" title="Go Back" alt="Go Back">GO BACK</a>
+   -->
+
+<!-- Help button -->
+<script language="javascript" type="text/javascript">
+  //<![CDATA[
+  put_help_button('English','Help','search_results.html');
+  //]]> 
+</script>
+	
+
+  <a class="menu_link" href="#search_form" title="Limit Search">Limit Search</a>
+	
+	
+<a class="menu_link" href="/uhtbin/cgisirsi/ePQDEL8X9J/ZTECHOPS/9080003/49" title="New Search">New Search</a>
+
+<!-- Backward button -->
+
+
+<!-- Forward button -->
+
+	
+<!-- Cross Reference button -->
+
+  
+
+
+
+	
+  <!-- Kept Button -->
+<!-- Commented out to remove the KEPT button from the top toolbar LP/BB 2/20/2009-->
+<!--
+  <a class="menu_link" href="javascript:document.hitlist.form_type.value = 'CAPTURE'; document.hitlist.submit()">Kept</a>
+-->
+
+  <!-- gateway's custom buttons -->
+	
+
+
+   <a class="menu_link" href="/uhtbin/cgisirsi/wd4paBpnTw/ZTECHOPS/9080003/58" title="Logout" target="_top">Logout</a>
+<a name="skipnav"></a>
+	<div class="top_edge"></div>
+	<div class="right_edge"></div>
+	<div class="bottom_edge"></div>
+	<div class="left_edge"></div>
+	<div class="top_left"></div>
+	<div class="top_right"></div>
+	<div class="bottom_right"></div>
+	<div class="bottom_left"></div>	
+</div>
+
+<input type="hidden" name="first_hit" value="1"/>
+<input type="hidden" name="last_hit" value="5"/>
+<input type="hidden" name="form_type" value=""/>
+
+<div class="content_container hit_list">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" align="center" title="" summary="This table positions all the elements on this page.">
+  <tr>
+    <td valign="top" class="searchsum_container"> <!-- begin container cell -->
+	   
+<table class="hitstop" border="0" cellpadding="2" cellspacing="0" align="center" width="100%">
+  <tr>
+    <td class="content_header">
+          Search Results
+    </td>
+   </tr>
+   <tr>
+     <td class="searchsum">
+  <!-- Print the message, if one exists -->
+		
+    <p class="searchsum">
+<!--  Copyright (c) 2000 - 2003, Sirsi Corporation - Catalog Keyword search summary; eLibrary -->
+<!-- Print the search summary -->
+<strong>
+    "moscow rules{245}"
+
+
+
+
+
+
+
+</strong>
+          search found
+          <em>5</em>
+          titles.<br/>
+
+
+     </td>
+   </tr>
+   <tr>
+     <td class="searchsum">
+
+
+     </td>
+  </tr>
+</table>
+
+
+
+
+<!-- Dynamic content lookup -->
+
+  
+   
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+  
+ <!-- eLibrary configured with content -->
+<!-- end of dynamic content lookup -->
+
+
+<!-- This evaulates the hitlist number (DC="WD") to be even or odd, and assigns alternating classes so that the hitlist alternates row colors -->
+
+
+
+  
+
+
+
+
+
+
+<!-- Dynamic content lookup -->
+
+
+
+<!-- dynamic content lookup -->
+
+<div class="hit_list_row">
+
+  <div class="itemlisting2 number_and_buttons_container">
+      <!-- hitlist number -->
+     <div class="hit_list_number">#1</div>
+    
+      <!-- full details -->
+      <input type="submit" value="Details" name="VIEW^1" id="VIEW1" class="itemdetails_button"/>			 
+    
+
+    <!-- keep/remove function -->
+<!--This comment removes the "Keep" button from the search results page. BB/LP 2/19/2009
+     
+    
+
+    <script language="javascript" type="text/javascript">
+      //<![CDATA[
+      put_keepremove_button('503068', 'Keep','/WebCat_Images/English/Other/MiscD','Keep','/uhtbin/cgisirsi/RhI5Wyezw1/ZTECHOPS','9080003','Remove');
+      //]]>
+    </script>
+-->
+    
+      
+        
+
+          <input value="Place Hold" class="hold_button" type="button" onClick="document.location.href='/uhtbin/cgisirsi/0Dyp4KxTSs/ZTECHOPS/9080003/108?item_id=32769094635994&author=Silva, Daniel, 1960-&title=Moscow rules&callnum=LP FIC SIL';">
+
+         <!-- hold link for all copies -->
+       
+     <!-- hold link -->
+
+     <!-- end of icon map stuff -->    
+
+    
+  </div>
+  <div class="hit_list_holdings_info"><!-- call number -->
+    
+    
+          <!-- holdings allowed -->
+        
+	  <strong>LP FIC SIL</strong><br/>
+	
+      
+    
+
+   
+ <!-- bib information -->
+     <label for="VIEW1" class="itemlisting2">
+     
+        <!-- title -->
+         
+           <strong>Moscow rules</strong>
+         
+       
+     
+	 <!-- and/or display linked 880 data -->
+	 
+	 
+
+     
+        <!-- edition -->
+         <em>&nbsp;[Large print ed.]</em>
+	  
+     
+	 <!-- and/or display linked 880 data -->
+	 
+     
+        <!-- author -->
+         
+           <br/>&nbsp;&nbsp;Silva, Daniel, 1960-
+         
+       
+     
+	 <!-- and/or display linked 880 data -->
+	 
+     </label>
+     
+        <!-- list field 3 -->
+         <br/>&nbsp;&nbsp;[Large print ed.]
+       
+     
+	 <!-- and/or display linked 880 data -->
+	 
+     
+       
+     
+ 	 <!-- and/or display linked 880 data -->
+	 
+
+      
+
+    <!-- summary holdings statements -->
+    <p>
+          
+            
+              
+                
+                  
+                    5 copies available at CHANTILLY REGIONAL, CITY OF FAIRFAX REGIONAL, GEORGE MASON REGIONAL, KINGS PARK, and PATRICK HENRY
+                  
+		
+              
+            
+          
+
+    
+      
+    
+
+    
+    </p>     
+  </div>
+  
+  
+    <div class="pub_date_book_cover_container" align="right"> <!-- publication date -->
+     
+       <strong>2008</strong>
+     	
+  
+    
+       <input type="image" src="http://syndetics.com/index.aspx?isbn=9781597227032/SC.GIF&client=sirsi&type=rw12" alt="[Cover]" name="VIEW^1"/><br/>
+       
+    
+  
+     <!-- eLibrary configured with content -->
+  </div>
+  
+  
+  
+  
+
+   <div class="itemlisting2 enrichment_container" align="right">
+    <!-- ebook, enrichment images, URL, DMA images/links -->
+     &nbsp;
+     
+
+   <!-- only view enrichments when configured to do so -->
+     
+
+     
+
+     
+
+     
+
+     
+
+     
+
+     
+
+     
+
+     <!-- LJ review -->
+     
+
+     <!-- SLJ review -->
+     
+
+     
+
+     <!-- BookList review -->
+     
+
+     <!-- CHOICE review -->
+     
+
+     
+
+   <!-- eLibrary configured with content -->
+ 
+      
+       
+     
+      
+      <!-- not BWI ebook -->
+
+         
+  </div>
+</div>	 
+
+<!-- This evaulates the hitlist number (DC="WD") to be even or odd, and assigns alternating classes so that the hitlist alternates row colors -->
+
+
+
+  
+
+
+
+
+
+
+<!-- Dynamic content lookup -->
+
+
+
+<!-- dynamic content lookup -->
+
+<div class="hit_list_row">
+
+  <div class="itemlisting number_and_buttons_container">
+      <!-- hitlist number -->
+     <div class="hit_list_number">#2</div>
+    
+      <!-- full details -->
+      <input type="submit" value="Details" name="VIEW^2" id="VIEW2" class="itemdetails_button"/>			 
+    
+
+    <!-- keep/remove function -->
+<!--This comment removes the "Keep" button from the search results page. BB/LP 2/19/2009
+     
+    
+
+    <script language="javascript" type="text/javascript">
+      //<![CDATA[
+      put_keepremove_button('501285', 'Keep','/WebCat_Images/English/Other/MiscD','Keep','/uhtbin/cgisirsi/4pYcTFr9lF/ZTECHOPS','9080003','Remove');
+      //]]>
+    </script>
+-->
+    
+      
+         <!-- hold link for all copies -->
+       
+     <!-- hold link -->
+
+     <!-- end of icon map stuff -->    
+
+    
+  </div>
+  <div class="hit_list_holdings_info"><!-- call number -->
+    
+    
+          <!-- holdings allowed -->
+        
+	  <strong>EAUDIOBOOK</strong><br/>
+	
+      
+    
+
+   
+ <!-- bib information -->
+     <label for="VIEW2" class="itemlisting">
+     
+        <!-- title -->
+         
+           <strong>Moscow rules [electronic resource]</strong>
+         
+       
+     
+	 <!-- and/or display linked 880 data -->
+	 
+	 
+
+     
+       
+     
+	 <!-- and/or display linked 880 data -->
+	 
+     
+        <!-- author -->
+         
+           <br/>&nbsp;&nbsp;Silva, Daniel, 1960-
+         
+       
+     
+	 <!-- and/or display linked 880 data -->
+	 
+     </label>
+     
+       
+     
+	 <!-- and/or display linked 880 data -->
+	 
+     
+       
+     
+ 	 <!-- and/or display linked 880 data -->
+	 
+
+      
+
+    <!-- summary holdings statements -->
+    <p>
+          
+            
+              
+                
+                  
+                    1 copy available at ZTECHNICAL OPERATIONS in<br/>
+ 	             
+		      Online
+                    
+                  
+		
+              
+            
+          
+
+    
+      
+    
+
+    
+    </p>     
+  </div>
+  
+  
+    <div class="pub_date_book_cover_container" align="right"> <!-- publication date -->
+     
+       <strong>2008</strong>
+     	
+  
+    
+      
+    
+  
+     <!-- eLibrary configured with content -->
+  </div>
+  
+  
+  
+  
+
+   <div class="itemlisting enrichment_container" align="right">
+    <!-- ebook, enrichment images, URL, DMA images/links -->
+     &nbsp;
+     
+
+   <!-- only view enrichments when configured to do so -->
+     
+
+     
+
+     
+
+     
+
+     
+
+     
+
+     
+
+     
+
+     <!-- LJ review -->
+     
+
+     <!-- SLJ review -->
+      
+       
+         
+           <input type="image" class="enrichmenticon" src="/WebCat_Images/English/Special/Bistro/REVIEW.gif" alt="Review" title="Review" name="VIEW^2"/>
+           
+	 
+       	 
+     
+
+     
+
+     <!-- BookList review -->
+     
+
+     <!-- CHOICE review -->
+     
+
+     
+
+   <!-- eLibrary configured with content -->
+ 
+      
+       
+     
+      
+       <!-- URL-type tag -->
+        <!-- BWI ignored or not BWI ebook -->
+          <!-- netLibrary not used or ignored -->
+         
+           <a href="javascript:open_win('http://fairfax.lib.overdrive.com/ContentDetails.htm?ID=BE83C66F-54EF-4E63-9DF8-695972CB34CD')">
+         
+         <img src="/WebCat_Images/English/Special/Bistro/URL2.gif" alt="Visit new URL: http://fairfax.lib.overdrive.com/ContentDetails.htm?ID=BE83C66F-54EF-4E63-9DF8-695972CB34CD" title="Visit new URL: http://fairfax.lib.overdrive.com/ContentDetails.htm?ID=BE83C66F-54EF-4E63-9DF8-695972CB34CD" border="0"/></a>
+       
+        <!-- netLibrary not used -->
+       <!-- not BWI ebook -->
+
+         
+  </div>
+</div>	 
+
+<!-- This evaulates the hitlist number (DC="WD") to be even or odd, and assigns alternating classes so that the hitlist alternates row colors -->
+
+
+
+  
+
+
+
+
+
+
+<!-- Dynamic content lookup -->
+
+
+
+<!-- dynamic content lookup -->
+
+<div class="hit_list_row">
+
+  <div class="itemlisting2 number_and_buttons_container">
+      <!-- hitlist number -->
+     <div class="hit_list_number">#3</div>
+    
+      <!-- full details -->
+      <input type="submit" value="Details" name="VIEW^3" id="VIEW3" class="itemdetails_button"/>			 
+    
+
+    <!-- keep/remove function -->
+<!--This comment removes the "Keep" button from the search results page. BB/LP 2/19/2009
+     
+    
+
+    <script language="javascript" type="text/javascript">
+      //<![CDATA[
+      put_keepremove_button('489582', 'Keep','/WebCat_Images/English/Other/MiscD','Keep','/uhtbin/cgisirsi/v8dyeGpF6A/ZTECHOPS','9080003','Remove');
+      //]]>
+    </script>
+-->
+    
+      
+        
+
+          <input value="Place Hold" class="hold_button" type="button" onClick="document.location.href='/uhtbin/cgisirsi/Grn9JeCRXJ/ZTECHOPS/9080003/108?item_id=32769094981802&author=Silva, Daniel, 1960-&title=Moscow rules [sound recording]&callnum=CD FIC SIL 9 CD';">
+
+         <!-- hold link for all copies -->
+       
+     <!-- hold link -->
+
+     <!-- end of icon map stuff -->    
+
+    
+  </div>
+  <div class="hit_list_holdings_info"><!-- call number -->
+    
+    
+          <!-- holdings allowed -->
+        
+	  <strong>CD FIC SIL 9 CD</strong><br/>
+	
+      
+    
+
+   
+ <!-- bib information -->
+     <label for="VIEW3" class="itemlisting2">
+     
+        <!-- title -->
+         
+           <strong>Moscow rules [sound recording]</strong>
+         
+       
+     
+	 <!-- and/or display linked 880 data -->
+	 
+	 
+
+     
+        <!-- edition -->
+         <em>&nbsp;Unabridged.</em>
+	  
+     
+	 <!-- and/or display linked 880 data -->
+	 
+     
+        <!-- author -->
+         
+           <br/>&nbsp;&nbsp;Silva, Daniel, 1960-
+         
+       
+     
+	 <!-- and/or display linked 880 data -->
+	 
+     </label>
+     
+       
+     
+	 <!-- and/or display linked 880 data -->
+	 
+     
+       
+     
+ 	 <!-- and/or display linked 880 data -->
+	 
+
+      
+
+    <!-- summary holdings statements -->
+    <p>
+          
+            
+              
+                
+                  
+                    8 copies available at GREAT FALLS, HERNDON FORTNIGHTLY, MARTHA WASHINGTON, PATRICK HENRY, TYSONS-PIMMIT REGIONAL, WOODROW WILSON, BURKE CENTRE, and OAKTON
+                  
+		
+              
+            
+          
+
+    
+      
+    
+
+    
+    </p>     
+  </div>
+  
+  
+    <div class="pub_date_book_cover_container" align="right"> <!-- publication date -->
+     
+       <strong>2008</strong>
+     	
+  
+    
+       <input type="image" src="http://syndetics.com/index.aspx?isbn=9781423327981/SC.GIF&client=sirsi&type=rw12" alt="[Cover]" name="VIEW^3"/><br/>
+       
+    
+  
+     <!-- eLibrary configured with content -->
+  </div>
+  
+  
+  
+  
+
+   <div class="itemlisting2 enrichment_container" align="right">
+    <!-- ebook, enrichment images, URL, DMA images/links -->
+     &nbsp;
+     
+
+   <!-- only view enrichments when configured to do so -->
+     
+
+     
+
+     
+       <input type="image" class="enrichmenticon" src="/WebCat_Images/English/Special/Bistro/SUMMARY.gif" alt="Summary" title="Summary" name="VIEW^3"/>
+       
+     
+
+     
+
+     
+
+     
+
+     
+
+     
+
+     <!-- LJ review -->
+     
+
+     <!-- SLJ review -->
+      
+       
+         
+           <input type="image" class="enrichmenticon" src="/WebCat_Images/English/Special/Bistro/REVIEW.gif" alt="Review" title="Review" name="VIEW^3"/>
+           
+	 
+       	 
+     
+
+     
+
+     <!-- BookList review -->
+     
+
+     <!-- CHOICE review -->
+     
+
+     
+
+   <!-- eLibrary configured with content -->
+ 
+      
+       
+     
+      
+      <!-- not BWI ebook -->
+
+         
+  </div>
+</div>	 
+
+<!-- This evaulates the hitlist number (DC="WD") to be even or odd, and assigns alternating classes so that the hitlist alternates row colors -->
+
+
+
+  
+
+
+
+
+
+
+<!-- Dynamic content lookup -->
+
+
+
+<!-- dynamic content lookup -->
+
+<div class="hit_list_row">
+
+  <div class="itemlisting number_and_buttons_container">
+      <!-- hitlist number -->
+     <div class="hit_list_number">#4</div>
+    
+      <!-- full details -->
+      <input type="submit" value="Details" name="VIEW^4" id="VIEW4" class="itemdetails_button"/>			 
+    
+
+    <!-- keep/remove function -->
+<!--This comment removes the "Keep" button from the search results page. BB/LP 2/19/2009
+     
+    
+
+    <script language="javascript" type="text/javascript">
+      //<![CDATA[
+      put_keepremove_button('479107', 'Keep','/WebCat_Images/English/Other/MiscD','Keep','/uhtbin/cgisirsi/AFnxbKS1QO/ZTECHOPS','9080003','Remove');
+      //]]>
+    </script>
+-->
+    
+      
+        
+
+          <input value="Place Hold" class="hold_button" type="button" onClick="document.location.href='/uhtbin/cgisirsi/EpXGMMslOf/ZTECHOPS/9080003/108?item_id=32769092557653&author=Silva, Daniel, 1960-&title=Moscow rules&callnum=FIC SIL';">
+
+         <!-- hold link for all copies -->
+       
+     <!-- hold link -->
+
+     <!-- end of icon map stuff -->    
+
+    
+  </div>
+  <div class="hit_list_holdings_info"><!-- call number -->
+    
+    
+          <!-- holdings allowed -->
+        
+	  <strong>FIC SIL</strong><br/>
+	
+      
+    
+
+   
+ <!-- bib information -->
+     <label for="VIEW4" class="itemlisting">
+     
+        <!-- title -->
+         
+           <strong>Moscow rules</strong>
+         
+       
+     
+	 <!-- and/or display linked 880 data -->
+	 
+	 
+
+     
+       
+     
+	 <!-- and/or display linked 880 data -->
+	 
+     
+        <!-- author -->
+         
+           <br/>&nbsp;&nbsp;Silva, Daniel, 1960-
+         
+       
+     
+	 <!-- and/or display linked 880 data -->
+	 
+     </label>
+     
+       
+     
+	 <!-- and/or display linked 880 data -->
+	 
+     
+       
+     
+ 	 <!-- and/or display linked 880 data -->
+	 
+
+      
+
+    <!-- summary holdings statements -->
+    <p>
+          
+            
+              
+                
+                  
+                    46 copies available at ACCESS SERVICES, CENTREVILLE REGIONAL, CHANTILLY REGIONAL, DOLLEY MADISON, CITY OF FAIRFAX REGIONAL, GREAT FALLS, GEORGE MASON REGIONAL, HERNDON FORTNIGHTLY, KINGSTOWNE, KINGS PARK, LORTON, MARTHA WASHINGTON, PATRICK HENRY, POHICK REGIONAL, RICHARD BYRD, RESTON REGIONAL, SHERWOOD REGIONAL, THOMAS JEFFERSON, WOODROW WILSON, BURKE CENTRE, and OAKTON
+                  
+		
+              
+            
+          
+
+    
+      
+    
+
+    
+    </p>     
+  </div>
+  
+  
+    <div class="pub_date_book_cover_container" align="right"> <!-- publication date -->
+     
+       <strong>2008</strong>
+     	
+  
+    
+       <input type="image" src="http://syndetics.com/index.aspx?isbn=9780399155017/SC.GIF&client=sirsi&type=rw12" alt="[Cover]" name="VIEW^4"/><br/>
+       
+    
+  
+     <!-- eLibrary configured with content -->
+  </div>
+  
+  
+  
+  
+
+   <div class="itemlisting enrichment_container" align="right">
+    <!-- ebook, enrichment images, URL, DMA images/links -->
+     &nbsp;
+     
+
+   <!-- only view enrichments when configured to do so -->
+     
+
+     
+
+     
+
+     
+
+     
+
+     
+
+     
+
+     
+
+     <!-- LJ review -->
+      
+       
+         
+           <input type="image" class="enrichmenticon" src="/WebCat_Images/English/Special/Bistro/REVIEW.gif" alt="Review" title="Review" name="VIEW^4"/>
+           
+	 
+       	 
+     
+
+     <!-- SLJ review -->
+     
+
+     
+
+     <!-- BookList review -->
+      
+       
+         
+       	 
+     
+
+     <!-- CHOICE review -->
+     
+
+     
+
+   <!-- eLibrary configured with content -->
+ 
+      
+       
+     
+      
+      <!-- not BWI ebook -->
+
+         
+  </div>
+</div>	 
+
+<!-- This evaulates the hitlist number (DC="WD") to be even or odd, and assigns alternating classes so that the hitlist alternates row colors -->
+
+
+
+  
+
+
+
+
+
+
+<!-- Dynamic content lookup -->
+
+
+
+<!-- dynamic content lookup -->
+
+<div class="hit_list_row">
+
+  <div class="itemlisting2 number_and_buttons_container">
+      <!-- hitlist number -->
+     <div class="hit_list_number">#5</div>
+    
+      <!-- full details -->
+      <input type="submit" value="Details" name="VIEW^5" id="VIEW5" class="itemdetails_button"/>			 
+    
+
+    <!-- keep/remove function -->
+<!--This comment removes the "Keep" button from the search results page. BB/LP 2/19/2009
+     
+    
+
+    <script language="javascript" type="text/javascript">
+      //<![CDATA[
+      put_keepremove_button('6022', 'Keep','/WebCat_Images/English/Other/MiscD','Keep','/uhtbin/cgisirsi/8jtuMSnwfk/ZTECHOPS','9080003','Remove');
+      //]]>
+    </script>
+-->
+    
+      
+        
+
+          <input value="Place Hold" class="hold_button" type="button" onClick="document.location.href='/uhtbin/cgisirsi/5PEhQPkp0c/ZTECHOPS/9080003/108?item_id=32769000868903&author=Moss, Robert, 1946-&title=Moscow rules&callnum=FIC MOS';">
+
+         <!-- hold link for all copies -->
+       
+     <!-- hold link -->
+
+     <!-- end of icon map stuff -->    
+
+    
+  </div>
+  <div class="hit_list_holdings_info"><!-- call number -->
+    
+    
+          <!-- holdings allowed -->
+        
+	  <strong>FIC MOS</strong><br/>
+	
+      
+    
+
+   
+ <!-- bib information -->
+     <label for="VIEW5" class="itemlisting2">
+     
+        <!-- title -->
+         
+           <strong>Moscow rules</strong>
+         
+       
+     
+	 <!-- and/or display linked 880 data -->
+	 
+	 
+
+     
+       
+     
+	 <!-- and/or display linked 880 data -->
+	 
+     
+        <!-- author -->
+         
+           <br/>&nbsp;&nbsp;Moss, Robert, 1946-
+         
+       
+     
+	 <!-- and/or display linked 880 data -->
+	 
+     </label>
+     
+       
+     
+	 <!-- and/or display linked 880 data -->
+	 
+     
+       
+     
+ 	 <!-- and/or display linked 880 data -->
+	 
+
+      
+
+    <!-- summary holdings statements -->
+    <p>
+          
+            
+              
+                
+                  
+                    2 copies available at CITY OF FAIRFAX REGIONAL and SHERWOOD REGIONAL
+                  
+		
+              
+            
+          
+
+    
+      
+    
+
+    
+    </p>     
+  </div>
+  
+  
+    <div class="pub_date_book_cover_container" align="right"> <!-- publication date -->
+     
+       <strong>1985</strong>
+     	
+  
+    
+      
+    
+  
+     <!-- eLibrary configured with content -->
+  </div>
+  
+  
+  
+  
+
+   <div class="itemlisting2 enrichment_container" align="right">
+    <!-- ebook, enrichment images, URL, DMA images/links -->
+     &nbsp;
+     
+
+   <!-- only view enrichments when configured to do so -->
+     
+
+     
+
+     
+
+     
+
+     
+
+     
+
+     
+
+     
+
+     <!-- LJ review -->
+     
+
+     <!-- SLJ review -->
+     
+
+     
+
+     <!-- BookList review -->
+     
+
+     <!-- CHOICE review -->
+     
+
+     
+
+   <!-- eLibrary configured with content -->
+ 
+      
+       
+     
+      
+      <!-- not BWI ebook -->
+
+         
+  </div>
+</div>	 
+
+
+
+    </td> <!-- end container cell -->
+  </tr>
+</table>
+	<div class="top_edge"></div>
+	<div class="right_edge"></div>
+	<div class="bottom_edge"></div>
+	<div class="left_edge"></div>
+	<div class="top_left"></div>
+	<div class="top_right"></div>
+	<div class="bottom_right"></div>
+	<div class="bottom_left"></div>	
+</div>
+
+
+
+
+	<br/>
+
+		
+		
+<!--  Copyright (c) 2000, 2003 Sirsi Corporation - Cross Reference "quick-view" box. This page file is processed by a SIRSI_Command for an So response. -->
+ <!-- if xref list present -->
+		
+		<div class="top_edge"></div>
+		<div class="right_edge"></div>
+		<div class="bottom_edge"></div>
+		<div class="left_edge"></div>
+		<div class="top_left"></div>
+		<div class="top_right"></div>
+		<div class="bottom_right"></div>
+		<div class="bottom_left"></div>
+	
+	    
+    <div class="top_edge"></div>
+	<div class="right_edge"></div>
+	<div class="bottom_edge"></div>
+	<div class="left_edge"></div>
+	<div class="top_left"></div>
+	<div class="top_right"></div>
+	<div class="bottom_right"></div>
+	<div class="bottom_left"></div>	
+</div>
+
+
+
+
+
+
+</form> 
+
+	  
+<div class="content_container quick_search">
+<!-- Print the query form if this is the page immediately following the query. QUERY_TYPE is defined only for the page generated immediately after the search form is submitted. -->
+
+<a name="search_form"></a>
+<table border="0" cellpadding="0" cellspacing="10" width="100%" align="center" title="" summary="This table positions all the elements on this page.">
+ <tr>
+  <td>
+
+  </td>
+  <td class="defaultstyle" width="25%">&nbsp;</td>
+ </tr>
+</table>
+</div>
+<!--  Copyright (c) 2000 - 2003, Sirsi Corporation - LC Category hidden search form for javascript to work. -->
+<form name="lc_search_form" method="post" action="/uhtbin/cgisirsi/bIQaPHqox5/ZTECHOPS/9080003/5/5/113/1">
+  <input type="hidden" name="searchdata1" value=""/>
+  <input type="hidden" name="search_disp_data1" value=""/>
+</form>
+
+<form name="lc_return_form" method="post" action="/uhtbin/cgisirsi/uwfi8cTgDb/ZTECHOPS/9080003/5/0/113/0">
+  <input type="hidden" name="searchdata1" value=""/>
+  <input type="hidden" name="sort_by" value=""/>
+</form>
+
+
+
+
+<!-- Copyright (c) 2000 - 2008, SirsiDynix - Buttons for Search Hitlist page  ; page #4 -->
+<div class="buttons_container">
+<!--
+<table border="0" cellpadding="0" cellspacing="0" width="100%" class="gatewaystyle">
+ <tr>
+  <td class="gatewaystyle">
+-->
+   <!-- Go back button -->
+  <a class="menu_link" href="/uhtbin/cgisirsi/ugxsxdYUwC/ZTECHOPS/9080003/2/2" title="Go Back">Go Back</a>
+
+<!--
+   <a class="menu_link" href="/uhtbin/cgisirsi/AH4wt0acc9/ZTECHOPS/9080003/2/2" title="Go Back" alt="Go Back">GO BACK</a>
+   -->
+
+<!-- Help button -->
+<script language="javascript" type="text/javascript">
+  //<![CDATA[
+  put_help_button('English','Help','search_results.html');
+  //]]> 
+</script>
+	
+
+  <a class="menu_link" href="#search_form" title="Limit Search">Limit Search</a>
+	
+	
+<a class="menu_link" href="/uhtbin/cgisirsi/PgsfKary2v/ZTECHOPS/9080003/49" title="New Search">New Search</a>
+
+<!-- Backward button -->
+
+
+<!-- Forward button -->
+
+	
+<!-- Cross Reference button -->
+
+  
+
+
+
+	
+  <!-- Kept Button -->
+<!-- Commented out to remove the KEPT button from the top toolbar LP/BB 2/20/2009-->
+<!--
+  <a class="menu_link" href="javascript:document.hitlist.form_type.value = 'CAPTURE'; document.hitlist.submit()">Kept</a>
+-->
+
+  <!-- gateway's custom buttons -->
+	
+
+
+   <a class="menu_link" href="/uhtbin/cgisirsi/qrFHlQzW2s/ZTECHOPS/9080003/58" title="Logout" target="_top">Logout</a>
+<a name="skipnav"></a>
+	<div class="top_edge"></div>
+	<div class="right_edge"></div>
+	<div class="bottom_edge"></div>
+	<div class="left_edge"></div>
+	<div class="top_left"></div>
+	<div class="top_right"></div>
+	<div class="bottom_right"></div>
+	<div class="bottom_left"></div>	
+</div>
+<div class="footer_container">
+<!--  Copyright (c) 1996 - 2008, SirsiDynix - Copyright statement -->
+<table border="0" cellpadding="3" cellspacing="0" width="100%" class="footer">
+ <tr>
+  <td align="center" valign="bottom" width="15%" class="footer">
+      <img src="/WebCat_Images/English/Other/MiscD/sirsi_button.gif" alt="Powered by: Sirsi Corporation" border="0"/>
+  </td>
+  <td align="center" class="footer"><!-- Display the description -->
+
+   <br/> 
+   <br/>
+     Copyright &#169; 2000 - 2008, SirsiDynix
+  </td>
+  <td align="center" width="15%" class="footer"><a name="bottom" href="#top">Top</a></td>
+ </tr>
+</table>
+<div class="top_edge"></div>
+<div class="right_edge"></div>
+<div class="bottom_edge"></div>
+<div class="left_edge"></div>
+<div class="top_left"></div>
+<div class="top_right"></div>
+<div class="bottom_right"></div>
+<div class="bottom_left"></div>
+</div>		
+</body>
+</html>
+
+
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
