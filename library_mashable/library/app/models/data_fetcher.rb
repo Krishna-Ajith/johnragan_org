@@ -1,5 +1,5 @@
 class DataFetcher
-  def self.fetch_data(title)
+  def self.get_page(title)
     begin
       data = Net::HTTP.get(URI.parse(library_url(title)))
     rescue => err
