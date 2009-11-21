@@ -4,8 +4,10 @@ require "hpricot"
 
 class Search
   def books_in_library(title)
-    all_book_records(DataFetcher.get_page(title))
+    all_book_records(HtmlPageFetcher.get_page(title))
   end 
+  
+private
 
   def all_book_records(data)
     doc = Hpricot(data)
@@ -31,7 +33,7 @@ class Search
   end
   
   # The listings for each book record cycle starting with "itemlisting2" then "itemlisting"
-  def next_listing()
+  def next_listing
     @listing = (@listing.nil? || @listing == "itemlisting") ? "itemlisting2" : "itemlisting"   
   end
 end
