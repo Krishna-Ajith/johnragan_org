@@ -74,14 +74,17 @@ private
     for i in 1..record_count do
       book_record = BookData.new
       
-      # TODO - do we need to use each
+      # TODO - do we need to use something else for each
       (Hpricot(parts[(i-1)*3].to_s)/".hit_list_number").each do |e|
         # TODO - Make this more robust to just lose the first '#'
         book_record.ranking = e.innerHTML[1].chr.to_i
-        # TODO 
+        # TODO  - I think we can remove this.
         book_ranking = 6 if book_record.ranking == nil
-        
-        RAILS_DEFAULT_LOGGER.info book_record.ranking
+      end
+      
+      # TODO - do we need to use something else for each
+      (Hpricot(parts[((i-1)*3)+1].to_s)/"strong").each do |e|
+        book_record.title = e.innerHTML
       end
       
       book_records << book_record

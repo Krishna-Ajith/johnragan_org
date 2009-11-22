@@ -11,6 +11,12 @@ class SearchTest < ActiveSupport::TestCase
     assert_equal 3, book_records[2].ranking
     assert_equal 4, book_records[3].ranking
     assert_equal 5, book_records[4].ranking
+    
+    assert_equal "Moscow rules", book_records[0].title
+    assert_equal "Moscow rules [electronic resource]", book_records[1].title
+    assert_equal "Moscow rules [sound recording]", book_records[2].title
+    assert_equal "Moscow rules", book_records[3].title
+    assert_equal "Moscow rules", book_records[4].title
   end
 
   def test_get_library_valid_title
