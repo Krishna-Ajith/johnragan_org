@@ -4,7 +4,7 @@ class SearchTest < ActiveSupport::TestCase
   def test_basics_while_constructing
     search_library = SearchLibrary.new
     book_records = search_library.books_in_library("moscow rules")
-    assert_equal 5, book_records.size / 3  # since 3 records per book at this point
+    assert_equal 5, book_records.size
   end
 
   def test_get_library_valid_title

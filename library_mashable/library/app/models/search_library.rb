@@ -60,17 +60,23 @@ private
   end
   
   def process_book_nodes(full_doc, node_name)
+    parts = []
+    (full_doc/".#{node_name}").each do |one_of_3_part|
+      parts << one_of_3_part
+    end
+    
+    return [] if parts.size == 0
+    
     book_records = []
     
-    (full_doc/".#{next_listing}").each do |e|
+    k = parts.size / 3
+    for i in 1..k do
       book_record = BookData.new
       book_record.ranking = "foo"
-      book_records << book_record  
+      book_records << book_record
     end
     
     book_records
-    # return filled out book_record
-    # if node_name is empty, return null
   end
   
   # TODO - Remove this if not needed
