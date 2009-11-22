@@ -5,6 +5,12 @@ class SearchTest < ActiveSupport::TestCase
     search_library = SearchLibrary.new
     book_records = search_library.books_in_library("moscow rules")
     assert_equal 5, book_records.size
+    
+    assert_equal 1, book_records[0].ranking
+    assert_equal 2, book_records[1].ranking
+    assert_equal 3, book_records[2].ranking
+    assert_equal 4, book_records[3].ranking
+    assert_equal 5, book_records[4].ranking
   end
 
   def test_get_library_valid_title

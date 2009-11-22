@@ -15,8 +15,9 @@ private
     
     book_records2 = process_book_nodes(full_doc, "itemlisting2")
     book_records = process_book_nodes(full_doc, "itemlisting")
-    
-    return book_records2.concat(book_records).sort_by{|p| [p.ranking]}
+  
+    final_records = book_records2.concat(book_records)
+    return final_records.sort_by{|p| p.ranking}
     
     
     
@@ -62,17 +63,27 @@ private
   def process_book_nodes(full_doc, node_name)
     parts = []
     (full_doc/".#{node_name}").each do |one_of_3_part|
-      parts << one_of_3_part
+      parts << one_of_3_part.innerHTML
     end
     
     return [] if parts.size == 0
     
     book_records = []
     
-    k = parts.size / 3
-    for i in 1..k do
+    record_count = parts.size / 3
+    for i in 1..record_count do
       book_record = BookData.new
-      book_record.ranking = "foo"
+      
+      # TODO - do we need to use each
+      (Hpricot(parts[(i-1)*3].to_s)/".hit_list_number").each do |e|
+        # TODO - Make this more robust to just lose the first '#'
+        book_record.ranking = e.innerHTML[1].chr.to_i
+        # TODO 
+        book_ranking = 6 if book_record.ranking == nil
+        
+        RAILS_DEFAULT_LOGGER.info book_record.ranking
+      end
+      
       book_records << book_record
     end
     
