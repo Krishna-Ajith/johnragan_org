@@ -2,6 +2,7 @@ class BookData
   attr_accessor :title
   attr_accessor :author
   attr_accessor :icon
+  attr_accessor :ranking
   
   def add_location
   end
