@@ -17,6 +17,12 @@ class SearchTest < ActiveSupport::TestCase
     assert_equal "Moscow rules [sound recording]", book_records[2].title
     assert_equal "Moscow rules", book_records[3].title
     assert_equal "Moscow rules", book_records[4].title
+    
+    assert_equal "[Large print ed.]", book_records[0].edition
+    assert_equal "", book_records[1].edition
+    assert_equal "Unabridged.", book_records[2].edition
+    assert_equal "", book_records[3].edition
+    assert_equal "", book_records[4].edition
   end
 
   def test_get_library_valid_title

@@ -79,6 +79,7 @@ private
       
       book_record.ranking = ranking(html_parts_by_css_class, i)
       book_record.title = title(html_parts_by_css_class, i)
+      book_record.edition = edition(html_parts_by_css_class, i)
       
       book_records << book_record
     end    
@@ -108,6 +109,15 @@ private
     (Hpricot(subpart_of_part(2, html_parts_by_css_class, i))/"strong").each do |e|
       return e.innerHTML
     end
+  end
+  
+  def edition(html_parts_by_css_class, i)
+    # There is just one despite use of "each"
+    (Hpricot(subpart_of_part(2, html_parts_by_css_class, i))/"em").each do |e|
+      # Typical - "&nbsp;[Large print ed.]", and we want "[Large print ed.]"
+      return e.innerHTML[6..-1]
+    end
+    ""
   end  
   
   def subpart_of_part(subpart, parts, i)
