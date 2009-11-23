@@ -77,19 +77,11 @@ private
     for i in 0..record_count(html_parts_by_css_class)-1 do
       book_record = BookData.new
       
-      # Just 1
-      (Hpricot(subpart_of_part(1, html_parts_by_css_class, i))/".hit_list_number").each do |e|
-        book_record.ranking = e.innerHTML[1..-1].to_i
-      end
-      
-      # Just 1
-      (Hpricot(subpart_of_part(2, html_parts_by_css_class, i))/"strong").each do |e|
-        book_record.title = e.innerHTML
-      end
+      book_record.ranking = ranking(html_parts_by_css_class, i)
+      book_record.title = title(html_parts_by_css_class, i)
       
       book_records << book_record
-    end
-    
+    end    
     book_records
   end
   
@@ -102,6 +94,20 @@ private
   
   def record_count(html_parts_by_css_class)
     html_parts_by_css_class.size / HTML_NODES_PER_BOOK_RECORD
+  end
+  
+  def ranking(html_parts_by_css_class, i)
+    # There is just one despite use of "each"
+    (Hpricot(subpart_of_part(1, html_parts_by_css_class, i))/".hit_list_number").each do |e|
+      return e.innerHTML[1..-1].to_i
+    end
+  end
+  
+  def title(html_parts_by_css_class, i)
+    # There is just one despite use of "each"
+    (Hpricot(subpart_of_part(2, html_parts_by_css_class, i))/"strong").each do |e|
+      return e.innerHTML
+    end
   end  
   
   def subpart_of_part(subpart, parts, i)
