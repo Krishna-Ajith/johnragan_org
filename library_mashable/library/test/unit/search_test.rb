@@ -3,7 +3,7 @@ require File.dirname(__FILE__) + '/../test_helper'
 class SearchTest < ActiveSupport::TestCase
   def test_basics_while_constructing
     search_library = SearchLibrary.new
-    book_records = search_library.books_in_library("moscow rules")
+    book_records = search_library.find_book_in_library("moscow rules")
     assert_equal 5, book_records.size
     
     assert_equal 1, book_records[0].ranking

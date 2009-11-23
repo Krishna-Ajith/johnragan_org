@@ -4,20 +4,25 @@ require "hpricot"
 require "ruby-debug"
 
 class SearchLibrary
-  def books_in_library(title)
-    all_book_records(HtmlPageFetcher.get_page(title))
+  def find_book_in_library(title)
+    all_book_records_by_rank(HtmlPageFetcher.get_page(title))
   end 
   
 private
 
-  def all_book_records(data)
-    full_doc = Hpricot(data)
+  ITEM_LISTING2_CSS_CLASS = "itemlisting2"
+  ITEM_LISTING_CSS_CLASS = "itemlisting"
+  HTML_NODES_PER_BOOK_RECORD = 3
+
+  def all_book_records_by_rank(page)
+    full_hpricot_doc = Hpricot(page)
     
-    book_records2 = process_book_nodes(full_doc, "itemlisting2")
-    book_records = process_book_nodes(full_doc, "itemlisting")
-  
-    final_records = book_records2.concat(book_records)
-    return final_records.sort_by{|p| p.ranking}
+    # records were split into CSS classes itemlisting2 and itemlisting by fcpl site solely for display
+    book_records2 = process_book_nodes(full_hpricot_doc, ITEM_LISTING2_CSS_CLASS)
+    book_records = process_book_nodes(full_hpricot_doc, ITEM_LISTING_CSS_CLASS)
+    all_records = book_records2.concat(book_records)
+    
+    return all_records.sort_by{|r| r.ranking}
     
     
     
@@ -60,30 +65,25 @@ private
     data
   end
   
-  def process_book_nodes(full_doc, node_name)
-    parts = []
-    (full_doc/".#{node_name}").each do |one_of_3_part|
-      parts << one_of_3_part.innerHTML
-    end
-    
-    return [] if parts.size == 0
+  def process_book_nodes(full_hpricot_doc, css_class)
+    # For each book found on the site, there will be 3 html nodes matching.
+    # The first one has the rank number and html link.  The second has the
+    # title, author, and the optional edition information.  The third
+    # can be ignored.
+    html_parts_by_css_class = html_parts(full_hpricot_doc, css_class)
+    return [] if html_parts_by_css_class.size == 0
     
     book_records = []
-    
-    record_count = parts.size / 3
-    for i in 1..record_count do
+    for i in 0..record_count(html_parts_by_css_class)-1 do
       book_record = BookData.new
       
-      # TODO - do we need to use something else for each
-      (Hpricot(parts[(i-1)*3].to_s)/".hit_list_number").each do |e|
-        # TODO - Make this more robust to just lose the first '#'
-        book_record.ranking = e.innerHTML[1].chr.to_i
-        # TODO  - I think we can remove this.
-        book_ranking = 6 if book_record.ranking == nil
+      # Just 1
+      (Hpricot(subpart_of_part(1, html_parts_by_css_class, i))/".hit_list_number").each do |e|
+        book_record.ranking = e.innerHTML[1..-1].to_i
       end
       
-      # TODO - do we need to use something else for each
-      (Hpricot(parts[((i-1)*3)+1].to_s)/"strong").each do |e|
+      # Just 1
+      (Hpricot(subpart_of_part(2, html_parts_by_css_class, i))/"strong").each do |e|
         book_record.title = e.innerHTML
       end
       
@@ -93,9 +93,19 @@ private
     book_records
   end
   
-  # TODO - Remove this if not needed
-  # The listings for each book record cycle starting with "itemlisting2" then "itemlisting"
-  def next_listing
-    @listing = (@listing.nil? || @listing == "itemlisting") ? "itemlisting2" : "itemlisting"   
+  def html_parts(full_hpricot_doc, css_class)
+    html_parts_by_css_class = []
+    (full_hpricot_doc/".#{css_class}").each do |e|
+      html_parts_by_css_class << e.innerHTML
+    end
+  end
+  
+  def record_count(html_parts_by_css_class)
+    html_parts_by_css_class.size / HTML_NODES_PER_BOOK_RECORD
+  end  
+  
+  def subpart_of_part(subpart, parts, i)
+    return parts[i*3].to_s if subpart == 1
+    return parts[(i*3)+1].to_s if subpart == 2
   end
 end
