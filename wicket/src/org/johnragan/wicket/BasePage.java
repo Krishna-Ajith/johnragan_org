@@ -1,7 +1,7 @@
 /*
- * WicketExamplePage.java
+ * BasePage.java
  *
- * Created on November 6, 2009, 10:16 AM
+ * Created on December 6, 2009, 06:30 AM
  */
  
 package org.johnragan.wicket;           

@@ -1,10 +1,13 @@
 /*
+ * SimpleWicketSession.java
+ *
+ * Created on December 6, 2009, 06:30 AM
+ * 
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
 package org.johnragan.wicket;
 
-import java.util.Locale;
 import org.apache.wicket.Application;
 import org.apache.wicket.Request;
 import org.apache.wicket.Response;
@@ -12,23 +15,28 @@ import org.apache.wicket.Session;
 
 /**
  *
- * @author Richard Rowe
+ * @author John Ragan
  */
-public class SimpleWicketSession extends Session {
+public class I18nSession extends Session {
 
-    public SimpleWicketSession(Application application, Request request) {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -5726434529675965841L;
+
+	@SuppressWarnings("deprecation")
+	public I18nSession(Application application, Request request) {
         super(application, request);
     }
 
-    public SimpleWicketSession(Request request) {
+    public I18nSession(Request request) {
         super(request);
     }
 
-    public SimpleWicketSession(Request request, Response response) {
+    public I18nSession(Request request, Response response) {
         super(request);
-        setLocale(new Locale("us", "US"));
 //        setLocale(new Locale("es", "ES"));
-//        setLocale(request.getLocale());
+        setLocale(request.getLocale());
     }
 
     @Override
