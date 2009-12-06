@@ -5,16 +5,12 @@
  */
 package org.johnragan.wicket;
 
-import java.util.Locale;
 import org.apache.wicket.AttributeModifier;
 import org.apache.wicket.PageParameters;
-import org.apache.wicket.ajax.AjaxEventBehavior;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.form.AjaxFormComponentUpdatingBehavior;
-import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.Button;
 import org.apache.wicket.markup.html.form.Form;
-import org.apache.wicket.markup.html.form.IFormSubmittingComponent;
 import org.apache.wicket.markup.html.form.RequiredTextField;
 import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
@@ -22,72 +18,72 @@ import org.apache.wicket.model.Model;
 import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.validation.validator.StringValidator;
 
+/*
+ * This java class needs to have a counterpart named HomePage.html
+ */
 public class HomePage extends BasePage {
 
-    private String firstName = "";
-    private String lastName = "";
-    TextField fName;
-    TextField lName;
-    FeedbackPanel feedbackPanel;
+	// Initial values for text field
+    private String firstName = "Jon";
+    private String lastName = "Doe";
+    
+    // Note that these are Wicket TextField instances
+    private TextField<String> firstNameTextField;
+    private TextField<String> lastNameTextField;
+    
+    // This is used similar to a Rails Flash
+    private FeedbackPanel flashPanel;
 
-    public HomePage() {
-
-        Form<Form> f = new Form<Form>("f");
-
-        add(f);
-        fName = new TextField("fname", new PropertyModel(this, "firstName"));
-//        RequiredTextField<String> fName = new RequiredTextField<String>("fname", new PropertyModel(HomePage.this, "firstName"));
-//        fName.add(new AttributeModifier("class", true, new Model("bluetext")));
-        lName = new TextField("lname", new PropertyModel(this, "lastName"));
-//        FeedbackPanel feedbackPanel = new FeedbackPanel("feedback");
-        feedbackPanel = new FeedbackPanel("feedback");
-        feedbackPanel.setOutputMarkupId(true);
-//        fName.add(new AjaxEventBehavior("ondblclick") {
-//
-//            @Override
-//            protected void onEvent(AjaxRequestTarget target) {
-//                System.out.println("ondblclick event fired");
-//            }
-//        });
-//        fName.add(new AjaxFormComponentUpdatingBehavior("onblur") {
-//
-//            @Override
-//            protected void onUpdate(AjaxRequestTarget target) {
-//                info("Wait.... don't go yet");
-//                target.addComponent(feedbackPanel);
-//            }
-//        });
-        fName.add(new AjaxFormComponentUpdatingBehavior("ondblclick") {
+    @SuppressWarnings("serial")
+	public HomePage() {
+    	// The form needs a corresponding form w/matching id in HomePage.html
+        Form<String> form = new Form<String>("theForm");
+        add(form);
+        
+        // The flashPanel needs a corresponding span w/matching id in HomePage.html
+        flashPanel = new FeedbackPanel("flash");
+        // This is necessary for AJAX updating
+        flashPanel.setOutputMarkupId(true);
+        // As these exist under the form in HomePage.html, they are added to the 
+        //form instead of the page here.
+        form.add(flashPanel);
+        
+        firstNameTextField = new TextField<String>("fname", new PropertyModel<String>(this, "firstName"));
+        firstNameTextField.add(new AttributeModifier("class", true, new Model<String>("bluetext")));
+        firstNameTextField.setRequired(true);
+        firstNameTextField.add(StringValidator.maximumLength(10));
+        firstNameTextField.add(new AjaxFormComponentUpdatingBehavior("onblur") {
 
             @Override
             protected void onUpdate(AjaxRequestTarget target) {
-                System.out.println("ondblclick event fired");
-                error("OUCH! That hurt");
-                target.addComponent(feedbackPanel);
+                info("You left the field");
+                target.addComponent(flashPanel);
             }
         });
-        fName.setRequired(true);
-        fName.add(StringValidator.maximumLength(50));
-//        lName.setRequired(true);
-//        lName.add(StringValidator.maximumLength(50));
-        f.add(fName);
-        f.add(lName);
-        Button submit = new Button("submitform") {
+        firstNameTextField.add(new AjaxFormComponentUpdatingBehavior("ondblclick") {
 
+            @Override
+            protected void onUpdate(AjaxRequestTarget target) {
+                error("You double clicked");
+                target.addComponent(flashPanel);
+            }
+        });
+        form.add(firstNameTextField);
+        
+        lastNameTextField = new RequiredTextField<String>("lname", new PropertyModel<String>(HomePage.this, "lastName"));
+        form.add(lastNameTextField);
+        
+        Button submit = new Button("submitform") {
             @Override
             public void onSubmit() {
                 super.onSubmit();
-//                System.out.println("inside onSubmit of button");
                 PageParameters params = new PageParameters();
                 params.add("fname", getFirstName());
                 params.add("lname", getLastName());
-//                setResponsePage(new SecondPage(getFirstName(), getLastName()));
                 setResponsePage(SecondPage.class, params);
             }
         };
-//        Button submit = new Button("submitform");
-        f.add(submit);
-        f.add(feedbackPanel);
+        form.add(submit);
     }
 
     public String getFirstName() {

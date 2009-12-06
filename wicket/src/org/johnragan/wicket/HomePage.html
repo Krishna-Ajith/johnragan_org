@@ -2,18 +2,18 @@
 
 <html>
     <head>
-        <title></title>
+        <title>Demo of Homepage Using Wicket</title>
         <link wicket:id='stylesheet'/>
     </head>
     <body>
         <span wicket:id='mainNavigation'/>
-        <form wicket:id="f">
+        <form wicket:id="theForm">
+        	<span wicket:id="flash"></span>
             <wicket:message key="fnamelabel"></wicket:message>&nbsp;<input wicket:id="fname" type="text" /><br>
             <wicket:message key="lnamelabel"></wicket:message>&nbsp;<input wicket:id="lname" type="text" />
 
             <br>
-            <input wicket:id="submitform" type="submit" value=" Submit "><br>
-            <span wicket:id="feedback"></span>
+            <input wicket:id="submitform" type="submit" value=" Submit "><br>            
         </form>
     </body>
 </html>

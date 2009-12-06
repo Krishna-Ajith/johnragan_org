@@ -9,11 +9,10 @@ package org.johnragan.wicket;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.markup.html.resources.StyleSheetReference;
-import org.apache.wicket.util.string.Strings;
 
 /** 
  *
- * @author Richard Rowe
+ * @author John Ragan
  * @version 
  */
 
@@ -30,9 +29,8 @@ public class BasePage extends WebPage {
      * Construct.
      * @param model
      */
-    public BasePage(IModel model) {
+    public BasePage(IModel<Object> model) {
         super(model);
-        final String packageName = getClass().getPackage().getName();
         add(new HeaderPanel("mainNavigation", "wicket demo application"));
         add(new StyleSheetReference("stylesheet", BasePage.class, "style.css"));
     }
