@@ -11,10 +11,13 @@ import org.apache.wicket.markup.html.panel.Panel;
 
 /** 
  *
- * @author Richard Rowe
+ * @author John Ragan
  * @version 
  */
 
+/*
+ * It extends
+ */
 public class HeaderPanel extends Panel {
 
     /**
@@ -23,10 +26,11 @@ public class HeaderPanel extends Panel {
      * @param exampleTitle title of the example
      */
 
-    public HeaderPanel(String componentName, String exampleTitle)
+    public HeaderPanel(String componentName, String exampleHeaderText)
     {
         super(componentName);
-        add(new Label("exampleTitle", exampleTitle));
+        // There must be a corresponding span with an id of 'exampleHeader' in HeaderPanel.html
+        add(new Label("exampleHeader", exampleHeaderText));
     }
 
 }

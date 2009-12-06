@@ -13,6 +13,7 @@ import org.apache.wicket.markup.html.form.Button;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.RequiredTextField;
 import org.apache.wicket.markup.html.form.TextField;
+import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.model.PropertyModel;
@@ -113,6 +114,11 @@ public class HomePage extends BasePage {
             }
         };
         form.add(submit);
+        
+        // The following adds links to Child1Page and Child2Page
+        // You need corresponding markup in HomePage.html
+        add(new BookmarkablePageLink("link_child1", Child1Page.class));
+        add(new BookmarkablePageLink("link_child2", Child2Page.class));
     }
 
     // These getters and setters below are required by the PropertyModel to 

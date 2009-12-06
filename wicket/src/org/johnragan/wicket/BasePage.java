@@ -2,6 +2,10 @@
  * BasePage.java
  *
  * Created on December 6, 2009, 06:30 AM
+ * 
+ * By having a BasePage that HomePage and SecondPage extend, a common navigation
+ * area can be maintained for both pages.  The HeaderPanel contains this common
+ * navigation area (as implemented).
  */
  
 package org.johnragan.wicket;           
@@ -31,7 +35,7 @@ public class BasePage extends WebPage {
      */
     public BasePage(IModel<Object> model) {
         super(model);
-        add(new HeaderPanel("mainNavigation", "wicket demo application"));
+        add(new HeaderPanel("headerPanel", "wicket demo application"));
         add(new StyleSheetReference("stylesheet", BasePage.class, "style.css"));
     }
 }

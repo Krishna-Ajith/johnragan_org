@@ -1,19 +1,32 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
+<!-- form, inputs, and submit must have corresponding id's in HomePage.java.  -->
 <html>
     <head>
         <title>Demo of Homepage Using Wicket</title>
+        <!-- Rather than being hardcoded, the stylesheets can be specified as follows dynamically.  
+             See BasePage.java -->
         <link wicket:id='stylesheet'/>
     </head>
     <body>
-        <span wicket:id='mainNavigation'/>
+    	<!-- You still need to include the HTML for the header panel on each page, even
+    	     though it is in BasePage.java, which HomePage.java extends.  -->
+        <span wicket:id='headerPanel'/>
         <form wicket:id="theForm">
+        	<!-- This is where the validation error and info messages go -->
         	<span wicket:id="flash"></span>
-            <wicket:message key="fnamelabel"></wicket:message>&nbsp;<input wicket:id="firstNameInput" type="text" /><br>
-            <wicket:message key="lnamelabel"></wicket:message>&nbsp;<input wicket:id="lastNameInput" type="text" />
+        	
+        	<!-- wicket:message is how we do localization.  See the respective .properties file -->
+            <wicket:message key="fnamelabel">First Name</wicket:message>&nbsp;<input wicket:id="firstNameInput" type="text" /><br>
+            <wicket:message key="lnamelabel">Last Name</wicket:message>&nbsp;<input wicket:id="lastNameInput" type="text" />
 
             <br>
             <input wicket:id="submitform" type="submit" value=" Submit "><br>            
         </form>
+        
+        <!-- The following adds links to Child1Page and Child2Page
+             You must have corresponding markup in HomePage.html -->
+        <p><a href="#" wicket:id="link_child1">Child 1 page</a></p>
+        <p><a href="#" wicket:id="link_child2">Child 2 page</a></p>
     </body>
 </html>

@@ -1,10 +1,8 @@
 /*
- * SimpleWicketSession.java
+ * I18nSession.java
  *
  * Created on December 6, 2009, 06:30 AM
  * 
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
  */
 package org.johnragan.wicket;
 
@@ -33,9 +31,14 @@ public class I18nSession extends Session {
         super(request);
     }
 
+    /*
+     * This is altered to use the client locale.  Try configuring your browser
+     * to use spanish in Spain or French in France to see the localization
+     * take effect.  Validation error messages are automatically switched,
+     * and the properties files are set in Spanish and French.
+     */
     public I18nSession(Request request, Response response) {
         super(request);
-//        setLocale(new Locale("es", "ES"));
         setLocale(request.getLocale());
     }
 

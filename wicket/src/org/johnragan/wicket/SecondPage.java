@@ -14,8 +14,9 @@ import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.model.Model;
 
 /**
+ * For an explanation of how this works, refer to HomePage.java
  *
- * @author Richard Rowe
+ * @author John Ragan
  */
 public class SecondPage extends BasePage {
 
@@ -39,8 +40,8 @@ public class SecondPage extends BasePage {
     }
 
     private void init(String firstName, String lastName) {
-        firstNameLabel = new Label("firstName", new Model(firstName));
-        lastNameLabel = new Label("lastName", new Model(lastName));
+        firstNameLabel = new Label("firstName", new Model<String>(firstName));
+        lastNameLabel = new Label("lastName", new Model<String>(lastName));
         add(firstNameLabel);
         add(lastNameLabel);
     }
