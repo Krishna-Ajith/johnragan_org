@@ -19,8 +19,8 @@ import org.apache.wicket.model.Model;
  */
 public class SecondPage extends BasePage {
 
-    private Label fName;
-    private Label lName;
+    private Label firstNameLabel;
+    private Label lastNameLabel;
 
     public SecondPage() {
         init("", "");
@@ -28,8 +28,8 @@ public class SecondPage extends BasePage {
 
     public SecondPage(PageParameters parameters) {
 
-        String firstName = parameters.getString("fname");
-        String lastName = parameters.getString("lname");
+        String firstName = parameters.getString("firstNameParam");
+        String lastName = parameters.getString("lastNameParam");
         init(firstName, lastName);
 
     }
@@ -39,9 +39,9 @@ public class SecondPage extends BasePage {
     }
 
     private void init(String firstName, String lastName) {
-        fName = new Label("fname", new Model(firstName));
-        lName = new Label("lname", new Model(lastName));
-        add(fName);
-        add(lName);
+        firstNameLabel = new Label("firstName", new Model(firstName));
+        lastNameLabel = new Label("lastName", new Model(lastName));
+        add(firstNameLabel);
+        add(lastNameLabel);
     }
 }
