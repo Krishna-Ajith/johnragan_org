@@ -23,6 +23,12 @@ class SearchTest < ActiveSupport::TestCase
     assert_equal "Unabridged.", book_records[2].edition
     assert_equal "", book_records[3].edition
     assert_equal "", book_records[4].edition
+    
+    assert_equal "Silva, Daniel 1960", book_records[0].author
+    assert_equal "Silva, Daniel 1960", book_records[1].author
+    assert_equal "Silva, Daniel 1960", book_records[2].author
+    assert_equal "Silva, Daniel 1960", book_records[3].author
+    assert_equal "Silva, Daniel 1960", book_records[4].author
   end
 
   def test_get_library_valid_title
