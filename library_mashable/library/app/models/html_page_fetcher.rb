@@ -3,6 +3,7 @@ class HtmlPageFetcher
     # TODO - Capture any exceptions here and bubble up appropriately.  There are two scenarios:
     #           1.  The service itself is simply down
     #           2.  The service itself is simply unavailable (how do we determine this?)
+    # TODO - Use timeout and handle accordingly
     data = Net::HTTP.get(URI.parse(library_url(title)))
   end  
   

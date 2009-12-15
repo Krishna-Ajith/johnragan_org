@@ -79,6 +79,7 @@ private
       
       book_record.ranking = ranking(html_parts_by_css_class, i)
       book_record.title = title(html_parts_by_css_class, i)
+      book_record.author = author(html_parts_by_css_class, i)
       book_record.edition = edition(html_parts_by_css_class, i)
       
       book_records << book_record
@@ -108,6 +109,14 @@ private
     # There is just one despite use of "each"
     (Hpricot(subpart_of_part(2, html_parts_by_css_class, i))/"strong").each do |e|
       return e.innerHTML
+    end
+  end
+  
+  def author(html_parts_by_css_class, i)
+    # There is just one despite use of "each"
+    (Hpricot(subpart_of_part(2, html_parts_by_css_class, i))/"label").each do |e|
+      #return /(<br />\&nbsp;\&nbsp;)(.*)(-\\n)/.match(e.innerHTML)[2]
+      return /(<br \/>&nbsp;&nbsp;)(.*)(-\n)/.match(e.innerHTML)[2]
     end
   end
   
