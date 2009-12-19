@@ -1,0 +1,1 @@
+<?xml version="1.0" ?><S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/"><S:Body><ns2:getTimeAsStringResponse xmlns:ns2="http://basics.jws.johnragan.org/"><return>Tue Dec 15 16:57:54 EST 2009</return></ns2:getTimeAsStringResponse></S:Body></S:Envelope>
