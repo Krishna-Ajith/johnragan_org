@@ -2,8 +2,6 @@ package org.johnragan.jws.amazon;
 
 import java.util.List;
 
-import javax.xml.ws.Holder;
-
 import org.johnragan.jws.awsClient2.AWSECommerceService;
 import org.johnragan.jws.awsClient2.AWSECommerceServicePortType;
 import org.johnragan.jws.awsClient2.Item;
@@ -12,7 +10,11 @@ import org.johnragan.jws.awsClient2.ItemSearch;
 import org.johnragan.jws.awsClient2.ItemSearchRequest;
 import org.johnragan.jws.awsClient2.ItemSearchResponse;
 import org.johnragan.jws.awsClient2.Items;
-import org.johnragan.jws.awsClient2.OperationRequest;
+
+/*
+ * wsimport -keep -p org.johnragan.jws.awsClient2 http://ecs.amazonaws.com/AWSECommerceService/AWSECommerceService.wsdl -b custom.xml .
+ * 
+ */
 
 public class AmazonClientU {
 
