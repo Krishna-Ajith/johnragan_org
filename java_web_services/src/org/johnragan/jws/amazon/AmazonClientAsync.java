@@ -27,9 +27,9 @@ public class AmazonClientAsync {
 	 */
 	public static void main(String[] args) {
 		// TODO - get key
-		final String access_key = "AKIAJPTPYX5V7PGLR74Q";
+		final String access_key = AmazonKeys.getAccessKey();
 		AWSECommerceService service = new AWSECommerceService();
-		service.setHandlerResolver(new AwsHandlerResolver("fzlG2kVEn7Eb8NcwF6pLIociFpg0y59DJmRTrmYL")); 
+		service.setHandlerResolver(new AwsHandlerResolver(AmazonKeys.getSecretKey())); 
 		AWSECommerceServicePortType port = service.getAWSECommerceServicePort();
 		
 		ItemSearchRequest request = new ItemSearchRequest();

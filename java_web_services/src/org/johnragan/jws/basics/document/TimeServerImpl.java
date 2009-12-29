@@ -4,7 +4,7 @@ import java.util.Date;
 
 import javax.jws.WebService;
 
-@WebService(endpointInterface = "org.johnragan.jws.basics.TimeServer")
+@WebService(endpointInterface = "org.johnragan.jws.basics.document.TimeServer")
 public class TimeServerImpl implements TimeServer {
 
 	@Override
