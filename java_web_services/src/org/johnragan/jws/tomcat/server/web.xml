@@ -15,8 +15,34 @@
       <servlet-class>
         com.sun.xml.ws.transport.http.servlet.WSServlet
       </servlet-class>
-
    </servlet>
+   
+ <!--
+   
+   <security-role>
+   		<description>The Only Secure Role</description>
+   		<role-name>bigshot</role-name>
+   </security-role>
+   
+   <security-constraint>
+   		<web-resource-collection>
+   			<web-resource-name>Users-Roles Security</web-resource-name>
+   			<url-pattern>/tc</url-pattern>
+   		</web-resource-collection>
+   		<auth-constraint>
+   			<role-name>bigshot</role-name>
+   		</auth-constraint>
+   		<user-data-constraint>
+   			<transport-guarantee>CONFIDENTIAL</transport-guarantee>
+   		</user-data-constraint>
+   </security-constraint>
+   
+   <login-config>
+   		<auth-method>BASIC</auth-method>
+   </login-config>
+   
+ -->
+   
    <servlet-mapping>
      <servlet-name>TempConvertWS</servlet-name>
      <url-pattern>/tc</url-pattern>
