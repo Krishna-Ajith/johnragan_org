@@ -66,12 +66,14 @@ public class RequestProducer {
 			TemporaryQueue temporaryQueue = session.createTemporaryQueue();
 			MessageConsumer responseConsumer = session.createConsumer(temporaryQueue);
 			message.setJMSReplyTo(temporaryQueue);
-			message.setJMSCorrelationID("unique_correlation_id_1"); // the correlation id
+			//message.setJMSCorrelationID("unique_correlation_id_1"); // the correlation id
             System.out.println("Sending request: " + message.getText());
             producer.send(message, DeliveryMode.NON_PERSISTENT, 3, 60000);
                    
 	        TextMessage reply = (TextMessage) responseConsumer.receive();
 	        System.out.println("Reading reply: " + reply.getText());
+	        System.out.println("Request Correlation id: " + message.getJMSMessageID());
+	        System.out.println("Reply Correlation id: " + reply.getJMSCorrelationID());
 		} catch (JMSException e) {
 			e.printStackTrace();
 		} finally {

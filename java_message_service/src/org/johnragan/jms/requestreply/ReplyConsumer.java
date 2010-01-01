@@ -66,7 +66,7 @@ public class ReplyConsumer {
 
 	        producer = session.createProducer(request.getJMSReplyTo());
 	        Message response = session.createTextMessage("Consumer " + "processed message: " + request.getText());
-	        response.setJMSCorrelationID(request.getJMSCorrelationID());
+	        response.setJMSCorrelationID(request.getJMSMessageID());
 	        producer.send(response);
 		} catch (JMSException e) {
 			e.printStackTrace();
