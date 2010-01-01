@@ -1,5 +1,7 @@
-package org.johnragan.jms.simple;
+package org.johnragan.jms.simple.async;
 
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Hashtable;
 import java.util.Properties;
 
@@ -16,7 +18,10 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
-public class SimpleConsumer {
+/*
+ * See producer for instructions.
+ */
+public class SimpleAsyncConsumer {
 	
 	public final void consumeMessages() {
 		TextMessage message = null;
@@ -43,8 +48,8 @@ public class SimpleConsumer {
 		Destination destination = null;
 		try {
 			connectionFactory = (ConnectionFactory) jndiContext.lookup("ConnectionFactory");
-			//destination = (Destination) jndiContext.lookup("dynamicQueues/FOO.BAR");
-			destination = (Destination) jndiContext.lookup("dynamicTopics/FOO.BAR");
+			//destination = (Destination) jndiContext.lookup("dynamicQueues/AsyncQueue");
+			destination = (Destination) jndiContext.lookup("dynamicTopics/AsyncTopic");
 		} catch (NamingException e) {
 			e.printStackTrace();
 			System.exit(1);
@@ -57,21 +62,22 @@ public class SimpleConsumer {
 			connection = connectionFactory.createConnection();
 			Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
 	        consumer = session.createConsumer(destination);
-	        connection.start();
-	        
-	        while (true) {
-                Message m = consumer.receive(1);
+	        TextListener listener = new TextListener();
+            consumer.setMessageListener(listener);
+            connection.start();
+            System.out.println("To end program, type Q or q, " +
+                "then <return>");
+            InputStreamReader inputStreamReader = new InputStreamReader(System.in);
+            char answer = '\0';
 
-                if (m != null) {
-                    if (m instanceof TextMessage) {
-                        message = (TextMessage) m;
-                        System.out.println("Reading message: " +
-                            message.getText());
-                    } else {
-                        break;
-                    }
+            while (!((answer == 'q') || (answer == 'Q'))) {
+                try {
+                    answer = (char) inputStreamReader.read();
+                } catch (IOException e) {
+                    System.out.println("I/O exception: " + e.toString());
                 }
             }
+
 
 		} catch (JMSException e) {
 			// TODO Auto-generated catch block
@@ -86,7 +92,7 @@ public class SimpleConsumer {
 	}
 
 	public static void main(String[] args) {
-		SimpleConsumer simpleConsumer = new SimpleConsumer();
+		SimpleAsyncConsumer simpleConsumer = new SimpleAsyncConsumer();
 		simpleConsumer.consumeMessages();
 	}
 
