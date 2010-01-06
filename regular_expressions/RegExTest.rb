@@ -37,6 +37,49 @@ class RegExTest < Test::Unit::TestCase
       assert_equal('bar', regex.match(sentence2)[0])
     end
     
+    #8.  Match foo and goo (and so forth) but not boo without using these as words in your formula
+    def test_regex8
+      regex = /[^b]oo/
+      sentence1 = 'here is boo and foo and I am through'
+      sentence2 = 'here is boo and goo and I am through'
+      
+      assert_equal(16, sentence1 =~ regex)
+      assert_equal('foo', regex.match(sentence1)[0])
+      assert_equal(16, sentence2 =~ regex)
+      assert_equal('goo', regex.match(sentence2)[0])
+    end
+    
+    #9.  Find the strings that end in "oo" (3 character, and unlimited characters)
+    def test_regex9
+      regex = /\b\wooo*\b/
+      sentence1 = 'here is bo, boo and foo and I am through'
+      sentence2 = 'here is go, goooo and boo and I am through'
+      
+      assert_equal(12, sentence1 =~ regex)
+      assert_equal('boo', regex.match(sentence1)[0])
+      # TODO - Fix the following - how do you find ALL strings?
+      #assert_equal('foo', regex.match(sentence1)[1])
+      
+      assert_equal(12, sentence2 =~ regex)
+      assert_equal('goooo', regex.match(sentence2)[0])
+      # TODO - Fix the following - how do you find ALL strings?
+      #assert_equal('boo', regex.match(sentence2)[1])
+    end
+    
+    #11.  See if a word matches that starts with "foo".  Additionally, one that does not start with "foo".
+    def test_regex11
+      regex1 = /\bfoo\w*\b/
+      regex2 = /\b(^(foo))\w*\b/
+      sentence1 = 'here is fo, fooshizzle, and so forth'
+      sentence2 = 'fooshizzle thistle'
+      
+      assert_equal(12, sentence1 =~ regex1)
+      assert_equal('fooshizzle', regex1.match(sentence1)[0])
+      
+      # TODO - Figure out how to do this
+      #assert_equal(11, sentence2 =~ regex2)
+      #assert_equal('thistle', regex2.match(sentence2)[0])
+    end  
     
     # 12a. See if a string matches that starts with 1 or more characters and ends with "bar".  
     def test_regex12a
@@ -55,6 +98,19 @@ class RegExTest < Test::Unit::TestCase
       
       #assert_equal(nil, '12345fkbar' =~ regex)
       #assert_equal(7, '12345fkbat' =~ regex)
+    end
+    
+    #13.  Find a substring that begins with "foo" and ends with "bar".
+    def test_regex13
+      regex = /foo\w*bar/
+      sentence1 = "here if fooshizzlebar and the rest"
+      sentence2 = "here if foobar and the rest"
+      
+      assert_equal(8, sentence1 =~ regex)
+      assert_equal('fooshizzlebar', regex.match(sentence1)[0])
+      
+      assert_equal(8, sentence1 =~ regex)
+      assert_equal('foobar', regex.match(sentence2)[0])
     end
     
     # 18. Find  "abc" or "abcabc" and so forth in the sentence
@@ -109,4 +165,17 @@ class RegExTest < Test::Unit::TestCase
       # It matches on up to the first nine digits, as opposed to ignoring 1234567890 (which is 10 digits)
       assert_equal('123456789', regex.match(sentence4)[0])
     end
+    
+    #28 - Given a dollar figure, return the portion without the cents.
+    def test_regex28
+      regex = /\$(\d|\,)+/
+      sentence1 = 'it will cost $1,512.34 or even more'
+      sentence2 = 'it will cost $316.00 or even more'
+      
+      assert_equal(13, sentence1 =~ regex)
+      assert_equal('$1,512', regex.match(sentence1)[0])
+      assert_equal(13, sentence2 =~ regex)
+      assert_equal('$316', regex.match(sentence2)[0])
+    end
+    
   end
