@@ -16,6 +16,34 @@ class RegExTest < Test::Unit::TestCase
       assert_equal('abc', regex.match(sentence)[0])
     end
     
+    # 2. Replace the contents of a string within a document with something else
+    def test_regex2
+      the_string = 'what was once foo'
+      the_string.gsub! /foo/, 'bar'
+      assert_equal("what was once bar", the_string)
+    end
+    
+    # 3. Find three keys parts of a document and pull them out
+    def test_regex3
+      regex = /(snap)\sand\s(crackle)\sand\s(pop)/
+      sentence = 'this is snap and crackle and pop cereal'
+      
+      assert_equal(8, sentence  =~ regex)
+      assert_equal('snap and crackle and pop', regex.match(sentence)[0])
+      assert_equal('snap', regex.match(sentence)[1])
+      assert_equal('crackle', regex.match(sentence)[2])
+      assert_equal('pop', regex.match(sentence)[3])
+    end
+    
+    # 4. Find the word "foo" in a sentence but it cannot be "foobar".
+    def test_regex4
+      regex = /\bfoo(?!bar)\b/
+      sentence = '123 ab4 foobar foo bar'
+      
+      assert_equal(15, sentence  =~ regex)
+      assert_equal('foo', regex.match(sentence)[0])
+    end
+    
     # 5.  Find a character only string that is a whole word only
     def test_regex5
       regex = /\b[a-zA-Z]+\b/
@@ -23,6 +51,14 @@ class RegExTest < Test::Unit::TestCase
       
       assert_equal(12, sentence  =~ regex)
       assert_equal('ab', regex.match(sentence)[0])
+    end
+    
+    # 6. Find a string that is not a case-sensitive match
+    def test_regex6
+      sentence = 'Have a nice day'
+      
+      assert_equal(nil, /have/.match(sentence))
+      assert_equal("Have", /have/i.match(sentence)[0])
     end
     
     # 7.  Find the string foo or bar
@@ -66,6 +102,8 @@ class RegExTest < Test::Unit::TestCase
       #assert_equal('boo', regex.match(sentence2)[1])
     end
     
+    #10.  Find any string that ends in "oo" but boo is not valid (REPEATS #8?  Or subtle difference?  I think I reversed them)
+    
     #11.  See if a word matches that starts with "foo".  Additionally, one that does not start with "foo".
     def test_regex11
       regex1 = /\bfoo\w*\b/
@@ -84,20 +122,22 @@ class RegExTest < Test::Unit::TestCase
     # 12a. See if a string matches that starts with 1 or more characters and ends with "bar".  
     def test_regex12a
       regex = /[a-zA-Z]+bar$/
-      sentence = '12345fkbar'
+      sentence = ' foo 12345fkbar'
       
       assert_equal(nil, 'abasdfkers' =~ regex)
-      assert_equal(5, sentence =~ regex)
+      assert_equal(10, sentence =~ regex)
       assert_equal('fkbar', regex.match(sentence)[0])
     end
     
     # 12b. Additionally, one that does not end with "bar".  NOT SURE HOW TO DO THIS ONE
     # http://stackoverflow.com/questions/323697/regular-expression-to-match-a-string-1-characters-that-does-not-end-in-ext
+    # You'll need to use negative look behind
     def test_regex12b
       regex = /[a-zA-Z]+bar$/
+      sentence = '12345fkbar foo'
       
-      #assert_equal(nil, '12345fkbar' =~ regex)
-      #assert_equal(7, '12345fkbat' =~ regex)
+      # assert_equal(11, sentence =~ regex)
+      # assert_equal('foo', regex.match(sentence)[0])
     end
     
     #13.  Find a substring that begins with "foo" and ends with "bar".
@@ -113,6 +153,46 @@ class RegExTest < Test::Unit::TestCase
       assert_equal('foobar', regex.match(sentence2)[0])
     end
     
+    #14. Find the first and last word in a sentence
+    def test_regex14
+      regex = /\b\w+\b/
+      sentence = "have a happy birthday"
+      
+      assert_equal(0, sentence =~ regex)
+      assert_equal('have', regex.match(sentence)[0])
+      # TODO - Not sure how to find the last word (or even all the words)
+    end
+    
+    # 15.  Find the first character that is not a number or digit in a string
+    def test_regex15
+      regex = /[^\d]/
+      sentence = "123456789a1234bd cadf 1342here"
+      
+      assert_equal(9, sentence =~ regex)
+      assert_equal('a', regex.match(sentence)[0])
+    end
+    
+    # 16. Find the first number in a string (and last number)
+    def test_regex16
+      regex = /\d+/
+      sentence = "abc 1343 dser 78234"
+      
+      assert_equal(4, sentence =~ regex)
+      assert_equal('1343', regex.match(sentence)[0])
+      # TODO - not sure how to get the last number
+    end
+    
+    #17. What is the text before the phrase "in the middle"?  What is the text that follows?
+    def test_regex17
+      regex = /in the middle/
+      sentence = "at the front in the middle at the end"
+      
+      assert_equal(13, sentence =~ regex)
+      assert_equal('in the middle', regex.match(sentence)[0])
+      assert_equal('at the front ', regex.match(sentence).pre_match)
+      assert_equal(' at the end', regex.match(sentence).post_match)
+    end
+    
     # 18. Find  "abc" or "abcabc" and so forth in the sentence
     def test_regex18
       # Without the double parenthesis, it only gets "abc" when "abcabc" is present.
@@ -124,6 +204,44 @@ class RegExTest < Test::Unit::TestCase
       assert_equal('abc', regex.match(sentence1)[0])
       assert_equal(17, sentence2 =~ regex)
       assert_equal('abcabcabc', regex.match(sentence2)[0])
+    end
+    
+    #19. Find the string "abc" or "abcdef"
+    def test_regex19
+      regex = /(abcdef)|(abc)/
+      # Since abc is a subset of abcdef, order matters
+      #regex = /(abc)|(abcdef)/
+      sentence = "13234 asdf 234 asjfk abcdef abc"
+      
+      assert_equal(21, sentence =~ regex)
+      assert_equal('abcdef', regex.match(sentence)[0])
+    end
+    
+    #20. Find the string "abc" or "abc1" or "abc11" and so forth
+    def test_regex20
+      regex = /abc1*/
+      sentence = "123456789abc111234bd cadf 1342here"
+      
+      assert_equal(9, sentence =~ regex)
+      assert_equal('abc111', regex.match(sentence)[0])
+    end
+    
+    #21 Find all alphabetic words that end with the first "3"
+    def test_regex21
+      regex = /\b[a-zA-z]+3\b/
+      sentence = "Here are some words excited3 that I am looking for"
+      
+      assert_equal(20, sentence =~ regex)
+      assert_equal('excited3', regex.match(sentence)[0])
+    end
+    
+    #22. Find the word that starts with an alphabetic character and ends with 17
+    def test_regex22
+      regex = /\ba\w*17\b/
+      sentence = 'what is abig #17 abig17 12going o123-444-7918n abc foo shizzle this is it'
+      
+      assert_equal(17, sentence =~ regex)
+      assert_equal('abig17', regex.match(sentence)[0])
     end
     
     # 23. Find the telephone number in the format 571-217-9451
@@ -166,6 +284,17 @@ class RegExTest < Test::Unit::TestCase
       assert_equal('123456789', regex.match(sentence4)[0])
     end
     
+    #26. Find the word that matches a sequence of 5 instances where there is one to 3 numbers and a single character
+    def test_regex26
+      regex = /\b(\d{1,3}[a-zA-Z]){5}\b/
+      sentence = 'what is this 234m54234i3n42j67u 234m54i3n42j67u789v23w 234m54i3n42j67u foo shizzle this is it'
+      
+      assert_equal(55, sentence =~ regex)
+      assert_equal('234m54i3n42j67u', regex.match(sentence)[0])
+    end
+    
+    #27. Find the string "abc" at the end of the string where there is a newline character
+    
     #28 - Given a dollar figure, return the portion without the cents.
     def test_regex28
       regex = /\$(\d|\,)+/
@@ -178,4 +307,50 @@ class RegExTest < Test::Unit::TestCase
       assert_equal('$316', regex.match(sentence2)[0])
     end
     
+    #29. Given string "#@%# 123bar 23bar 342 siojbar", find the first word that does not have "bar" in it
+    # I had trouble doing this with matching characters [a-zA-Z], since bar also falls under [a-zA-Z]
+    def test_regex29      
+      regex = /\b\d+(?!bar)\b/
+      sentence = '#@%# 123bar 23bar 342 siojbar'
+      
+      assert_equal(18, sentence =~ regex)
+      assert_equal('342', regex.match(sentence)[0])
+    end
+    
+    #30.  Find all the instances of numbers greater than 5 digits
+    def test_regex30
+      regex = /\b\d{6,}\b/
+      sentence = '1 12 123 1234 12345 123456 1234567 12345678'
+      
+      assert_equal(20, sentence =~ regex)
+      assert_equal('123456', regex.match(sentence)[0])
+      # TODO - Not sure how to get all of them
+    end
+    
+    #31.  Find the number followed by the a space and word "bang" from "123 howdy 456 wow 789 bang"
+    def test_regex31
+      regex = /\b\d+(?=\sbang)\b/
+      sentence = '123 howdy 456 wow 789 bang'
+      
+      #assert_equal(18, sentence =~ regex)
+      assert_equal('789', regex.match(sentence)[0])
+    end
+    
+    #32.  Do a greedy match (from "abc!def!ghi!" get the whole thing for .+!)
+    def test_regex32
+      regex = /.+!/
+      sentence = 'abc!def!ghi!'
+      
+      assert_equal(0, sentence =~ regex)
+      assert_equal('abc!def!ghi!', regex.match(sentence)[0])
+    end
+    
+    #33.  Do a non-greedy match (from "abc!def!ghi!" get "the whole thing"abc!"" for .+!)
+    def test_regex33
+      regex = /.+?!/
+      sentence = 'abc!def!ghi!'
+      
+      assert_equal(0, sentence =~ regex)
+      assert_equal('abc!', regex.match(sentence)[0])
+    end
   end
