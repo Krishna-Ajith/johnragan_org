@@ -1,0 +1,23 @@
+1.  Inputs on STDIN (could be multi-line)
+2.  * Inputs come in as follows: first_name<space>last_name
+3.  * A person cannot be matched with themselves
+4.  * A person cannot be matched with their last name (people with same last name are considered married)
+5.  * Should output a list of player names, as follows:  Mr Smith -> Mrs Thomas
+
+Additional Thoughts:
+
+A.  * If more than two people have the same last name, we simply treat them as a group marriage
+B.  As inputs come in on STDIN as multi-line, receiving a blank line indicates the end of input
+C.  Need to have a separate interface after STDIN inputs received that can be used with automated testing
+D.  * Need a component to easily print out the results in a standard way.
+E.  Tests should be smart enough to determine that outputs are correct.  In other words, if a last name on source matches a last name on target, the test has failed.
+F.  * First name and last name make a unique key for the person
+G.  * The last name makes a unique key for the family group
+H.  If a test assignment fails, the whole sequence starts over
+I.  A randomizer element needs to be used to avoid coming back up with the same solution each time.
+J.  * We assume the inputs are valid.  In other words, we don't have all folks from the same family or some group that cannot be assigned according to the rules given.
+K.  We have three groups:
+    1.  * Groups of folks remaining to be assigned as a santa (array)
+    2.  * Groups of folks remaining to be assigned as the gift receiver (array)
+    3.  * Folks who have already been assigned as Santas (hash)
+L.  * People will not be stored as strings, but as classes with a first name and last name
