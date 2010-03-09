@@ -1,0 +1,5 @@
+require 'test/unit'
+require 'tests/santa_list_matchmaker_test'
+require 'tests/receiver_candidates_test'
+require 'tests/santa_candidates_test'
+require 'tests/matches_validator_test'
