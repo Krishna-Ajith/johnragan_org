@@ -25,6 +25,7 @@ public class UUIDValidator implements SOAPHandler<SOAPMessageContext> {
 
 	@Override
 	public Set<QName> getHeaders() {
+		Runtime r;
 		return null;
 	}
 
