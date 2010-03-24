@@ -46,13 +46,14 @@ class GameBoard
   end
   
   def key
-    @board.dup
+    @board.intern
   end
   
   def add_computer_player_move(pos)
-    mark_grid_pos(pos, PLAYER_COMPUTER_CHAR)
     entry = MoveToFinalResultHistoryEntry.new(key, pos)
     @game_moves << entry
+    
+    mark_grid_pos(pos, PLAYER_COMPUTER_CHAR)
   end  
   
   def add_computer_opponent_move(pos)

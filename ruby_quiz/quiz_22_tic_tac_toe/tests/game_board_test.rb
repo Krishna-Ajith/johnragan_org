@@ -60,14 +60,14 @@ class GameBoardTest < Test::Unit::TestCase
     @game_board.add_computer_player_move(GameBoard::POS_UPPER_LEFT)
     game_moves = @game_board.instance_variable_get(:@game_moves)
     assert_equal 1, game_moves.size
-    assert_equal "X________0", game_moves[0].key
+    assert_equal :_________0, game_moves[0].key
   end
   
   def test_add_computer_opponent_move
     @game_board.add_computer_opponent_move(GameBoard::POS_UPPER_LEFT)
     game_moves = @game_board.instance_variable_get(:@game_moves)
     assert_equal 0, game_moves.size
-    assert_equal "O________", @game_board.key
+    assert_equal :O________, @game_board.key
   end
   
   def test_full_game_move_history_entries
@@ -75,11 +75,11 @@ class GameBoardTest < Test::Unit::TestCase
     
     game_moves = @game_board.instance_variable_get(:@game_moves)
     assert_equal 5, game_moves.size
-    assert_equal "X________0", game_moves[0].key
-    assert_equal "X_____O_X8", game_moves[1].key
-    assert_equal "X_X_O_O_X2", game_moves[2].key
-    assert_equal "X_XXOOO_X3", game_moves[3].key
-    assert_equal "XOXXOOOXX7", game_moves[4].key
+    assert_equal :_________0, game_moves[0].key
+    assert_equal :X_____O__8, game_moves[1].key
+    assert_equal :X___O_O_X2, game_moves[2].key
+    assert_equal :X_X_OOO_X3, game_moves[3].key
+    assert_equal :XOXXOOO_X7, game_moves[4].key
   end
   
   def test_identify_draw

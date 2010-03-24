@@ -21,6 +21,6 @@ class MoveToFinalResultHistoryEntry
   end
   
   def key
-    "#{@board_key}#{@move}"
+    "#{@board_key}#{@move}".intern
   end
 end
