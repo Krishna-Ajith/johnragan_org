@@ -1,0 +1,2 @@
+# This is a sed script comment that will be ignored
+s/cat/dog/
