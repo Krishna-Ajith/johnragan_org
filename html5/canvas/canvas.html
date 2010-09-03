@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="utf-8" />
+     <title>HTML5 2D Canvas</title>
+     <script type="text/javascript"src="script/canvas.js"></script>
+     <!--[if lt IE 9]>
+       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+     <![endif]-->
+</head>
+<body>
+    <h2>A mix of fillrect and clearrect (click on it)</h2>
+    <canvas id="filled_rect" width="300" height="225" style="border:1px dotted;float:left" onclick="draw_filled_rectangle(); return false"></canvas>
+    <h2>Fancy Grid Canvas</h2>
+    <canvas id="grid" width="500" height="375" style="border:1px dotted;float:left" onclick="draw_grid(); return false"></canvas>
+    <h2>Gradient Canvas</h2>
+    <canvas id="gradient" width="300" height="225" style="border:1px dotted;float:left" onclick="drawGradient()"></canvas>
+    <h2>Image Canvas</h2>
+    <canvas id="an_image" width="400" height="500" style="border:1px dotted;float:left" onclick="drawImage(); return false"></canvas>
+</body>
+</html>

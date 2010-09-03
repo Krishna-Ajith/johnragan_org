@@ -1,0 +1,91 @@
+{
+  "_id" : "_design/mydesign",
+  "views" : {
+    "rides" : {
+      "map" : "function(doc) {
+        if (doc.type === 'ride') {
+          emit(null, doc);
+        }
+      }"
+    },
+    "dining" : {
+      "map" : "function(doc) {
+        if (doc.type === 'dining') {
+          emit(null, doc);
+        }
+      }"
+    },
+    "by_name" : {
+      "map" : "function(doc) {
+        emit(doc.name, doc);
+      }"
+    },
+    "by_rating" : {
+      "map" : "function(doc) {
+        emit(doc.rating, doc);
+      }"
+    },
+    "by_park" : {
+      "map" : "function(doc) {
+        emit(doc.park, doc);
+      }"
+    },
+    "rides_by_name" : {
+      "map" : "function(doc) {
+        if (doc.type === 'ride') {
+          emit(doc.name, doc);
+        }
+      }"
+    },
+    "rides_by_rating" : {
+      "map" : "function(doc) {
+        if (doc.type === 'ride') {
+          emit(doc.rating, doc);
+        }
+      }"
+    },
+    "rides_by_park" : {
+      "map" : "function(doc) {
+        if (doc.type === 'ride') {
+          emit(doc.park, doc);
+        }
+      }"
+    },
+    "dining_by_name" : {
+      "map" : "function(doc) {
+        if (doc.type === 'dining') {
+          emit(doc.name, doc);
+        }
+      }"
+    },
+    "dining_by_rating" : {
+      "map" : "function(doc) {
+        if (doc.type === 'dining') {
+          emit(doc.rating, doc);
+        }
+      }"
+    },
+    "dining_by_park" : {
+      "map" : "function(doc) {
+        if (doc.type === 'dining') {
+          emit(doc.park, doc);
+        }
+      }"
+    }
+  },
+  "validate_doc_update" : "function(newDoc, oldDoc, userCtx) {
+    function require(field, message) {
+      message = message || 'Document must have a ' + field;
+      if (!newDoc[field]) throw({forbidden : message});
+    };
+    
+    require('type');
+    require('name');
+    require('park');
+    require('rating');
+    if (newDoc.type != 'dining' && newDoc.type != 'ride') {
+      throw {forbidden: 'Document must have a type.'};
+    }
+    if (newDoc.type === 'dining') require('cost');
+  }"
+}
