@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="utf-8" />
+     <title>HTML5 Input Fields</title>
+     <script type="text/javascript" src="../lib/modernizr-1.5.min.js"></script>
+     <!--[if lt IE 9]>
+       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+     <![endif]-->
+</head>
+<body>
+    <h2>Input Fields</h2>
+    <form>
+      <label>Placeholder</label>
+      <input name="q" placeholder="Search Bookmarks and History"></input>
+      <br />
+      
+      <label>Autofocus<label>
+      <input id="r" autofocus></input>
+      <script>
+      if (!("autofocus" in document.createElement("input"))) {
+      document.getElementById("r").focus();
+      }
+      </script>
+      <br />
+      
+      <label>Email</label>
+      <input type="email"></input>
+      <br />
+      
+      <label>Number Spinner</label>
+      <input type="number"
+                min="0"
+                max="10"
+                step="2"
+                value="6"></input>
+      <br />
+      
+      <label>Number as Slider</label>
+      <input type="range"
+        min="0"
+        max="10"
+        step="2"
+        value="6"></input>
+      <br />
+      
+      <label>Date<label>
+      <input type="date"></input>
+      <br />
+      
+      <label>Date Time<label>
+      <input type="datetime"></input>
+      <br />
+      
+      <label>Month<label>
+      <input type="month"></input>
+      <br />
+      
+      <label>Week<label>
+      <input type="week"></input>
+      <br />
+      
+      <label>Time<label>
+      <input type="time"></input>
+      <br />
+      
+      <label>Search<label>
+      <input name="s" type="search"></input>
+      <br />
+      
+      <label>Color</label>
+      <input type="color"></input>
+      <br />
+      
+      <input type="submit" value="Search"></input>
+    </form>
+</body>
+</html>
