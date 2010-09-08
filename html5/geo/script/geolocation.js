@@ -23,7 +23,6 @@ function basicGeo() {
   if (Modernizr.geolocation) {
     navigator.geolocation.getCurrentPosition(show_map, handle_error, 
       {enableHighAccuracy: true, timeout: 10000, maximumAge: 20000}); // properties for last parameter are optional
-    //alert("it is supported");
   } else {
   // no native support; maybe try Gears?
   }

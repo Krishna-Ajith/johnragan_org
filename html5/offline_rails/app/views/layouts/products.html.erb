@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+
+<html lang="en" manifest="/manifests">
+<head>
+  <meta charset="utf-8" />
+  <title>Products: <%= controller.action_name %></title>
+  <%= stylesheet_link_tag 'scaffold' %>
+</head>
+<body>
+
+<p style="color: green"><%= flash[:notice] %></p>
+
+<%= yield %>
+
+</body>
+</html>

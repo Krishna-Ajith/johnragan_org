@@ -10,9 +10,17 @@
 </head>
 <body>
     <h2>OGG Video</h2>
-    <video src="IMG_0019.ogv" width="320" height="240" controls></video>
-    <video src="mco.ogv" width="320" height="180" controls></video>
+    <video src="mco.ogv" width="320" height="180" preload controls></video>
     <br />
-    <video src="mco.mp4" width="320" height="180" controls></video>
+    <h2>H.264 Video</h2>
+    <video src="mco.mp4" width="320" height="180" preload controls></video>
+    <br />
+    <h2>Fallback Per Browser</h2>
+    <video width="320" height="240" autoplay controls>
+        <source src="mco.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+        <!-- <source src="mco.webm" type='video/webm; codecs="vp8, vorbis"'> -->
+        <source src="mco.ogv" type='video/ogg; codecs="theora, vorbis"'>
+    </video>
+    
 </body>
 </html>

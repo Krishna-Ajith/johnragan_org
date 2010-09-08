@@ -3,6 +3,7 @@ function draw_filled_rectangle() {
   var rect_context = filled_rect_canvas.getContext("2d");
   rect_context.fillRect(50, 25, 150, 100);
   rect_context.clearRect(90, 50, 25, 25);
+  rect_context.strokeRect(30, 5, 190, 140);
 }
 
 function draw_grid() {
