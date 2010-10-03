@@ -1322,3 +1322,484 @@ Processing ManifestsController#index (for 127.0.0.1 at 2010-09-07 22:18:20) [GET
 Rendering template within layouts/manifests
 Rendering manifests/index
 Completed in 6ms (View: 1, DB: 1) | 200 OK [http://0.0.0.0/manifests]
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ManifestsController#index (for 127.0.0.1 at 2010-09-09 12:00:27) [GET]
+  [4;36;1mManifest Load (26.2ms)[0m   [0;1mSELECT * FROM `manifests` [0m
+Rendering template within layouts/manifests
+Rendering manifests/index
+Completed in 100ms (View: 68, DB: 27) | 200 OK [http://0.0.0.0/manifests]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ManifestsController#index (for 127.0.0.1 at 2010-09-09 12:00:49) [GET]
+  [4;35;1mManifest Load (0.6ms)[0m   [0mSELECT * FROM `manifests` [0m
+Rendering template within layouts/manifests
+Rendering manifests/index
+Completed in 5ms (View: 1, DB: 1) | 200 OK [http://0.0.0.0/manifests]
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ManifestsController#index (for 127.0.0.1 at 2010-09-09 12:00:51) [GET]
+  [4;36;1mManifest Load (0.3ms)[0m   [0;1mSELECT * FROM `manifests` [0m
+Rendering template within layouts/manifests
+Rendering manifests/index
+Completed in 5ms (View: 1, DB: 1) | 200 OK [http://0.0.0.0/manifests]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ManifestsController#index (for 127.0.0.1 at 2010-09-09 12:04:59) [GET]
+  [4;36;1mManifest Load (0.3ms)[0m   [0;1mSELECT * FROM `manifests` [0m
+Rendering template within layouts/manifests
+Rendering manifests/index
+Completed in 20ms (View: 16, DB: 1) | 200 OK [http://0.0.0.0/manifests]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#create (for 127.0.0.1 at 2010-09-09 12:05:07) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"6+9bftqhf3MmLaXWfIWDPyHbWRMEhn2kzX/UAggPpr4=", "product"=>{"title"=>"Dog Day Afternoon", "description"=>" lay"}}
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  
+
+Rendered rescues/_trace (85.4ms)
+Rendered rescues/_request_and_response (1.1ms)
+Rendering rescues/layout (unprocessable_entity)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2010-09-09 12:06:32) [GET]
+  [4;35;1mProduct Load (17.6ms)[0m   [0mSELECT * FROM `products` [0m
+Rendering template within layouts/products
+Rendering products/index
+  [4;36;1mProduct Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+Completed in 74ms (View: 33, DB: 19) | 200 OK [http://0.0.0.0/products]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ManifestsController#index (for 127.0.0.1 at 2010-09-09 12:06:32) [GET]
+  [4;35;1mManifest Load (0.3ms)[0m   [0mSELECT * FROM `manifests` [0m
+Rendering template within layouts/manifests
+Rendering manifests/index
+Completed in 10ms (View: 4, DB: 0) | 200 OK [http://0.0.0.0/manifests]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2010-09-09 12:06:32) [GET]
+  [4;36;1mProduct Load (0.3ms)[0m   [0;1mSELECT * FROM `products` [0m
+Rendering template within layouts/products
+Rendering products/index
+  [4;35;1mProduct Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+Completed in 9ms (View: 5, DB: 2) | 200 OK [http://0.0.0.0/products]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#new (for 127.0.0.1 at 2010-09-09 12:06:32) [GET]
+  [4;36;1mProduct Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+Rendering template within layouts/products
+Rendering products/new
+Completed in 12ms (View: 7, DB: 1) | 200 OK [http://0.0.0.0/products/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ManifestsController#index (for 127.0.0.1 at 2010-09-09 12:06:35) [GET]
+  [4;35;1mManifest Load (0.3ms)[0m   [0mSELECT * FROM `manifests` [0m
+Rendering template within layouts/manifests
+Rendering manifests/index
+Completed in 4ms (View: 1, DB: 0) | 200 OK [http://0.0.0.0/manifests]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ManifestsController#index (for 127.0.0.1 at 2010-09-09 12:06:46) [GET]
+  [4;36;1mManifest Load (0.4ms)[0m   [0;1mSELECT * FROM `manifests` [0m
+Rendering template within layouts/manifests
+Rendering manifests/index
+Completed in 5ms (View: 1, DB: 1) | 200 OK [http://0.0.0.0/manifests]
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ManifestsController#index (for 127.0.0.1 at 2010-09-17 08:35:04) [GET]
+  [4;36;1mManifest Load (26.2ms)[0m   [0;1mSELECT * FROM `manifests` [0m
+Rendering template within layouts/manifests
+Rendering manifests/index
+Completed in 98ms (View: 67, DB: 27) | 200 OK [http://0.0.0.0/manifests]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2010-09-17 08:35:04) [GET]
+  [4;35;1mProduct Load (11.2ms)[0m   [0mSELECT * FROM `products` [0m
+Rendering template within layouts/products
+Rendering products/index
+  [4;36;1mProduct Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+Completed in 76ms (View: 59, DB: 13) | 200 OK [http://0.0.0.0/products]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#new (for 127.0.0.1 at 2010-09-17 08:35:04) [GET]
+  [4;35;1mProduct Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+Rendering template within layouts/products
+Rendering products/new
+Completed in 12ms (View: 8, DB: 1) | 200 OK [http://0.0.0.0/products/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ManifestsController#index (for 127.0.0.1 at 2010-09-17 08:35:04) [GET]
+  [4;36;1mManifest Load (0.2ms)[0m   [0;1mSELECT * FROM `manifests` [0m
+Rendering template within layouts/manifests
+Rendering manifests/index
+Completed in 4ms (View: 1, DB: 0) | 200 OK [http://0.0.0.0/manifests]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#index (for 10.1.204.29 at 2010-09-17 08:36:52) [GET]
+  [4;35;1mProduct Load (0.3ms)[0m   [0mSELECT * FROM `products` [0m
+Rendering template within layouts/products
+Rendering products/index
+  [4;36;1mProduct Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+Completed in 9ms (View: 5, DB: 1) | 200 OK [http://10.14.0.197/products]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ManifestsController#index (for 10.1.204.29 at 2010-09-17 08:37:01) [GET]
+  [4;35;1mManifest Load (0.2ms)[0m   [0mSELECT * FROM `manifests` [0m
+Rendering template within layouts/manifests
+Rendering manifests/index
+Completed in 4ms (View: 1, DB: 0) | 200 OK [http://10.14.0.197/manifests]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#index (for 10.1.204.29 at 2010-09-17 08:37:01) [GET]
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM `products` [0m
+Rendering template within layouts/products
+Rendering products/index
+  [4;35;1mProduct Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+Completed in 9ms (View: 4, DB: 1) | 200 OK [http://10.14.0.197/products]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#new (for 10.1.204.29 at 2010-09-17 08:37:01) [GET]
+  [4;36;1mProduct Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+Rendering template within layouts/products
+Rendering products/new
+Completed in 8ms (View: 4, DB: 1) | 200 OK [http://10.14.0.197/products/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ManifestsController#index (for 10.1.204.29 at 2010-09-17 08:37:03) [GET]
+  [4;35;1mManifest Load (0.2ms)[0m   [0mSELECT * FROM `manifests` [0m
+Rendering template within layouts/manifests
+Rendering manifests/index
+Completed in 4ms (View: 1, DB: 0) | 200 OK [http://10.14.0.197/manifests]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ManifestsController#index (for 10.1.204.29 at 2010-09-17 08:37:13) [GET]
+  [4;36;1mManifest Load (0.2ms)[0m   [0;1mSELECT * FROM `manifests` [0m
+Rendering template within layouts/manifests
+Rendering manifests/index
+Completed in 4ms (View: 1, DB: 0) | 200 OK [http://10.14.0.197/manifests]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#create (for 10.1.204.29 at 2010-09-17 08:37:39) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"vvFU53FK6pW9hiBzCtS7hnVzg06Q2ECosKsDIfLhk2Q=", "product"=>{"title"=>"Try1", "description"=>"Howdy"}}
+  [4;35;1mProduct Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mProduct Create (0.3ms)[0m   [0mINSERT INTO `products` (`created_at`, `title`, `updated_at`, `description`) VALUES('2010-09-17 12:37:39', 'Try1', '2010-09-17 12:37:39', 'Howdy')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://10.14.0.197:3000/products/2
+Completed in 9ms (DB: 3) | 302 Found [http://10.14.0.197/products]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#show (for 10.1.204.29 at 2010-09-17 08:37:39) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mProduct Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+  [4;36;1mProduct Load (2.2ms)[0m   [0;1mSELECT * FROM `products` WHERE (`products`.`id` = 2) [0m
+Rendering template within layouts/products
+Rendering products/show
+Completed in 36ms (View: 29, DB: 3) | 200 OK [http://10.14.0.197/products/2]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ManifestsController#index (for 10.1.204.29 at 2010-09-17 08:37:40) [GET]
+  [4;35;1mManifest Load (0.3ms)[0m   [0mSELECT * FROM `manifests` [0m
+Rendering template within layouts/manifests
+Rendering manifests/index
+Completed in 4ms (View: 1, DB: 1) | 200 OK [http://10.14.0.197/manifests]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#show (for 10.1.204.29 at 2010-09-17 08:37:40) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mProduct Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+  [4;35;1mProduct Load (2.0ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`id` = 2) [0m
+Rendering template within layouts/products
+Rendering products/show
+Completed in 9ms (View: 2, DB: 3) | 200 OK [http://10.14.0.197/products/2]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#show (for 127.0.0.1 at 2010-09-17 08:57:35) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mProduct Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+  [4;35;1mProduct Load (0.8ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`id` = 2) [0m
+Rendering template within layouts/products
+Rendering products/show
+Completed in 7ms (View: 2, DB: 2) | 200 OK [http://10.14.0.197/products/2]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ManifestsController#index (for 127.0.0.1 at 2010-09-17 08:57:37) [GET]
+  [4;36;1mManifest Load (0.3ms)[0m   [0;1mSELECT * FROM `manifests` [0m
+Rendering template within layouts/manifests
+Rendering manifests/index
+Completed in 4ms (View: 1, DB: 1) | 200 OK [http://10.14.0.197/manifests]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2010-09-17 08:57:38) [GET]
+  [4;35;1mProduct Load (0.3ms)[0m   [0mSELECT * FROM `products` [0m
+Rendering template within layouts/products
+Rendering products/index
+  [4;36;1mProduct Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+Completed in 12ms (View: 7, DB: 1) | 200 OK [http://10.14.0.197/products]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#new (for 127.0.0.1 at 2010-09-17 08:57:40) [GET]
+  [4;35;1mProduct Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+Rendering template within layouts/products
+Rendering products/new
+Completed in 8ms (View: 4, DB: 1) | 200 OK [http://10.14.0.197/products/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#show (for 127.0.0.1 at 2010-09-17 08:57:42) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mProduct Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+  [4;35;1mProduct Load (2.0ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`id` = 2) [0m
+Rendering template within layouts/products
+Rendering products/show
+Completed in 9ms (View: 2, DB: 3) | 200 OK [http://10.14.0.197/products/2]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ManifestsController#index (for 127.0.0.1 at 2010-09-17 08:57:43) [GET]
+  [4;36;1mManifest Load (0.2ms)[0m   [0;1mSELECT * FROM `manifests` [0m
+Rendering template within layouts/manifests
+Rendering manifests/index
+Completed in 4ms (View: 1, DB: 0) | 200 OK [http://10.14.0.197/manifests]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ManifestsController#index (for 127.0.0.1 at 2010-09-17 08:57:46) [GET]
+  [4;35;1mManifest Load (0.3ms)[0m   [0mSELECT * FROM `manifests` [0m
+Rendering template within layouts/manifests
+Rendering manifests/index
+Completed in 4ms (View: 1, DB: 1) | 200 OK [http://10.14.0.197/manifests]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ManifestsController#index (for 127.0.0.1 at 2010-09-17 08:58:05) [GET]
+  [4;36;1mManifest Load (0.2ms)[0m   [0;1mSELECT * FROM `manifests` [0m
+Rendering template within layouts/manifests
+Rendering manifests/index
+Completed in 4ms (View: 1, DB: 0) | 200 OK [http://10.14.0.197/manifests]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#create (for 127.0.0.1 at 2010-09-17 08:58:20) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"vvFU53FK6pW9hiBzCtS7hnVzg06Q2ECosKsDIfLhk2Q=", "product"=>{"title"=>"product FooBar", "description"=>"This should work"}}
+  [4;35;1mProduct Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mProduct Create (0.2ms)[0m   [0mINSERT INTO `products` (`created_at`, `title`, `updated_at`, `description`) VALUES('2010-09-17 12:58:20', 'product FooBar', '2010-09-17 12:58:20', 'This should work')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://10.14.0.197:8080/products/3
+Completed in 8ms (DB: 2) | 302 Found [http://10.14.0.197/products]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#show (for 127.0.0.1 at 2010-09-17 08:58:21) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mProduct Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+  [4;36;1mProduct Load (2.1ms)[0m   [0;1mSELECT * FROM `products` WHERE (`products`.`id` = 3) [0m
+Rendering template within layouts/products
+Rendering products/show
+Completed in 9ms (View: 2, DB: 3) | 200 OK [http://10.14.0.197/products/3]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ManifestsController#index (for 127.0.0.1 at 2010-09-17 08:58:23) [GET]
+  [4;35;1mManifest Load (0.2ms)[0m   [0mSELECT * FROM `manifests` [0m
+Rendering template within layouts/manifests
+Rendering manifests/index
+Completed in 4ms (View: 1, DB: 0) | 200 OK [http://10.14.0.197/manifests]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#show (for 127.0.0.1 at 2010-09-17 08:58:24) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mProduct Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+  [4;35;1mProduct Load (2.0ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`id` = 3) [0m
+Rendering template within layouts/products
+Rendering products/show
+Completed in 9ms (View: 2, DB: 3) | 200 OK [http://10.14.0.197/products/3]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#create (for 127.0.0.1 at 2010-09-17 09:10:10) [POST]
+  [4;36;1mProduct Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mBEGIN[0m
+  [4;36;1mProduct Create (0.2ms)[0m   [0;1mINSERT INTO `products` (`created_at`, `title`, `updated_at`, `description`) VALUES('2010-09-17 13:10:10', NULL, '2010-09-17 13:10:10', NULL)[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+Redirected to http://10.14.0.197:8080/products/4
+Completed in 9ms (DB: 3) | 302 Found [http://10.14.0.197/products]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ManifestsController#index (for 127.0.0.1 at 2010-09-17 09:10:42) [GET]
+  [4;36;1mManifest Load (0.2ms)[0m   [0;1mSELECT * FROM `manifests` [0m
+Rendering template within layouts/manifests
+Rendering manifests/index
+Completed in 4ms (View: 1, DB: 0) | 200 OK [http://10.14.0.197/manifests]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ManifestsController#index (for 127.0.0.1 at 2010-09-17 09:10:47) [GET]
+  [4;35;1mManifest Load (0.2ms)[0m   [0mSELECT * FROM `manifests` [0m
+Rendering template within layouts/manifests
+Rendering manifests/index
+Completed in 4ms (View: 1, DB: 0) | 200 OK [http://10.14.0.197/manifests]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ManifestsController#index (for 127.0.0.1 at 2010-09-17 09:10:49) [GET]
+  [4;36;1mManifest Load (0.3ms)[0m   [0;1mSELECT * FROM `manifests` [0m
+Rendering template within layouts/manifests
+Rendering manifests/index
+Completed in 4ms (View: 1, DB: 1) | 200 OK [http://10.14.0.197/manifests]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ManifestsController#index (for 127.0.0.1 at 2010-09-17 09:10:52) [GET]
+  [4;35;1mManifest Load (0.2ms)[0m   [0mSELECT * FROM `manifests` [0m
+Rendering template within layouts/manifests
+Rendering manifests/index
+Completed in 4ms (View: 1, DB: 0) | 200 OK [http://10.14.0.197/manifests]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ManifestsController#index (for 127.0.0.1 at 2010-09-17 09:10:58) [GET]
+  [4;36;1mManifest Load (0.2ms)[0m   [0;1mSELECT * FROM `manifests` [0m
+Rendering template within layouts/manifests
+Rendering manifests/index
+Completed in 4ms (View: 1, DB: 0) | 200 OK [http://10.14.0.197/manifests]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#show (for 127.0.0.1 at 2010-09-17 09:12:04) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mProduct Columns (6.5ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+  [4;36;1mProduct Load (18.7ms)[0m   [0;1mSELECT * FROM `products` WHERE (`products`.`id` = 4) [0m
+Rendering template within layouts/products
+Rendering products/show
+Completed in 32ms (View: 2, DB: 25) | 200 OK [http://10.14.0.197/products/4]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ManifestsController#index (for 127.0.0.1 at 2010-09-17 09:12:06) [GET]
+  [4;35;1mManifest Load (0.2ms)[0m   [0mSELECT * FROM `manifests` [0m
+Rendering template within layouts/manifests
+Rendering manifests/index
+Completed in 4ms (View: 1, DB: 0) | 200 OK [http://10.14.0.197/manifests]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#show (for 127.0.0.1 at 2010-09-17 09:12:07) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mProduct Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+  [4;35;1mProduct Load (1.8ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`id` = 4) [0m
+Rendering template within layouts/products
+Rendering products/show
+Completed in 9ms (View: 2, DB: 3) | 200 OK [http://10.14.0.197/products/4]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#show (for 127.0.0.1 at 2010-09-17 09:12:11) [GET]
+  Parameters: {"id"=>"5"}
+  [4;36;1mProduct Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+  [4;35;1mProduct Load (1.9ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`id` = 5) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Product with ID=5):
+  app/controllers/products_controller.rb:16:in `show'
+
+Rendered rescues/_trace (83.1ms)
+Rendered rescues/_request_and_response (1.1ms)
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ManifestsController#index (for 127.0.0.1 at 2010-09-17 09:12:16) [GET]
+  [4;36;1mManifest Load (0.2ms)[0m   [0;1mSELECT * FROM `manifests` [0m
+Rendering template within layouts/manifests
+Rendering manifests/index
+Completed in 4ms (View: 1, DB: 0) | 200 OK [http://10.14.0.197/manifests]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ManifestsController#index (for 127.0.0.1 at 2010-09-17 09:12:19) [GET]
+  [4;35;1mManifest Load (0.2ms)[0m   [0mSELECT * FROM `manifests` [0m
+Rendering template within layouts/manifests
+Rendering manifests/index
+Completed in 4ms (View: 1, DB: 0) | 200 OK [http://10.14.0.197/manifests]

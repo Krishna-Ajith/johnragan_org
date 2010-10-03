@@ -63,6 +63,7 @@ public class ReplyConsumer {
 	        connection.start();
 	        
 	        TextMessage request = (TextMessage) consumer.receive();
+	        System.out.println("JMS message was is " + request.getText());
 
 	        producer = session.createProducer(request.getJMSReplyTo());
 	        Message response = session.createTextMessage("Consumer " + "processed message: " + request.getText());
