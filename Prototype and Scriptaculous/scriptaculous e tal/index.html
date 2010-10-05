@@ -1,0 +1,246 @@
+<html>
+	<head>
+		<title>Playing with Scriptaculous</title>
+		<script type="text/javascript" src="./libscripts/prototype.js"></script>
+		<script type="text/javascript" src="./libscripts/scriptaculous.js?load=effects"></script>
+		<script>
+			window.onload = function() {
+				new Effect.Opacity(
+					'serialQueueQuote',
+					{				
+						from: 		1.0,
+                        to: 		0.0,								
+						duration: 	2.0,
+						queue:		{position: 'front', scope:  'queue1'}						
+					}
+				);
+				new Effect.Highlight(
+					'serialQueueQuote',
+					{												
+						duration: 	2.0,
+						queue:		{position: 'front', scope:  'queue1'}						
+					}
+				);
+				new Effect.Parallel(
+					[
+						new Effect.MoveBy('parallelQuote', 100, 200, {sync: true}),
+						new Effect.Scale('parallelQuote', 200, {sync: true}),
+					],
+					{ duration: 4.0 }
+				);
+				/*new Effect.Parallel([
+				                     new Effect.MoveBy('parallelQuote', 10, 100 { sync: true, x: 20, y: -30, mode: 'relative' }), 
+				                     new Effect.Opacity('parallelQuote', { sync: true, from: 1, to: 0 }) 
+				                   ], { 
+				                     duration: 0.8,
+				                     delay: 0.5
+				                   }); */
+				                   				
+				new Effect.Opacity(
+						'opacityQuote',
+						{				
+							from: 		1.0,
+	                        to: 		0.0,								
+							duration: 	4.0						
+						}
+					);
+				new Effect.Highlight(
+					'highlightQuote',
+					{				
+						startcolor:	 	"#ff0000",
+                        endcolor: 		"#0000ff",
+                        restorecolor:	"#00ff00",								
+						duration: 		4.0						
+					}
+				);
+				new Effect.Puff(
+					'puffQuote',
+					{																		
+						duration: 		4.0						
+					}
+				);
+				new Effect.Fade(
+					'fadeQuote',
+					{				
+						//from: 		1.0,
+                        //to: 		0.0,								
+						duration: 	4.0						
+					}
+				);
+				new Effect.Appear(
+						'appearQuote',
+						{				
+							from: 		0.0,
+	                        to: 		1.0,								
+							duration: 	4.0						
+						}
+					);
+				new Effect.BlindDown(
+					'blindDownQuote',
+					{				
+						//from: 		1.0,
+                        //to: 		0.0,								
+						duration: 	4.0						
+					}
+				);
+				new Effect.BlindUp(
+					'blindUpQuote',
+					{				
+						//from: 		0.0,
+                        //to: 		1.0,								
+						duration: 	4.0						
+					}
+				);
+				new Effect.Shrink(
+					'shrinkQuote',
+					{				
+						//from: 		1.0,
+                        //to: 		0.0,								
+						duration: 	4.0						
+					}
+				);
+				new Effect.Grow(
+					'growQuote',
+					{				
+						//from: 		0.0,
+                        //to: 		1.0,								
+						duration: 	4.0						
+					}
+				);
+				new Effect.SlideDown(
+					'slideDownQuote',
+					{				
+						//from: 		1.0,
+                        //to: 		0.0,								
+						duration: 	4.0						
+					}
+				);
+				new Effect.SlideUp(
+					'slideUpQuote',
+					{				
+						//from: 		0.0,
+                        //to: 		1.0,								
+						duration: 	4.0						
+					}
+				);
+				new Effect.Scale(
+					'scaleQuote',
+					200,
+					{											
+						duration: 		4.0						
+					}
+				);
+				new Effect.MoveBy(
+					'moveQuote',
+					10,
+					100,
+					{											
+						duration: 		4.0						
+					}
+				);		
+				new Effect.DropOut(
+					'dropOutQuote',
+					{												
+						duration: 	4.0						
+					}
+				);
+				new Effect.SwitchOff(
+					'switchOffQuote',
+					{												
+						duration: 	12.0						
+					}
+				);
+				new Effect.Squish(
+					'squishQuote',
+					{												
+						duration: 	4.0						
+					}
+				);
+				new Effect.Fold(
+					'foldQuote',
+					{												
+						duration: 	4.0						
+					}
+				);	
+				new Effect.Shake(
+					'shakeQuote',
+					{												
+						duration: 	4.0						
+					}
+				);	
+				new Effect.Pulsate(
+					'pulsateQuote',
+					{												
+						duration: 	4.0						
+					}
+				);					
+			}
+		</script>
+	</head>
+	<body>
+		<p>A series of famous Scriptaculous effect examples:</p>
+		<blockquote id="serialQueueQuote">
+			A serial queue of effects example
+		</blockquote>
+		<blockquote id="parallelQuote">
+			A parallel queue of MoveBy and Scale effects example
+		</blockquote>
+		<blockquote id="opacityQuote">
+			Opacity (disappearing) example
+		</blockquote>
+		<blockquote id="highlightQuote">
+			Highlight example
+		</blockquote>		
+		<blockquote id="fadeQuote">
+			Fade example
+		</blockquote>
+		<blockquote id="appearQuote">
+			Appear example
+		</blockquote>
+		<blockquote id="blindDownQuote">
+			BlindDown example
+		</blockquote>
+		<blockquote id="blindUpQuote">
+			BlindUp example
+		</blockquote>
+		<blockquote id="shrinkQuote">
+			Shrink example
+		</blockquote>
+		<blockquote id="growQuote">
+			Grow example
+		</blockquote>
+		<div id="slideUpQuote">
+			<div>Content that is to slide up</div>
+		</div>
+		<div id="slideDownQuote">
+			<div>Content that is to slide down</div>
+		</div>
+		<blockquote id="moveQuote">
+			Move example
+		</blockquote>
+		<blockquote id="scaleQuote">
+			Scale example
+		</blockquote>
+		<blockquote id="puffQuote">
+			Puff example
+		</blockquote>
+		<blockquote id="dropOutQuote">
+			DropOut example
+		</blockquote>
+		<blockquote id="switchOffQuote">
+			SwitchOff example
+		</blockquote>
+		<blockquote id="squishQuote">
+			Squish example
+		</blockquote>
+		<blockquote id="foldQuote">
+			Fold example
+		</blockquote>
+		<blockquote id="shakeQuote">
+			Shake example
+		</blockquote>
+		<blockquote id="pulsateQuote">
+			Pulsate example
+		</blockquote>																								
+	</body>
+</html>

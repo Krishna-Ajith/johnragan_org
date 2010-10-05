@@ -1,0 +1,5 @@
+/Users/John/iphone_apress_john/04_Control_Fun/Control Fun/Classes/Control_FunViewController.m: In function '-[Control_FunViewController switchChanged:]':
+/Users/John/iphone_apress_john/04_Control_Fun/Control Fun/Classes/Control_FunViewController.m:21: warning: unused variable 'whichSwitch'
+/Users/John/iphone_apress_john/04_Control_Fun/Control Fun/Classes/Control_FunViewController.m: At top level:
+/Users/John/iphone_apress_john/04_Control_Fun/Control Fun/Classes/Control_FunViewController.m:90: warning: incomplete implementation of class 'Control_FunViewController'
+/Users/John/iphone_apress_john/04_Control_Fun/Control Fun/Classes/Control_FunViewController.m:90: warning: method definition for '-toggleShowHide:' not found

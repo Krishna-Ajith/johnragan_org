@@ -1,0 +1,27 @@
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+	version="2.4">
+			
+	<servlet>
+		<servlet-name>ControllerServlet</servlet-name>
+		<servlet-class>org.johnragan.web.ControllerServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>ControllerServlet</servlet-name>
+		<url-pattern>/SelectBeer.do</url-pattern>
+	</servlet-mapping>
+
+
+
+	<servlet>
+		<servlet-name>ControllerJSPServlet</servlet-name>
+		<servlet-class>org.johnragan.web.ControllerJSPServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>ControllerJSPServlet</servlet-name>
+		<url-pattern>/SelectBeer.jspdo</url-pattern>
+	</servlet-mapping>
+</web-app>

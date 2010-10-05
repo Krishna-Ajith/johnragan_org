@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<title>Auto Complete Example</title>
+		<link rel="stylesheet" href="./css/autocomplete.css" type="text/css"></link>
+		<script type="text/javascript" src="./libscripts/prototype.js"></script>
+		<script type="text/javascript" src="./libscripts/scriptaculous.js"></script>
+		<script type="text/javascript">
+			window.onload = function() {
+				new Ajax.Autocompleter(
+					'autoCompleteTextField',
+					'autoCompleteMenu',
+					'movie-list.do',
+					{ paramName: 'value'}
+				);
+			}
+		</script>
+	</head>
+	<body>
+		<div>
+			<label>Text field:</label>
+			<input type="text" id="autoCompleteTextField"/>
+			<div id="autoCompleteMenu"></div>
+		</div>
+	</body>
+</html>
