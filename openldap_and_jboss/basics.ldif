@@ -1,0 +1,93 @@
+# This is the root of the directory tree
+dn: dc=example,dc=com
+description: Example.Com, your trusted non-existent corporation.
+dc: example
+o: Example.Com
+objectClass: top
+objectClass: dcObject
+objectClass: organization
+
+# Subtree for users
+dn: ou=users,dc=example,dc=com
+ou: users
+description: Example.Com Users
+objectClass: organizationalUnit
+objectClass: top
+
+# Subtree for groups
+dn: ou=Groups,dc=example,dc=com
+ou: Groups
+description: Example.Com Groups
+objectClass: organizationalUnit
+objectClass: top
+
+# Subtree for system accounts
+dn: ou=System,dc=example,dc=com
+ou: System
+description: Special accounts used by software applications.
+objectClass: organizationalUnit
+objectClass: top
+
+dn: uid=bjensen,ou=users,dc=example,dc=com
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+cn: Babs Jensen
+sn: Jensen
+givenname: Babs
+uid: bjensen
+ou: users
+description: Fictional example person
+userpassword: {SSHA}aPkvwGNBMab1xB3A5pEx78gGmbJ0ozFv
+
+dn: uid=matt,ou=Users,dc=example,dc=com
+ou: Users
+# Name info:
+uid: matt
+cn: Matt Butcher
+sn: Butcher
+givenName: Matt
+givenName: Matthew
+displayName: Matt Butcher
+# Work Info: 
+title: Systems Integrator
+description: Systems Integration and IT for Example.Com
+employeeType: Employee
+departmentNumber: 001
+employeeNumber: 001-08-98
+mail: mbutcher@example.com
+mail: matt@example.com
+roomNumber: 301
+telephoneNumber: +1 555 555 4321
+mobile: +1 555 555 6789
+st: Illinois
+l: Chicago
+street: 1234 Cicero Ave.
+# Home Info:
+homePhone: +1 555 555 9876
+homePostalAddress: 1234 home street $ Chicago, IL $ 60699-1234
+# Misc:
+userPassword: secret
+preferredLanguage: en-us,en-gb
+# Object Classes:
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+
+# LDAP Admin Group:
+dn: cn=SomeSimpleRole,ou=Groups,dc=example,dc=com
+cn: SomeSimpleRole
+ou: Groups
+description: Users who are LDAP administrators
+uniqueMember: uid=bjensen,ou=Users,dc=example,dc=com
+uniqueMember: uid=matt,ou=Users,dc=example,dc=com 
+objectClass: groupOfUniqueNames
+
+# Special Account for Authentication:
+dn: uid=authenticate,ou=System,dc=example,dc=com
+uid: authenticate
+ou: System
+description: Special account for authenticating users
+userPassword: secret
+objectClass: account
+objectClass: simpleSecurityObject
