@@ -1,6 +1,6 @@
-<project name="HelloWorld" default="compile" basedir=".">
+<project name="HelloWorldWithAnnotation" default="compile" basedir=".">
 <!-- Name of project and version -->
-<property name="proj.name" value="HelloWorld"/>
+<property name="proj.name" value="HelloWorld With Annotations"/>
 <property name="proj.version" value="1.0"/>
 <!-- Global properties for this build -->
 <property name="src.java.dir" value="src"/>
@@ -58,7 +58,7 @@
 	description="Exports a generated schema to DB and file">
 	<hibernatetool destdir="${basedir}">
 	<classpath path="${build.dir}"/>
-	<configuration
+	<annotationconfiguration
 	configurationfile="${build.dir}/hibernate.cfg.xml"/>
 	<hbm2ddl
 	drop="true"
