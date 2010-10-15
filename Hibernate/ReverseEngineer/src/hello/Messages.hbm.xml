@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 13, 2010 12:47:49 PM by Hibernate Tools 3.2.0.beta8 -->
+<hibernate-mapping>
+    <class name="hello.Messages" table="MESSAGES" catalog="hibernatetutorial">
+        <comment></comment>
+        <id name="messageId" type="long">
+            <column name="MESSAGE_ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="messageText" type="string">
+            <column name="MESSAGE_TEXT">
+                <comment></comment>
+            </column>
+        </property>
+        <property name="nextMessageId" type="java.lang.Long">
+            <column name="NEXT_MESSAGE_ID">
+                <comment></comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>
