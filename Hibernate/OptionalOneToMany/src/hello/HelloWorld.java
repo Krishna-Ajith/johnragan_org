@@ -10,12 +10,19 @@ public class HelloWorld {
 		Session session =
 			HibernateUtil.getSessionFactory().openSession();
 		Transaction tx = session.beginTransaction();
-		User user = new User("Johnboy");
-		User user2 = new User("Mary Ellen");
-		Address address = new Address("43151 Huntsman Square", "Asburn", "20148");
-		user.setAddress(address);
-		Long userId = (Long) session.save(user);
-		Long addressId = (Long) session.save(address);
+		Item item1 = new Item("Vase");
+		Item item2 = new Item("Lamp");
+		Item item3 = new Item("Accordian");
+		User userBuyer = new User("johnboy");
+		User userCheapSkate = new User("johnny cheapskate");
+		item1.setUser(userBuyer);
+		item2.setUser(userBuyer);
+		item3.setUser(userBuyer);
+		Long itemId = (Long) session.save(item1);
+		Long item2Id = (Long) session.save(item2);
+		Long item3Id = (Long) session.save(item3);
+		Long UserBuyerId = (Long) session.save(userBuyer);
+		Long UserCheapSkateId = (Long) session.save(userCheapSkate);
 		tx.commit();
 		session.close();
 		
@@ -30,9 +37,10 @@ public class HelloWorld {
 		for ( Iterator iter = users.iterator(); iter.hasNext(); ) {
 			User loadedUser = (User) iter.next();
 			System.out.println( "User: " + loadedUser.getName() );
-			System.out.println( "Street: " + loadedUser.getAddress().getStreet());
-			System.out.println( "City: " + loadedUser.getAddress().getCity());
-			System.out.println( "Zipcode: " + loadedUser.getAddress().getZipcode());
+			for ( Iterator iterItems = loadedUser.getItems().iterator(); iterItems.hasNext(); ) {
+				Item item = (Item) iterItems.next();
+				System.out.println("Item bought: " + item.getName());
+			}
 		}
 		newTransaction.commit();
 		newSession.close();
@@ -41,16 +49,14 @@ public class HelloWorld {
 		Session newSession3 =
 			HibernateUtil.getSessionFactory().openSession();
 		Transaction newTransaction3 = newSession3.beginTransaction();
-		List addresses3 =
-			newSession3.createQuery("from Address a").list();
-		System.out.println( addresses3.size() +
-			" Address(es) found:" );
-		for ( Iterator iter = addresses3.iterator(); iter.hasNext(); ) {
-			Address loadedAddress = (Address) iter.next();
-			System.out.println( "User: " + loadedAddress.getUser().getName() );
-			System.out.println( "Street: " + loadedAddress.getStreet());
-			System.out.println( "City: " + loadedAddress.getCity());
-			System.out.println( "Zipcode: " + loadedAddress.getZipcode());
+		List items =
+			newSession3.createQuery("from Item i order by i.name asc").list();
+		System.out.println( items.size() +
+			" Items(s) found:" );
+		for ( Iterator iter = items.iterator(); iter.hasNext(); ) {
+			Item loadedItem = (Item) iter.next();
+			System.out.println( "Item: " + loadedItem.getName() );
+			System.out.println("Items buyer: " + loadedItem.getUser().getName());
 		}
 		newTransaction3.commit();
 		newSession3.close();
