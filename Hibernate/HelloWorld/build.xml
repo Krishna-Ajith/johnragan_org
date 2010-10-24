@@ -4,7 +4,7 @@
 <property name="proj.version" value="1.0"/>
 <!-- Global properties for this build -->
 <property name="src.java.dir" value="src"/>
-<property name="lib.dir" value="lib"/>
+<property name="lib.dir" value="../lib"/>
 <property name="build.dir" value="build"/>
 <!-- Classpath declaration -->
 <path id="project.classpath">
