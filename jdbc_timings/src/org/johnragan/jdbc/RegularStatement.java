@@ -6,6 +6,7 @@ public class RegularStatement {
 	public static final int COUNT= 10000;
 	public static final String MONO_CONNECTION_NAME = "Mickey";
 	public static final String POLY_CONNECTION_NAME = "Minnie";
+	public static final String LOCAL_URL = "jdbc:mysql://localhost:3306/jdbc_basics?user=root";
 
 	/**
 	 * @param args
@@ -306,7 +307,7 @@ public class RegularStatement {
 
 	private Connection getConnection() throws SQLException {
 		Connection myConnection = DriverManager.getConnection(
-		"jdbc:mysql://localhost:3306/jdbc_basics?user=root");
+		LOCAL_URL);
 		return myConnection;
 	}
 	
