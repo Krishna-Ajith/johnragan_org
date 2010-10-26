@@ -5,13 +5,10 @@ import com.clarkware.junitperf.TimedTest;
 
 import junit.framework.Test;
 
-public class ExampleTimedTest {
+public class SimpleSqlTimedTest {
 	public static final long toleranceInMillis = 100;
 
 	public static TestSuite suite() {
-		
-		long maxElapsedTimeInMillis = 1000 + toleranceInMillis;
-		
 		JUnit4TestFactory factory = new JUnit4TestFactory(RegularStatementTestCase.class);
 		return factory.makeTestSuite();
 		
@@ -30,3 +27,4 @@ public class ExampleTimedTest {
 		junit.textui.TestRunner.run(testThis());
 	}
 }
+
