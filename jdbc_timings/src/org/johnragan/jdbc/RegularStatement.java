@@ -232,9 +232,9 @@ public class RegularStatement {
 		ResultSet results = stmt.executeQuery(query);
 		while(results.next())
 		{
-		String name2 = results.getString("ENAME"); // Get column by name
-		String job = results.getString(2); // Got column by number
-		System.out.println("name: " + name2 + " and job value: " + job);
+		//String name2 = results.getString("ENAME"); // Get column by name
+		//String job = results.getString(2); // Got column by number
+		//System.out.println("name: " + name2 + " and job value: " + job);
 		}
 		results.close( );
 		
