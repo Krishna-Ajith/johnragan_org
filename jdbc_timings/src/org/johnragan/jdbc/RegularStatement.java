@@ -7,6 +7,7 @@ public class RegularStatement {
 	public static final String MONO_CONNECTION_NAME = "Mickey";
 	public static final String POLY_CONNECTION_NAME = "Minnie";
 	public static final String LOCAL_URL = "jdbc:mysql://localhost:3306/jdbc_basics?user=root";
+	public static final String REMOTE_URL = "jdbc:mysql://JohnLab1-PC:3306/jdbc_basics?user=external&password=halloween";
 
 	/**
 	 * @param args
@@ -307,7 +308,8 @@ public class RegularStatement {
 
 	private Connection getConnection() throws SQLException {
 		Connection myConnection = DriverManager.getConnection(
-		LOCAL_URL);
+		//LOCAL_URL);
+		REMOTE_URL);
 		return myConnection;
 	}
 	
