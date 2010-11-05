@@ -76,6 +76,38 @@
           <target>1.6</target>
         </configuration>
       </plugin>
+      <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>hibernate3-maven-plugin</artifactId>
+            <version>2.2</version>
+            <configuration>
+             <components>
+              <component>
+               <name>hbm2ddl</name>
+               <implementation>
+                annotationconfiguration
+               </implementation>
+              </component>
+             </components>
+                      <componentProperties>
+                          <drop>true</drop>
+                          <create>true</create>
+                          <export>true</export>
+                          <jdk6>true</jdk6>
+                          <outputfilename>schema.ddl</outputfilename>
+                          <!--<persistenceunit>myapp</persistenceunit>
+                          <propertyfile>target/classes/jdbc.properties</propertyfile>  -->
+                          <skip>${maven.test.skip}</skip>
+                      </componentProperties>
+            </configuration>
+            <dependencies>
+         <dependency>
+             <groupId>mysql</groupId>
+             <artifactId>mysql-connector-java</artifactId>
+             <version>5.0.5</version>
+         </dependency> 
+         </dependencies>      
+      </plugin>
     </plugins>
   </build>
   
