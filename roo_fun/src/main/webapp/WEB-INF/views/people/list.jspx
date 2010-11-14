@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_org_johnragan_familytree_models_Person" items="${people}" z="pNSsprD33zrOmK/5IpdVjTfjj+M=">
+        <table:table data="${people}" id="l_org_johnragan_familytree_models_Person" path="/people" z="a0i1YFBGbiJ0KmG0zbJNI50FPOo=">
+            <table:column id="c_org_johnragan_familytree_models_Person_firstName" property="firstName" z="VP+a/g3fvWExAc8YUei8+r/OdzQ="/>
+            <table:column id="c_org_johnragan_familytree_models_Person_lastName" property="lastName" z="tmJP/T6TqKeIiboqd+XR/rcOUMw="/>
+            <table:column id="c_org_johnragan_familytree_models_Person_birthCity" property="birthCity" z="RJ80eKtKPuXEy7D3lsFQBwNTkwI="/>
+            <table:column id="c_org_johnragan_familytree_models_Person_birthdate" property="birthdate" z="aB06WyI2wuquG7Ejnces/blp7Qw="/>
+        </table:table>
+    </page:list>
+</div>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite failures="0" time="0.018" errors="0" skipped="0" tests="1" name="org.johnragan.AppTest">
+<testsuite failures="0" time="0.036" errors="0" skipped="0" tests="1" name="org.johnragan.AppTest">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Libraries"/>
@@ -22,7 +22,7 @@
     <property name="basedir" value="/Users/John/johnragan_org/maven/HibernateBasicOneOnOne"/>
     <property name="java.endorsed.dirs" value="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/lib/endorsed"/>
     <property name="os.arch" value="x86_64"/>
-    <property name="surefire.real.class.path" value="/var/folders/ce/cevx3I49FZiBHBVX8tblaE+++TM/-Tmp-/surefirebooter1884788901657524340.jar"/>
+    <property name="surefire.real.class.path" value="/var/folders/ce/cevx3I49FZiBHBVX8tblaE+++TM/-Tmp-/surefirebooter3258199188544826171.jar"/>
     <property name="java.io.tmpdir" value="/var/folders/ce/cevx3I49FZiBHBVX8tblaE+++TM/-Tmp-/"/>
     <property name="line.separator" value="
 "/>

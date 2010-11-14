@@ -1,0 +1,19 @@
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2010-11-05 23:10:10
+hint
+project --topLevelPackage org.johnragan.familytree
+hint
+persistence setup --provider HIBERNATE --database MYSQL 
+hint
+entity --class ~.models.Person --table people
+hint
+field string --fieldName firstName
+field string --fieldName lastName
+field string --fieldName birthCity
+field date --type java.util.Date --fieldName birthdate
+hint
+hint controllers
+controller scaffold --class ~.web.PersonController --entity Person
+exit
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2010-11-06 20:53:02
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2010-11-06 21:17:52
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2010-11-06 21:30:26

@@ -1,0 +1,10 @@
+<aspectj>
+<aspects>
+<aspect name="org.johnragan.familytree.models.Person_Roo_Configurable"/>
+<aspect name="org.johnragan.familytree.models.Person_Roo_Entity"/>
+<aspect name="org.johnragan.familytree.web.PersonController_Roo_Controller"/>
+<aspect name="org.johnragan.familytree.models.Person_Roo_ToString"/>
+<aspect name="org.johnragan.familytree.models.Person_Roo_JavaBean"/>
+</aspects>
+</aspectj>
+

@@ -1,0 +1,4 @@
+checkers.nullness.NullnessChecker
+checkers.interning.InterningChecker
+checkers.igj.IGJChecker
+checkers.regex.RegexChecker
