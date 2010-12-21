@@ -1,0 +1,8 @@
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: org.johnragan.HelloWorld
+Bundle-Name: HelloWorld
+Bundle-Version: 1.0.1
+Bundle-Activator: org.johnragan.hello.HelloWorld
+Import-Package: org.osgi.framework,
+  org.osgi.util.tracker,
+  org.johnragan.hello.service
