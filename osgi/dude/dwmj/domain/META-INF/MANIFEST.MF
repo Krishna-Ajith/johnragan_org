@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Private-Package: dwmj.domain.internal.*
+Built-By: John
+Build-Jdk: 1.6.0_22
+Bundle-Version: 1.0.0.SNAPSHOTs
+Tool: Bnd-0.0.255
+Bundle-Name: com.dudewheresmyjar.domain [dwmj.domain]
+Bnd-LastModified: 1293066976822
+Created-By: Apache Maven Bundle Plugin
+Bundle-ManifestVersion: 2
+Bundle-Description: Generated using Pax-Construct
+Bundle-SymbolicName: com.dudewheresmyjar.domain
+
