@@ -1,7 +1,7 @@
 $(function() {
 	$("#set_to_blue").css('color','blue')
 	
-	$("#set_multi").css({color: 'red', 'text-transform': 'uppercase'})
+	$("#set_multi").css({'color': 'red', 'text-transform': 'uppercase'})
 	
 	$("#getter").click(function() {
 		var $multi_para = $("#set_multi");

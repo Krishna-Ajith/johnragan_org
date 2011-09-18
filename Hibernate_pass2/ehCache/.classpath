@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/Users/John/johnragan_org/Hibernate/lib/antlr-2.7.6.jar"/>
+	<classpathentry kind="lib" path="/Users/John/johnragan_org/Hibernate/lib/asm-attrs.jar"/>
+	<classpathentry kind="lib" path="/Users/John/johnragan_org/Hibernate/lib/asm.jar"/>
+	<classpathentry kind="lib" path="/Users/John/johnragan_org/Hibernate/lib/c3p0-0.9.0.jar"/>
+	<classpathentry kind="lib" path="/Users/John/johnragan_org/Hibernate/lib/c3p0-0.9.1.jar"/>
+	<classpathentry kind="lib" path="/Users/John/johnragan_org/Hibernate/lib/cglib-2.1.3.jar"/>
+	<classpathentry kind="lib" path="/Users/John/johnragan_org/Hibernate/lib/cglib-2.2.jar"/>
+	<classpathentry kind="lib" path="/Users/John/johnragan_org/Hibernate/lib/commons-collections-2.1.1.jar"/>
+	<classpathentry kind="lib" path="/Users/John/johnragan_org/Hibernate/lib/commons-collections-3.1.jar"/>
+	<classpathentry kind="lib" path="/Users/John/johnragan_org/Hibernate/lib/commons-logging-1.0.4.jar"/>
+	<classpathentry kind="lib" path="/Users/John/johnragan_org/Hibernate/lib/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="/Users/John/johnragan_org/Hibernate/lib/ehcache-1.2.3.jar"/>
+	<classpathentry kind="lib" path="/Users/John/johnragan_org/Hibernate/lib/ejb3-persistence.jar"/>
+	<classpathentry kind="lib" path="/Users/John/johnragan_org/Hibernate/lib/hibernate-annotations.jar"/>
+	<classpathentry kind="lib" path="/Users/John/johnragan_org/Hibernate/lib/hibernate-commons-annotations.jar"/>
+	<classpathentry kind="lib" path="/Users/John/johnragan_org/Hibernate/lib/hibernate-entitymanager.jar"/>
+	<classpathentry kind="lib" path="/Users/John/johnragan_org/Hibernate/lib/hibernate-tools.jar"/>
+	<classpathentry kind="lib" path="/Users/John/johnragan_org/Hibernate/lib/hibernate3.jar"/>
+	<classpathentry kind="lib" path="/Users/John/johnragan_org/Hibernate/lib/hsqldb.jar"/>
+	<classpathentry kind="lib" path="/Users/John/johnragan_org/Hibernate/lib/javassist-3.9.0.GA.jar"/>
+	<classpathentry kind="lib" path="/Users/John/johnragan_org/Hibernate/lib/jta.jar"/>
+	<classpathentry kind="lib" path="/Users/John/johnragan_org/Hibernate/lib/log4j-1.2.13.jar"/>
+	<classpathentry kind="lib" path="/Users/John/johnragan_org/Hibernate/lib/mysql-connector-java-5.1.12-bin.jar"/>
+	<classpathentry kind="lib" path="/Users/John/johnragan_org/Hibernate/lib/slf4j-api-1.5.8.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

@@ -8,6 +8,7 @@ import junit.framework.TestCase;
 
 public class SortedSetTest extends TestCase {
 	private SortedSet<String> sortedSet; 
+	
 	public void setUp() throws Exception {
     	super.setUp();
     	sortedSet = new TreeSet<String>();
@@ -19,12 +20,12 @@ public class SortedSetTest extends TestCase {
     	sortedSet.add("1");
     }
 	
-	public void test_first_last() {
+	public void testFirstLast() {
 		assertEquals("1", sortedSet.first());
 		assertEquals("5", sortedSet.last());
 	}
 	
-	public void test_headMap_tailMap_subMap() {	
+	public void testHeadMapTailMapSubMap() {	
 		Set<String> set = sortedSet.headSet("3");
 		assertEquals(2, set.size());
 		

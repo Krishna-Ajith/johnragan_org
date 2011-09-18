@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ehcache>
+<defaultCache
+      maxElementsInMemory="10"
+      eternal="false"
+      timeToIdleSeconds="120"
+      timeToLiveSeconds="120"
+      overflowToDisk="false">
+    </defaultCache>
+<cache name="hello.Category"
+maxElementsInMemory="500"
+eternal="true"
+timeToIdleSeconds="0"
+timeToLiveSeconds="0"
+overflowToDisk="false"
+/>
+<cache name="hello.Item"
+maxElementsInMemory="500"
+eternal="true"
+timeToIdleSeconds="0"
+timeToLiveSeconds="0"
+overflowToDisk="false"
+/>
+<cache name="hello.Category.items"
+maxElementsInMemory="500"
+eternal="true"
+timeToIdleSeconds="0"
+timeToLiveSeconds="0"
+overflowToDisk="false"
+/>
+<cache name="hello.Item.categories"
+maxElementsInMemory="500"
+eternal="true"
+timeToIdleSeconds="0"
+timeToLiveSeconds="0"
+overflowToDisk="false"
+/>
+</ehcache>

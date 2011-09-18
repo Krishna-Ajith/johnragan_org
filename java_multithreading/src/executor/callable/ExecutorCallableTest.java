@@ -38,7 +38,7 @@ public class ExecutorCallableTest extends TestCase {
 		} catch (ExecutionException e) {
 			e.printStackTrace();
 		} catch(CancellationException e) {
-			System.out.println("This task was cancelled.");
+			System.out.println("This task1 was cancelled.");
 		}
 		
 		try {
@@ -48,7 +48,7 @@ public class ExecutorCallableTest extends TestCase {
 		} catch (ExecutionException e) {
 			e.printStackTrace();
 		} catch(CancellationException e) {
-			System.out.println("This task was cancelled.");
+			System.out.println("This task2 was cancelled.");
 		}
 		
 		try {
@@ -58,7 +58,7 @@ public class ExecutorCallableTest extends TestCase {
 		} catch (ExecutionException e) {
 			e.printStackTrace();
 		} catch(CancellationException e) {
-			System.out.println("This task was cancelled.");
+			System.out.println("This task3 was cancelled.");
 		}
 		
 		assertFalse(prime1.isCancelled());
@@ -72,7 +72,7 @@ public class ExecutorCallableTest extends TestCase {
 		
 		Future<BigInteger> prime4 = executor.submit(new LongRunningRandomPrimeSearch(512));
 		try {
-			prime4.get(2, TimeUnit.SECONDS);
+			System.out.println(prime4.get(2, TimeUnit.SECONDS));
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		} catch (ExecutionException e) {

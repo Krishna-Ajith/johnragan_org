@@ -8,6 +8,7 @@ import junit.framework.TestCase;
 
 public class QueueTest extends TestCase {
 	private Queue<String> queue; 
+	
 	public void setUp() throws Exception {
     	super.setUp();
     	queue = new PriorityQueue<String>();

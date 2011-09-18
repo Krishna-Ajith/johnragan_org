@@ -23,7 +23,7 @@ public class ExecutorsTest extends TestCase {
 		
 		try {
 			TimeUnit.SECONDS.sleep(12);
-//			TimeUnit.SECONDS.sleep(32);
+			TimeUnit.SECONDS.sleep(32);
 		} catch(InterruptedException ignored) {}
 	}
 	

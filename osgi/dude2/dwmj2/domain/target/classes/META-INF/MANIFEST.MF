@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Export-Package: dwmj.domain;uses:="org.compass.annotations";version="1
+ .0.0.SNAPSHOTs"
+Private-Package: dwmj.domain.internal
+Ignore-Package: dwmj.domain.internal
+Built-By: John
+Tool: Bnd-0.0.255
+Bundle-Name: com.dudewheresmyjar.domain [dwmj.domain]
+Created-By: Apache Maven Bundle Plugin
+Build-Jdk: 1.6.0_22
+Bundle-Version: 1.0.0.SNAPSHOTs
+Bnd-LastModified: 1294795648575
+Bundle-ManifestVersion: 2
+Bundle-Activator: dwmj.domain.internal.ExampleActivator
+Bundle-Description: Generated using Pax-Construct
+Import-Package: dwmj.domain;version="1.0.0.SNAPSHOTs",org.compass.anno
+ tations,org.osgi.framework
+Bundle-SymbolicName: com.dudewheresmyjar.domain
+

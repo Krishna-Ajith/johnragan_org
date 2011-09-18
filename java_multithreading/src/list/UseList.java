@@ -1,9 +1,7 @@
 package list;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
 
 import junit.framework.TestCase;
 

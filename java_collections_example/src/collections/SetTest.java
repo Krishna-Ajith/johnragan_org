@@ -2,22 +2,19 @@ package collections;
 
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.LinkedHashSet;
 import java.util.Set;
-import java.util.TreeSet;
 
 import junit.framework.TestCase;
 
+// TreeSet, LinkedHashSet
 public class SetTest extends TestCase {
-	private Set<String> set; 
 	public void setUp() throws Exception {
     	super.setUp();
-    	set = new HashSet<String>();
-//    	set = new TreeSet<String>();
-//    	set = new LinkedHashSet<String>();
     }
 	
-	public void test_Add_Contains_DuplicatesDisallowed() {
+	public void testAddContainsDuplicatesDisallowed() {
+		HashSet<String> set = new HashSet<String>();
+		
 		set.add("one");
 		set.add("two");
 		set.add("three");
@@ -28,7 +25,9 @@ public class SetTest extends TestCase {
 		assertEquals(true, set.contains("three"));
 	}
 
-	public void test_addAll_containsAll() {
+	public void testAddAllContainsAll() {
+		HashSet<String> set = new HashSet<String>();
+		
 		set.add("one");
 		set.add("four");
 		
@@ -50,14 +49,18 @@ public class SetTest extends TestCase {
 		assertFalse(set.containsAll(subset2));
 	}
 	
-	public void test_clear_isEmpty() {
+	public void testClearIsEmpty() {
+		HashSet<String> set = new HashSet<String>();
+		
 		set.add("one");
 		assertFalse(set.isEmpty());
 		set.clear();
 		assertTrue(set.isEmpty());
 	}
 	
-	public void test_iterator() {
+	public void testIterator() {
+		HashSet<String> set = new HashSet<String>();
+		
 		set.add("one");
 		set.add("two");
 		Iterator<String> iterator = set.iterator();
@@ -69,7 +72,9 @@ public class SetTest extends TestCase {
 		assertEquals(2, i);
 	}
 	
-	public void test_remove_removeAll() {
+	public void testRemoveRemoveAll() {
+		HashSet<String> set = new HashSet<String>();
+		
 		set.add("one");
 		set.add("two");
 		set.add("three");
@@ -83,7 +88,9 @@ public class SetTest extends TestCase {
 		assertEquals(1, set.size());
 	}
 	
-	public void test_retainAll() {
+	public void testRetainAll() {
+		HashSet<String> set = new HashSet<String>();
+		
 		set.add("one");
 		set.add("two");
 		set.add("three");

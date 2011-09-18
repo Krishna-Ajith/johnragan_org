@@ -28,8 +28,8 @@ public class ExecutorServiceTest extends TestCase {
 		} catch(InterruptedException ignored) {}
 		
 		// Play with these two by switching between them.
-//		executor.shutdown();  // It allows you to shutdown, ignoring future tasks that are added but completing the current ones.
-		executor.shutdownNow();  // Ignores newly added tasks, as well as those in queue not yet started.
+		executor.shutdown();  // It allows you to shutdown, ignoring future tasks that are added but completing the current ones.
+//		executor.shutdownNow();  // Ignores newly added tasks, as well as those in queue not yet started.
 		
 		try {
 			executor.execute(new RandomRunnable("r11"));
@@ -43,8 +43,8 @@ public class ExecutorServiceTest extends TestCase {
 		}
 		
 		try {
-			TimeUnit.SECONDS.sleep(11);
-//			TimeUnit.SECONDS.sleep(27);
+//			TimeUnit.SECONDS.sleep(11);
+			TimeUnit.SECONDS.sleep(27);
 		} catch(InterruptedException ignored) {}
 	}
 }

@@ -2,24 +2,21 @@ package collections;
 
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
-import java.util.TreeMap;
 import java.util.Map.Entry;
 
 import junit.framework.TestCase;
 
 public class MapTest extends TestCase {
-	private Map<String, String> map; 
 	public void setUp() throws Exception {
     	super.setUp();
-    	map = new HashMap<String, String>();
-//    	map = new TreeMap<String, String>();
-//    	map = new LinkedHashMap<String, String>();
     }
 	
-	public void test_put_keys_values_containsKey_containsValue_get_remove_size_putAll_entrySet() {
+	// TreeMap, LinkedHashMap
+	public void testGeneralHashMapMethods() {
+		Map<String, String> map = new HashMap<String, String>();
+		
 		map.put("oneKey", "oneValue");
 		map.put("twoKey", "twoValue");
 		map.put("threeKey", "threeValue");
@@ -57,6 +54,5 @@ public class MapTest extends TestCase {
 		
 		Set<Entry<String, String>> entrySets = map.entrySet();
 		assertEquals(3, entrySets.size());
-		
 	}
 }
