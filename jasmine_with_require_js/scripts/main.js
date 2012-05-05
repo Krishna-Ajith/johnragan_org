@@ -1,5 +1,6 @@
-require(
-	[
+define(
+	[	
+		"require",
 		"jasmine-1.1.0/jasmine",
 		"jasmine-1.1.0/jasmine-html",
 		"spec/SpecHelper",
@@ -8,7 +9,7 @@ require(
 		"src/Player",
 		"src/Song"
 	], 
-	function(jasmineModule) {
+	function(require) {
 		(function() {
 	      var jasmineEnv = jasmine.getEnv();
 	      jasmineEnv.updateInterval = 1000;
