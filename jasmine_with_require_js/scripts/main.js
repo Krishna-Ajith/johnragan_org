@@ -1,14 +1,14 @@
 require(
 	[
-		"scripts/jasmine-1.1.0/jasmine.js",
-		"scripts/jasmine-1.1.0/jasmine-html.js",
-		"scripts/spec/SpecHelper.js",
-		"scripts/spec/PlayerSpec.js",
-		"scripts/spec/PlayerSpec2.js",
-		"scripts/src/Player.js",
-		"scripts/src/Song.js"
+		"jasmine-1.1.0/jasmine",
+		"jasmine-1.1.0/jasmine-html",
+		"spec/SpecHelper",
+		"spec/PlayerSpec",
+		"spec/PlayerSpec2",
+		"src/Player",
+		"src/Song"
 	], 
-	function(util) {
+	function(jasmineModule) {
 		(function() {
 	      var jasmineEnv = jasmine.getEnv();
 	      jasmineEnv.updateInterval = 1000;
