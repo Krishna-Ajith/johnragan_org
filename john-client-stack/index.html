@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />		
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		
+		<title>John Client-Side Application Stack - Tweets</title>
+		
+		<link href="vendor/twitter/bootstrap.min.css" media="all" rel="stylesheet" type="text/css" />
+		<link href="vendor/twitter/bootstrap-responsive.min.css" media="all" rel="stylesheet" type="text/css" />
+		<link href="src/css/application.css" media="all" rel="stylesheet" type="text/css" />
+		
+		<script data-main="src/main" src="vendor/require/1.0.1/require.js"></script>
+	</head>
+	<body>
+		<div id="app-container">
+			<div class="navbar">
+				<div class="navbar-inner">
+					<div class="container">
+						<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</a>
+						<a class="brand" href="/">John Tweets</a>
+						<div id="categories" class="nav-collapse">
+							<ul id="category-list" class="nav">
+								<li>
+									<div id="search-container">
+										<form>
+											<input id="search-input" type="search" placeholder="John Search" />
+										</form>
+									</div>
+								</li>
+								<li><a href="/tweets/category/wirelessmatrix">Wireless Matrix</a></li>
+								<li><a href="/tweets/category/html5">HTML5</a></li>
+								<li><a href="/tweets/category/backbonejs">Backbone</a></li>
+								<li><a href="/tweets/category/requirejs">Require</a></li>
+								<li><a href="/tweets/category/handlebarsjs">Handlebars</a></li>
+								<li><a href="/tweets/category/twbootstrap">Twitter Bootstrap</a></li>
+								<li><a href="/tweets/category/epcot">Epcot</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="tweets-container" class="container">
+				<div id="loader"></div>
+				<div id="status">
+					<span>No Results found</span>
+				</div>
+				<ul id="tweets-list"></ul>
+			</div>
+		</div>
+	</body>
+</html>
