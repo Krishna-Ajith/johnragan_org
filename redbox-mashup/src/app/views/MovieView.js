@@ -1,4 +1,4 @@
-define( [ 'Backbone', 'Handlebars', 'text!app/templates/tweet.tpl' ], 
+define( [ 'Backbone', 'Handlebars', 'text!app/templates/movie.tpl' ], 
 
 function( Backbone, Handlebars, template ) 
 {
@@ -6,7 +6,7 @@ function( Backbone, Handlebars, template )
 	 * Defines the TweetView which is responsible for managing a single Tweet
 	 * Model in the DOM.
 	 */
-	var TweetView = Backbone.View.extend (
+	var MovieView = Backbone.View.extend (
 	{
 		/*
 		 * Defines the type of element which is to be created by the View when 
@@ -33,7 +33,6 @@ function( Backbone, Handlebars, template )
 		 */
 		initialize: function()
 		{
-			// JPR - I need to review 'this' context in javascript
 			this.model.bind( 'change',  this.render, this );
 			this.model.bind( 'destroy', this.remove, this );
 		},
@@ -44,10 +43,6 @@ function( Backbone, Handlebars, template )
 		 */
 		render: function()
 		{
-			// JPR - I need to review $el, but this takes the JSON in the model and creates HTML markup
-			// JPR - my guess is that $el automatically points to the node containing this, the "li" instance.
-			// JPR - however, el is defined in TweetListView for the collection, but not sure how this would know about it.
-			// JPR - Maybe $el is automatically assigned in views via extend?
 			this.$el.html( this.template( this.model.toJSON() ) );
 			
 			return this;
@@ -61,5 +56,5 @@ function( Backbone, Handlebars, template )
 			this.$el.remove();
 		}
 	});
-	return TweetView;
+	return MovieView;
 })

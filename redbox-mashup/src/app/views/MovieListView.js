@@ -1,7 +1,7 @@
 
-define( [ 'jQuery', 'Underscore', 'Backbone', 'Tweets', 'TweetView' ], 
+define( [ 'jQuery', 'Underscore', 'Backbone', 'Movies', 'MovieView' ], 
 
-function( $, _, Backbone, Tweets, TweetView ) 
+function( $, _, Backbone, Movies, MovieView ) 
 {
 	/*
 	 * Defines the TweetListView which is responsible for managing the list
@@ -9,14 +9,14 @@ function( $, _, Backbone, Tweets, TweetView )
 	 * itself to reflect the current items in the Tweets Collection.
 	 * 
 	 */
-	var TweetListView = Backbone.View.extend (
+	var MovieListView = Backbone.View.extend (
 	{
 		/*
 		 * Defines a reference to the tweets list containing element; an 
 		 * unordered list which is defined in the DOM.
 		 * 
 		 */
-		el: '#tweets-list',
+		el: '#movies-list',
 		
 		/*
 		 * Defines the constructor function which initializes the TweetListView.
@@ -28,15 +28,15 @@ function( $, _, Backbone, Tweets, TweetView )
 		 * method invoked so as to load the initial list of Tweets and render them
 		 * via the TweetListView.
 		 */
-		initialize: function( tweets )
+		initialize: function( movies )
 		{
-            this.tweets = tweets || new Tweets();
-			this.tweets.bind( 'reset', this.reset, this );
-			this.tweets.bind( 'add',   this.add,   this );
+            this.movies = movies || new Movies();
+			this.movies.bind( 'reset', this.reset, this );
+			this.movies.bind( 'add',   this.add,   this );
 			
-			if ( this.tweets.query )
+			if ( this.movies.query )
 			{
-				this.tweets.fetch();
+				this.movies.fetch();
 			}
 		},
 		
@@ -46,12 +46,12 @@ function( $, _, Backbone, Tweets, TweetView )
 		 * 
 		 * @param Tweet Model instance which is to be added to the DOM.
 		 */
-		add: function( tweet )
+		add: function( movie )
 		{
-			var tweetView = new TweetView ( { 
-				'model' : tweet 
+			var movieView = new MovieView ( { 
+				'model' : movie 
 			});
-			this.$el.append( tweetView.render().el );
+			this.$el.append( movieView.render().el );
 		},
 		
 		/*
@@ -63,8 +63,8 @@ function( $, _, Backbone, Tweets, TweetView )
 		reset: function()
 		{
 			this.$el.empty();
-			this.tweets.each( _.bind( this.add, this ) );
+			this.movies.each( _.bind( this.add, this ) );
 		},		
 	});
-	return TweetListView;
+	return MovieListView;
 })

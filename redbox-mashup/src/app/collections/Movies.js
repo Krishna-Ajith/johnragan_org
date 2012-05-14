@@ -1,19 +1,19 @@
 
-define( [ 'Underscore', 'Backbone', 'Tweet', 'Handlebars', 'text!app/config/twitter.search.url.config' ], 
+define( [ 'Underscore', 'Backbone', 'Movie', 'Handlebars', 'text!app/config/movie.search.url.config' ], 
 
-function( _, Backbone, Tweet, Handlebars, config )
+function( _, Backbone, Movie, Handlebars, config )
 {
 	/*
 	 * Defines the Tweets Collection which is used to manage a collection
 	 * of Tweet Model instances. All Tweets are loaded via the current query 
 	 * property value against the underlying service.
 	 */
-	var Tweets = Backbone.Collection.extend (
+	var Movies = Backbone.Collection.extend (
 	{
 		/*
 		 * Defines the Model Class to which the Tweets collection is bound.
 		 */
-		model: Tweet,
+		model: Movie,
 		
 		/*
 		 * Defines the Service URI from which Tweets Collections are populated.
@@ -31,8 +31,8 @@ function( _, Backbone, Tweet, Handlebars, config )
 		initialize: function( options ) 
 		{
 			if ( options ) {
-				this.query    = options.query    || Tweets.DEFAULT_QUERY;
-				this.pageSize = options.pageSize || Tweets.DEFAULT_PAGE_SIZE;
+				this.query    = options.query    || Movies.DEFAULT_QUERY;
+				this.pageSize = options.pageSize || Movies.DEFAULT_PAGE_SIZE;
 			}
 		},
 	
@@ -84,15 +84,15 @@ function( _, Backbone, Tweet, Handlebars, config )
 		 * 
 		 * @see http://documentcloud.github.com/backbone/#Collection-comparator
 		 */
-		comparator: function( tweet1, tweet2 )
+		comparator: function( movie1, movie2 )
 		{
-			var tweet1Time = new Date( tweet1.get( 'created_at' ) ).getTime(),
-				tweet2Time = new Date( tweet2.get( 'created_at' ) ).getTime();
+			var movie1Time = new Date( movie1.get( 'created_at' ) ).getTime(),
+				movie2Time = new Date( movie2.get( 'created_at' ) ).getTime();
 			
-			if ( tweet1Time > tweet2Time ) {
+			if ( movie1Time > movie2Time ) {
 				return -1;
 			} 
-			return tweet2Time > tweet1Time ? 1 : 0;
+			return movie2Time > movie1Time ? 1 : 0;
 		}
 	},{
 		/*
@@ -101,7 +101,7 @@ function( _, Backbone, Tweet, Handlebars, config )
 		 * Defines the default query to be used when initially invoking the
 		 * underlying service. 
 		 */
-		DEFAULT_QUERY: 'Epcot',
+		DEFAULT_QUERY: 'Warrior',
 		
 		/*
 		 * @static
@@ -111,5 +111,5 @@ function( _, Backbone, Tweet, Handlebars, config )
 		 */
 		DEFAULT_PAGE_SIZE: 40
 	});
-	return Tweets;
+	return Movies;
 });
