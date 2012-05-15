@@ -1,8 +1,10 @@
 
-define( [ 'Underscore', 'Backbone', 'Movie', 'Handlebars', 'text!app/config/movie.search.url.config' ], 
+define( [ 'Underscore', 'Backbone', 'Movie', 'Handlebars', 'vendor/xml_to_json.js', 'text!app/config/movie.search.url.config' ], 
 
-function( _, Backbone, Movie, Handlebars, config )
+function( _, Backbone, Movie, Handlebars, xmltojson, config )
 {
+	// http://api.netflix.com/catalog/titles/autocomplete?oauth_consumer_key=jyuz5gs3j28h4aavnykhkm3e&term=warrior
+	
 	/*
 	 * Defines the Tweets Collection which is used to manage a collection
 	 * of Tweet Model instances. All Tweets are loaded via the current query 
