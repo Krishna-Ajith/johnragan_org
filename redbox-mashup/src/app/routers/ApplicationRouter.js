@@ -1,5 +1,5 @@
 
-define( [ 'Backbone', 'Underscore', 'TweetsHelper' ], function( Backbone, _, TweetsHelper )
+define( [ 'Backbone', 'Underscore', 'MoviesHelper' ], function( Backbone, _, MoviesHelper )
 {
 	/*
 	 * Defines the ApplicationRouter class which is responsible for managing 
@@ -30,7 +30,7 @@ define( [ 'Backbone', 'Underscore', 'TweetsHelper' ], function( Backbone, _, Twe
         start: function( pushState )
         {
 			return Backbone.history.start( { 
-				'root'      : TweetsHelper.rootURIPath(),
+				'root'      : MoviesHelper.rootURIPath(),
 				'pushState' : pushState
 			});	
         },
@@ -59,7 +59,7 @@ define( [ 'Backbone', 'Underscore', 'TweetsHelper' ], function( Backbone, _, Twe
          */
         query : function( path, id )
         {
-			TweetsHelper.log( 'Route Matched: ' + path + '/' + id );
+			MoviesHelper.log( 'Route Matched: ' + path + '/' + id );
         }
     })
     return ApplicationRouter;

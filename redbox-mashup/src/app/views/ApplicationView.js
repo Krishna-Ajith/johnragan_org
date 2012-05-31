@@ -1,7 +1,7 @@
 
-define( [ 'jQuery', 'Underscore', 'Backbone', 'Tweets', 'TweetListView', 'LoadStatusView', 'ApplicationRouter', 'TweetsHelper' ], 
+define( [ 'jQuery', 'Underscore', 'Backbone', 'Movies', 'MovieListView', 'LoadStatusView', 'ApplicationRouter', 'MoviesHelper' ], 
 
-function( $, _, Backbone, Tweets, TweetListView, LoadStatusView, ApplicationRouter, TweetsHelper )
+function( $, _, Backbone, Movies, MovieListView, LoadStatusView, ApplicationRouter, MoviesHelper )
 {
 	/*
 	 * Defines the top-level ApplicationView which is responsible for 
@@ -41,14 +41,14 @@ function( $, _, Backbone, Tweets, TweetListView, LoadStatusView, ApplicationRout
 		 */
 		initialize: function()
 		{
-		    this.tweets         = new Tweets();
-		    this.tweetsListView = new TweetListView( this.tweets );
-		    this.loader         = new LoadStatusView( this.tweets );
+		    this.movies         = new Movies();
+		    this.moviesListView = new MovieListView( this.movies );
+		    this.loader         = new LoadStatusView( this.movies );
 		    
 		    this.$title = this.$( 'h2' );
 		    
 		    if ( !this.initializeRouter() ) {
-		    	this.search( 'epcot' );
+		    	this.search( 'Warrior' );
 		    }
 		    $('.dropdown-toggle').dropdown()
 		},
@@ -78,10 +78,10 @@ function( $, _, Backbone, Tweets, TweetListView, LoadStatusView, ApplicationRout
 		{
 		    var title = '@' + id;
 		    
-			this.tweets.update( id );
+			this.movies.update( id );
 			this.$title.text( title );
 			
-			document.title = title + ' - Latest Tweets';
+			document.title = title + ' - Location Movies';
 		},
 		
 		/*
@@ -120,7 +120,7 @@ function( $, _, Backbone, Tweets, TweetListView, LoadStatusView, ApplicationRout
 			    valid,
 			    attr = { 'placeholder' : 'Hmm, invalid search...'};
 				
-			if ( TweetsHelper.isEnterEvent( evt ) )
+			if ( MoviesHelper.isEnterEvent( evt ) )
 			{
 				evt.preventDefault();
 
@@ -130,7 +130,7 @@ function( $, _, Backbone, Tweets, TweetListView, LoadStatusView, ApplicationRout
 				valid = value.match( /^[a-zA-Z0-9_]{1,15}$/ );
 				
 				if ( valid ) {
-					attr.placeholder = 'Search Twitter'
+					attr.placeholder = 'Search RedBox'
 					this.router.triggerSearch( value );
 				}
 				$search.attr( attr ).val('').blur();

@@ -12,7 +12,7 @@ define( [ 'jQuery', 'Underscore' ], function( $, _ )
 	 * Application.
 	 * 
 	 */
-    var TweetsHelper =
+    var MoviesHelper =
     {
     	/*
     	 * Wraps the native console.log method for compatibility with 
@@ -46,5 +46,5 @@ define( [ 'jQuery', 'Underscore' ], function( $, _ )
     		return evt && evt.keyCode === 13;
     	}
     }
-    return TweetsHelper;
+    return MoviesHelper;
 });

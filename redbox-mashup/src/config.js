@@ -23,6 +23,6 @@ var require = {
 	    LoadStatusView    : 'app/views/LoadStatusView',
 	    ApplicationRouter : 'app/routers/ApplicationRouter',
 	    MoviesHelper      : 'app/helpers/MoviesHelper',
-	    MovieTemplate     : 'app/templates/movie.tpl' 
+	    MovieTemplate     : 'app/templates/movie.tpl'
 	}
 };

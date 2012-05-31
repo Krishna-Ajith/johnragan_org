@@ -7,7 +7,7 @@ define( [ 'Backbone' ], function( Backbone )
 	 * the raw JSON object returned from the server which represents an 
 	 * individual Tweet.
 	 */
-	var Tweet = Backbone.Model.extend({
+	var Movie = Backbone.Model.extend({
 	});
-	return Tweet;
+	return Movie;
 });

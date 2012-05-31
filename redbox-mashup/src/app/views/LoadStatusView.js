@@ -20,10 +20,10 @@ define( [ 'jQuery', 'Backbone' ], function( $, Backbone )
 		 * accordingly.
 		 * 
 		 */
-		initialize: function( tweets )
+		initialize: function( movies )
 		{ 
-			this.tweets = tweets;
-			this.tweets.bind( 'reset', this.render, this );
+			this.movies = movies;
+			this.movies.bind( 'reset', this.render, this );
 			this.isShowing   = false;
 			this.$status = $( '#status' );
 			this.$status.hide();
@@ -42,7 +42,7 @@ define( [ 'jQuery', 'Backbone' ], function( $, Backbone )
 
 			this.isShowing = !this.isShowing;
 			
-			this.$status[ !this.isShowing && this.tweets.length == 0 ? 'show' : 'hide' ]();
+			this.$status[ !this.isShowing && this.movies.length == 0 ? 'show' : 'hide' ]();
 			
 			return this;
 		},		
