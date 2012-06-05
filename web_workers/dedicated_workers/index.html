@@ -32,76 +32,14 @@
       <div id="tweets"></div>
     </article>
   <script>
+    alert("howdy");
     console.log("WebWorker: Starting");
-    alert("fetch");
     var worker = new Worker("Example-3-2-tweet.js");
-    worker.addEventListener("message", function(e) {
-      var curTime = new Date();
-      // here we will show the messages between our page and the Worker
-      $('#result').append( curTime + " ) " + e.data + "<br/>");
-      var source = e.data[0].source;
-      // in case we have some data from Twitter - let's show it to the user
-      if (typeof source != 'undefined' ) {
-        var tweets = document.createElement("ul");
-        for (var i=0; i < 10; i++) {
-          if (typeof e.data[i] != 'undefined' &&
-          e.data[i].text != 'undefined') {
-            var tweetTextItem = document.createElement("li");
-            var tweetText = document.createTextNode(e.data[i].text + " | " +
-            e.data[i].source + " (" +
-            e.data[i].created_at + ")" ) ;
-            tweetTextItem.appendChild(tweetText);
-            tweets.appendChild(tweetTextItem);
-            saveTweet(e.data[i]);
-          }
-        }
-        // update the DOM outside our loop so it will be efficient
-        console.log("WebWorker: Updated the DOM with Tweets");
-        $("#tweets").append(tweets);
-      }
-    }, false);
-    worker.onerror = function(e){
-      throw new Error(e.message + " (" + e.filename + ":" + e.lineno + ")");
-    };
-    // Key - tweet ID
-    // Val - Time tweet created and the text of the tweet.
-    function saveTweet(tweet) {
-      localStorage.setItem(tweet.id_str, "{"+
-      "'created': '" + tweet.created_at + "'," +
-      "'tweet-text': '" + tweet.text + "'}");
-    }
-    // Get a tweet from our localStorage. We could use sessionStorage if we
-    // wish to have this data just for our session
-    function getTweet(tweetID) {
-      return localStorage.getItem(tweetID);
-    }
-    var curTime = new Date();
-    // here we will show the messages between our page and the Worker
-    $('#result').append( curTime + " ) " + e.data + "<br/>");
-    var source = e.data[0].source;
-    // in case we have some data from Twitter - let's show it to the user
-    if (typeof source != 'undefined' ) {
-    var tweets = document.createElement("ul");
-    for (var i=0; i < 10; i++) {
-    if (typeof e.data[i] != 'undefined' &&
-    e.data[i].text != 'undefined') {
-    var tweetTextItem = document.createElement("li");
-    var tweetText = document.createTextNode(e.data[i].text + " | " +
-    e.data[i].source + " (" +
-    e.data[i].created_at + ")" ) ;
-    tweetTextItem.appendChild(tweetText);
-    tweets.appendChild(tweetTextItem);
-    saveTweet(e.data[i]);
-    }
-    }
-    // update the DOM outside our loop so it will be efficient
-    console.log("WebWorker: Updated the DOM with Tweets");
-    $("#tweets").append(tweets);
-    }
-    }, false);
+    
     worker.onerror = function(e){
     throw new Error(e.message + " (" + e.filename + ":" + e.lineno + ")");
     };
+    
     // Key - tweet ID
     // Val - Time tweet created and the text of the tweet.
     function saveTweet(tweet) {
@@ -114,6 +52,7 @@
     function getTweet(tweetID) {
     return localStorage.getItem(tweetID);
     }
-    </script>
-  </body>
-</html>
+    alert("yall");
+      </script>
+      </body>
+      </html>
