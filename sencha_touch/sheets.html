@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Panels</title>
+    <link rel="stylesheet" href="css/sencha-touch.css" type="text/css">
+    <script type="text/javascript" src="js/sencha-touch-all-debug.js"></script>
+
+<script type="text/javascript">
+
+Ext.setup({
+    onReady: function() {
+
+      var myPanel = Ext.create('Ext.Panel', { 
+        fullscreen: true,
+        html: "Test the overlay by <a href='#'>clicking this link</a>",
+      });
+      
+      myPanel.element.on( 
+        "click", showOverlay, this,
+        {
+          delegate: "a", 
+          preventDefault: true
+        }
+      );
+      
+      function showOverlay() {
+        var newSheet = Ext.create('Ext.Sheet', { 
+          stretchX: true,
+          height: 130,
+          hideOnMaskTap: true,
+          enter: "top",
+          hidden: true,
+          items : [
+            {
+              html: "Place your additional information right here.<br/>It can be multi line and everything!"
+            }
+          ]
+        });
+        Ext.Viewport.add(newSheet); 
+        newSheet.show();
+      }
+    }
+});
+
+
+
+</script>
+
+</head>
+<body></body>
+</html>

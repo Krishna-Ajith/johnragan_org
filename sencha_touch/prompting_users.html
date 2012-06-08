@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Panels</title>
+    <link rel="stylesheet" href="css/sencha-touch.css" type="text/css">
+    <script type="text/javascript" src="js/sencha-touch-all-debug.js"></script>
+
+<script type="text/javascript">
+
+Ext.setup({
+    onReady: function() {
+
+      Ext.Msg.confirm("Are you sure?", "This will shutoff the internet!", myAwesomeFn, this);
+      
+      function myAwesomeFn(buttonID, value, opts) {
+        if (buttonID === "no") {
+          // whew. Threat averted!
+        }
+        else {
+          // oh noes! the internet is going down
+        }
+      }
+      
+    }
+});
+
+
+
+</script>
+
+</head>
+<body></body>
+</html>
