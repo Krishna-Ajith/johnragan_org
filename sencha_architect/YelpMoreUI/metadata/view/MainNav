@@ -1,0 +1,75 @@
+{
+    "id": "ExtBox1-ext-gen2283",
+    "type": "navigationview",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|initialView": true,
+        "tpl": "<img class=\"photo\" src=\"\n{photo_url}\" width=\"100\"\nheight=\"100\"/>\n  <h2>{name}</h2>\n  <div class=\"info\">\n  {address1}<br/>\n  <img src=\"\n{rating_img_url_small}\"/>\n</div>",
+        "designer|userClassName": "MainNav",
+        "designer|userAlias": "mainnav"
+    },
+    "customConfigs": [],
+    "designerId": "d89bc545-7ae0-4a52-9c3f-0bfa4c00904f",
+    "$viewOrder": 0,
+    "expanded": true,
+    "cn": [
+        {
+            "id": "ExtBox1-ext-gen2489",
+            "type": "navigationbar",
+            "reference": {
+                "name": "navigationBar",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "tpl": null,
+                "ui": "light",
+                "designer|userClassName": "MyNavigationBar"
+            },
+            "customConfigs": [],
+            "iconCls": "icon-navbar",
+            "expanded": true
+        },
+        {
+            "id": "ExtBox1-ext-gen3229",
+            "type": "container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "id": "listCard",
+                "layout": "fit",
+                "designer|userClassName": "ListContainer",
+                "designer|userAlias": "listContainer",
+                "title": "Restaurants"
+            },
+            "customConfigs": [],
+            "expanded": true,
+            "cn": [
+                {
+                    "id": "ExtBox1-ext-gen4526",
+                    "type": "list",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "dataList",
+                        "itemTpl": "<img class=\"photo\"\nsrc=\"{photo_url}\"\nwidth=\"40\" \nheight = \"40\"/>{name}\n<br/>\n<img \nsrc=\"{rating_img_url_small}\"/>&nbsp;<small>{address1}<br/>{city}, {state_code}</small>",
+                        "store": "BusinessStore",
+                        "designer|userClassName": "MyList"
+                    },
+                    "customConfigs": [],
+                    "expanded": true
+                }
+            ]
+        }
+    ]
+}

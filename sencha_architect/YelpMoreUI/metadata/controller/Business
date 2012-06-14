@@ -1,0 +1,233 @@
+{
+    "id": "ExtBox1-ext-gen6133",
+    "type": "controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Business"
+    },
+    "customConfigs": [],
+    "designerId": "eb62f45b-36bd-4c7c-9ef6-a596fa797bf7",
+    "$viewOrder": 0,
+    "expanded": true,
+    "cn": [
+        {
+            "id": "ExtBox1-ext-gen6363",
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "init",
+                "designer|params": [
+                    "application"
+                ],
+                "implHandler": [
+                    "var me = this;",
+                    "",
+                    "Ext.Viewport.setMasked({ message: 'Loading...' });",
+                    "",
+                    "// Get the location, then...",
+                    "me.getLocation(function (location) {",
+                    "",
+                    "    me.getBusinesses(location, function(store) {",
+                    "",
+                    "        // then bind data to list and show it",
+                    "        me.getDataList().setStore(store);",
+                    "",
+                    "        Ext.Viewport.setMasked(false);",
+                    "    });",
+                    "});"
+                ],
+                "designer|userClassName": "init"
+            },
+            "customConfigs": [],
+            "iconCls": "icon-basic-function",
+            "expanded": true
+        },
+        {
+            "id": "ExtBox1-ext-gen8209",
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "dataList",
+                "selector": "#dataList",
+                "designer|userClassName": "dataList"
+            },
+            "customConfigs": [],
+            "expanded": true
+        },
+        {
+            "id": "ExtBox1-ext-gen8627",
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "listCard",
+                "selector": "#listCard",
+                "designer|userClassName": "listCard"
+            },
+            "customConfigs": [],
+            "expanded": true
+        },
+        {
+            "id": "ExtBox1-ext-gen9244",
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainNav",
+                "selector": "mainnav",
+                "designer|userClassName": "mainNav"
+            },
+            "customConfigs": [],
+            "expanded": true
+        },
+        {
+            "id": "ExtBox1-ext-gen9656",
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "detailPanel",
+                "selector": "#detailPanel",
+                "designer|userClassName": "detailPanel"
+            },
+            "customConfigs": [],
+            "expanded": true
+        },
+        {
+            "id": "ExtBox1-ext-gen12335",
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "getLocation",
+                "designer|params": [
+                    "callback"
+                ],
+                "implHandler": [
+                    "if (navigator && navigator.geolocation) {",
+                    "    navigator.geolocation.getCurrentPosition(function(position) {",
+                    "        callback(position);",
+                    "    }, function(error) {",
+                    "        // give a warning for error",
+                    "        alert(\"error in getLocation\");",
+                    "    });",
+                    "}"
+                ],
+                "designer|userClassName": "getLocation"
+            },
+            "customConfigs": [],
+            "expanded": true
+        },
+        {
+            "id": "ExtBox1-ext-gen12402",
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "getBusinesses",
+                "designer|params": [
+                    "location",
+                    "callback"
+                ],
+                "implHandler": [
+                    "// NOTE ABOUT YELP KEY",
+                    "// You must use your own Yelp key, available by registering (for free) with Yelp:",
+                    "// http://www.yelp.com/developers/getting_started/api_overview",
+                    "// (in this app, we use the Review Search API v1.0)",
+                    "",
+                    "var store = Ext.data.StoreManager.lookup('BusinessStore'),",
+                    "    url = 'http://api.yelp.com/business_review_search' +",
+                    "    '?ywsid=rD0-Pajxy63KXDJl0uKjzg' +",
+                    "    '&term=Restaurants' +",
+                    "    '&lat=' + location.coords.latitude +",
+                    "    '&long=' + location.coords.longitude;",
+                    "",
+                    "store.getProxy().setUrl(url);",
+                    "",
+                    "store.load(function() {",
+                    "    callback(store);",
+                    "});"
+                ],
+                "designer|userClassName": "getBusinesses"
+            },
+            "customConfigs": [],
+            "expanded": true
+        },
+        {
+            "id": "ExtBox1-ext-gen15131",
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onListItemTap",
+                "implHandler": [
+                    "var me = this;",
+                    "",
+                    "if (record) {",
+                    "",
+                    "    if (!me.details) {",
+                    "        me.details = Ext.create('CityBars.view.DetailPanel', {",
+                    "            title: 'Details'",
+                    "        });",
+                    "    }",
+                    "",
+                    "    // set the map",
+                    "    var map = me.details.child('#detailMap');",
+                    "    ",
+                    "    map.setMapOptions({",
+                    "        zoom: 17",
+                    "    });",
+                    "    map.setMapCenter({",
+                    "        latitude: record.get('latitude'),",
+                    "        longitude: record.get('longitude')",
+                    "    });",
+                    "    ",
+                    "",
+                    "    // set the info",
+                    "    var info = me.details.child('#contact').child('#info');",
+                    "    info.child('#photo').setData(record.data);",
+                    "    info.child('#data').setData(record.data);",
+                    "",
+                    "    me.getMainNav().push(me.details);",
+                    "}"
+                ],
+                "name": "itemtap",
+                "designer|targetType": "Ext.dataview.List",
+                "designer|controlQuery": "#dataList",
+                "designer|userClassName": "onListItemTap"
+            },
+            "customConfigs": [],
+            "expanded": true
+        }
+    ]
+}
