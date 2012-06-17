@@ -16,8 +16,10 @@ AttractionListItemView = Backbone.View.extend({
           , rider_swap : "Rider Swap"
           , wheelchair : "Wheelchair"
         };
-        var template = _.template( $("#attraction_list_item_template").html(), variables );
-        this.$el.html( template );
+        //var template = _.template( $("#attraction_list_item_template").html(), variables );
+        var template = Handlebars.compile( $("#attraction_list_item_template").html() );
+        //this.$el.html( template );
+        this.$el.html( template(variables) );
     }
     /*, events: {
         "click input[type=button]": "doSearch"
