@@ -9,6 +9,7 @@
 
     <!-- Le styles -->
     <link href="../assets/css/bootstrap.css" rel="stylesheet">
+    <link href="../css/attraction_list_item.css" rel="stylesheet">
     <style>
       body {
         padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
@@ -38,12 +39,12 @@
           <div class="span6">
             <div class="row">
               <div class="span6">
-                <h2 style="color:#6495ED">&#062; <%=name%></h2><br/>
+                <h2 class="attraction_name">&#062; <%=name%></h2><br/>
               </div>
             </div>  
             <div class="row">
               <div class="span6">
-                <strong><span style="color:#483D8B"class="summary_popover" rel="popover" title="Ride Summary" data-content="<%=summary%>">Hover for Summary </span></strong><i class="icon-search summary_popover"></i>
+                <strong><span class="summary_popover attraction_summary" rel="popover" title="Ride Summary" data-content="<%=summary%>">Hover for Summary </span></strong><i class="icon-search summary_popover"></i>
               </div>
             </div>
             <div class="row">  
@@ -117,40 +118,7 @@
     <script src="../js/underscore.js"></script>
     <script src="../js/backbone.js"></script>
 
-    <script>
-      AttractionListItemView = Backbone.View.extend({
-          initialize: function() {
-              this.render();
-          }
-          , render: function() {
-              var variables = { 
-                list_item_photo_url: "../images/mk/attractions/space-mountain-240.jpeg"
-                , name : "Splash Mountain"
-                , summary: "Launch past the flashing lights of your space station into the soaring darkness of space! This classic Dark Ride dips and swerves as it rockets through the blackest reaches of the galaxy. Check the monitors as you exit for a glimpse of yourself in flight!"
-                , rating : "9"
-                , wait : "Busy"
-                , intensity : "8"
-                , height : "44"
-                , FP : "FP"
-                , pal_mickey : "Pal Mickey"
-                , rider_swap : "Rider Swap"
-                , wheelchair : "Wheelchair"
-              };
-              var template = _.template( $("#attraction_list_item_template").html(), variables );
-              this.$el.html( template );
-          }
-          /*, events: {
-              "click input[type=button]": "doSearch"
-          }
-          , doSearch: function(event) {
-              alert( "Search for " + $("#search_input").val() );
-          }*/
-      });
-
-      var attraction_view = new AttractionListItemView({el : $("#attraction_list_item_container")});
-    
-      $('.summary_popover').popover({ html : true });
-    </script>
+    <script src="../js/attraction_list_item.js"></script>
 
   </body>
 </html>
