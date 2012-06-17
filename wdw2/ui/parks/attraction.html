@@ -31,9 +31,7 @@
   </head>
 
   <body>
-    <script id="attractions_list_template" type="text/template">
-     {{#each myAttractions}}
-      <section>
+    <script type="text/template" id="attraction_list_item_template">
         <div class="row">
           <div class="span3">
             <img src="{{list_item_photo_url}}" alt="{{name}} picture"/>
@@ -74,8 +72,6 @@
           </div>
         <div>
         <br/>
-      </section>
-     {{/each}}  
     </script>
 
     <div class="navbar navbar-fixed-top">
@@ -98,8 +94,7 @@
       </div>
     </div>
     
-    <div id="attractions_list_container">
-      
+    <div id="attraction_list_item_container">
     </div>
 
     <!-- Le javascript
@@ -124,7 +119,7 @@
     <script src="../js/backbone.js"></script>
     <script src="../js/handlebars.js"></script>
 
-    <script src="../js/attractions_list.js"></script>
+    <script src="../js/attraction_list_item.js"></script>
 
   </body>
 </html>
