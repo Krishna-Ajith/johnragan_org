@@ -1,3 +1,5 @@
+require(['handlebars'], function(handbars) {
+
 Attraction = Backbone.Model.extend({
     defaults: {
       fp: "FP"
@@ -62,3 +64,5 @@ var myAttractionsView = new AttractionsListView({el : $("#attractions_list_conta
 
 // This part must be done to allow the popover to take place
 $('.summary_popover').popover({ html : true });
+
+});
