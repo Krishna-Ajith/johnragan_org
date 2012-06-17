@@ -30,6 +30,47 @@
   </head>
 
   <body>
+    <script type="text/template" id="attraction_list_item_template">
+        <div class="row">
+          <div class="span3">
+            <img src="<%=list_item_photo_url%>" alt="<%=name%> picture"/>
+          </div>
+          <div class="span6">
+            <div class="row">
+              <div class="span6">
+                <h2 style="color:#6495ED">&#062; <%=name%></h2><br/>
+              </div>
+            </div>  
+            <div class="row">
+              <div class="span6">
+                <strong><span style="color:#483D8B"class="summary_popover" rel="popover" title="Ride Summary" data-content="<%=summary%>">Hover for Summary </span></strong><i class="icon-search summary_popover"></i>
+              </div>
+            </div>
+            <div class="row">  
+              <div class="span1">
+                <strong>Rating:</strong><br/>
+                <strong>Wait Type:</strong><br/>
+                <strong>Intensity:</strong><br/>
+                <strong>Height:</strong><br/>
+              </div> 
+              <div class="span1">
+                <div style="float:right">
+                  <span class="label label-success"><%=rating%></span><br/>
+                  <span class="badge badge-important"><%=wait%></span><br/>
+                  <span class="badge badge-important"><%=intensity%></span><br/>
+                  <span class="label label-success"><%=height%></span><br/>
+                </div>
+              </div>
+              <div class="span3">
+                <span class="label label-info"><%=FP%></span><br/>
+                <span class="label label-warning"><%=pal_mickey%></span><br/>
+                <span class="label"><%=rider_swap%></span><br/>
+                <span class="label label-important"><%=wheelchair%></span><br/>
+              </div>  
+            </div>
+          </div>
+        <div>
+    </script>
 
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
@@ -50,55 +91,16 @@
         </div>
       </div>
     </div>
-
-    <div class="container">
-
-      <div class="row">
-        <div class="span3">
-          <img src="../images/mk/attractions/space-mountain-240.jpeg" alt="Space Mountain picture"/>
-        </div>
-        <div class="span6">
-          <div class="row">
-            <div class="span6">
-              <h2 style="color:#6495ED">&#062; Splash Mountain</h2><br/>
-            </div>
-          </div>  
-          <div class="row">
-            <div class="span6">
-              <strong><span style="color:#483D8B"class="summary_popover" rel="popover" title="Ride Summary" data-content="Launch past the flashing lights of your space station into the soaring darkness of space! This classic Dark Ride dips and swerves as it rockets through the blackest reaches of the galaxy. Check the monitors as you exit for a glimpse of yourself in flight!">Hover for Summary </span></strong><i class="icon-search summary_popover"></i>
-            </div>
-          </div>
-          <div class="row">  
-            <div class="span1">
-              <strong>Rating:</strong><br/>
-              <strong>Wait Type:</strong><br/>
-              <strong>Intensity:</strong><br/>
-              <strong>Height:</strong><br/>
-            </div> 
-            <div class="span1">
-              <div style="float:right">
-                <span class="label label-success">9</span><br/>
-                <span class="badge badge-important">Busy</span><br/>
-                <span class="badge badge-important">8</span><br/>
-                <span class="label label-success">44</span><br/>
-              </div>
-            </div>
-            <div class="span3">
-              <span class="label label-info">FP</span><br/>
-              <span class="label label-warning">Pal Mickey</span><br/>
-              <span class="label">Rider Swap</span><br/>
-              <span class="label label-important">Wheelchair</span><br/>
-            </div>  
-          </div>
-        </div>
-      <div>
-
-    </div> <!-- /container -->
+    
+    <div id="attraction_list_item_container">
+      
+    </div>
 
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="../assets/js/jquery.js"></script>
+    
     <script src="../assets/js/bootstrap-transition.js"></script>
     <script src="../assets/js/bootstrap-alert.js"></script>
     <script src="../assets/js/bootstrap-modal.js"></script>
@@ -112,7 +114,41 @@
     <script src="../assets/js/bootstrap-carousel.js"></script>
     <script src="../assets/js/bootstrap-typeahead.js"></script>
 
+    <script src="../js/underscore.js"></script>
+    <script src="../js/backbone.js"></script>
+
     <script>
+      AttractionListItemView = Backbone.View.extend({
+          initialize: function() {
+              this.render();
+          }
+          , render: function() {
+              var variables = { 
+                list_item_photo_url: "../images/mk/attractions/space-mountain-240.jpeg"
+                , name : "Splash Mountain"
+                , summary: "Launch past the flashing lights of your space station into the soaring darkness of space! This classic Dark Ride dips and swerves as it rockets through the blackest reaches of the galaxy. Check the monitors as you exit for a glimpse of yourself in flight!"
+                , rating : "9"
+                , wait : "Busy"
+                , intensity : "8"
+                , height : "44"
+                , FP : "FP"
+                , pal_mickey : "Pal Mickey"
+                , rider_swap : "Rider Swap"
+                , wheelchair : "Wheelchair"
+              };
+              var template = _.template( $("#attraction_list_item_template").html(), variables );
+              this.$el.html( template );
+          }
+          /*, events: {
+              "click input[type=button]": "doSearch"
+          }
+          , doSearch: function(event) {
+              alert( "Search for " + $("#search_input").val() );
+          }*/
+      });
+
+      var attraction_view = new AttractionListItemView({el : $("#attraction_list_item_container")});
+    
       $('.summary_popover').popover({ html : true });
     </script>
 
