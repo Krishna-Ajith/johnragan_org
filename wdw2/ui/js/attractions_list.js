@@ -1,4 +1,9 @@
-require(['handlebars'], function(handbars) {
+require([
+  'order!underscore',
+  'order!backbone',
+  'order!handlebars',
+  'order!../templates/templates'
+], function(_, backbone, handbars, templates) {
 
 Attraction = Backbone.Model.extend({
     defaults: {
@@ -55,6 +60,7 @@ var AttractionsListView = Backbone.View.extend({
       , render: function(){
         var js = myAttractions.toJSON();
         var template = Handlebars.compile($("#attractions_list_template").html());
+        //var template = templates.attractionsTemplate;
         $(this.el).html(template({myAttractions: js}));
         return this;  
       }
