@@ -5,6 +5,7 @@ require.config( {
 		Handlebars : '../vendors/handlebars/handlebars',
 		Underscore : '../vendors/underscore/underscore',
 		Backbone : '../vendors/backbone/backbone',
-		Templates : '../src/templates/templates'
+		Templates : '../src/templates/templates',
+		Attraction : 'models/attraction'
 	}
 });

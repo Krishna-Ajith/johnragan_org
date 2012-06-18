@@ -1,25 +1,12 @@
 define([
-  'order!Underscore',
-  'order!Backbone',
-  'order!Handlebars',
-  'order!Templates'
-], function(_, backbone, handlebars, templates) {
+	'order!Underscore', 
+	'order!Backbone',
+	'order!Handlebars',
+	'order!Templates',
+	'order!models/attraction'
+], function(Underscore, backbone, Handlebars, templates, Attraction) {
 
-Attraction = Backbone.Model.extend({
-    defaults: {
-      fp: "FP"
-    }
-    , validate: function( attributes ){
-        if( 1==2 ){
-            return "1 cannot equal 2";
-        }
-    }
-    , initialize: function() {
-      
-    }
-});
-
-var attraction = new Attraction({
+var spaceMountainAttraction = new Attraction({
   list_item_photo_url: "images/mk/attractions/space-mountain-240.jpeg"
   , name : "Splash Mountain"
   , summary: "Launch past the flashing lights of your space station into the soaring darkness of space! This classic Dark Ride dips and swerves as it rockets through the blackest reaches of the galaxy. Check the monitors as you exit for a glimpse of yourself in flight!"
@@ -51,7 +38,7 @@ var Attractions = Backbone.Collection.extend({
     model: Attraction
 });
 
-var myAttractions = new Attractions([ attraction, philharmagicAttraction]);
+var myAttractions = new Attractions([ spaceMountainAttraction, philharmagicAttraction]);
 
 var AttractionsListView = Backbone.View.extend({
       initialize: function() {
