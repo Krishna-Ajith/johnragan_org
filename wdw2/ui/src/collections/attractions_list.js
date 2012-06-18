@@ -1,8 +1,8 @@
 define([
-  'order!underscore',
-  'order!backbone',
-  'order!handlebars',
-  'order!../templates/templates'
+  'order!Underscore',
+  'order!Backbone',
+  'order!Handlebars',
+  'order!Templates'
 ], function(_, backbone, handlebars, templates) {
 
 Attraction = Backbone.Model.extend({
@@ -20,7 +20,7 @@ Attraction = Backbone.Model.extend({
 });
 
 var attraction = new Attraction({
-  list_item_photo_url: "../images/mk/attractions/space-mountain-240.jpeg"
+  list_item_photo_url: "images/mk/attractions/space-mountain-240.jpeg"
   , name : "Splash Mountain"
   , summary: "Launch past the flashing lights of your space station into the soaring darkness of space! This classic Dark Ride dips and swerves as it rockets through the blackest reaches of the galaxy. Check the monitors as you exit for a glimpse of yourself in flight!"
   , rating : "9"
@@ -34,7 +34,7 @@ var attraction = new Attraction({
 });
 
 var philharmagicAttraction = new Attraction({
-  list_item_photo_url: "../images/mk/attractions/AL_PHILH_240.jpeg"
+  list_item_photo_url: "images/mk/attractions/AL_PHILH_240.jpeg"
   , name : "Mickey's Philharmagic"
   , summary: "In this dazzling and innovative 3D movie, Mickey Mouse and Donald Duck sweep you into the scenes from classic Disney films as Donald chases the Sorcerer's hat that starts all the trouble!"
   , rating : "7"
