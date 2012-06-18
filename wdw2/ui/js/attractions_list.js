@@ -2,9 +2,8 @@ define([
   'order!underscore',
   'order!backbone',
   'order!handlebars',
-  'order!../templates/templates',
-  'text!../templates/attractions.tpl'
-], function(_, backbone, handlebars, templates, attractions_template) {
+  'order!../templates/templates'
+], function(_, backbone, handlebars, templates) {
 
 Attraction = Backbone.Model.extend({
     defaults: {
@@ -57,14 +56,10 @@ var myAttractions = new Attractions([ attraction, philharmagicAttraction]);
 var AttractionsListView = Backbone.View.extend({
       initialize: function() {
           this.render();
-      }
-      , render: function(){
-        var js = myAttractions.toJSON();
-        //var template = Handlebars.compile($("#attractions_list_template").html());
-		//var template = Handlebars.compile(attractions_template);
-
+      }, 
+      render: function(){
         var template = templates.attractionsTemplate();
-        $(this.el).html(template({myAttractions: js}));
+        $(this.el).html(template({myAttractions: myAttractions.toJSON()}));
         return this;  
       }
     });
