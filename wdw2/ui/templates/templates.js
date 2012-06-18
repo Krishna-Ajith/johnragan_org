@@ -1,7 +1,7 @@
 define( function( require )
 {
-	var Handlebars  = require('Handlebars'),
-	  attractionTpl = require('text!../templates/attraction.tpl');
+	//var Handlebars  = require('handlebars'),
+	  var attractionTpl = require('text!../templates/attraction.tpl');
 	  attractionsTpl = require('text!../templates/attractions.tpl');
 	/*
 	 * Defines a centralized module from which all templates within 

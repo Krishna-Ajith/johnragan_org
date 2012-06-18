@@ -1,9 +1,10 @@
-require([
+define([
   'order!underscore',
   'order!backbone',
   'order!handlebars',
-  'order!../templates/templates'
-], function(_, backbone, handbars, templates) {
+  'order!../templates/templates',
+  'text!../templates/attractions.tpl'
+], function(_, backbone, handlebars, templates, attractions_template) {
 
 Attraction = Backbone.Model.extend({
     defaults: {
@@ -59,8 +60,10 @@ var AttractionsListView = Backbone.View.extend({
       }
       , render: function(){
         var js = myAttractions.toJSON();
-        var template = Handlebars.compile($("#attractions_list_template").html());
-        //var template = templates.attractionsTemplate;
+        //var template = Handlebars.compile($("#attractions_list_template").html());
+		//var template = Handlebars.compile(attractions_template);
+
+        var template = templates.attractionsTemplate();
         $(this.el).html(template({myAttractions: js}));
         return this;  
       }
