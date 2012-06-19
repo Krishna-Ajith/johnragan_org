@@ -1,7 +1,7 @@
 define( function( require ) {
 	
-	var Underscore = require('Underscore'),
-		backbone    = require('Backbone')
+	var Underscore = require('_'),
+	  Backbone    = require('Backbone')
 	  , Attraction  = require('Attraction')
 	  , Attractions = require('Attractions')
 	  , AttractionsListView = require('AttractionsListView');

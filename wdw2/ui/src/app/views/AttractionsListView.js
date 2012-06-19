@@ -1,4 +1,4 @@
-define(['Backbone', 'Templates'], function( backbone, Templates )
+define(['Backbone', 'Templates'], function( Backbone, Templates )
 {
     var AttractionsListView = Backbone.View.extend({
     	

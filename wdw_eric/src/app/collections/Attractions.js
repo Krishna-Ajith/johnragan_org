@@ -1,5 +1,5 @@
 
-define( ['Backbone', 'Attraction'], function( Backbone, Attraction ) {
+define( ['Backbone', 'Attraction'], function( backbone, Attraction ) {
 	// here I am just returning the extended object directly, as oppossed to
 	// assigning it to a variable, if for no other reason then to try and help
 	// illustrate that the names given are completely arbitrary. So, for exmaple
