@@ -1,4 +1,4 @@
-define(['Backbone', 'Templates'], function( Backbone, Templates )
+define(['Backbone', 'Templates', 'popover'], function( Backbone, Templates )
 {
     var AttractionsListView = Backbone.View.extend({
     	
@@ -15,7 +15,7 @@ define(['Backbone', 'Templates'], function( Backbone, Templates )
             this.$el.html( this.template({
                 'myAttractions' : this.attractions.toJSON()
             }));
-            //$('.summary_popover').popover({ html : true });
+            $('.summary_popover').popover({ html : true });
             return this;
         }
     });
