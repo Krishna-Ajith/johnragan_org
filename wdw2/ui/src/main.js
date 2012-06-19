@@ -23,6 +23,7 @@ require.config( {
 		Attraction : 'app/models/attraction',
 		Attractions : 'app/collections/Attractions',
 		AttractionsListView : 'app/views/AttractionsListView',
+		AttractionView : 'app/views/AttractionView',
 		AppView : 'app/views/AppView'
 	},
 	
