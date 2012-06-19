@@ -2,12 +2,12 @@ define(['Backbone', 'Templates', 'popover'], function( Backbone, Templates, Popo
 {
     var AttractionView = Backbone.View.extend({
     	
-    	el: '#attraction_container',
+    	//el: '#attraction_container',
     	
     	template: Templates.attractionTemplate(),
     	
         initialize : function(attraction){
-        	this.attraction = attraction;
+        	this.attraction = this.options.model;
             this.render();
         },
         
@@ -17,7 +17,13 @@ define(['Backbone', 'Templates', 'popover'], function( Backbone, Templates, Popo
             }));
             $('.summary_popover').popover({ html : true });
             return this;
-        }
+        },
+
+		output : function() {
+			return this.template({
+                'attraction' : this.attraction.toJSON()
+            });
+		}
     });
     return AttractionView;
 });

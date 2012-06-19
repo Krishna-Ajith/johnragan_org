@@ -1,20 +1,24 @@
-define(['Backbone', 'Templates', 'popover'], function( Backbone, Templates, Popover )
+define(['Backbone', 'Templates', 'popover', 'AttractionView'], function( Backbone, Templates, Popover, AttractionView )
 {
     var AttractionsListView = Backbone.View.extend({
-    	
-    	el: '#attractions_list_container',
     	
     	template: Templates.attractionsTemplate(),
     	
         initialize : function(attractions){
-        	this.attractions = attractions;
+        	this.attractions = this.options.model;
             this.render();
         },
         
         render : function(){
-            this.$el.html( this.template({
+            /*this.$el.html( this.template({
                 'myAttractions' : this.attractions.toJSON()
-            }));
+            }));*/
+			var len = this.attractions.length;
+			var html = "";
+			for(var i=0; i<len; i++) {
+				html += new AttractionView( {model: this.attractions.at(i), el: '#'} ).output();
+			}
+			this.$el.html( html );
             $('.summary_popover').popover({ html : true });
             return this;
         }

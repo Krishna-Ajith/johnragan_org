@@ -1,4 +1,4 @@
-define( [ 'Handlebars' ], function(  Handlebars ) 
+define( [ 'Handlebars', 'Templates' ], function(  Handlebars, Templates ) 
 {
 	Handlebars.registerHelper( 'ratingFormatter', function( rating )
 	{ 
@@ -14,4 +14,7 @@ define( [ 'Handlebars' ], function(  Handlebars )
 		
 		return "badge-important"; 
 	});
+	
+	var template = Templates.attractionTemplate();
+	Handlebars.registerPartial("attractionPartial", template);
 })
