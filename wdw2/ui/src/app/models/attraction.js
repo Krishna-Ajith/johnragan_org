@@ -1,7 +1,7 @@
 define([
-	'order!Underscore', 
-	'order!Backbone',
-	'order!Handlebars'
+	'Underscore', 
+	'Backbone',
+	'Handlebars'
 ], function(Underscore, backbone, Handlebars) {
 
 	var Attraction = Backbone.Model.extend({
