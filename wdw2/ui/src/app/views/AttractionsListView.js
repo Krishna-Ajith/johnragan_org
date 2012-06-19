@@ -1,4 +1,4 @@
-define(['Backbone', 'Templates', 'popover'], function( Backbone, Templates )
+define(['Backbone', 'Templates', 'popover'], function( Backbone, Templates, Popover )
 {
     var AttractionsListView = Backbone.View.extend({
     	

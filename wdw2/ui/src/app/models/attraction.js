@@ -1,8 +1,7 @@
 define([
-	'_', 
 	'Backbone',
 	'Handlebars'
-], function(Underscore, Backbone, Handlebars) {
+], function(Backbone, Handlebars) {
 
 	var Attraction = Backbone.Model.extend({
 	    defaults: {
