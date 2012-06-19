@@ -36,7 +36,7 @@ define( ['Backbone', 'Attraction'], function( Backbone, Attraction ) {
 				  , rating : "7"
 				  , wait : "Idle"
 				  , intensity : "3"
-				  , height : "None"
+				  //, height : "None"
 				  , FP : "FP"
 				  , pal_mickey : "Pal Mickey"
 				  , rider_swap : ""

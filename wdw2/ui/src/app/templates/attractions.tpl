@@ -27,14 +27,14 @@
               <span class="label label-success">{{rating}}</span><br/>
               <span class="badge badge-important">{{wait}}</span><br/>
               <span class="badge badge-important">{{intensity}}</span><br/>
-              <span class="label label-success">{{height}}</span><br/>
+			  {{#if height}}<span class="label label-success">{{height}}</span>{{/if}}<br/>
             </div>
           </div>
           <div class="span3">
-            <span class="label label-info">{{FP}}</span><br/>
-            <span class="label label-warning">{{pal_mickey}}</span><br/>
-            <span class="label">{{rider_swap}}</span><br/>
-            <span class="label label-important">{{wheelchair}}</span><br/>
+            {{#if FP}}<span class="label label-info">{{FP}}</span>{{/if}}<br/>
+            {{#if pal_mickey}}<span class="label label-warning">{{pal_mickey}}</span>{{/if}}<br/>
+            {{#if rider_swap}}<span class="label">{{rider_swap}}</span>{{/if}}<br/>
+            {{#if wheelchair}}<span class="label label-important">{{wheelchair}}</span>{{/if}}<br/>
           </div>  
         </div>
       </div>
