@@ -59,7 +59,7 @@ require.config( {
 		 }
 });
 
-require( ['$', 'AppView'], function( $, AppView ){
+require( ['$', 'AppView', 'app/templates/HandlebarsHelper'], function( $, AppView ){
 	// instantiate the AppView instance once the document is ready using jQueries
 	// ready function $()
 	$(function(){

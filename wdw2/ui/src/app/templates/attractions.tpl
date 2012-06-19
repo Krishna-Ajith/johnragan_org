@@ -24,9 +24,9 @@
           </div> 
           <div class="span1">
             <div style="float:right">
-              <span class="label label-success">{{rating}}</span><br/>
-              <span class="badge badge-important">{{wait}}</span><br/>
-              <span class="badge badge-important">{{intensity}}</span><br/>
+              <span class="badge {{ratingFormatter rating}}">{{rating}}</span><br/>
+              <span class="badge {{waitFormatter wait}}">{{wait}}</span><br/>
+              <span class="badge {{ratingFormatter intensity}}">{{intensity}}</span><br/>
 			  {{#if height}}<span class="label label-success">{{height}}</span>{{/if}}<br/>
             </div>
           </div>
