@@ -3,8 +3,9 @@ define([
 	'order!Backbone',
 	'order!Handlebars',
 	'order!Templates',
-	'order!models/attraction'
-], function(Underscore, backbone, Handlebars, templates, Attraction) {
+	'order!models/attraction',
+	'order!views/attractionsListView'
+], function(Underscore, backbone, Handlebars, templates, Attraction, AttractionsListView) {
 
 var spaceMountainAttraction = new Attraction({
   list_item_photo_url: "images/mk/attractions/space-mountain-240.jpeg"
@@ -41,17 +42,26 @@ var Attractions = Backbone.Collection.extend({
 var myAttractions = new Attractions([ spaceMountainAttraction, philharmagicAttraction]);
 
 var AttractionsListView = Backbone.View.extend({
-      initialize: function() {
-          this.render();
-      }, 
-      render: function(){
-        var template = templates.attractionsTemplate();
-        $(this.el).html(template({myAttractions: myAttractions.toJSON()}));
-        return this;  
-      }
-    });
+  initialize: function() {
+    console.log(this.collection3);
+  },
+  setCollection: function(collection) {
+    this.collection2 = collection;
+  }, 
+  render: function(){
+    console.log(this.collection3);
+    console.log(myAttractions);
+    console.log(this.collections3 == myAttractions);
+    var template = templates.attractionsTemplate();
+    $(this.el).html(template({myAttractions: myAttractions.toJSON()}));
+    return this;  
+  }
+});
     
-var myAttractionsView = new AttractionsListView({el : $("#attractions_list_container")});
+var myAttractionsView = new AttractionsListView({el : $("#attractions_list_container"), collection3 : myAttractions});
+myAttractionsView.setCollection(myAttractions);
+myAttractionsView.render();
+//var myAttractionsView = new AttractionsListView({el : $("#attractions_list_container"), attractionsList : myAttractions });
 
 // This part must be done to allow the popover to take place
 $('.summary_popover').popover({ html : true });
