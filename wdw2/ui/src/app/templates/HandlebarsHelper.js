@@ -14,7 +14,4 @@ define( [ 'Handlebars', 'Templates' ], function(  Handlebars, Templates )
 		
 		return "badge-important"; 
 	});
-	
-	var template = Templates.attractionTemplate();
-	Handlebars.registerPartial("attractionPartial", template);
 })

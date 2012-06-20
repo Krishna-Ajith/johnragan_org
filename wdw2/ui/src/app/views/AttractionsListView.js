@@ -10,7 +10,8 @@ define(['Backbone', 'Templates', 'popover', 'AttractionView'], function( Backbon
         },
         
         render : function(){
-            /*this.$el.html( this.template({
+			/*Handlebars.registerPartial("attractionPartial", require('text!app/templates/attraction.tpl'));
+            this.$el.html( this.template({
                 'myAttractions' : this.attractions.toJSON()
             }));*/
 			var len = this.attractions.length;
@@ -19,6 +20,7 @@ define(['Backbone', 'Templates', 'popover', 'AttractionView'], function( Backbon
 				html += new AttractionView( {model: this.attractions.at(i), el: '#'} ).output();
 			}
 			this.$el.html( html );
+			
             $('.summary_popover').popover({ html : true });
             return this;
         }
