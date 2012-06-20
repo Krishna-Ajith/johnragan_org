@@ -1,11 +1,11 @@
 define(['Backbone', 'Templates', 'popover', 'AttractionView'], function( Backbone, Templates, Popover, AttractionView )
 {
-	var htmlOutput = function(attractions) {
-		var len = attractions.length;
-		var html = "";
-		for(var i=0; i<len; i++) {
-			html += new AttractionView( {model: attractions.at(i), el: '#'} ).output();
-		}
+	Handlebars.registerPartial("attractionPartial", Templates.attractionPartialTemplate());
+	
+	var htmlOutput = function(template, attractions) {
+		html = template({
+            'myAttractions' : attractions.toJSON()
+        });
 		
 		return html;
 	}
@@ -23,12 +23,7 @@ define(['Backbone', 'Templates', 'popover', 'AttractionView'], function( Backbon
 		},
         
         render : function(){
-			Handlebars.registerPartial("attractionPartial", Templates.attractionPartialTemplate());
-            this.$el.html( this.template({
-                'myAttractions' : this.attractions.toJSON()
-            }));
-
-			//this.$el.html( htmlOutput(this.attractions) );
+			this.$el.html( htmlOutput(this.template, this.attractions) );
 			
             $('.summary_popover').popover({ html : true });
             return this;
