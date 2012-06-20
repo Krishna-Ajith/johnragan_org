@@ -1,29 +1,30 @@
 define(['Backbone', 'Templates', 'popover'], function( Backbone, Templates, Popover )
 {
+	var htmlOutput = function(template, attraction) {
+		return template({
+            'attraction' : attraction.toJSON()
+        });
+	}
+	
     var AttractionView = Backbone.View.extend({
-    	
-    	//el: '#attraction_container',
     	
     	template: Templates.attractionTemplate(),
     	
         initialize : function(attraction){
         	this.attraction = this.options.model;
-            this.render();
         },
-        
-        render : function(){
+
+		output : function() {
+			return htmlOutput(this.template, this.attraction);
+		},
+		
+		render : function(){
             this.$el.html( this.template({
                 'attraction' : this.attraction.toJSON()
             }));
             $('.summary_popover').popover({ html : true });
             return this;
-        },
-
-		output : function() {
-			return this.template({
-                'attraction' : this.attraction.toJSON()
-            });
-		}
+        }
     });
     return AttractionView;
 });

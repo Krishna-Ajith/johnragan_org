@@ -12,10 +12,10 @@ define( function( require ) {
 
         initialize: function() {
         	this.attractions = new Attractions( Attractions.createMocks() );
-        	this.attractionsListView = new AttractionsListView( {model: this.attractions, el: '#attractions_list_container'} );
+        	this.attractionsListView = new AttractionsListView( {model: this.attractions, el: '#attractions_list_container'} ).render();
 
 			this.attraction = Attractions.createMocks()[0];
-        	this.attractionView = new AttractionView( {model: this.attraction, el: '#attraction_container'} );
+        	this.attractionView = new AttractionView( {model: this.attraction, el: '#attraction_container'} ).render();
         }
 	});
 	return AppView;

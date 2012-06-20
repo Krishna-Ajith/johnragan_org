@@ -1,25 +1,34 @@
 define(['Backbone', 'Templates', 'popover', 'AttractionView'], function( Backbone, Templates, Popover, AttractionView )
 {
+	var htmlOutput = function(attractions) {
+		var len = attractions.length;
+		var html = "";
+		for(var i=0; i<len; i++) {
+			html += new AttractionView( {model: attractions.at(i), el: '#'} ).output();
+		}
+		
+		return html;
+	}
+	
     var AttractionsListView = Backbone.View.extend({
     	
     	template: Templates.attractionsTemplate(),
     	
         initialize : function(attractions){
         	this.attractions = this.options.model;
-            this.render();
         },
+
+		output : function() {
+			return htmlOutput(this.attractions);
+		},
         
         render : function(){
 			/*Handlebars.registerPartial("attractionPartial", require('text!app/templates/attraction.tpl'));
             this.$el.html( this.template({
                 'myAttractions' : this.attractions.toJSON()
             }));*/
-			var len = this.attractions.length;
-			var html = "";
-			for(var i=0; i<len; i++) {
-				html += new AttractionView( {model: this.attractions.at(i), el: '#'} ).output();
-			}
-			this.$el.html( html );
+
+			this.$el.html( htmlOutput(this.attractions) );
 			
             $('.summary_popover').popover({ html : true });
             return this;
