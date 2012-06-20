@@ -19,6 +19,7 @@ define(['Backbone', 'Templates', 'popover'], function( Backbone, Templates, Popo
 		},
 		
 		render : function(){
+			Handlebars.registerPartial("attractionPartial", Templates.attractionPartialTemplate());
             this.$el.html( this.template({
                 'attraction' : this.attraction.toJSON()
             }));

@@ -23,12 +23,12 @@ define(['Backbone', 'Templates', 'popover', 'AttractionView'], function( Backbon
 		},
         
         render : function(){
-			/*Handlebars.registerPartial("attractionPartial", require('text!app/templates/attraction.tpl'));
+			Handlebars.registerPartial("attractionPartial", Templates.attractionPartialTemplate());
             this.$el.html( this.template({
                 'myAttractions' : this.attractions.toJSON()
-            }));*/
+            }));
 
-			this.$el.html( htmlOutput(this.attractions) );
+			//this.$el.html( htmlOutput(this.attractions) );
 			
             $('.summary_popover').popover({ html : true });
             return this;
