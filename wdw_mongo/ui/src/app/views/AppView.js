@@ -11,14 +11,14 @@ define( function( require ) {
 		el: '#app-container',
 
         initialize: function() {
-        	this.attractions = new Attractions( Attractions.createMocks() );
-			//this.attractions = new Attractions();
-			//this.attractions.fetch();
-			this.attractionsListView = new AttractionsListView( {model: this.attractions, el: '#attractions_list_container'} );  //.render();
+        	//this.attractions = new Attractions( Attractions.createMocks() );
+			this.attractions = new Attractions();
+			this.attractionsListView = new AttractionsListView( this.attractions );
+			this.attractions.fetch();
 			this.attractionsListView.render();
 
-			this.attraction = Attractions.createMocks()[0];
-        	this.attractionView = new AttractionView( {model: this.attraction, el: '#attraction_container'} ).render();
+			//this.attraction = Attractions.createMocks()[0];
+        	//this.attractionView = new AttractionView( {model: this.attraction, el: '#attraction_container'} ).render();
         }
 	});
 	return AppView;

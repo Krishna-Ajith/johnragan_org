@@ -7,7 +7,7 @@ define( ['Backbone', 'Attraction'], function( Backbone, Attraction ) {
 		url: 'api/attractions',
 		
 	    model: Attraction
-	}, {
+	}/*, {
 		// define a static factory method for creating some mocks
 		// in backbone.js any static methods are defined after the
 		// instance object. So, for example, in Backbone, it's always
@@ -46,5 +46,5 @@ define( ['Backbone', 'Attraction'], function( Backbone, Attraction ) {
 				})
 			];
 		}
-	});
+	}*/);
 });

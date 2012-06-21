@@ -6,6 +6,7 @@ require.config( {
 		Backbone : '../vendors/backbone/backbone',
 		Handlebars : '../vendors/handlebars/handlebars',
 		Templates : 'app/templates/templates',
+		AppHelper : 'lib/helpers/AppHelper',
 		
 		tooltip : '../vendors/bootstrap/assets/js/bootstrap-tooltip',
 	    popover : '../vendors/bootstrap/assets/js/bootstrap-popover',

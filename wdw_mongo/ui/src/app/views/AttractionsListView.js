@@ -13,9 +13,13 @@ define(['Backbone', 'Templates', 'popover', 'AttractionView'], function( Backbon
     var AttractionsListView = Backbone.View.extend({
     	
     	//template: Templates.attractionsTemplate(),
+
+		el: '#attractions_list_container',
     	
         initialize : function(attractions){
-        	this.attractions = this.options.model;
+        	this.attractions = attractions;
+			this.attractions.bind('reset', this.render, this);
+			this.attractions.bind('add',   this.add,   this);
         },
 
 		//output : function() {
@@ -32,7 +36,7 @@ define(['Backbone', 'Templates', 'popover', 'AttractionView'], function( Backbon
 		
 		add: function(attraction) {
 			this.$el.append( new AttractionView({
-				model: attraction
+				'model': attraction
 			}).render().el );
 		}
     });
