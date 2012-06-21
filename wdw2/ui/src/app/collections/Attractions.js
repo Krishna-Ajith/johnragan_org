@@ -4,6 +4,8 @@ define( ['Backbone', 'Attraction'], function( Backbone, Attraction ) {
 	// illustrate that the names given are completely arbitrary. So, for exmaple
 	// we can require this collection and name it whatever we want in main.js
 	return Backbone.Collection.extend({
+		url: 'api/attractions',
+		
 	    model: Attraction
 	}, {
 		// define a static factory method for creating some mocks
@@ -18,7 +20,7 @@ define( ['Backbone', 'Attraction'], function( Backbone, Attraction ) {
 			return [
 				new Attraction({
 				  list_item_photo_url: "data/images/mk/attractions/space-mountain-240.jpeg"
-				  , name : "Splash Mountain"
+				  , name : "Space Mountain"
 				  , summary: "Launch past the flashing lights of your space station into the soaring darkness of space! This classic Dark Ride dips and swerves as it rockets through the blackest reaches of the galaxy. Check the monitors as you exit for a glimpse of yourself in flight!"
 				  , rating : 9
 				  , wait : "Busy"
