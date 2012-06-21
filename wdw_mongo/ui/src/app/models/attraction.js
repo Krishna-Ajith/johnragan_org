@@ -19,7 +19,7 @@ define([
 			return 'api/attractions?id=' + this.get('_id');
 		},
 	
-	    initialize: function( options ) {
+	    initialize: function() {
 
 	    }
 	});
