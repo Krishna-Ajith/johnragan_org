@@ -11,7 +11,8 @@ define( function( require ) {
 		el: '#app-container',
 		
 		events: {
-			'click #remove-attractions' : 'removeAttractions'
+			'click #remove-attractions' : 'removeAttractions',
+			'click #add-attraction' : 'addAttraction'
 		},
 
         initialize: function() {
@@ -43,7 +44,13 @@ define( function( require ) {
 			this.attractions.removeAttractions();
 			
         	return false;
-        }
+        },
+
+		addAttraction : function() {
+			console.log("this is me, adding an attraction");
+			
+			return false;
+		}
 	});
 	return AppView;
 });
