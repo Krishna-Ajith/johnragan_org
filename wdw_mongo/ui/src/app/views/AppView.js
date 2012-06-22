@@ -1,10 +1,11 @@
-define( function( require ) {
+define(['Backbone', 'Attractions', 'Attraction', 'AttractionView', 'AttractionsListView', 'modal'], function( Backbone, Attractions, Attraction, AttractionView, AttractionsListView, modal ) {
+/*define( function( require ) {
 	
 	var Backbone    = require('Backbone')
 	  , Attractions = require('Attractions')
 	  , Attraction = require('Attraction')
 	  , AttractionsListView = require('AttractionsListView')
-	  , AttractionView = require('AttractionView');
+	  , AttractionView = require('AttractionView'); */
 	
 	var AppView = Backbone.View.extend({
 		
@@ -12,7 +13,7 @@ define( function( require ) {
 		
 		events: {
 			'click #remove-attractions' : 'removeAttractions',
-			'click #add-attraction' : 'addAttraction'
+			//'click #add-attraction' : 'addAttraction'
 		},
 
         initialize: function() {
