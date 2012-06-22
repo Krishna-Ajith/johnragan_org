@@ -1,4 +1,4 @@
-define(['Backbone', 'Attractions', 'Attraction', 'AttractionView', 'AttractionsListView', 'modal'], function( Backbone, Attractions, Attraction, AttractionView, AttractionsListView, modal ) {
+define(['Backbone', 'Attractions', 'Attraction', 'AttractionView', 'AttractionsListView', 'modal', 'transition'], function( Backbone, Attractions, Attraction, AttractionView, AttractionsListView, modal, transition ) {
 /*define( function( require ) {
 	
 	var Backbone    = require('Backbone')
