@@ -20,7 +20,7 @@ define( function( require ) {
 			
 			this.attraction = new Attraction({
 			  list_item_photo_url: "data/images/mk/attractions/space-mountain-240.jpeg"
-			  , name : "Space Mountain"
+			  , name : "Space Mountain Old Title"
 			  , summary: "Launch past the flashing lights of your space station into the soaring darkness of space! This classic Dark Ride dips and swerves as it rockets through the blackest reaches of the galaxy. Check the monitors as you exit for a glimpse of yourself in flight!"
 			  , rating : 9
 			  , wait : "Busy"
@@ -31,7 +31,9 @@ define( function( require ) {
 			  , rider_swap : "Rider Swap"
 			  , wheelchair : "Wheelchair"
 			})
-        	this.attractionView = new AttractionView( {model: this.attraction, el: '#attraction_container'} ).render();
+        	//this.attractionView = new AttractionView( {model: this.attraction, el: '#attraction_container'} ).render();
+			this.attractionView = new AttractionView({model: this.attraction, el: '#attraction_container'}).render();
+			this.attraction.fetch();
         }
 	});
 	return AppView;
