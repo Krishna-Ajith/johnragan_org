@@ -1,4 +1,8 @@
-define(['Backbone', 'Attractions', 'Attraction', 'AttractionView', 'AttractionsListView', 'modal', 'transition'], function( Backbone, Attractions, Attraction, AttractionView, AttractionsListView, modal, transition ) {
+define([
+	'Backbone', 'Attractions', 'Attraction', 'AttractionView', 'AttractionsListView', 'modal', 'transition', 'Templates'
+], function( 
+	Backbone, Attractions, Attraction, AttractionView, AttractionsListView, modal, transition, Templates
+) {
 /*define( function( require ) {
 	
 	var Backbone    = require('Backbone')
@@ -37,6 +41,9 @@ define(['Backbone', 'Attractions', 'Attraction', 'AttractionView', 'AttractionsL
 			  , rider_swap : "Rider Swap"
 			  , wheelchair : "Wheelchair"
 			})
+			
+			this.$('#attractionActions').html(Templates.attractionActions());
+			
 			this.attractionView = new AttractionView({model: this.attraction, el: '#attraction_container'}).render();
 			this.attraction.fetch();
         },

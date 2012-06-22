@@ -2,6 +2,7 @@ define( function( require )
 {
 	var attractionsTpl = require('text!app/templates/attractions.tpl');
 	var attractionTpl = require('text!app/templates/attraction.tpl');
+	var attractionActionsTpl = require('text!app/templates/attractionActions.tpl');
 	var attractionPartialTpl = require('text!app/templates/attractionPartial.tpl');
 	var Handlebars = require('Handlebars');
 	/*
@@ -14,6 +15,9 @@ define( function( require )
 		},
 		attractionTemplate: function() {
 			return Handlebars.compile( attractionTpl );
+		},
+		attractionActions: function() {
+			return attractionActionsTpl;
 		},
 		attractionPartialTemplate: function() {
 			return Handlebars.compile( attractionPartialTpl );
