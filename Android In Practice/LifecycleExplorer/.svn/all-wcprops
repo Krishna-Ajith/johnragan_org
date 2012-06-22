@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/550/trunk/ch03/LifecycleExplorer
+END
+default.properties
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/135/trunk/ch03/LifecycleExplorer/default.properties
+END
+.classpath
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/135/trunk/ch03/LifecycleExplorer/.classpath
+END
+.project
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/550/trunk/ch03/LifecycleExplorer/.project
+END
+AndroidManifest.xml
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/150/trunk/ch03/LifecycleExplorer/AndroidManifest.xml
+END

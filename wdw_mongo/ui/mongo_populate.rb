@@ -17,7 +17,20 @@ space_mountain = {
 	:rider_swap => "Rider Swap",
 	:wheelchair => "Wheelchair"
 }
-space_mountain_id = attractions.insert(space_mountain)
+space_mountain_id = attractions.insert(space_mountain);
+
+everest = { 
+  :list_item_photo_url => "data/images/mk/attractions/AL_PHILH_240.jpeg",
+	:name => "Mount Everest",
+	:summary => "In this dazzling and innovative 3D movie, Mickey Mouse and Donald Duck sweep you into the scenes from classic Disney films as Donald chases the Sorcerer's hat that starts all the trouble!",
+	:rating => 7,
+	:wait => "Idle",
+	:intensity => 3,
+	:FP => "FP",
+	:pal_mickey => "Pal Mickey",
+	:wheelchair => "Wheelchair"
+}
+everest_id = attractions.insert(everest);
 
 philharmagic = { 
   :list_item_photo_url => "data/images/mk/attractions/AL_PHILH_240.jpeg",
@@ -30,10 +43,5 @@ philharmagic = {
 	:pal_mickey => "Pal Mickey",
 	:wheelchair => "Wheelchair"
 }
-philharmagic_id = attractions.insert(philharmagic)
-
-#note = notes.find( :id => note_id ).first
-#note[:text] = 'Remember the bread'
-#notes.update({ :_id => note_id }, note)
-#notes.update({ :_id => note_id }, '$set' => { :text = > 'Remember the bread' }) 
+philharmagic_id = attractions.insert(philharmagic);
 

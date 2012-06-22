@@ -9,6 +9,10 @@ define( function( require ) {
 	var AppView = Backbone.View.extend({
 		
 		el: '#app-container',
+		
+		events: {
+			'click #remove-attractions' : 'removeAttractions'
+		},
 
         initialize: function() {
 			this.attractions = new Attractions();
@@ -31,9 +35,14 @@ define( function( require ) {
 			  , rider_swap : "Rider Swap"
 			  , wheelchair : "Wheelchair"
 			})
-        	//this.attractionView = new AttractionView( {model: this.attraction, el: '#attraction_container'} ).render();
 			this.attractionView = new AttractionView({model: this.attraction, el: '#attraction_container'}).render();
 			this.attraction.fetch();
+        },
+
+		removeAttractions: function() {
+			this.attractions.removeAttractions();
+			
+        	return false;
         }
 	});
 	return AppView;

@@ -4,7 +4,7 @@ define(['Backbone', 'Templates', 'popover', 'AttractionView'], function( Backbon
         initialize : function(attractions){
 			this.attractions = this.options.collection;
 			this.el = this.options.el;
-			this.attractions.bind('reset', this.render, this);
+			this.attractions.bind('reset remove', this.render, this);
 			this.attractions.bind('add',   this.add,   this);
         },
 

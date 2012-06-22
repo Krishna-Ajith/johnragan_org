@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/153/trunk/ch03/LifecycleExplorer/res/layout
+END
+main.xml
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/153/trunk/ch03/LifecycleExplorer/res/layout/main.xml
+END
+custom_notification_layout.xml
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/144/trunk/ch03/LifecycleExplorer/res/layout/custom_notification_layout.xml
+END
+activity2.xml
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/153/trunk/ch03/LifecycleExplorer/res/layout/activity2.xml
+END
+activity3.xml
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/153/trunk/ch03/LifecycleExplorer/res/layout/activity3.xml
+END
