@@ -1,15 +1,8 @@
 define([
-	'Backbone', 'Attractions', 'Attraction', 'AttractionView', 'AttractionsListView', 'modal', 'transition', 'Templates', 'Handlebars'
+	'Backbone', 'Attractions', 'Attraction', 'AttractionView', 'AttractionsListView', 'modal', 'transition', 'Templates', 'Handlebars', 'AttractionActionsModalView'
 ], function( 
-	Backbone, Attractions, Attraction, AttractionView, AttractionsListView, modal, transition, Templates, Handlebars
+	Backbone, Attractions, Attraction, AttractionView, AttractionsListView, modal, transition, Templates, Handlebars, AttractionActionsModalView
 ) {	
-	var setupAttractionMarkup = function() {
-		Handlebars.registerPartial("attractionActionsAddEditPartial", Templates.attractionActionsAddEditPartialTemplate());
-		//this.$('#attractionActionsModal').html(Templates.attractionActionsModal());
-		
-		this.$('#attractionActionsModal').html(Templates.attractionActionsModal({}));
-	}
-	
 	var AppView = Backbone.View.extend({
 		
 		el: '#app-container',
@@ -20,14 +13,16 @@ define([
 		},
 
         initialize: function() {
+			this.attractionActionsModalView = new AttractionActionsModalView( { 
+				'el' : '#attractionActionsModal'
+			} ).render();
+	
 			this.attractions = new Attractions();
 			this.attractionsListView = new AttractionsListView( { 
 				'collection' : this.attractions,
 				'el' : '#attractions_list_container'
 			} );
 			this.attractions.fetch();
-			
-			setupAttractionMarkup();
 			
 			/*this.attraction = new Attraction({
 			  list_item_photo_url: "data/images/mk/attractions/space-mountain-240.jpeg"

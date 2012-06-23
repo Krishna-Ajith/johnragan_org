@@ -25,6 +25,7 @@ require.config( {
 		Attractions : 'app/collections/Attractions',
 		AttractionsListView : 'app/views/AttractionsListView',
 		AttractionView : 'app/views/AttractionView',
+		AttractionActionsModalView : 'app/views/AttractionActionsModalView',
 		AppView : 'app/views/AppView'
 	},
 	
