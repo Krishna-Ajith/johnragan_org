@@ -2,14 +2,10 @@ define([
 	'Backbone', 'Attractions', 'Attraction', 'AttractionView', 'AttractionsListView', 'modal', 'transition', 'Templates'
 ], function( 
 	Backbone, Attractions, Attraction, AttractionView, AttractionsListView, modal, transition, Templates
-) {
-/*define( function( require ) {
-	
-	var Backbone    = require('Backbone')
-	  , Attractions = require('Attractions')
-	  , Attraction = require('Attraction')
-	  , AttractionsListView = require('AttractionsListView')
-	  , AttractionView = require('AttractionView'); */
+) {	
+	var setupAttractionMarkup = function() {
+		this.$('#attractionActionsModal').html(Templates.attractionActionsModal());
+	}
 	
 	var AppView = Backbone.View.extend({
 		
@@ -28,7 +24,9 @@ define([
 			} );
 			this.attractions.fetch();
 			
-			this.attraction = new Attraction({
+			setupAttractionMarkup();
+			
+			/*this.attraction = new Attraction({
 			  list_item_photo_url: "data/images/mk/attractions/space-mountain-240.jpeg"
 			  , name : "Space Mountain Old Title"
 			  , summary: "Launch past the flashing lights of your space station into the soaring darkness of space! This classic Dark Ride dips and swerves as it rockets through the blackest reaches of the galaxy. Check the monitors as you exit for a glimpse of yourself in flight!"
@@ -41,11 +39,8 @@ define([
 			  , rider_swap : "Rider Swap"
 			  , wheelchair : "Wheelchair"
 			})
-			
-			this.$('#attractionActions').html(Templates.attractionActions());
-			
 			this.attractionView = new AttractionView({model: this.attraction, el: '#attraction_container'}).render();
-			this.attraction.fetch();
+			this.attraction.fetch();*/
         },
 
 		removeAttractions: function() {
