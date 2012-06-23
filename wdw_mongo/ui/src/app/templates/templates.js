@@ -4,14 +4,11 @@ define( function( require )
 	var attractionTpl = require('text!app/templates/attraction.tpl');
 	var attractionActionsModalTpl = require('text!app/templates/attractionActionsModal.tpl');
 	
-	var attractionPartialTpl = require('text!app/templates/attractionPartial.tpl');
-	var attractionActionsAddEditPartialTpl = require('text!app/templates/attractionActionsAddEditPartial.tpl');
+	var attractionPartialTpl = require('text!app/templates/partials/attractionPartial.tpl');
+	var attractionActionsAddEditPartialTpl = require('text!app/templates/partials/attractionActionsAddEditPartial.tpl');
 	
 	var Handlebars = require('Handlebars');
-	/*
-	 * Defines a centralized module from which all templates within 
-	 * the application are accessed and compiled.
-	 */
+	
 	return {
 		attractionsTemplate: function() {
 			return Handlebars.compile( attractionsTpl );

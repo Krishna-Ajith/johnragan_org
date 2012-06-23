@@ -8,15 +8,18 @@ define(['Backbone', 'Templates'], function( Backbone, Templates )
 			if (this.options.el) {
 				this.el = this.options.el;
 			}
+			
+			Handlebars.registerPartial("attractionActionsAddEditPartial", Templates.attractionActionsAddEditPartialTemplate());
         },
 
 		render : function(){
-			Handlebars.registerPartial("attractionActionsAddEditPartial", Templates.attractionActionsAddEditPartialTemplate());
-			
-            this.$el.html( this.template({
-            }));
-            return this;
+            this.$el.html( this.template(
+            	{}
+			));
+            
+			return this;
         }
     });
+
     return AttractionActionsModalView;
 });

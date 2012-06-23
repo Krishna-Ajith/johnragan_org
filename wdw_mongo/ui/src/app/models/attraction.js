@@ -1,13 +1,7 @@
-define([
-	'Backbone'
-], function(Backbone) {
+define(['Backbone'], function(Backbone) {
 
 	var Attraction = Backbone.Model.extend({
 		idAttribute: '_id',
-		
-	    defaults: {
-	      fp: "FP"
-	    },
 	
 	    /*validate: function( attributes ){
 	        if( 1==2 ){
@@ -18,10 +12,6 @@ define([
 		url: function() {
 			return 'api/attractions?id=' + this.get('_id');
 		},
-	
-	    initialize: function() {
-
-	    }
 	});
 	
 	return Attraction;
