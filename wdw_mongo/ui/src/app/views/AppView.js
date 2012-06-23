@@ -1,10 +1,13 @@
 define([
-	'Backbone', 'Attractions', 'Attraction', 'AttractionView', 'AttractionsListView', 'modal', 'transition', 'Templates'
+	'Backbone', 'Attractions', 'Attraction', 'AttractionView', 'AttractionsListView', 'modal', 'transition', 'Templates', 'Handlebars'
 ], function( 
-	Backbone, Attractions, Attraction, AttractionView, AttractionsListView, modal, transition, Templates
+	Backbone, Attractions, Attraction, AttractionView, AttractionsListView, modal, transition, Templates, Handlebars
 ) {	
 	var setupAttractionMarkup = function() {
-		this.$('#attractionActionsModal').html(Templates.attractionActionsModal());
+		Handlebars.registerPartial("attractionActionsAddEditPartial", Templates.attractionActionsAddEditPartialTemplate());
+		//this.$('#attractionActionsModal').html(Templates.attractionActionsModal());
+		
+		this.$('#attractionActionsModal').html(Templates.attractionActionsModal({}));
 	}
 	
 	var AppView = Backbone.View.extend({
