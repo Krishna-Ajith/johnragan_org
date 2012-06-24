@@ -2,25 +2,25 @@ define(['Backbone', 'Templates', 'popover'], function( Backbone, Templates, Popo
 {
 	var AttractionView = Backbone.View.extend({
     	
-    	template: Templates.attractionTemplate(),
+    template: Templates.attractionTemplate(),
     	
-        initialize : function(){
-        	this.attraction = this.options.model;
+    initialize : function(){
+      this.attraction = this.options.model;
 			if (this.options.el) {
 				this.el = this.options.el;
 			}
 			
 			Handlebars.registerPartial("attractionPartial", Templates.attractionPartialTemplate());
-        },
+    },
 		
 		render : function(){
-            this.$el.html( this.template({
-                'attraction' : this.attraction.toJSON()
-            }));
+      this.$el.html( this.template({
+        'attraction' : this.attraction.toJSON()
+      }));
 
-            return this;
-        }
-    });
+      return this;
+    }
+  });
 
-    return AttractionView;
+  return AttractionView;
 });
