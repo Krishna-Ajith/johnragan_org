@@ -1,4 +1,4 @@
-<div class="attractionActionsAddEditPartial">
+<div class="attractionAddPartial">
 <form class="form-horizontal">
   <fieldset>
     <div class="control-group">

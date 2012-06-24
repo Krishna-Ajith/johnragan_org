@@ -10,7 +10,7 @@
             <h3>Add an Attraction</h3>
           </div>
           <div class="modal-body">
-           	{{> attractionActionsAddEditPartial}}
+           	{{> attractionAddPartial}}
           </div>
           <div class="modal-footer">
             <a id="cancel_new_attraction" href="#" class="btn" data-dismiss="modal" >Cancel</a>

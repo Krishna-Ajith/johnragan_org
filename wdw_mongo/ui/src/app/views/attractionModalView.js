@@ -39,20 +39,20 @@ define(['Backbone', 'Templates'], function( Backbone, Templates )
     });
 	},
 	
-	AttractionActionsModalView = Backbone.View.extend({
+	AttractionModalView = Backbone.View.extend({
 	  events: {
 			'click #save_new_attraction' : 'addAttraction',
 			'click #cancel_new_attraction' : 'cancelAttraction'
 		},
     	
-    template: Templates.attractionActionsModal(),
+    template: Templates.attractionModal(),
     	
     initialize : function(){
 			if (this.options.el) {
 				this.el = this.options.el;
 			}
 			
-			Handlebars.registerPartial("attractionActionsAddEditPartial", Templates.attractionActionsAddEditPartial());
+			Handlebars.registerPartial("attractionAddPartial", Templates.attractionAddPartial());
     },
 
 		render : function(){
@@ -78,5 +78,5 @@ define(['Backbone', 'Templates'], function( Backbone, Templates )
     }
   });
 
-  return AttractionActionsModalView;
+  return AttractionModalView;
 });
