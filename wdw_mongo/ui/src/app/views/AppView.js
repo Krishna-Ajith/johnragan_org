@@ -5,6 +5,11 @@ define([
 	Backbone, Attractions, AttractionsListView, modal, transition, 
 	AttractionActionsModalView
 ) {
+  var removeAttractions_ = function() {
+		this.attractions.removeAttractions();
+		
+    return false;
+  }
   
 	var createAttractionActionsModelView_ = function() {
 		this.attractionActionsModalView = new AttractionActionsModalView( { 
@@ -33,10 +38,10 @@ define([
 			createAttractionActionsModelView_();
 			createAttractionsListView_();
     },
+    
+    removeAttractions: function() {
+  		removeAttractions_();
 
-		removeAttractions: function() {
-			this.attractions.removeAttractions();
-			
       return false;
     }
 	});
