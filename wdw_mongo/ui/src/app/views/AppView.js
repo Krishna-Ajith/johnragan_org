@@ -35,6 +35,30 @@ define([
     $('#new_attraction_wait').val( $('#new_attraction_wait').prop('defaultSelected') );
 	}
 	
+	var createAttraction = function() {
+	  /*// Get the value of the task		
+    value = this.$newTaskInput.val();
+      	
+    // Create the new task (but how does it show up - a monitored event?)
+    this.tasks.create({
+      'text' : value
+    });*/
+    
+    this.attractions.create({
+      'list_item_photo_url' : "data/images/mk/attractions/space-mountain-240.jpeg",
+    	'name' : "Allie Mountain",
+    	'summary' : "Launch past the flashing lights of your space station into the soaring darkness of space! This classic Dark Ride dips and swerves as it rockets through the blackest reaches of the galaxy. Check the monitors as you exit for a glimpse of yourself in flight!",
+    	'rating' : 9,
+    	'wait' : "Busy",
+    	'intensity' : 8,
+    	'height' : "44",
+    	'FP' : "FP",
+    	'pal_mickey' : "Pal Mickey",
+    	'rider_swap' : "Rider Swap",
+    	'wheelchair' : "Wheelchair"
+    });
+	}
+	
 	var AppView = Backbone.View.extend({
 		
 		el: '#app-container',
@@ -45,29 +69,21 @@ define([
 			'click #cancel_new_attraction' : 'cancelAttraction'
 		},
 
-        initialize: function() {
+    initialize: function() {
 			createAttractionActionsModelView();
 			createAttractionsListView();
-        },
+    },
 
 		removeAttractions: function() {
 			this.attractions.removeAttractions();
 			
-        	return false;
-        },
+      return false;
+    },
 
 		addAttraction: function() {  	  
-      /*// Get the value of the task		
-      value = this.$newTaskInput.val();
-        	
-      // Create the new task (but how does it show up - a monitored event?)
-      this.tasks.create({
-        'text' : value
-      });*/
-        	
+      createAttraction();
       resetFormFields();
-      
-      console.log("have a nice day");  		
+      		
       return false;
       
     },
