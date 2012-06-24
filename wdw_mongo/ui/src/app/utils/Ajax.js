@@ -21,6 +21,11 @@ define( [], function() {
       });
 
       $('#new_attraction_wait').val( $('#new_attraction_wait').prop('defaultSelected') );
+  	},
+  	
+  	isChecked: function(id) {
+
+  	  return $(id).is(':checked')
   	}
 	}	
 });

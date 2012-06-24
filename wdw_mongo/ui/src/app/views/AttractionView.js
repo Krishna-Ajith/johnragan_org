@@ -80,9 +80,23 @@ define(['Backbone', 'Templates', 'popover', 'Ajax'], function( Backbone, Templat
 		},
 		
 		saveAttraction: function() {
+		  this.model.save({
+				'list_item_photo_url' : $(".new_attraction_photo_url").val(),
+      	'name' : $(".new_attraction_title").val(),
+      	'summary' : $(".new_attraction_summary").val(),
+      	'rating' : $(".new_attraction_rating").val(),
+      	'wait' : $('.new_attraction_wait option:selected').val(),
+      	'intensity' : $(".new_attraction_intensity").val(),
+      	'height' : $(".id_attraction_height").val(),
+      	'FP' : Ajax.isChecked(".attraction_fpCheckbox") ? "FP" : "",
+      	'pal_mickey' : Ajax.isChecked(".attraction_palMickey") ? "Pal Mickey" : "",
+      	'rider_swap' : Ajax.isChecked(".attraction_rideswap") ? "Rider Swap" : "",
+      	'wheelchair' : Ajax.isChecked(".attraction_wheelchair") ? "Wheelchair" : ""
+			});
+		  
 			this.isView = !this.isView;
-			this.render();
 			Ajax.resetFormFields();
+			this.render();
 		}
   });
 

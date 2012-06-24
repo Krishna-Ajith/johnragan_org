@@ -1,11 +1,6 @@
 define(['Backbone', 'Templates', 'Ajax'], function( Backbone, Templates, Ajax )
 {
-	var isChecked_ = function(id) {
-	  
-	  return $(id).is(':checked')
-	},
-	
-	createAttraction_ = function() {  
+	var createAttraction_ = function() {  
     this.attractions.create({
       'list_item_photo_url' : $(".new_attraction_photo_url").val(),
     	'name' : $(".new_attraction_title").val(),
@@ -14,10 +9,10 @@ define(['Backbone', 'Templates', 'Ajax'], function( Backbone, Templates, Ajax )
     	'wait' : $('.new_attraction_wait option:selected').val(),
     	'intensity' : $(".new_attraction_intensity").val(),
     	'height' : $(".id_attraction_height").val(),
-    	'FP' : isChecked_(".attraction_fpCheckbox") ? "FP" : "",
-    	'pal_mickey' : isChecked_(".attraction_palMickey") ? "Pal Mickey" : "",
-    	'rider_swap' : isChecked_(".attraction_rideswap") ? "Rider Swap" : "",
-    	'wheelchair' : isChecked_(".attraction_wheelchair") ? "Wheelchair" : ""
+    	'FP' : Ajax.isChecked(".attraction_fpCheckbox") ? "FP" : "",
+    	'pal_mickey' : Ajax.isChecked(".attraction_palMickey") ? "Pal Mickey" : "",
+    	'rider_swap' : Ajax.isChecked(".attraction_rideswap") ? "Rider Swap" : "",
+    	'wheelchair' : Ajax.isChecked(".attraction_wheelchair") ? "Wheelchair" : ""
     });
 	},
 	
