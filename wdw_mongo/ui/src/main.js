@@ -26,7 +26,9 @@ require.config( {
 		AttractionsListView : 'app/views/AttractionsListView',
 		AttractionView : 'app/views/AttractionView',
 		AttractionModalView : 'app/views/AttractionModalView',
-		AppView : 'app/views/AppView'
+		AppView : 'app/views/AppView',
+		
+		Ajax : 'app/utils/Ajax'
 	},
 	
 	// Define libraries which are to have their globals removed from 

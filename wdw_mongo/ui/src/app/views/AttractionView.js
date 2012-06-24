@@ -1,4 +1,4 @@
-define(['Backbone', 'Templates', 'popover'], function( Backbone, Templates, Popover )
+define(['Backbone', 'Templates', 'popover', 'Ajax'], function( Backbone, Templates, Popover, Ajax )
 {
 	var AttractionView = Backbone.View.extend({
     	
@@ -10,10 +10,10 @@ define(['Backbone', 'Templates', 'popover'], function( Backbone, Templates, Popo
     events: {
 			'dblclick'  : 'editAttraction',
 		  'doubleTap' : 'editAttraction',
-		  'click .attr-btn-cancel' : 'editAttraction',
+		  'click .attr-btn-cancel' : 'cancelAttraction',
 		  'click .attr-btn-delete' : 'deleteAttraction',
 		  'click .attr-btn-save' : 'saveAttraction',
-		  'tap .attr-btn-cancel' : 'editAttraction',
+		  'tap .attr-btn-cancel' : 'cancelAttraction',
 		  'tap .attr-btn-delete' : 'deleteAttraction',
 		  'tap .attr-btn-save' : 'saveAttraction'
 	  },
@@ -68,13 +68,21 @@ define(['Backbone', 'Templates', 'popover'], function( Backbone, Templates, Popo
   	  $(".new_attraction_wait").val(this.attraction.get("wait"));
 		},
 		
+		cancelAttraction: function() {
+		  this.isView = !this.isView;
+		  Ajax.resetFormFields();
+		  this.render();
+		},
+		
 		deleteAttraction: function() {
 			this.model.destroy();
+			Ajax.resetFormFields();
 		},
 		
 		saveAttraction: function() {
 			this.isView = !this.isView;
 			this.render();
+			Ajax.resetFormFields();
 		}
   });
 

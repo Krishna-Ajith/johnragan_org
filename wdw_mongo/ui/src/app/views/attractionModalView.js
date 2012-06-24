@@ -1,24 +1,6 @@
-define(['Backbone', 'Templates'], function( Backbone, Templates )
+define(['Backbone', 'Templates', 'Ajax'], function( Backbone, Templates, Ajax )
 {
-  var resetFormFields_ = function() {	  
-	  $(".new_attraction_title").val('');
-	  $(".new_attraction_summary").val('');
-	  $(".new_attraction_photo_url").val('');
-	  $(".id_attraction_height").val('');
-	  $(".new_attraction_rating").val('5');
-	  $(".new_attraction_intensity").val('5');
-	  
-	  $('.new_attraction_options1').find(':checked').each(function() {
-       $(this).removeAttr('checked');
-    });
-    $('.new_attraction_options2').find(':checked').each(function() {
-       $(this).removeAttr('checked');
-    });
-    
-    $('#new_attraction_wait').val( $('#new_attraction_wait').prop('defaultSelected') );
-	},
-	
-	isChecked_ = function(id) {
+	var isChecked_ = function(id) {
 	  
 	  return $(id).is(':checked')
 	},
@@ -65,14 +47,14 @@ define(['Backbone', 'Templates'], function( Backbone, Templates )
     
     addAttraction: function() {  	  
       createAttraction_();
-      resetFormFields_();
+      Ajax.resetFormFields();
       		
       return false;
       
     },
     
     cancelAttraction: function() {
-      resetFormFields_();
+      Ajax.resetFormFields();
       
       return false;
     }
