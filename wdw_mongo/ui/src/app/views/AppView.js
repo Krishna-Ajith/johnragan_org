@@ -20,7 +20,7 @@ define([
 		this.attractions.fetch();
 	}
 	
-	var resetFormFields = function() {
+	var resetFormFields = function() {	  
 	  $("#new_attraction_title").val('');
 	  $("#new_attraction_summary").val('');
 	  $("#new_attraction_photo_url").val('');
@@ -28,34 +28,34 @@ define([
 	  $("#new_attraction_rating").val('5');
 	  $("#new_attraction_intensity").val('5');
 	  
-	  $('#new_attraction_options').find(':checked').each(function() {
+	  $('#new_attraction_options1').find(':checked').each(function() {
+       $(this).removeAttr('checked');
+    });
+    $('#new_attraction_options2').find(':checked').each(function() {
        $(this).removeAttr('checked');
     });
     
     $('#new_attraction_wait').val( $('#new_attraction_wait').prop('defaultSelected') );
 	}
 	
-	var createAttraction = function() {
-	  /*// Get the value of the task		
-    value = this.$newTaskInput.val();
-      	
-    // Create the new task (but how does it show up - a monitored event?)
-    this.tasks.create({
-      'text' : value
-    });*/
-    
+	var isChecked = function(id) {
+	  
+	  return $(id).is(':checked')
+	}
+	
+	var createAttraction = function() {  
     this.attractions.create({
-      'list_item_photo_url' : "data/images/mk/attractions/space-mountain-240.jpeg",
-    	'name' : "Allie Mountain",
-    	'summary' : "Launch past the flashing lights of your space station into the soaring darkness of space! This classic Dark Ride dips and swerves as it rockets through the blackest reaches of the galaxy. Check the monitors as you exit for a glimpse of yourself in flight!",
-    	'rating' : 9,
-    	'wait' : "Busy",
-    	'intensity' : 8,
-    	'height' : "44",
-    	'FP' : "FP",
-    	'pal_mickey' : "Pal Mickey",
-    	'rider_swap' : "Rider Swap",
-    	'wheelchair' : "Wheelchair"
+      'list_item_photo_url' : $("#new_attraction_photo_url").val(),
+    	'name' : $("#new_attraction_title").val(),
+    	'summary' : $("#new_attraction_summary").val(),
+    	'rating' : $("#new_attraction_rating").val(),
+    	'wait' : $('#new_attraction_wait option:selected').val(),
+    	'intensity' : $("#new_attraction_intensity").val(),
+    	'height' : $("#id_attraction_height").val(),
+    	'FP' : isChecked("#attraction_fpCheckbox") ? "FP" : "",
+    	'pal_mickey' : isChecked("#attraction_palMickey") ? "Pal Mickey" : "",
+    	'rider_swap' : isChecked("#attraction_rideswap") ? "Rider Swap" : "",
+    	'wheelchair' : isChecked("#attraction_wheelchair") ? "Wheelchair" : ""
     });
 	}
 	
