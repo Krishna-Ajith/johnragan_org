@@ -13,8 +13,8 @@
            	{{> attractionActionsAddEditPartial}}
           </div>
           <div class="modal-footer">
-            <a href="#" class="btn" data-dismiss="modal" >Close</a>
-            <a href="#" class="btn btn-primary" data-dismiss="modal">Save Changes</a>
+            <a id="cancel_new_attraction" href="#" class="btn" data-dismiss="modal" >Cancel</a>
+            <a id="save_new_attraction" href="#" class="btn btn-primary" data-dismiss="modal">Save Changes</a>
           </div>
 		</div>
 </div>
