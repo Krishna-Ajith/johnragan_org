@@ -2,7 +2,7 @@ define(['Backbone', 'Templates', 'popover'], function( Backbone, Templates, Popo
 {
 	var AttractionView = Backbone.View.extend({
     	
-    template: Templates.attractionTemplate(),
+    template: Templates.attraction(),
     	
     initialize : function(){
       this.attraction = this.options.model;
@@ -10,7 +10,7 @@ define(['Backbone', 'Templates', 'popover'], function( Backbone, Templates, Popo
 				this.el = this.options.el;
 			}
 			
-			Handlebars.registerPartial("attractionPartial", Templates.attractionPartialTemplate());
+			Handlebars.registerPartial("attractionPartial", Templates.attractionPartial());
     },
 		
 		render : function(){

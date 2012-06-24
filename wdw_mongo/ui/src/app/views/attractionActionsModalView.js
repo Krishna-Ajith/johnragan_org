@@ -52,7 +52,7 @@ define(['Backbone', 'Templates'], function( Backbone, Templates )
 				this.el = this.options.el;
 			}
 			
-			Handlebars.registerPartial("attractionActionsAddEditPartial", Templates.attractionActionsAddEditPartialTemplate());
+			Handlebars.registerPartial("attractionActionsAddEditPartial", Templates.attractionActionsAddEditPartial());
     },
 
 		render : function(){

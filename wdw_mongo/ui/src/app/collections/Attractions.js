@@ -3,14 +3,14 @@ define( ['Backbone', 'Attraction'], function( Backbone, Attraction ) {
 	return Backbone.Collection.extend({
 		url: 'api/attractions',
 		
-	    model: Attraction,
+	  model: Attraction,
 	
 		removeAttractions: function() {
-        	this.each( function( attraction ) {
+      this.each( function( attraction ) {
 				attraction.destroy();
-        	});
+      });
 
-        	return false;
-        },
+      return false;
+    },
 	});
 });

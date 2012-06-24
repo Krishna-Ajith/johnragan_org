@@ -1,3 +1,0 @@
-{{#each myAttractions}}
-  {{> attractionPartial}}
-{{/each}}

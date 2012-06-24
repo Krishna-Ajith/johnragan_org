@@ -1,29 +1,29 @@
 define( function( require )
 {
-	var attractionsTpl = require('text!app/templates/attractions.tpl'),
-	attractionTpl = require('text!app/templates/attraction.tpl'),
-	attractionActionsModalTpl = require('text!app/templates/attractionActionsModal.tpl'),
-	
+	var attractionTpl = require('text!app/templates/regular/attraction.tpl'),
+	attractionActionsModalTpl = require('text!app/templates/regular/attractionActionsModal.tpl'),
 	attractionPartialTpl = require('text!app/templates/partials/attractionPartial.tpl'),
 	attractionActionsAddEditPartialTpl = require('text!app/templates/partials/attractionActionsAddEditPartial.tpl'),
 	
-	Handlebars = require('Handlebars');
+	Handlebars = require('Handlebars')
+	
+	attractionPrecompiled = Handlebars.compile( attractionTpl ),
+	attractionActionsModalPrecompiled = Handlebars.compile( attractionActionsModalTpl ),
+	attractionPartialPrecompiled = Handlebars.compile( attractionPartialTpl ),
+	attractionActionsAddEditPartialPrecompiled = Handlebars.compile( attractionActionsAddEditPartialTpl );
 	
 	return {
-		attractionsTemplate: function() {
-			return Handlebars.compile( attractionsTpl );
-		},
-		attractionTemplate: function() {
-			return Handlebars.compile( attractionTpl );
+		attraction: function() {
+			return attractionPrecompiled;
 		},
 		attractionActionsModal: function() {
-			return Handlebars.compile( attractionActionsModalTpl );
+			return attractionActionsModalPrecompiled;
 		},
-		attractionPartialTemplate: function() {
-			return Handlebars.compile( attractionPartialTpl );
+		attractionPartial: function() {
+			return attractionPartialPrecompiled;
 		},
-		attractionActionsAddEditPartialTemplate: function() {
-			return Handlebars.compile( attractionActionsAddEditPartialTpl );
+		attractionActionsAddEditPartial: function() {
+			return attractionActionsAddEditPartialPrecompiled;
 		}
 	}
 });
