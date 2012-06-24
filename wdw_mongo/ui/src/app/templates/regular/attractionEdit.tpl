@@ -1,5 +1,5 @@
 {{#attraction}}
-  {{> attractionPartial}}
+  {{> attractionAddPartial}}
 {{/attraction}}
 <button class="btn btn-inverse attr-btn-cancel" type="submit">
   Cancel

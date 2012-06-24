@@ -1,17 +1,17 @@
 define(['Backbone', 'Templates'], function( Backbone, Templates )
 {
   var resetFormFields_ = function() {	  
-	  $("#new_attraction_title").val('');
-	  $("#new_attraction_summary").val('');
-	  $("#new_attraction_photo_url").val('');
-	  $("#id_attraction_height").val('');
-	  $("#new_attraction_rating").val('5');
-	  $("#new_attraction_intensity").val('5');
+	  $(".new_attraction_title").val('');
+	  $(".new_attraction_summary").val('');
+	  $(".new_attraction_photo_url").val('');
+	  $(".id_attraction_height").val('');
+	  $(".new_attraction_rating").val('5');
+	  $(".new_attraction_intensity").val('5');
 	  
-	  $('#new_attraction_options1').find(':checked').each(function() {
+	  $('.new_attraction_options1').find(':checked').each(function() {
        $(this).removeAttr('checked');
     });
-    $('#new_attraction_options2').find(':checked').each(function() {
+    $('.new_attraction_options2').find(':checked').each(function() {
        $(this).removeAttr('checked');
     });
     
@@ -25,17 +25,17 @@ define(['Backbone', 'Templates'], function( Backbone, Templates )
 	
 	createAttraction_ = function() {  
     this.attractions.create({
-      'list_item_photo_url' : $("#new_attraction_photo_url").val(),
-    	'name' : $("#new_attraction_title").val(),
-    	'summary' : $("#new_attraction_summary").val(),
-    	'rating' : $("#new_attraction_rating").val(),
-    	'wait' : $('#new_attraction_wait option:selected').val(),
-    	'intensity' : $("#new_attraction_intensity").val(),
-    	'height' : $("#id_attraction_height").val(),
-    	'FP' : isChecked_("#attraction_fpCheckbox") ? "FP" : "",
-    	'pal_mickey' : isChecked_("#attraction_palMickey") ? "Pal Mickey" : "",
-    	'rider_swap' : isChecked_("#attraction_rideswap") ? "Rider Swap" : "",
-    	'wheelchair' : isChecked_("#attraction_wheelchair") ? "Wheelchair" : ""
+      'list_item_photo_url' : $(".new_attraction_photo_url").val(),
+    	'name' : $(".new_attraction_title").val(),
+    	'summary' : $(".new_attraction_summary").val(),
+    	'rating' : $(".new_attraction_rating").val(),
+    	'wait' : $('.new_attraction_wait option:selected').val(),
+    	'intensity' : $(".new_attraction_intensity").val(),
+    	'height' : $(".id_attraction_height").val(),
+    	'FP' : isChecked_(".attraction_fpCheckbox") ? "FP" : "",
+    	'pal_mickey' : isChecked_(".attraction_palMickey") ? "Pal Mickey" : "",
+    	'rider_swap' : isChecked_(".attraction_rideswap") ? "Rider Swap" : "",
+    	'wheelchair' : isChecked_(".attraction_wheelchair") ? "Wheelchair" : ""
     });
 	},
 	
