@@ -9,7 +9,7 @@ define( [], function() {
   	  $(".new_attraction_title").val('');
   	  $(".new_attraction_summary").val('');
   	  $(".new_attraction_photo_url").val('');
-  	  $(".id_attraction_height").val('');
+  	  $(".new_attraction_height").val('');
   	  $(".new_attraction_rating").val('5');
   	  $(".new_attraction_intensity").val('5');
 

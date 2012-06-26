@@ -11,7 +11,7 @@ define([
     return false;
   }
   
-	var createAttractionModelView_ = function() {
+	var createAttractionModalView_ = function() {
 		this.attractionModalView = new AttractionModalView( { 
 			'el' : '#attractionModal'
 		} ).render();
@@ -35,7 +35,7 @@ define([
 		},
 
     initialize: function() {
-			createAttractionModelView_();
+			createAttractionModalView_();
 			createAttractionsListView_();
     },
     

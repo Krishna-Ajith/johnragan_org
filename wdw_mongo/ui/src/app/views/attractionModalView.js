@@ -8,11 +8,11 @@ define(['Backbone', 'Templates', 'Ajax'], function( Backbone, Templates, Ajax )
     	'rating' : $(".new_attraction_rating").val(),
     	'wait' : $('.new_attraction_wait option:selected').val(),
     	'intensity' : $(".new_attraction_intensity").val(),
-    	'height' : $(".id_attraction_height").val(),
-    	'FP' : Ajax.isChecked(".attraction_fpCheckbox") ? "FP" : "",
-    	'pal_mickey' : Ajax.isChecked(".attraction_palMickey") ? "Pal Mickey" : "",
-    	'rider_swap' : Ajax.isChecked(".attraction_rideswap") ? "Rider Swap" : "",
-    	'wheelchair' : Ajax.isChecked(".attraction_wheelchair") ? "Wheelchair" : ""
+    	'height' : $(".new_attraction_height").val(),
+    	'FP' : Ajax.isChecked(".new_attraction_fpCheckbox") ? "FP" : "",
+    	'pal_mickey' : Ajax.isChecked(".new_attraction_palMickey") ? "Pal Mickey" : "",
+    	'rider_swap' : Ajax.isChecked(".new_attraction_rideswap") ? "Rider Swap" : "",
+    	'wheelchair' : Ajax.isChecked(".new_attraction_wheelchair") ? "Wheelchair" : ""
     });
 	},
 	
