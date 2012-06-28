@@ -12,5 +12,9 @@ define( ['Backbone', 'Attraction'], function( Backbone, Attraction ) {
 
       return false;
     },
+
+	comparator: function(attraction) {
+		return attraction.get("name");
+	}
 	});
 });

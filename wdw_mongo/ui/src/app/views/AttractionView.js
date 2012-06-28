@@ -25,13 +25,35 @@ define(['Backbone', 'Templates', 'popover', 'Ajax'], function( Backbone, Templat
 			}
 			
 			Handlebars.registerPartial("attractionPartial", Templates.attractionPartial());
+			Handlebars.registerPartial("attractionAddPartial", Templates.attractionAddPartial());
     },
 		
 		render : function(){
-		  var template = this.isView ? this.viewTemplate_ : this.editTemplate_;
-      this.$el.html( template({
-        'attraction' : this.attraction.toJSON()
-      }));
+		
+		if (this.isView) {
+      this.$el.html( this.viewTemplate_({   
+		'attraction' : this.attraction.toJSON()
+		}));
+	} else {
+		this.$el.html(this.editTemplate_({'attraction' : {   
+			"attraction_title_id" : "edit_attraction_title", 
+			"attraction_summary_id" : "edit_attraction_summary", 
+			"attraction_photo_url_id" : "edit_attraction_photo_url", 
+			"attraction_rating_id" : "edit_attraction_rating", 
+			"attraction_wait_id" : "edit_attraction_wait", 
+			"attraction_intensity_id" : "edit_attraction_intensity", 
+			"attraction_height_id" : "edit_attraction_height", 
+			"inlineCheckboxes1_id" : "edit_inlineCheckboxes1", 
+			"attraction_options1_id" : "edit_attraction_options1", 
+			"attraction_fpCheckbox_id" : "edit_attraction_fpCheckbox", 
+			"attraction_palMickey_id" : "edit_attraction_palMickey", 
+			"inlineCheckboxes2_id" : "edit_inlineCheckboxes2", 
+			"attraction_options2_id" : "edit_attraction_options2", 
+			"attraction_rideswap_id" : "edit_attraction_rideswap", 
+			"attraction_wheelchair_id" : "edit_attraction_wheelchair"
+			}})
+		);
+	}
 
       return this;
     },
@@ -45,27 +67,27 @@ define(['Backbone', 'Templates', 'popover', 'Ajax'], function( Backbone, Templat
 			this.isView = !this.isView;
 			this.render();
 			
-			$(".new_attraction_title").val(this.attraction.get("name"));
-  	  $(".new_attraction_summary").val(this.attraction.get("summary"));
-  	  $(".new_attraction_photo_url").val(this.attraction.get("list_item_photo_url"));
-  	  $(".new_attraction_height").val(this.attraction.get("height"));
-  	  $(".new_attraction_rating").val(this.attraction.get("rating"));
-  	  $(".new_attraction_intensity").val(this.attraction.get("intensity"));
+			$("#edit_attraction_title").val(this.attraction.get("name"));
+  	  $("#edit_attraction_summary").val(this.attraction.get("summary"));
+  	  $("#edit_attraction_photo_url").val(this.attraction.get("list_item_photo_url"));
+  	  $("#edit_attraction_height").val(this.attraction.get("height"));
+  	  $("#edit_attraction_rating").val(this.attraction.get("rating"));
+  	  $("#edit_attraction_intensity").val(this.attraction.get("intensity"));
   	  
   	  if (FP) {
-  	    $(".new_attraction_fpCheckbox").attr('checked', true);
+  	    $("#edit_attraction_fpCheckbox").attr('checked', true);
   	  }
   	  if (pal_mickey) {
-  	    $(".new_attraction_palMickey").attr('checked', true);
+  	    $("#edit_attraction_palMickey").attr('checked', true);
   	  }
   	  if (rider_swap) {
-  	    $(".new_attraction_rideswap").attr('checked', true);
+  	    $("#edit_attraction_rideswap").attr('checked', true);
   	  }
   	  if (wheelchair) {
-  	    $(".new_attraction_wheelchair").attr('checked', true);
+  	    $("#edit_attraction_wheelchair").attr('checked', true);
   	  }
 
-  	  $(".new_attraction_wait").val(this.attraction.get("wait"));
+  	  $("#edit_attraction_wait").val(this.attraction.get("wait"));
 		},
 		
 		cancelAttraction: function() {
@@ -81,17 +103,17 @@ define(['Backbone', 'Templates', 'popover', 'Ajax'], function( Backbone, Templat
 		
 		saveAttraction: function() {
 		  this.model.save({
-				'list_item_photo_url' : $(".new_attraction_photo_url").val(),
-      	'name' : "Space Mountain Mickey", //$(".new_attraction_title").val(),
-      	'summary' : $(".new_attraction_summary").val(),
-      	'rating' : $(".new_attraction_rating").val(),
-      	'wait' : $('.new_attraction_wait option:selected').val(),
-      	'intensity' : $(".new_attraction_intensity").val(),
-      	'height' : $(".new_attraction_height").val(),
-      	'FP' : Ajax.isChecked(".new_attraction_fpCheckbox") ? "FP" : "",
-      	'pal_mickey' : Ajax.isChecked(".new_attraction_palMickey") ? "Pal Mickey" : "",
-      	'rider_swap' : Ajax.isChecked(".new_attraction_rideswap") ? "Rider Swap" : "",
-      	'wheelchair' : Ajax.isChecked(".new_attraction_wheelchair") ? "Wheelchair" : ""
+				'list_item_photo_url' : $("#edit_attraction_photo_url").val(),
+      	'name' : $("#edit_attraction_title").val(),
+      	'summary' : $("#edit_attraction_summary").val(),
+      	'rating' : $("#edit_attraction_rating").val(),
+      	'wait' : $('#edit_attraction_wait option:selected').val(),
+      	'intensity' : $("#edit_attraction_intensity").val(),
+      	'height' : $("#edit_attraction_height").val(),
+      	'FP' : Ajax.isChecked("#edit_attraction_fpCheckbox") ? "FP" : "",
+      	'pal_mickey' : Ajax.isChecked("#edit_attraction_palMickey") ? "Pal Mickey" : "",
+      	'rider_swap' : Ajax.isChecked("#edit_attraction_rideswap") ? "Rider Swap" : "",
+      	'wheelchair' : Ajax.isChecked("#edit_attraction_wheelchair") ? "Wheelchair" : ""
 			});
 		  
 			this.isView = !this.isView;
