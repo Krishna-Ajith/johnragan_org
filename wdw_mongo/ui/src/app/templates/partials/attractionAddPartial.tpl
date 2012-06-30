@@ -1,5 +1,5 @@
 <div class="attractionAddPartial">
-<form class="form-horizontal">
+<form class="form-horizontal" id="{{attraction_form_id}}">
   <fieldset>
     <div class="control-group">
       <label class="control-label" for="{{attraction_title_id}}">Title</label>
