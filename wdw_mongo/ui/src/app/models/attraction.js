@@ -11,7 +11,7 @@ define(['Backbone'], function(Backbone) {
 	
 		url: function() {
 			return 'api/attractions?id=' + this.get('_id');
-		},
+		}
 	});
 	
 	return Attraction;

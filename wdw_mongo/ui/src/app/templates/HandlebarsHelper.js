@@ -20,4 +20,4 @@ define( [ 'Handlebars', 'Templates' ], function(  Handlebars, Templates )
 		
 		return "badge-important"; 
 	});
-})
+});

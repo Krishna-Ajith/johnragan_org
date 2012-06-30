@@ -49,6 +49,6 @@ define(['$','_'], function( $, _ )
     	isSubmitGesture: function( evt ) {
     		return this.isEnterEvent( evt ) || evt.type === 'click' || evt.type === 'tap';
     	}
-    }
+    };
     return helper;
-})
+});
