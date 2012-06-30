@@ -69,5 +69,5 @@ require( ['$', 'AppView', 'app/templates/HandlebarsHelper'], function( $, AppVie
 	// ready function $()
 	$(function(){
 		this.app = new AppView();
-	})
-} );
+	});
+});

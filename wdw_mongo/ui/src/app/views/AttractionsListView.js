@@ -33,7 +33,7 @@ function( Backbone, Templates, popover, AttractionView )
 		    
 		    return false;
 		  } else {
-		    this.canEdit = !this.canEdit
+		    this.canEdit = !this.canEdit;
 		    
 		    return true;
 		  }

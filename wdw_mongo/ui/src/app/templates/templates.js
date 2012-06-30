@@ -6,7 +6,7 @@ define( function( require )
 	attractionPartialTpl = require('text!app/templates/partials/attractionPartial.tpl'),
 	attractionAddPartialTpl = require('text!app/templates/partials/attractionAddPartial.tpl'),
 	
-	Handlebars = require('Handlebars')
+	Handlebars = require('Handlebars'),
 	
 	attractionViewPrecompiled = Handlebars.compile( attractionViewTpl ),
 	attractionEditPrecompiled = Handlebars.compile( attractionEditTpl ),
@@ -30,5 +30,5 @@ define( function( require )
 		attractionAddPartial: function() {
 			return attractionAddPartialPrecompiled;
 		}
-	}
+	};
 });

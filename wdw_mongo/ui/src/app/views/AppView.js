@@ -1,17 +1,13 @@
 define([
-	'Backbone', 'Attractions', 'AttractionsListView', 'modal', 'transition', 
-	'AttractionModalView'
-], function( 
-	Backbone, Attractions, AttractionsListView, modal, transition, 
-	AttractionModalView
-) {
+	'Backbone', 'Attractions', 'AttractionsListView', 'modal', 'transition', 'AttractionModalView'
+], function( Backbone, Attractions, AttractionsListView, modal, transition, AttractionModalView ) {
   var removeAttractions_ = function() {
 		this.attractions.removeAttractions();
 		
     return false;
-  }
+  },
   
-	var createAttractionModalView_ = function() {
+	createAttractionModalView_ = function() {
 		this.attractionModalView = new AttractionModalView( { 
 			'el' : '#attractionModal'
 		} ).render();

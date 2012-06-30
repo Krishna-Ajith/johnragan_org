@@ -1,8 +1,8 @@
 
 define( function( require )
 {
-	var Backbone  = require('Backbone')
-	  , AppHelper = require('AppHelper');
+	var Backbone  = require('Backbone'),
+	  AppHelper = require('AppHelper');
 	
 	/*
 	 * Defines the Application specific Router implementation which is 
@@ -43,6 +43,6 @@ routers	 * states within a single page application.
 				'pushState' : pushState
 			});	
         }
-    })
+    });
     return new AppRouter();
-})
+});

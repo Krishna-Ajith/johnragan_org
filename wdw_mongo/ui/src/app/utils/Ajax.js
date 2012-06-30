@@ -25,7 +25,7 @@ define( [], function() {
   	
   	isChecked: function(id) {
 
-  	  return $(id).is(':checked')
+  	  return $(id).is(':checked');
   	},
   	
   	setCheckboxIfSet: function(attraction, value, target) {
@@ -37,5 +37,5 @@ define( [], function() {
   	setTargetValue: function(attraction, value, target) {
   	  $(target).val(attraction.get(value));
   	}
-	}	
+	};	
 });
