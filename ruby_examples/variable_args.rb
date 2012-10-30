@@ -12,3 +12,4 @@ def func(*args)
 end
 
 func("foo")
+func(7)

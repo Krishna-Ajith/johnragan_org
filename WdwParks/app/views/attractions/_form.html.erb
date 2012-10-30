@@ -1,0 +1,57 @@
+<%= form_for(@attraction) do |f| %>
+  <% if @attraction.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@attraction.errors.count, "error") %> prohibited this attraction from being saved:</h2>
+
+      <ul>
+      <% @attraction.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :rating %><br />
+    <%= f.number_field :rating %>
+  </div>
+  <div class="field">
+    <%= f.label :wait_type %><br />
+    <%= f.number_field :wait_type %>
+  </div>
+  <div class="field">
+    <%= f.label :intensity %><br />
+    <%= f.number_field :intensity %>
+  </div>
+  <div class="field">
+    <%= f.label :height %><br />
+    <%= f.number_field :height %>
+  </div>
+  <div class="field">
+    <%= f.label :fast_pass %><br />
+    <%= f.check_box :fast_pass %>
+  </div>
+  <div class="field">
+    <%= f.label :pal_mickey %><br />
+    <%= f.check_box :pal_mickey %>
+  </div>
+  <div class="field">
+    <%= f.label :rider_swap %><br />
+    <%= f.check_box :rider_swap %>
+  </div>
+  <div class="field">
+    <%= f.label :wheelchair %><br />
+    <%= f.check_box :wheelchair %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

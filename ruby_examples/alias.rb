@@ -6,7 +6,8 @@ class ClockRadio
 end
 
 class ClockRadio
-  alias :old_on! :on!
+  alias_method :old_on!, :on!
+  #alias :old_on! :on!
   
   def on!
     old_on!

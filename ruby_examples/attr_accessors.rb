@@ -16,6 +16,10 @@ class Foo
 
   ATTRIBUTES = PERSISTENT_ATTRIBUTES+STANDARD_ATTRIBUTES
   attr_accessor(*ATTRIBUTES)
+  
+  def set_bark_read
+    @bark_read = "set_value"
+  end  
 end
 
 foo = Foo.new
@@ -24,3 +28,6 @@ puts foo.bark_all
 
 foo.total_count = 14
 puts foo.total_count
+
+foo.set_bark_read
+puts foo.bark_read

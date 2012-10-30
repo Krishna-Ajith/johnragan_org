@@ -9,6 +9,6 @@ class C
      puts self # Output C
 end
 
-puts $0
+puts $0  # name of the file run from the command line
 puts $:
-puts $$
+puts $$  # interpreter's process id

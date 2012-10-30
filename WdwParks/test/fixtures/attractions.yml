@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  description: MyString
+  image_url: photo1.jpg
+  rating: 1
+  wait_type: 1
+  intensity: 1
+  height: 1
+  fast_pass: false
+  pal_mickey: false
+  rider_swap: false
+  wheelchair: false
+
+two:
+  name: MyString2
+  description: MyString2
+  image_url: photo2.jpg
+  rating: 1
+  wait_type: 1
+  intensity: 1
+  height: 1
+  fast_pass: false
+  pal_mickey: false
+  rider_swap: false
+  wheelchair: false

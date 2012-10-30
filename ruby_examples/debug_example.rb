@@ -1,3 +1,5 @@
+#use rdebug debug_example.rb, with ruby-debug gem
+
 def func(*args)
   if args.size != 1
     raise "func() needs one argument, not #{args.size}"

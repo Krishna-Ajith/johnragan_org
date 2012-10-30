@@ -27,6 +27,6 @@ def temp_chart(temps)
 end
 
 celsiuses = [0, 10, 20, 30, 40, 50]
-temp_chart(celsiuses) { |cel| cel * 9 / 5 * 32 }
+temp_chart(celsiuses) { |cel| cel * 9 / 5 + 32 }
 
 [0, 10, 20, 30, 40, 50].each { |x| puts x * 10 }
