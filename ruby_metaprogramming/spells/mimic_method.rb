@@ -13,5 +13,6 @@ class MimicMethodSpellTest < Test::Unit::TestCase
     obj = C.new
     obj.an_attribute = 1 # a method that looks like an attribute
     assert_equal 1, obj.an_attribute
+    assert obj.is_a? String
   end
 end
