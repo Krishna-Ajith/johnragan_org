@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="lib/aspectjrt.jar"/>
+	<classpathentry kind="lib" path="lib/aspectjweaver.jar"/>
+	<classpathentry kind="lib" path="lib/cglib-nodep-2.2.jar"/>
+	<classpathentry kind="lib" path="lib/commons-dbcp-1.2.2.jar"/>
+	<classpathentry kind="lib" path="lib/commons-logging-1.0.4.jar"/>
+	<classpathentry kind="lib" path="lib/commons-pool-1.5.2.jar"/>
+	<classpathentry kind="lib" path="lib/postgresql-8.4-701.jdbc4.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/Users/johnragan/utils/spring-framework-2.5.6.SEC01/dist/spring.jar"/>
+	<classpathentry kind="lib" path="/Users/johnragan/utils/spring-framework-2.5.6.SEC01/dist/spring-sources.jar"/>
+	<classpathentry kind="lib" path="/Users/johnragan/utils/spring-framework-2.5.6.SEC01/dist/weaving-sources/spring-aspects-sources.jar"/>
+	<classpathentry kind="lib" path="/Users/johnragan/utils/spring-framework-2.5.6.SEC01/dist/weaving/spring-aspects.jar"/>
+	<classpathentry kind="lib" path="/Users/johnragan/utils/spring-framework-2.5.6.SEC01/dist/modules/spring-aop.jar"/>
+	<classpathentry kind="lib" path="/Users/johnragan/utils/spring-framework-2.5.6.SEC01/dist/module-sources/spring-aop-sources.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
