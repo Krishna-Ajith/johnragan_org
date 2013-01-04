@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @resort.name %>
+</p>
+
+<p>
+  <b>Cost:</b>
+  <%= @resort.cost %>
+</p>
+
+
+<%= link_to 'Edit', edit_resort_path(@resort) %> |
+<%= link_to 'Back', resorts_path %>

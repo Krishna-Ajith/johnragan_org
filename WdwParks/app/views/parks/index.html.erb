@@ -1,0 +1,23 @@
+<h1>Listing parks</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @parks.each do |park| %>
+  <tr>
+    <td><%= park.name %></td>
+    <td><%= link_to 'Show', park %></td>
+    <td><%= link_to 'Edit', edit_park_path(park) %></td>
+    <td><%= link_to 'Destroy', park, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Park', new_park_path %>

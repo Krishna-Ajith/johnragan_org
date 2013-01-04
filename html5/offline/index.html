@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" manifest="/cache.manifest">
+<head>
+     <meta charset="utf-8" />
+     <title>HTML5 Offline Example (but connected)</title>
+     <script type="text/javascript" src="../lib/modernizr-1.5.min.js"></script>
+     <script type="text/javascript"src="script/offline.js"></script>
+     <!--[if lt IE 9]>
+       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+     <![endif]-->
+</head>
+<body onload="basicStorage()">
+  <p>This is how the app is styled when you are connected</p>
+  <p>Why is this image here?  So that we can just demonstrate caching an image.</p>
+  <img src="images/an_image.jpg" alt="some_text"/>  
+  <h2>Local Storage Basics</h2>
+  <p onclick="clearIt()">Click here to clear the value</p>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @dining.name %>
+</p>
+
+<p>
+  <b>Rating:</b>
+  <%= @dining.rating %>
+</p>
+
+<p>
+  <b>Cost:</b>
+  <%= @dining.cost %>
+</p>
+
+
+<%= link_to 'Edit', edit_dining_path(@dining) %> |
+<%= link_to 'Back', dinings_path %>

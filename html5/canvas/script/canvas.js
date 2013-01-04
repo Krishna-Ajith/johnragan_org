@@ -66,7 +66,7 @@ function drawGradient() {
   //var my_gradient = context.createLinearGradient(0, 0, 0, 225);
   my_gradient.addColorStop(0, "black");
   my_gradient.addColorStop(1, "white");
-  //my_gradient.addColorStop(.5, "red");
+  my_gradient.addColorStop(.5, "red");
   context.fillStyle = my_gradient;
   context.fillRect(0, 0, 300, 225);
 }

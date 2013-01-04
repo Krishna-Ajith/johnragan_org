@@ -21,3 +21,4 @@ high_bid = Bid.new
 high_bid.estimate = 20
 puts "we will compare the lower bid to the higher, which should give us -1"
 puts low_bid.<=>(high_bid)
+puts low_bid <=> high_bid

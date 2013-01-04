@@ -1,5 +1,5 @@
 begin
-     a = 4/0
+  a = 4/0
 rescue ZeroDivisionError
   puts "divide by zero raises an error"
 end

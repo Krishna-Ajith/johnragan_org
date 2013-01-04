@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @attraction.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @attraction.description %>
+</p>
+
+<p>
+  <b>Rating:</b>
+  <%= @attraction.rating %>
+</p>
+
+<p>
+  <b>Wait type:</b>
+  <%= @attraction.wait_type %>
+</p>
+
+<p>
+  <b>Intensity:</b>
+  <%= @attraction.intensity %>
+</p>
+
+<p>
+  <b>Height:</b>
+  <%= @attraction.height %>
+</p>
+
+<p>
+  <b>Fast pass:</b>
+  <%= @attraction.fast_pass %>
+</p>
+
+<p>
+  <b>Pal mickey:</b>
+  <%= @attraction.pal_mickey %>
+</p>
+
+<p>
+  <b>Rider swap:</b>
+  <%= @attraction.rider_swap %>
+</p>
+
+<p>
+  <b>Wheelchair:</b>
+  <%= @attraction.wheelchair %>
+</p>
+
+
+<%= link_to 'Edit', edit_attraction_path(@attraction) %> |
+<%= link_to 'Back', attractions_path %>
