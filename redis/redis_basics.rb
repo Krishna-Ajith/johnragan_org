@@ -28,7 +28,7 @@ redis.pipelined do
 end
 
 
-# "Transations"
+# "Transactions"
 
 redis.multi do
   redis.set "foo", "bar"
