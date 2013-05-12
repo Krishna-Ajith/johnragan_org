@@ -1,0 +1,1 @@
+Install gem stomp. Install activemq on your localmachine.
