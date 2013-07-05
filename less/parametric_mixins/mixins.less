@@ -1,0 +1,86 @@
+@boxwidth: 100px;
+@boxheight: 50px;
+
+body { font-family: 'Cookie', cursive; font-size: 26px; color: #ffc; }
+
+div { height: @boxheight; width: @boxwidth; }
+
+.left_box { background-color: #FF1010; .box-shadow(3px 3px 5px,
+rgba(50, 50, 50, 0.75)); }
+
+.middle_box { background-color: #800000; .box-shadow(3px 3px
+5px, rgba(50, 50, 50, 0.75)); }
+
+.right_box { background-color: #000000; .box-shadow(3px 3px 5px,
+rgba(50, 50, 50, 0.75)); }
+
+.box-shadow(@style, @c) {
+	box-shadow: @style @c;
+	-webkit-box-shadow: @style @c;
+	-moz-box-shadow: @style @c;
+}
+
+
+
+/* You can have default values and multiple parameters
+
+.box-shadow(@style: 3px 3px 5px, @c) {
+	box-shadow: @style @c;
+	-webkit-box-shadow: @style @c;
+	-moz-box-shadow: @style @c;
+}
+
+.left_box {
+	background-color: #FF1010;
+	.box-shadow(10px 3px 5px, rgba(50, 50, 50, 0.75));
+}
+
+.right_box { 
+	background-color: #FF1010; 
+	.box-shadow(3px 3px 5px, rgba(50, 50, 50, 0.75)); }
+
+*/
+
+
+/* You can use all arguments at once
+
+div { border:1px solid #bbb; }
+
+CONVERT TO:
+
+.gray_border(@width: 1px, @type: solid, @color: #bbb){
+border: @width @type @color; }
+div { .gray_border(2px, dashed); }
+
+EVEN BETTER WITH @arguments:
+
+.gray_border(@width: 1px, @type: solid, @color: #bbb){
+border: @arguments; }
+div { .gray_border(2px, dashed); }
+
+*/
+
+/* Parametric mixins without parameters (so it does not appear in compiled output)
+
+.alert { background: red; color: white; padding: 5px 12px; }
+.error_message { .alert; margin: 0 0 12px 0; }
+
+But then alert will show up.  To hide it, we can use ()
+
+.alert() {
+	background: red;
+	color: white;
+	padding:5px 12px;
+}
+.error_message { .alert; margin: 0 0 12px 0; }
+
+This produces:
+
+.error_message { background: red; color: white; padding:5px 12px;
+margin: 0 0 12px 0; }
+
+without:
+
+.alert { background: red; color: white; padding:5px 12px; }
+
+*/
