@@ -1,0 +1,45 @@
+@boxwidth: 100px;
+@boxheight: 50px;
+
+.set-bg-color (@text-color) when (lightness(@text-color) >= 50%) {
+background-color: #fff; }
+
+.set-bg-color (@text-color) when (lightness(@text-color) < 50%) {
+background-color: #ccc; }
+
+body { font-family: 'Cookie', cursive; font-size: 26px;
+	color: #ffc; .set-bg-color(#FF1010); }
+
+div { height: @boxheight; width: @boxwidth; }
+
+.left_box { background-color: #FF1010; .box-shadow(3px 3px 5px,
+rgba(50, 50, 50, 0.75)); }
+
+.middle_box { background-color: #800000; .box-shadow(3px 3px
+5px, rgba(50, 50, 50, 0.75)); }
+
+.right_box { background-color: #000000; .box-shadow(3px 3px 5px,
+rgba(50, 50, 50, 0.75)); }
+
+.box-shadow(@style, @c) when (iscolor(@c)) {
+	box-shadow: @style @c;
+	-webkit-box-shadow: @style @c;
+	-moz-box-shadow: @style @c;
+}
+
+/*
+
+Although this recipe was designed to be overly simple, you can do some fancy things with it,
+such as recursion, where LESS can call itself with an updated value creating a loop. You're
+probably thinking: where can I use that? Easy! Did you ever have to build a number of identical
+icons, which all use similar CSS? How about building them into a sprite, then using LESS to
+generate the CSS for you, using a loop? The styles will all have the same text prefix, such as
+.myclass1, .myclass2, and so on, but it's a small price to pay if it can save you a heap of
+work, as long as you use a sensible prefix!
+
+If you want to see the example code on how to do this, take a look at the
+following post:
+http://blog.thehippo.de/2012/04/programming/do-aloop-
+with-less-css/
+
+*/
