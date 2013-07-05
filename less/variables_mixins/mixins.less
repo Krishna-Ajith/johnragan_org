@@ -1,0 +1,16 @@
+@boxwidth: 100px;
+@boxheight: 50px;
+
+body { font-family: 'Cookie', cursive; font-size: 26px; color: #ffc; }
+
+div { height: @boxheight; width: @boxwidth; }
+
+.left_box { background-color: #FF1010; .box-shadows; }
+.middle_box { background-color: #800000; .box-shadows; }
+.right_box { background-color: #000000; .box-shadows; }
+
+.box-shadows {
+	-webkit-box-shadow: 3px 2px 3px rgba(50, 50, 50, 0.75);
+	-moz-box-shadow: 3px 2px 3px rgba(50, 50, 50, 0.75);
+	box-shadow: 3px 2px 3px rgba(50, 50, 50, 0.75);
+}
